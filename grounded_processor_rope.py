@@ -918,8 +918,8 @@ class GroundedQwenAttnProcessor:
                     K_noise_rope_bg = apply_rotary_emb_qwen(K_noise, freqs_orig, use_real=False)
                     
                     # 2. 应用 'ctrl' RoPE
-                    Q_noise_rope_fg = apply_rotary_emb_qwen(Q_noise, freqs_ctrl, use_real=False)
-                    K_noise_rope_fg = apply_rotary_emb_qwen(K_noise, freqs_ctrl, use_real=False)
+                    Q_noise_rope_fg = apply_rotary_emb_qwen(Q_noise, freqs_orig, use_real=False)
+                    K_noise_rope_fg = apply_rotary_emb_qwen(K_noise, freqs_orig, use_real=False)
 
                     # 3. 软混合 Q_noise 和 K_noise
                     Q_noise = (Q_noise_rope_fg * mask) + (Q_noise_rope_bg * (1.0 - mask))
@@ -928,16 +928,13 @@ class GroundedQwenAttnProcessor:
                     # 4. 应用标准 RoPE 到 Orig 和 Ctrl
                     Q_orig = apply_rotary_emb_qwen(Q_orig, freqs_orig, use_real=False)
                     K_orig = apply_rotary_emb_qwen(K_orig, freqs_orig, use_real=False)
-                    Q_ctrl = apply_rotary_emb_qwen(Q_ctrl, freqs_ctrl, use_real=False)
-                    K_ctrl = apply_rotary_emb_qwen(K_ctrl, freqs_ctrl, use_real=False)
-                    #print(f"Applied dynamic RoPE to Q_noise/K_noise with latent_mask shape: {latent_mask.shape}")
-                    V_noise, V_orig, V_ctrl = torch.split(img_value, [L_noise, L_orig, L_control], dim=1)
+                    Q_ctrl_fg = apply_rotary_emb_qwen(Q_ctrl, freqs_orig, use_real=False)
+                    K_ctrl_fg = apply_rotary_emb_qwen(K_ctrl, freqs_orig, use_real=False)
+                    Q_ctrl_bg = apply_rotary_emb_qwen(Q_ctrl, freqs_ctrl, use_real=False)
+                    K_ctrl_bg = apply_rotary_emb_qwen(K_ctrl, freqs_ctrl, use_real=False)
+                    Q_ctrl = (Q_ctrl_fg * mask) + (Q_ctrl_bg * (1.0 - mask))
+                    K_ctrl = (K_ctrl_fg * mask) + (K_ctrl_bg * (1.0 - mask))
 
-                    # 应用软混合 (类似 Q/K 的方式)
-                    V_noise_mixed = (V_ctrl* mask) + (V_noise * (1.0 - mask)) # 使用 mask 控制混合比例
-
-                    # 重组 img_value
-                    img_value = torch.cat([V_noise_mixed, V_orig, V_ctrl], dim=1)
                     
                     # 5. 重组
                     img_query = torch.cat([Q_noise, Q_orig, Q_ctrl], dim=1)
@@ -945,10 +942,12 @@ class GroundedQwenAttnProcessor:
                     
                 else:
                     # 回退到标准 RoPE (如果 v14 pipeline 没运行)
+                    print(f"Warning: seq_lengths do not match or img_freqs shape unexpected, reverting to standard RoPE application.")
                     img_query = apply_rotary_emb_qwen(img_query, img_freqs, use_real=False)
                     img_key = apply_rotary_emb_qwen(img_key, img_freqs, use_real=False)
             else:
                 # 回退到标准 RoPE
+                print(f"Warning: seq_lengths or latent_mask is None, reverting to standard RoPE application.")
                 img_query = apply_rotary_emb_qwen(img_query, img_freqs, use_real=False)
                 img_key = apply_rotary_emb_qwen(img_key, img_freqs, use_real=False)
                 

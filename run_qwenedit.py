@@ -31,7 +31,7 @@ os.makedirs(output_dir, exist_ok=True)
 print(f"Results will be saved to {output_dir}")
 
 
-exp_name = "v14_Pure_fuse_noise_onlyctrl"
+exp_name = "v14_Pure_rope_only_ctrl_bg_offset"
 print(f"\n--- Running Experiment: {exp_name} ---")
 start_time = time.time()
 
