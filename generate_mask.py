@@ -29,8 +29,8 @@ def generate_mask_image(width, height, bbox_list, output_path):
 # Example usage:
 if __name__ == "__main__":
     # Define the resolution of the mask image
-    image_width = 900
-    image_height = 1350
+    image_width = 1080
+    image_height = 1620
 
     # Define the list of bounding boxes
     bboxes = [
@@ -40,7 +40,7 @@ if __name__ == "__main__":
     ]
 
     # Define the output path for the mask image
-    save_path = "generated_mask.png"
+    save_path = "generated_mask_watermelon.png"
 
     # Generate and save the mask image
     generate_mask_image(image_width, image_height, bboxes, save_path)

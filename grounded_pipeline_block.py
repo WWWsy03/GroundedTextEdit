@@ -230,18 +230,19 @@ class MyGroundedQwenPipeline(DiffusionPipeline, QwenImageLoraLoaderMixin):
         # 遍历 Transformer (DiT) 的所有 Block
         if hasattr(self, "transformer") and hasattr(self.transformer, "transformer_blocks"):
             
+            # --- 新增：获取 block 总数 ---
             total_blocks = len(self.transformer.transformer_blocks)
             print(f"✅ [MyGroundedPipeline] 找到了 {total_blocks} 个 blocks。")
 
             for i, block in enumerate(self.transformer.transformer_blocks):
                 
-                # --- v8: 移除 block_index 标记 ---
-                # block.attn.block_index = i
-                # block.attn.total_blocks = total_blocks
+                # --- 新增：为 attn 模块“标记”上它的索引 ---
+                block.attn.block_index = i
+                block.attn.total_blocks = total_blocks
                 
                 # 用你自定义的 Processor 实例替换掉默认的 Processor 实例
                 # 我们可以在这里传入“切换点”
-                switch_point_fraction = 0.3 # 50% 的 *时间步* 之后切换
+                switch_point_fraction = 0.5 # 50% 的 block 之后切换
                 block.attn.processor = GroundedQwenAttnProcessor(
                     switch_point_fraction=switch_point_fraction
                 )
@@ -250,7 +251,6 @@ class MyGroundedQwenPipeline(DiffusionPipeline, QwenImageLoraLoaderMixin):
             print("⚠️ [MyGroundedPipeline] 警告: 找不到 transformer.transformer_blocks。热插拔失败。")
             
         print("✅ [MyGroundedPipeline] 热插拔完成！")
-
 
     # Copied from diffusers.pipelines.qwenimage.pipeline_qwenimage.QwenImagePipeline._extract_masked_hidden
     def _extract_masked_hidden(self, hidden_states: torch.Tensor, mask: torch.Tensor):
@@ -558,8 +558,6 @@ class MyGroundedQwenPipeline(DiffusionPipeline, QwenImageLoraLoaderMixin):
         
         # 新增: 你的擦除掩码, 1=前景(修改区), 0=背景
         erase_mask: Optional[Image.Image] = None,
-        control_switch_fraction: float = 0.5,
-        control_reverse_logic: bool = False,
         
         prompt: Union[str, List[str]] = None,
         negative_prompt: Union[str, List[str]] = None,
@@ -671,6 +669,7 @@ class MyGroundedQwenPipeline(DiffusionPipeline, QwenImageLoraLoaderMixin):
             [`~pipelines.qwenimage.QwenImagePipelineOutput`] if `return_dict` is True, otherwise a `tuple`. When
             returning a tuple, the first element is a list with the generated images.
         """
+        
         # --- 1. 输入验证 ---
         if not isinstance(image, list) or len(image) != 2:
             raise ValueError(f"`image` 必须是一个包含 [orig_image, control_image] 的列表，但收到了 {type(image)}")
@@ -712,6 +711,8 @@ class MyGroundedQwenPipeline(DiffusionPipeline, QwenImageLoraLoaderMixin):
         device = self._execution_device
         
         # --- 3. 图像预处理 ---
+        # (这部分逻辑与原版 `__call__` 相同, 但我们明确处理 orig 和 control)
+        
         # 3.1 VAE 图像 (用于 Latent)
         vae_image_sizes = []
         vae_images = []
@@ -724,6 +725,7 @@ class MyGroundedQwenPipeline(DiffusionPipeline, QwenImageLoraLoaderMixin):
         # 3.2 条件图像 (用于 Text Encoder)
         condition_image_sizes = []
         condition_images = []
+        # (原版 Qwen-Edit-Plus 会把原图作为条件，我们保持一致)
         image_width, image_height = orig_image.size
         condition_width, condition_height = calculate_dimensions(
             CONDITION_IMAGE_SIZE, image_width / image_height
@@ -737,6 +739,7 @@ class MyGroundedQwenPipeline(DiffusionPipeline, QwenImageLoraLoaderMixin):
         )
         do_true_cfg = true_cfg_scale > 1 and has_neg_prompt
         
+        # 文本编码器会看到 "原图"
         prompt_embeds, prompt_embeds_mask = self.encode_prompt(
             image=condition_images, prompt=prompt, prompt_embeds=prompt_embeds,
             prompt_embeds_mask=prompt_embeds_mask, device=device,
@@ -749,15 +752,17 @@ class MyGroundedQwenPipeline(DiffusionPipeline, QwenImageLoraLoaderMixin):
                 num_images_per_prompt=num_images_per_prompt, max_sequence_length=max_sequence_length,
             )
 
-        # --- 5. 准备 Latent ---
+        # --- 5. 准备 Latent 和控制信号 ---
         num_channels_latents = self.transformer.config.in_channels // 4
-        print(f"num_channels_latents: {num_channels_latents}")
         
+        # `vae_images` 是一个列表 [orig_vae_img, control_vae_img]
+        # `prepare_latents` 会将它们编码并拼接
         latents, image_latents = self.prepare_latents(
             vae_images, batch_size * num_images_per_prompt, num_channels_latents,
             height, width, prompt_embeds.dtype, device, generator, latents,
         )
         
+        # `img_shapes` 列表将包含 [noise, orig, control] 的形状
         img_shapes = [
             [
                 (1, height // self.vae_scale_factor // 2, width // self.vae_scale_factor // 2), # Noise
@@ -766,7 +771,139 @@ class MyGroundedQwenPipeline(DiffusionPipeline, QwenImageLoraLoaderMixin):
             ]
         ] * batch_size
 
-        # --- 6. 准备 Timesteps ---
+        txt_seq_lens = prompt_embeds_mask.sum(dim=1).tolist() if prompt_embeds_mask is not None else None
+        
+        # --- 6. 注入我们的自定义控制信号 ---
+        
+        # 6.1. 计算序列长度 (L_noise, L_orig, L_control)
+        shape_info = img_shapes[0] 
+        L_noise   = shape_info[0][1] * shape_info[0][2]
+        L_orig    = shape_info[1][1] * shape_info[1][2]
+        L_control = shape_info[2][1] * shape_info[2][2]
+        
+        # 注意：L_txt 我们让 Processor 自己从 S_K_txt 获取
+        seq_lengths = (L_noise, L_orig, L_control)
+        
+        # 6.2. 准备 `latent_mask`
+        noise_latent_shape = (shape_info[0][1], shape_info[0][2]) # (h_n, w_n)
+        
+        # 将 PIL (H, W) 转换为 (B, L_noise)
+        mask_tensor = VaeImageProcessor.pil_to_numpy(erase_mask) # (H, W) or (H, W, 1)
+        mask_tensor = VaeImageProcessor.numpy_to_pt(mask_tensor) # (1, H, W)
+        if mask_tensor.ndim == 3:
+            mask_tensor = mask_tensor.unsqueeze(0) # (1, 1, H, W)
+        mask_tensor = mask_tensor.to(device, dtype=prompt_embeds.dtype)
+        
+        # 缩放到 noise_latent 尺寸并二值化
+        latent_mask = F.interpolate(
+            mask_tensor, 
+            size=noise_latent_shape, 
+            mode='nearest'
+        )
+        latent_mask = (latent_mask > 0.5).float() # 确保是 0.0 / 1.0
+        latent_mask = latent_mask.flatten(1) # (B, L_noise)
+
+        # 6.3. 注入到 `attention_kwargs`
+        if attention_kwargs is None:
+            attention_kwargs = {}
+        
+        attention_kwargs["latent_mask"] = latent_mask
+        attention_kwargs["seq_lengths"] = seq_lengths
+        
+        self._attention_kwargs = attention_kwargs # (原版代码中就有这一行)
+
+        self._current_timestep = None
+        self._interrupt = False
+
+        # 2. Define call parameters
+        if prompt is not None and isinstance(prompt, str):
+            batch_size = 1
+        elif prompt is not None and isinstance(prompt, list):
+            batch_size = len(prompt)
+        else:
+            batch_size = prompt_embeds.shape[0]
+
+        device = self._execution_device
+        # 3. Preprocess image
+        if image is not None and not (isinstance(image, torch.Tensor) and image.size(1) == self.latent_channels):
+            if not isinstance(image, list):
+                image = [image]
+            condition_image_sizes = []
+            condition_images = []
+            vae_image_sizes = []
+            vae_images = []
+            for img in image:
+                image_width, image_height = img.size
+                condition_width, condition_height = calculate_dimensions(
+                    CONDITION_IMAGE_SIZE, image_width / image_height
+                )
+                print(f"condition_width: {condition_width}, condition_height: {condition_height}")
+                vae_width, vae_height = calculate_dimensions(VAE_IMAGE_SIZE, image_width / image_height)
+                print(f"vae_width: {vae_width}, vae_height: {vae_height}")
+                condition_image_sizes.append((condition_width, condition_height))
+                vae_image_sizes.append((vae_width, vae_height))
+                condition_images.append(self.image_processor.resize(img, condition_height, condition_width))
+                vae_images.append(self.image_processor.preprocess(img, vae_height, vae_width).unsqueeze(2))
+
+        has_neg_prompt = negative_prompt is not None or (
+            negative_prompt_embeds is not None and negative_prompt_embeds_mask is not None
+        )
+
+        if true_cfg_scale > 1 and not has_neg_prompt:
+            logger.warning(
+                f"true_cfg_scale is passed as {true_cfg_scale}, but classifier-free guidance is not enabled since no negative_prompt is provided."
+            )
+        elif true_cfg_scale <= 1 and has_neg_prompt:
+            logger.warning(
+                " negative_prompt is passed but classifier-free guidance is not enabled since true_cfg_scale <= 1"
+            )
+
+        do_true_cfg = true_cfg_scale > 1 and has_neg_prompt
+        prompt_embeds, prompt_embeds_mask = self.encode_prompt(
+            image=condition_images,
+            prompt=prompt,
+            prompt_embeds=prompt_embeds,
+            prompt_embeds_mask=prompt_embeds_mask,
+            device=device,
+            num_images_per_prompt=num_images_per_prompt,
+            max_sequence_length=max_sequence_length,
+        )
+        if do_true_cfg:
+            negative_prompt_embeds, negative_prompt_embeds_mask = self.encode_prompt(
+                image=condition_images,
+                prompt=negative_prompt,
+                prompt_embeds=negative_prompt_embeds,
+                prompt_embeds_mask=negative_prompt_embeds_mask,
+                device=device,
+                num_images_per_prompt=num_images_per_prompt,
+                max_sequence_length=max_sequence_length,
+            )
+
+        # 4. Prepare latent variables
+        num_channels_latents = self.transformer.config.in_channels // 4
+        print(f"num_channels_latents: {num_channels_latents}")
+        latents, image_latents = self.prepare_latents(
+            vae_images,
+            batch_size * num_images_per_prompt,
+            num_channels_latents,
+            height,
+            width,
+            prompt_embeds.dtype,
+            device,
+            generator,
+            latents,
+        )
+        img_shapes = [
+            [
+                (1, height // self.vae_scale_factor // 2, width // self.vae_scale_factor // 2),
+                *[
+                    (1, vae_height // self.vae_scale_factor // 2, vae_width // self.vae_scale_factor // 2)
+                    for vae_width, vae_height in vae_image_sizes
+                ],
+            ]
+        ] * batch_size
+
+        # 5. Prepare timesteps
         sigmas = np.linspace(1.0, 1 / num_inference_steps, num_inference_steps) if sigmas is None else sigmas
         image_seq_len = latents.shape[1]
         mu = calculate_shift(
@@ -776,6 +913,7 @@ class MyGroundedQwenPipeline(DiffusionPipeline, QwenImageLoraLoaderMixin):
             self.scheduler.config.get("base_shift", 0.5),
             self.scheduler.config.get("max_shift", 1.15),
         )
+        ### 这里还是不懂在干什么
         timesteps, num_inference_steps = retrieve_timesteps(
             self.scheduler,
             num_inference_steps,
@@ -786,7 +924,7 @@ class MyGroundedQwenPipeline(DiffusionPipeline, QwenImageLoraLoaderMixin):
         num_warmup_steps = max(len(timesteps) - num_inference_steps * self.scheduler.order, 0)
         self._num_timesteps = len(timesteps)
 
-        # --- 7. 准备 Guidance 和文本长度 ---
+        # handle guidance
         if self.transformer.config.guidance_embeds and guidance_scale is None:
             raise ValueError("guidance_scale is required for guidance-distilled model.")
         elif self.transformer.config.guidance_embeds:
@@ -799,63 +937,30 @@ class MyGroundedQwenPipeline(DiffusionPipeline, QwenImageLoraLoaderMixin):
             guidance = None
         elif not self.transformer.config.guidance_embeds and guidance_scale is None:
             guidance = None
-            
+
+        if self.attention_kwargs is None:
+            self._attention_kwargs = {}
+
         txt_seq_lens = prompt_embeds_mask.sum(dim=1).tolist() if prompt_embeds_mask is not None else None
         negative_txt_seq_lens = (
             negative_prompt_embeds_mask.sum(dim=1).tolist() if negative_prompt_embeds_mask is not None else None
         )
 
-        # --- 8. 注入我们的自定义控制信号 (关键！) ---
-        
-        # 8.1. 计算序列长度 (L_noise, L_orig, L_control)
-        shape_info = img_shapes[0] 
-        L_noise   = shape_info[0][1] * shape_info[0][2]
-        L_orig    = shape_info[1][1] * shape_info[1][2]
-        L_control = shape_info[2][1] * shape_info[2][2]
-        
-        seq_lengths = (L_noise, L_orig, L_control)
-        
-        # 8.2. 准备 `latent_mask`
-        noise_latent_shape = (shape_info[0][1], shape_info[0][2]) # (h_n, w_n)
-        
-        mask_tensor = VaeImageProcessor.pil_to_numpy(erase_mask)
-        mask_tensor = VaeImageProcessor.numpy_to_pt(mask_tensor)
-        if mask_tensor.ndim == 3:
-            mask_tensor = mask_tensor.unsqueeze(0)
-        mask_tensor = mask_tensor.to(device, dtype=prompt_embeds.dtype)
-        
-        latent_mask = F.interpolate(
-            mask_tensor, 
-            size=noise_latent_shape, 
-            mode='nearest'
-        )
-        latent_mask = (latent_mask > 0.5).float()
-        latent_mask = latent_mask.flatten(1) # (B, L_noise)
-
-        # 8.3. 注入到 `self._attention_kwargs` (正确的、唯一的地方)
-        # if self.attention_kwargs is None:
-        self._attention_kwargs = {}
-        
-        self._attention_kwargs["latent_mask"] = latent_mask
-        self._attention_kwargs["seq_lengths"] = seq_lengths
-        
-        # --- 9. Denoising loop (修正后的代码) ---
+        # 6. Denoising loop
         self.scheduler.set_begin_index(0)
         with self.progress_bar(total=num_inference_steps) as progress_bar:
             for i, t in enumerate(timesteps):
                 if self.interrupt:
                     continue
+
                 self._current_timestep = t
-                
-                # --- v9: 注入当前的时间步分数 和 控制参数 ---
-                self._attention_kwargs["current_step_fraction"] = i / num_inference_steps
-                self._attention_kwargs["switch_point_fraction"] = control_switch_fraction
-                self._attention_kwargs["reverse_logic"] = control_reverse_logic
-                
-                latent_model_input = torch.cat([latents, image_latents], dim=1) 
-                
+
+                latent_model_input = latents
+                if image_latents is not None:
+                    latent_model_input = torch.cat([latents, image_latents], dim=1)
+
+                # broadcast to batch dimension in a way that's compatible with ONNX/Core ML
                 timestep = t.expand(latents.shape[0]).to(latents.dtype)
-                
                 with self.transformer.cache_context("cond"):
                     noise_pred = self.transformer(
                         hidden_states=latent_model_input,
@@ -865,7 +970,7 @@ class MyGroundedQwenPipeline(DiffusionPipeline, QwenImageLoraLoaderMixin):
                         encoder_hidden_states=prompt_embeds,
                         img_shapes=img_shapes,
                         txt_seq_lens=txt_seq_lens,
-                        attention_kwargs=self._attention_kwargs, # <--- 你的参数在这里被传入
+                        attention_kwargs=self._attention_kwargs,
                         return_dict=False,
                     )[0]
                     noise_pred = noise_pred[:, : latents.size(1)]
@@ -880,39 +985,43 @@ class MyGroundedQwenPipeline(DiffusionPipeline, QwenImageLoraLoaderMixin):
                             encoder_hidden_states=negative_prompt_embeds,
                             img_shapes=img_shapes,
                             txt_seq_lens=negative_txt_seq_lens,
-                            attention_kwargs=self._attention_kwargs, # <--- 你的参数在这里被传入
+                            attention_kwargs=self._attention_kwargs,
                             return_dict=False,
                         )[0]
-                        neg_noise_pred = neg_noise_pred[:, : latents.size(1)]
-                    
+                    neg_noise_pred = neg_noise_pred[:, : latents.size(1)]
                     comb_pred = neg_noise_pred + true_cfg_scale * (noise_pred - neg_noise_pred)
+
                     cond_norm = torch.norm(noise_pred, dim=-1, keepdim=True)
                     noise_norm = torch.norm(comb_pred, dim=-1, keepdim=True)
                     noise_pred = comb_pred * (cond_norm / noise_norm)
 
+                # compute the previous noisy sample x_t -> x_t-1
+                #使用 scheduler.step 根据预测的噪声 noise_pred、当前时间步 t 和当前潜在变量 latents，计算下一步的潜在变量
                 latents_dtype = latents.dtype
-                latents = self.scheduler.step(noise_pred, t, latents, return_dict=False)[0]
+                latents = self.scheduler.step(noise_pred, t, latents, return_dict=False)[0] #这个latent就是纯噪声，但是输入transformer的是噪声和原本图像潜变量拼接的
+
                 if latents.dtype != latents_dtype:
                     if torch.backends.mps.is_available():
+                        # some platforms (eg. apple mps) misbehave due to a pytorch bug: https://github.com/pytorch/pytorch/pull/99272
                         latents = latents.to(latents_dtype)
 
                 if callback_on_step_end is not None:
-                    # ( ... callback ... )
+                    print(f"Calling callback at step {i}, timestep {t}")
                     callback_kwargs = {}
                     for k in callback_on_step_end_tensor_inputs:
                         callback_kwargs[k] = locals()[k]
                     callback_outputs = callback_on_step_end(self, i, t, callback_kwargs)
+
                     latents = callback_outputs.pop("latents", latents)
                     prompt_embeds = callback_outputs.pop("prompt_embeds", prompt_embeds)
-                    pass
 
+                # call the callback, if provided
                 if i == len(timesteps) - 1 or ((i + 1) > num_warmup_steps and (i + 1) % self.scheduler.order == 0):
                     progress_bar.update()
 
                 if XLA_AVAILABLE:
                     xm.mark_step()
 
-        # --- 10. Post-processing (复制原版) ---
         self._current_timestep = None
         if output_type == "latent":
             image = latents
@@ -931,7 +1040,11 @@ class MyGroundedQwenPipeline(DiffusionPipeline, QwenImageLoraLoaderMixin):
             image = self.vae.decode(latents, return_dict=False)[0][:, :, 0]
             image = self.image_processor.postprocess(image, output_type=output_type)
 
+        # Offload all models
         self.maybe_free_model_hooks()
+
         if not return_dict:
             return (image,)
+
         return QwenImagePipelineOutput(images=image)
+
