@@ -30,8 +30,8 @@ output_dir = "results"
 os.makedirs(output_dir, exist_ok=True)
 print(f"Results will be saved to {output_dir}")
 
-# --- 4. 运行 v12 实验 ---
-exp_name = "v13_Pure_RoPE_Share_offset_50"
+
+exp_name = "v14_Pure_fuse_noise_onlyctrl"
 print(f"\n--- Running Experiment: {exp_name} ---")
 start_time = time.time()
 
@@ -42,7 +42,7 @@ inputs = {
     "prompt": "把图中文字\"The Wheel of Time\"改成\"时间之轮\"",
     "true_cfg_scale": 4.0,
     "negative_prompt": " ",
-    "num_inference_steps": 50, 
+    "num_inference_steps": 10, 
     "guidance_scale": 1.0,
     "num_images_per_prompt": 1,
     "generator": torch.Generator(device=pipeline.device).manual_seed(42) # 固定种子
