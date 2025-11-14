@@ -6,105 +6,105 @@ import time
 # --- 1. 定义您的实验 ---
 experiments = [
     {
-        "name": "layout_first5_10pct",
+        "name": "condition用噪声区域编码",
         "switch_fraction": 0.1,
         "reverse_logic": False
     },
-    {
-        "name": "layout_first5_20pct",
-        "switch_fraction": 0.2,
-        "reverse_logic": False
-    },
-    {
-        "name": "layout_first5_30pct",
-        "switch_fraction": 0.3,
-        "reverse_logic": False
-    },
-    {
-        "name": "layout_first5_40pct",
-        "switch_fraction": 0.4,
-        "reverse_logic": False
-    },
-    {
-        "name": "layout_first5_50pct",
-        "switch_fraction": 0.5,
-        "reverse_logic": False
-    },
-    {
-        "name": "layout_first5_60pct",
-        "switch_fraction": 0.6,
-        "reverse_logic": False
-    },
-    {
-        "name": "layout_first5_70pct",
-        "switch_fraction": 0.7,
-        "reverse_logic": False
-    },
-    {
-        "name": "layout_first5_80pct",
-        "switch_fraction": 0.8,
-        "reverse_logic": False
-    },
-    {
-        "name": "layout_first5_90pct",
-        "switch_fraction": 0.9,
-        "reverse_logic": False
-    },
-    {
-        "name": "layout_first5_100pct",
-        "switch_fraction": 1,
-        "reverse_logic": False
-    },
-    {
-        "name": "style_first5_10pct_REVERSED",
-        "switch_fraction": 0.1,
-        "reverse_logic": True
-    },
-    {
-        "name": "style_first5_20pct_REVERSED",
-        "switch_fraction": 0.2,
-        "reverse_logic": True
-    },
-    {
-        "name": "style_first5_30pct_REVERSED",
-        "switch_fraction": 0.3,
-        "reverse_logic": True
-    },
-    {
-        "name": "style_first5_40pct_REVERSED",
-        "switch_fraction": 0.4,
-        "reverse_logic": True
-    },
-    {
-        "name": "style_first5_50pct_REVERSED",
-        "switch_fraction": 0.5,
-        "reverse_logic": True
-    },
-    {
-        "name": "style_first5_60pct_REVERSED",
-        "switch_fraction": 0.6,
-        "reverse_logic": True
-    },
-    {
-        "name": "style_first5_70pct_REVERSED",
-        "switch_fraction": 0.7,
-        "reverse_logic": True
-    },
-    {
-        "name": "style_first5_80pct_REVERSED",
-        "switch_fraction": 0.8,
-        "reverse_logic": True
-    },
-    {
-        "name": "style_first5_90pct_REVERSED",
-        "switch_fraction": 0.9,
-        "reverse_logic": True
-    },
-    {
-        "name": "style_first5_100pct_REVERSED",
-        "switch_fraction": 1,
-        "reverse_logic": True
-    },
+    # {
+    #     "name": "layout_first5_20pct",
+    #     "switch_fraction": 0.2,
+    #     "reverse_logic": False
+    # },
+    # {
+    #     "name": "layout_first5_30pct",
+    #     "switch_fraction": 0.3,
+    #     "reverse_logic": False
+    # },
+    # {
+    #     "name": "layout_first5_40pct",
+    #     "switch_fraction": 0.4,
+    #     "reverse_logic": False
+    # },
+    # {
+    #     "name": "layout_first5_50pct",
+    #     "switch_fraction": 0.5,
+    #     "reverse_logic": False
+    # },
+    # {
+    #     "name": "layout_first5_60pct",
+    #     "switch_fraction": 0.6,
+    #     "reverse_logic": False
+    # },
+    # {
+    #     "name": "layout_first5_70pct",
+    #     "switch_fraction": 0.7,
+    #     "reverse_logic": False
+    # },
+    # {
+    #     "name": "layout_first5_80pct",
+    #     "switch_fraction": 0.8,
+    #     "reverse_logic": False
+    # },
+    # {
+    #     "name": "layout_first5_90pct",
+    #     "switch_fraction": 0.9,
+    #     "reverse_logic": False
+    # },
+    # {
+    #     "name": "layout_first5_100pct",
+    #     "switch_fraction": 1,
+    #     "reverse_logic": False
+    # },
+    # {
+    #     "name": "style_first5_10pct_REVERSED",
+    #     "switch_fraction": 0.1,
+    #     "reverse_logic": True
+    # },
+    # {
+    #     "name": "style_first5_20pct_REVERSED",
+    #     "switch_fraction": 0.2,
+    #     "reverse_logic": True
+    # },
+    # {
+    #     "name": "style_first5_30pct_REVERSED",
+    #     "switch_fraction": 0.3,
+    #     "reverse_logic": True
+    # },
+    # {
+    #     "name": "style_first5_40pct_REVERSED",
+    #     "switch_fraction": 0.4,
+    #     "reverse_logic": True
+    # },
+    # {
+    #     "name": "style_first5_50pct_REVERSED",
+    #     "switch_fraction": 0.5,
+    #     "reverse_logic": True
+    # },
+    # {
+    #     "name": "style_first5_60pct_REVERSED",
+    #     "switch_fraction": 0.6,
+    #     "reverse_logic": True
+    # },
+    # {
+    #     "name": "style_first5_70pct_REVERSED",
+    #     "switch_fraction": 0.7,
+    #     "reverse_logic": True
+    # },
+    # {
+    #     "name": "style_first5_80pct_REVERSED",
+    #     "switch_fraction": 0.8,
+    #     "reverse_logic": True
+    # },
+    # {
+    #     "name": "style_first5_90pct_REVERSED",
+    #     "switch_fraction": 0.9,
+    #     "reverse_logic": True
+    # },
+    # {
+    #     "name": "style_first5_100pct_REVERSED",
+    #     "switch_fraction": 1,
+    #     "reverse_logic": True
+    # },
 ]
 
 # --- 2. 加载模型 (一次即可) ---
@@ -142,8 +142,8 @@ for exp in experiments:
         "num_images_per_prompt": 1,
         
         # --- v9: 传入动态控制参数 ---
-        "control_switch_fraction": exp["switch_fraction"],
-        "control_reverse_logic": exp["reverse_logic"]
+        #"control_switch_fraction": exp["switch_fraction"],
+        #"control_reverse_logic": exp["reverse_logic"]
     }
 
     # 执行图像编辑
