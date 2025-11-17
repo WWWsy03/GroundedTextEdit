@@ -523,6 +523,7 @@ class QwenImageEditPlusPipelineWithStyleControl(DiffusionPipeline, QwenImageLora
 
         # 3. 使用 ImageProjModel 投影到 Transformer 兼容的维度
         style_image_proj = self.style_proj_model(image_embeds) # [B, num_tokens, cross_attention_dim]
+        print(f"✅ 风格图像已编码并投影，shape: {style_image_proj.shape}")
 
         return style_image_proj # [B, num_tokens, cross_attention_dim]
 
@@ -559,6 +560,7 @@ class QwenImageEditPlusPipelineWithStyleControl(DiffusionPipeline, QwenImageLora
         calculated_width, calculated_height = calculate_dimensions(1024 * 1024, image_size[0] / image_size[1])
         height = height or calculated_height
         width = width or calculated_width
+        
         multiple_of = self.vae_scale_factor * 2
         width = width // multiple_of * multiple_of
         height = height // multiple_of * multiple_of
@@ -764,7 +766,7 @@ class QwenImageEditPlusPipelineWithStyleControl(DiffusionPipeline, QwenImageLora
                             encoder_hidden_states=negative_prompt_embeds,
                             img_shapes=img_shapes,
                             txt_seq_lens=negative_txt_seq_lens,
-                            attention_kwargs=self.attention_kwargs, # 传递给 uncond 分支
+                            attention_kwargs=self._attention_kwargs, # 传递给 uncond 分支
                             return_dict=False,
                         )[0]
                     neg_noise_pred = neg_noise_pred[:, : latents.size(1)]
