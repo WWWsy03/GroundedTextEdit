@@ -828,13 +828,16 @@ class Attention(nn.Module):
 class QwenDoubleStreamAttnProcessor2_0WithStyleControl:
     """
     为 Qwen-Image-Edit 的双流架构设计的注意力处理器，增加了对风格控制图像的支持。
-    该处理器接收一个风格图像的投影 (style_image_proj)，并将其信息注入到图像流中。
+    该处理器将风格图像潜变量与主要内容（噪声+content_image_latents）分离，
+    先执行标准的文本-主要内容联合注意力，再将风格信息注入到噪声部分。
     """
+    _attention_backend = None
+    _parallel_config = None
     def __init__(self, style_context_dim: int, style_hidden_dim: int):
         """
         Args:
-            style_context_dim (`int`): 风格图像投影的维度 (e.g., 1024)。
-            style_hidden_dim (`int`): 与注意力头相关的隐藏维度 (e.g., transformer.config.inner_dim)。
+            style_context_dim (`int`): 风格图像潜变量的维度 (e.g., 16 * 4 for Qwen's VAE latent channels * 4 from packing)。
+            style_hidden_dim (`int`): 与 Qwen Transformer 内部计算相关的维度 (e.g., transformer.config.hidden_size or num_attention_heads * attention_head_dim)。
         """
         if not hasattr(F, "scaled_dot_product_attention"):
             raise ImportError(
@@ -842,218 +845,204 @@ class QwenDoubleStreamAttnProcessor2_0WithStyleControl:
             )
         self.style_context_dim = style_context_dim
         self.style_hidden_dim = style_hidden_dim
+        #print(f"Context: style_context_dim={style_context_dim}, style_hidden_dim={style_hidden_dim}")
 
         # 初始化用于风格控制的投影层
-        # 为每个注意力层创建独立的投影层
+        # 输入维度是 style_image_latents 的最后一个维度
         self.style_k_proj = nn.Linear(style_context_dim, style_hidden_dim, bias=True)
         self.style_v_proj = nn.Linear(style_context_dim, style_hidden_dim, bias=True)
         # 初始化为零，符合 IP-Adapter 的做法
-        nn.init.zeros_(self.style_k_proj.weight)
+        # 用小的随机值初始化，这样训练初期就能看到风格控制的效果
+        nn.init.normal_(self.style_k_proj.weight, std=0.01)
         nn.init.zeros_(self.style_k_proj.bias)
-        nn.init.zeros_(self.style_v_proj.weight)
+        nn.init.normal_(self.style_v_proj.weight, std=0.01) 
         nn.init.zeros_(self.style_v_proj.bias)
+        self.style_k_proj.to(dtype=torch.bfloat16,device="cuda")
+        self.style_v_proj.to(dtype=torch.bfloat16,device="cuda")
 
     def __call__(
         self,
         attn: Attention,
-        hidden_states: torch.FloatTensor,  # 图像流
+        hidden_states: torch.FloatTensor,  # 图像流 (噪声 + content_image_latents + style_image_latents)
         encoder_hidden_states: torch.FloatTensor = None,  # 文本流
         encoder_hidden_states_mask: torch.FloatTensor = None,
         attention_mask: Optional[torch.FloatTensor] = None,
         image_rotary_emb: Optional[torch.Tensor] = None,
-        # 新增参数，用于传递风格图像投影
-        #style_image_proj: Optional[torch.FloatTensor] = None,
-        #style_scale: float = 1.0, # 控制风格强度的缩放因子
-        **kwargs, # 通过 kwargs 捕获 joint_attention_kwargs
+        **kwargs, # 通过 kwargs 捕获所有 attention_kwargs
     ) -> torch.FloatTensor:
-        
-        r"""
-        Function invoked when calling the pipeline for generation.
-
-        Args:
-            image (`torch.Tensor`, `PIL.Image.Image`, `np.ndarray`, `List[torch.Tensor]`, `List[PIL.Image.Image]`, or `List[np.ndarray]`):
-                `Image`, numpy array or tensor representing an image batch to be used as the starting point. For both
-                numpy array and pytorch tensor, the expected value range is between `[0, 1]` If it's a tensor or a list
-                or tensors, the expected shape should be `(B, C, H, W)` or `(C, H, W)`. If it is a numpy array or a
-                list of arrays, the expected shape should be `(B, H, W, C)` or `(H, W, C)` It can also accept image
-                latents as `image`, but if passing latents directly it is not encoded again.
-            prompt (`str` or `List[str]`, *optional*):
-                The prompt or prompts to guide the image generation. If not defined, one has to pass `prompt_embeds`.
-                instead.
-            negative_prompt (`str` or `List[str]`, *optional*):
-                The prompt or prompts not to guide the image generation. If not defined, one has to pass
-                `negative_prompt_embeds` instead. Ignored when not using guidance (i.e., ignored if `true_cfg_scale` is
-                not greater than `1`).
-            true_cfg_scale (`float`, *optional*, defaults to 1.0):
-                true_cfg_scale (`float`, *optional*, defaults to 1.0): Guidance scale as defined in [Classifier-Free
-                Diffusion Guidance](https://huggingface.co/papers/2207.12598). `true_cfg_scale` is defined as `w` of
-                equation 2. of [Imagen Paper](https://huggingface.co/papers/2205.11487). Classifier-free guidance is
-                enabled by setting `true_cfg_scale > 1` and a provided `negative_prompt`. Higher guidance scale
-                encourages to generate images that are closely linked to the text `prompt`, usually at the expense of
-                lower image quality.
-            height (`int`, *optional*, defaults to self.unet.config.sample_size * self.vae_scale_factor):
-                The height in pixels of the generated image. This is set to 1024 by default for the best results.
-            width (`int`, *optional*, defaults to self.unet.config.sample_size * self.vae_scale_factor):
-                The width in pixels of the generated image. This is set to 1024 by default for the best results.
-            num_inference_steps (`int`, *optional*, defaults to 50):
-                The number of denoising steps. More denoising steps usually lead to a higher quality image at the
-                expense of slower inference.
-            sigmas (`List[float]`, *optional*):
-                Custom sigmas to use for the denoising process with schedulers which support a `sigmas` argument in
-                their `set_timesteps` method. If not defined, the default behavior when `num_inference_steps` is passed
-                will be used.
-            guidance_scale (`float`, *optional*, defaults to None):
-                A guidance scale value for guidance distilled models. Unlike the traditional classifier-free guidance
-                where the guidance scale is applied during inference through noise prediction rescaling, guidance
-                distilled models take the guidance scale directly as an input parameter during forward pass. Guidance
-                scale is enabled by setting `guidance_scale > 1`. Higher guidance scale encourages to generate images
-                that are closely linked to the text `prompt`, usually at the expense of lower image quality. This
-                parameter in the pipeline is there to support future guidance-distilled models when they come up. It is
-                ignored when not using guidance distilled models. To enable traditional classifier-free guidance,
-                please pass `true_cfg_scale > 1.0` and `negative_prompt` (even an empty negative prompt like " " should
-                enable classifier-free guidance computations).
-            num_images_per_prompt (`int`, *optional*, defaults to 1):
-                The number of images to generate per prompt.
-            generator (`torch.Generator` or `List[torch.Generator]`, *optional*):
-                One or a list of [torch generator(s)](https://pytorch.org/docs/stable/generated/torch.Generator.html)
-                to make generation deterministic.
-            latents (`torch.Tensor`, *optional*):
-                Pre-generated noisy latents, sampled from a Gaussian distribution, to be used as inputs for image
-                generation. Can be used to tweak the same generation with different prompts. If not provided, a latents
-                tensor will be generated by sampling using the supplied random `generator`.
-            prompt_embeds (`torch.Tensor`, *optional*):
-                Pre-generated text embeddings. Can be used to easily tweak text inputs, *e.g.* prompt weighting. If not
-                provided, text embeddings will be generated from `prompt` input argument.
-            negative_prompt_embeds (`torch.Tensor`, *optional*):
-                Pre-generated negative text embeddings. Can be used to easily tweak text inputs, *e.g.* prompt
-                weighting. If not provided, negative_prompt_embeds will be generated from `negative_prompt` input
-                argument.
-            output_type (`str`, *optional*, defaults to `"pil"`):
-                The output format of the generate image. Choose between
-                [PIL](https://pillow.readthedocs.io/en/stable/): `PIL.Image.Image` or `np.array`.
-            return_dict (`bool`, *optional*, defaults to `True`):
-                Whether or not to return a [`~pipelines.qwenimage.QwenImagePipelineOutput`] instead of a plain tuple.
-            attention_kwargs (`dict`, *optional*):
-                A kwargs dictionary that if specified is passed along to the `AttentionProcessor` as defined under
-                `self.processor` in
-                [diffusers.models.attention_processor](https://github.com/huggingface/diffusers/blob/main/src/diffusers/models/attention_processor.py).
-            callback_on_step_end (`Callable`, *optional*):
-                A function that calls at the end of each denoising steps during the inference. The function is called
-                with the following arguments: `callback_on_step_end(self: DiffusionPipeline, step: int, timestep: int,
-                callback_kwargs: Dict)`. `callback_kwargs` will include a list of all tensors as specified by
-                `callback_on_step_end_tensor_inputs`.
-            callback_on_step_end_tensor_inputs (`List`, *optional*):
-                The list of tensor inputs for the `callback_on_step_end` function. The tensors specified in the list
-                will be passed as `callback_kwargs` argument. You will only be able to include variables listed in the
-                `._callback_tensor_inputs` attribute of your pipeline class.
-            max_sequence_length (`int` defaults to 512): Maximum sequence length to use with the `prompt`.
-
-        Examples:
-
-        Returns:
-            [`~pipelines.qwenimage.QwenImagePipelineOutput`] or `tuple`:
-            [`~pipelines.qwenimage.QwenImagePipelineOutput`] if `return_dict` is True, otherwise a `tuple`. When
-            returning a tuple, the first element is a list with the generated images.
-        """
-        
         if encoder_hidden_states is None:
             raise ValueError("QwenDoubleStreamAttnProcessor2_0WithStyleControl requires encoder_hidden_states (text stream)")
 
+        # 从 kwargs 中提取风格相关信息
+        style_image_latents = kwargs.get("style_image_latents", None) # [B, L_style, style_context_dim]
+        style_start_idx = kwargs.get("style_start_idx", None) # style_image_latents 在 hidden_states 中的起始索引
+        style_end_idx = kwargs.get("style_end_idx", None)   # style_image_latents 在 hidden_states 中的结束索引 (不包含)
+        noise_patches_length = kwargs.get("noise_patches_length", None) # 噪声部分的 patch 数量
+        content_patches_length = kwargs.get("content_patches_length", None) # 内容图像部分的 patch 数量
+        style_scale = kwargs.get("style_scale", 1.0) # 控制风格强度的缩放因子
+
         seq_txt = encoder_hidden_states.shape[1]
-        style_image_proj = kwargs.get("style_image_proj", None) 
-        style_scale = kwargs.get("style_scale", None)
-        print(f"style_scale{style_scale},style_image_proj{style_image_proj}")
-        
 
-        # 1. 计算图像流的 Q, K, V
-        img_query = attn.to_q(hidden_states)
-        img_key = attn.to_k(hidden_states)
-        img_value = attn.to_v(hidden_states)
+        # --- 1. 执行标准的双流联合注意力，但只针对噪声+内容部分，排除风格 ---
+        # 首先分离噪声和内容部分（不包含风格）
+        if style_start_idx is not None and style_end_idx is not None:
+            # 提取噪声+内容部分，排除风格部分
+            noise_content_hidden_states = torch.cat([
+                hidden_states[:, :style_start_idx, :],  # 噪声+内容部分
+                hidden_states[:, style_end_idx:, :]     # 如果风格后面还有其他部分（通常没有）
+            ], dim=1) if style_end_idx < hidden_states.shape[1] else hidden_states[:, :style_start_idx, :]
+        else:
+            # 如果没有风格索引信息，假设风格在最后
+            if noise_patches_length is not None and content_patches_length is not None:
+                total_noise_content_len = noise_patches_length + content_patches_length
+                noise_content_hidden_states = hidden_states[:, :total_noise_content_len, :]
+            else:
+                # 如果没有明确的长度信息，需要根据其他方式确定噪声+内容的长度
+                raise ValueError("Either style indices or noise/content lengths must be provided")
 
-        # 2. 计算文本流的 Q, K, V
-        txt_query = attn.add_q_proj(encoder_hidden_states)
-        txt_key = attn.add_k_proj(encoder_hidden_states)
-        txt_value = attn.add_v_proj(encoder_hidden_states)
+        # 计算噪声+内容部分的 Q, K, V
+        img_query_nc = attn.to_q(noise_content_hidden_states) # [B, L_noise+L_content, D_qk]
+        img_key_nc = attn.to_k(noise_content_hidden_states)   # [B, L_noise+L_content, D_qk]
+        img_value_nc = attn.to_v(noise_content_hidden_states) # [B, L_noise+L_content, D_v]
 
-        # 3. 重塑以适应多头注意力
-        img_query = img_query.unflatten(-1, (attn.heads, -1)).transpose(1, 2) # [B, H, L_img, D]
-        img_key = img_key.unflatten(-1, (attn.heads, -1)).transpose(1, 2)   # [B, H, L_img, D]
-        img_value = img_value.unflatten(-1, (attn.heads, -1)).transpose(1, 2) # [B, H, L_img, D]
-        txt_query = txt_query.unflatten(-1, (attn.heads, -1)).transpose(1, 2) # [B, H, L_txt, D]
-        txt_key = txt_key.unflatten(-1, (attn.heads, -1)).transpose(1, 2)   # [B, H, L_txt, D]
-        txt_value = txt_value.unflatten(-1, (attn.heads, -1)).transpose(1, 2) # [B, H, L_txt, D]
+        # 计算文本流的 Q, K, V
+        txt_query = attn.add_q_proj(encoder_hidden_states) # [B, L_txt, D_qk]
+        txt_key = attn.add_k_proj(encoder_hidden_states)   # [B, L_txt, D_qk]
+        txt_value = attn.add_v_proj(encoder_hidden_states) # [B, L_txt, D_v]
 
-        # 4. 应用 QK 归一化
+        # 重塑以适应多头注意力
+        img_query_nc = img_query_nc.unflatten(-1, (attn.heads, -1)) # [B, H, L_noise+L_content, D]
+        img_key_nc = img_key_nc.unflatten(-1, (attn.heads, -1))  # [B, H, L_noise+L_content, D]
+        img_value_nc = img_value_nc.unflatten(-1, (attn.heads, -1)) # [B, H, L_noise+L_content, D]
+        txt_query = txt_query.unflatten(-1, (attn.heads, -1)) # [B, H, L_txt, D]
+        txt_key = txt_key.unflatten(-1, (attn.heads, -1))   # [B, H, L_txt, D]
+        txt_value = txt_value.unflatten(-1, (attn.heads, -1)) # [B, H, L_txt, D]
+
+        # 应用 QK 归一化
         if attn.norm_q is not None:
-            img_query = attn.norm_q(img_query, tgt_len=img_query.shape[2])
+            img_query_nc = attn.norm_q(img_query_nc)
         if attn.norm_k is not None:
-            img_key = attn.norm_k(img_key, tgt_len=img_key.shape[2])
+            img_key_nc = attn.norm_k(img_key_nc)
         if attn.norm_added_q is not None:
-            txt_query = attn.norm_added_q(txt_query, tgt_len=txt_query.shape[2])
+            txt_query = attn.norm_added_q(txt_query)
         if attn.norm_added_k is not None:
-            txt_key = attn.norm_added_k(txt_key, tgt_len=txt_key.shape[2])
+            txt_key = attn.norm_added_k(txt_key)
 
-        # 5. 应用 RoPE
+        # 应用 RoPE - 只取噪声+内容部分的编码
         if image_rotary_emb is not None:
             img_freqs, txt_freqs = image_rotary_emb
-            img_query = apply_rotary_emb_qwen(img_query, img_freqs, use_real=False)
-            img_key = apply_rotary_emb_qwen(img_key, img_freqs, use_real=False)
-            txt_query = apply_rotary_emb_qwen(txt_query, txt_freqs, use_real=False)
-            txt_key = apply_rotary_emb_qwen(txt_key, txt_freqs, use_real=False)
+            #print(f"img_freqs shape: {img_freqs.shape}, txt_freqs shape: {txt_freqs.shape}")
+            # 只取噪声+内容部分的位置编码
+            img_freqs_nc = img_freqs[:noise_content_hidden_states.shape[1], :] if img_freqs is not None else None
+            txt_freqs_used = txt_freqs  # 文本部分保持不变
+            
+            if img_freqs_nc is not None:
+                img_query_nc = apply_rotary_emb_qwen(img_query_nc, img_freqs_nc, use_real=False)
+                img_key_nc = apply_rotary_emb_qwen(img_key_nc, img_freqs_nc, use_real=False)
+            if txt_freqs_used is not None:
+                txt_query = apply_rotary_emb_qwen(txt_query, txt_freqs_used, use_real=False)
+                txt_key = apply_rotary_emb_qwen(txt_key, txt_freqs_used, use_real=False)
 
-        # 6. 拼接进行联合注意力
-        # 顺序: [text, image]
-        joint_query = torch.cat([txt_query, img_query], dim=2) # [B, H, L_txt+L_img, D]
-        joint_key = torch.cat([txt_key, img_key], dim=2)   # [B, H, L_txt+L_img, D]
-        joint_value = torch.cat([txt_value, img_value], dim=2) # [B, H, L_txt+L_img, D]
+        # 拼接进行联合注意力（文本 + 噪声+内容，不包含风格）
+        joint_query = torch.cat([txt_query, img_query_nc], dim=1) # [B, H, L_txt+L_noise+L_content, D]
+        joint_key = torch.cat([txt_key, img_key_nc], dim=1)   # [B, H, L_txt+L_noise+L_content, D]
+        joint_value = torch.cat([txt_value, img_value_nc], dim=1) # [B, H, L_txt+L_noise+L_content, D]
 
-        # 7. 计算联合注意力
-        joint_hidden_states = F.scaled_dot_product_attention(
+        # 计算联合注意力
+        joint_hidden_states = dispatch_attention_fn(
             joint_query, joint_key, joint_value,
             attn_mask=attention_mask,
             dropout_p=0.0,
-            is_causal=False
-        ) # [B, H, L_txt+L_img, D]
+            is_causal=False,
+            backend=self._attention_backend,
+            parallel_config=self._parallel_config,
+        ) # [B, H, L_txt+L_noise+L_content, D]
 
-        # 8. 重塑回原始格式
-        joint_hidden_states = joint_hidden_states.transpose(1, 2).flatten(2, 3) # [B, L_txt+L_img, H*D]
+        # 重塑回原始格式
+        joint_hidden_states = joint_hidden_states.flatten(2, 3) # [B, L_txt+L_noise+L_content, H*D]
         joint_hidden_states = joint_hidden_states.to(joint_query.dtype)
 
-        # 9. 分离注意力输出
+        # 分离注意力输出
         txt_attn_output = joint_hidden_states[:, :seq_txt, :]  # 文本部分 [B, L_txt, H*D]
-        img_attn_output = joint_hidden_states[:, seq_txt:, :]  # 图像部分 [B, L_img, H*D]
+        img_attn_output_nc = joint_hidden_states[:, seq_txt:, :]  # 图像部分 (噪声 + content) [B, L_noise+L_content, H*D]
 
-        # 10. 风格控制：如果提供了风格图像投影，则进行额外的注意力计算
-        if style_image_proj is not None:
-            # 将 style_image_proj 投影为 K 和 V
-            style_key = self.style_k_proj(style_image_proj) # [B, L_style, style_hidden_dim]
-            style_value = self.style_v_proj(style_image_proj) # [B, L_style, style_hidden_dim]
-
-            # 重塑 K 和 V 以适应多头
-            style_key = style_key.unflatten(-1, (attn.heads, -1)).transpose(1, 2)   # [B, H, L_style, D]
-            style_value = style_value.unflatten(-1, (attn.heads, -1)).transpose(1, 2) # [B, H, L_style, D]
-
-            # 使用图像流的 Query 和风格图像的 K, V 进行注意力
-            # 注意：这里使用 img_query 和 style_key, style_value
-            style_attention = F.scaled_dot_product_attention(
-                img_query, style_key, style_value,
-                attn_mask=None, # 通常 style 不需要 mask
-                dropout_p=0.0,
-                is_causal=False
-            ) # [B, H, L_img, D]
-
-            # 重塑回原始格式
-            style_attention = style_attention.transpose(1, 2).flatten(2, 3) # [B, L_img, H*D]
-            style_attention = style_attention.to(img_query.dtype)
-
-            # 将风格信息加到图像注意力输出上
-            img_attn_output = img_attn_output + style_scale * style_attention
-
-        # 11. 应用输出投影
-        img_attn_output = attn.to_out[0](img_attn_output)
+        # 应用输出投影 (这部分是标准流程)
+        img_attn_output_nc = attn.to_out[0](img_attn_output_nc)
         if len(attn.to_out) > 1:
-            img_attn_output = attn.to_out[1](img_attn_output)  # dropout
+            img_attn_output_nc = attn.to_out[1](img_attn_output_nc)  # dropout
 
         txt_attn_output = attn.to_add_out(txt_attn_output)
 
-        return img_attn_output, txt_attn_output
+        # --- 2. 风格控制：如果提供了风格图像潜变量，则进行额外的风格注意力计算 ---
+        img_attn_output_full = img_attn_output_nc  # 初始化为噪声+内容的输出
+        if style_image_latents is not None and noise_patches_length is not None:
+            # 从噪声+内容的注意力输出中提取噪声部分的 query（用于风格调制）
+            # 注意：这里需要从原始的噪声+内容 hidden_states 计算噪声部分的 query
+            #print(f"11111noise_content_hidden_states shape: {noise_patches_length}")
+            noise_hidden_states = noise_content_hidden_states[:,:noise_patches_length, :] # [B, L_noise, D_hidden]
+            #print(f"noise_hidden_states shape: {noise_hidden_states.shape}")
+            img_query_noise = attn.to_q(noise_hidden_states).unflatten(-1, (attn.heads, -1)) # [B, H, L_noise, D]
+            
+            # 应用 Q 归一化
+            if attn.norm_q is not None:
+                img_query_noise = attn.norm_q(img_query_noise)
+            
+            # 应用 RoPE - 只取噪声部分的位置编码
+            if image_rotary_emb is not None and img_freqs is not None:
+                #print(f"noise img_freqs shape: {noise_patches_length, img_freqs.shape}")
+                img_freqs_noise = img_freqs[:noise_patches_length, :]  # 只取噪声部分的编码
+                img_query_noise = apply_rotary_emb_qwen(img_query_noise, img_freqs_noise, use_real=False)
+
+            # 将 style_image_latents 投影为 K 和 V
+            style_key = self.style_k_proj(style_image_latents) # [B, L_style, style_hidden_dim]
+            style_value = self.style_v_proj(style_image_latents) # [B, L_style, style_hidden_dim]
+
+            # 重塑 K 和 V 以适应多头
+            style_key = style_key.unflatten(-1, (attn.heads, -1))  # [B, H, L_style, D]
+            style_value = style_value.unflatten(-1, (attn.heads, -1))# [B, H, L_style, D]
+
+            # 使用噪声部分的 Query 和风格图像的 K, V 进行注意力
+            style_attention = F.scaled_dot_product_attention(
+                img_query_noise, style_key, style_value, # Query 是噪声部分
+                attn_mask=None, # 通常 style 不需要 mask
+                dropout_p=0.0,
+                is_causal=False
+            ) # [B, H, L_noise_patches, D]
+
+            # 重塑回原始格式
+            style_attention = style_attention.flatten(2, 3) # [B, L_noise_patches, H*D]
+            style_attention = style_attention.to(img_query_noise.dtype)
+
+            # 将风格信息加到噪声部分上
+            img_attn_output_full[:, :noise_patches_length, :] = img_attn_output_full[:, :noise_patches_length, :] + style_scale * style_attention
+
+        # --- 3. 最终输出：拼接完整的噪声+内容+风格结果 ---
+        # 如果原始 hidden_states 包含风格部分，需要将其附加到结果中
+        if style_start_idx is not None and style_end_idx is not None:
+            # 从原始 hidden_states 中提取风格部分（不参与注意力计算，直接保留）
+            style_part = hidden_states[:, style_start_idx:style_end_idx, :]
+            # 拼接：噪声+内容（已处理）+ 风格（原始）
+            final_img_output = torch.cat([
+                img_attn_output_full[:, :noise_patches_length, :],  # 处理后的噪声部分
+                img_attn_output_full[:, noise_patches_length:, :],  # 处理后的内容部分
+                style_part  # 原始风格部分（未参与第一步注意力）
+            ], dim=1)
+        else:
+            # 如果没有风格索引，使用其他方式确定如何拼接
+            if noise_patches_length is not None and content_patches_length is not None:
+                # 提取原始的风格部分
+                if hidden_states.shape[1] > (noise_patches_length + content_patches_length):
+                    original_style_part = hidden_states[:, (noise_patches_length + content_patches_length):, :]
+                    final_img_output = torch.cat([
+                        img_attn_output_full[:, :noise_patches_length, :],  # 处理后的噪声
+                        img_attn_output_full[:, noise_patches_length:, :],  # 处理后的内容
+                        original_style_part  # 原始风格
+                    ], dim=1)
+                else:
+                    final_img_output = img_attn_output_full  # 没有额外的风格部分
+            else:
+                final_img_output = img_attn_output_full
+
+        # 返回完整的图像和文本注意力输出
+        # final_img_output 的形状与输入 hidden_states 相同：[B, L_noise + L_content + L_style, H*D]
+        return final_img_output, txt_attn_output
