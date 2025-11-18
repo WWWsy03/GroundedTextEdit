@@ -1,0 +1,68 @@
+# config.yaml
+compute_environment: LOCAL_MACHINE
+debug: false
+distributed_type: FSDP
+downcast_bf16: 'no'
+enable_cpu_affinity: false
+fsdp_config:
+  fsdp_activation_checkpointing: true
+  fsdp_auto_wrap_policy: TRANSFORMER_BASED_WRAP
+  fsdp_backward_prefetch: BACKWARD_PRE
+  fsdp_cpu_ram_efficient_loading: true
+  fsdp_forward_prefetch: true
+  fsdp_offload_params: true
+  fsdp_reshard_after_forward: FULL_SHARD
+  fsdp_state_dict_type: FULL_STATE_DICT
+  fsdp_sync_module_states: true
+  fsdp_use_orig_params: true
+  fsdp_version: 1
+machine_rank: 0
+main_training_function: main
+mixed_precision: bf16
+num_machines: 1
+num_processes: 1
+rdzv_backend: static
+same_network: true
+tpu_env: []
+tpu_use_cluster: false
+tpu_use_sudo: false
+use_cpu: false
+
+# 1. 模型路径
+pretrained_model_name_or_path: "/app/cold1/Qwen-Image-Edit-2509" # e.g., "Qwen/Qwen-Image-Edit"
+output_dir: "/app/code/texteditRoPE/qwenimage-style-control-output"
+
+# 2. 训练参数
+train_batch_size: 1
+gradient_accumulation_steps: 1
+max_train_steps: 1000
+num_train_epochs: 4 # max_train_steps 会覆盖 epoch
+learning_rate: 1.0e-4
+lr_scheduler: "cosine" # "constant", "linear", "cosine", "cosine_with_restarts"
+lr_warmup_steps: 0
+adam_beta1: 0.9
+adam_beta2: 0.999
+adam_weight_decay: 1.0e-2
+adam_epsilon: 1.0e-8
+max_grad_norm: 1.0
+
+
+
+# 4. 数据
+data_config:
+  train_data_dir: "/app/code/texteditRoPE/train_data_dir" # 包含 content_images, style_images等的目录
+  # 如果你的文件夹名称不同，可以在这里指定
+  # content_folder: "content_images"
+  # style_folder: "style_images"
+  # gt_folder: "ground_truth_images"
+  # prompt_file: "prompts.txt"
+
+dataloader_num_workers: 1
+
+# 5. Pipeline 参数
+style_scale: 3.0 # 训练时使用的风格强度
+
+# 6. 日志和保存
+logging_dir: "logs"
+report_to: "wandb" # "wandb", "tensorboard"
+checkpointing_steps: 10

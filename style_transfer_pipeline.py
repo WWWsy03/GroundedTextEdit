@@ -663,6 +663,7 @@ class QwenImageEditPlusPipelineWithStyleControl(DiffusionPipeline, QwenImageLora
         callback_on_step_end_tensor_inputs: List[str] = ["latents"],
         max_sequence_length: int = 512,
         style_scale: float = 3.0, # 新增：风格强度缩放
+        training_mode: bool = False,
     ):
         r"""
         Function invoked when calling the pipeline for generation.

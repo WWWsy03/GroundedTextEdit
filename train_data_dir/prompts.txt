@@ -1,1 +1,4 @@
-把"BBQ"文字改成"knight"
+把文字"BBQ"改成"knight"
+把文字"luminous"改成"Average"
+把文字"ZIP AWAY"改成"opulent"
+把文字"C"改成"jade"
