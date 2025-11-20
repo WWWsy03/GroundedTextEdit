@@ -2,7 +2,7 @@ from style_transfer_pipeline import QwenImageEditPlusPipelineWithStyleControl
 #from style_transfer_processor import QwenDoubleStreamAttnProcessor2_0WithStyleControl
 from PIL import Image
 import torch
-
+from safetensors.torch import load_file
 # 1. 加载 Qwen 模型基础组件
 pipe = QwenImageEditPlusPipelineWithStyleControl.from_pretrained(
     "/app/cold1/Qwen-Image-Edit-2509", 
@@ -14,10 +14,40 @@ pipe.set_progress_bar_config(disable=None)
 # 3. 创建风格投影模
 
 
+checkpoint_path = "/app/code/texteditRoPE/qwenimage-style-control-output/checkpoint-60/style_control_layers.safetensors"
+
+print(f"正在加载 Style 权重: {checkpoint_path}")
+
+# 读取权重字典
+style_state_dict = load_file(checkpoint_path)
+
+# 【关键步骤】加载权重到 Transformer
+# strict=False 是必须的，因为 style_state_dict 只包含部分参数（style_k/v），
+# 而 transformer 包含所有参数。strict=False 允许只加载匹配的键。
+missing_keys, unexpected_keys = pipe.transformer.load_state_dict(style_state_dict, strict=False)
+
+# 验证加载是否成功
+# 我们期望 style_state_dict 里的所有键都被加载了，所以 unexpected_keys 应该为空（相对于 state_dict 而言）
+# 但在这里 unexpected_keys 指的是 transformer 里有但 state_dict 里没有的键（这会很多，不用管）
+# 我们主要关心的是：我们提供的权重是否都找到了对应的层。
+loaded_keys = style_state_dict.keys()
+print(f"成功加载了 {len(loaded_keys)} 个 Style 参数张量。")
+
+# 简单的验证打印
+if len(missing_keys) > 0:
+    # 只要 missing_keys 里不包含 'style_k_proj' 或 'style_v_proj' 就没事
+    style_missing = [k for k in missing_keys if "style_" in k]
+    if len(style_missing) > 0:
+        print(f"⚠️ 警告: 以下 Style 参数未能加载 (可能键名不匹配): {style_missing}")
+    else:
+        print("✅ 所有 Style Control 参数已成功注入模型！")
+        
+        
+
 # 加载图像
-content_image = Image.open("/app/code/texteditRoPE/assets/example1.jpg").convert("RGB")
-style_image = Image.open("/app/cold1/fonts/bench/ATR-bench/multi_letters/blue_lightning_knight.png").convert("RGB")
-prompt = "把图中文字'一起瓜分夏天的快乐'改成'Lets share the joy of summer'"
+content_image = Image.open("/app/code/texteditRoPE/train_data_dir/content_images/img1.jpg").convert("RGB")
+style_image = Image.open("/app/code/texteditRoPE/train_data_dir/style_images/style1.jpg").convert("RGB")
+prompt = "把文字'BBQ'改成'knight'"
 #style_image = style_image.resize((content_image.width, content_image.height))
 print(f"Style image size: {style_image.size}")
 inputs = {
@@ -37,4 +67,4 @@ inputs = {
 
 # 生成图像
 image = pipe(**inputs).images[0]
-image.save("output_with_style.png")
+image.save("output_with_style_loadcheckpoint60.png")

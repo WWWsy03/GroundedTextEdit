@@ -854,12 +854,12 @@ class QwenDoubleStreamAttnProcessor2_0WithStyleControl(nn.Module):
         self.style_v_proj = nn.Linear(style_context_dim, style_hidden_dim, bias=True)
         # 初始化为零，符合 IP-Adapter 的做法
         # 用小的随机值初始化，这样训练初期就能看到风格控制的效果
-        nn.init.normal_(self.style_k_proj.weight, std=0.01)
-        nn.init.zeros_(self.style_k_proj.bias)
-        nn.init.normal_(self.style_v_proj.weight, std=0.01) 
-        nn.init.zeros_(self.style_v_proj.bias)
-        # self.style_k_proj.to(dtype=torch.bfloat16,device="cuda")
-        # self.style_v_proj.to(dtype=torch.bfloat16,device="cuda")
+        # nn.init.normal_(self.style_k_proj.weight, std=0.01)
+        # nn.init.zeros_(self.style_k_proj.bias)
+        # nn.init.normal_(self.style_v_proj.weight, std=0.01) 
+        # nn.init.zeros_(self.style_v_proj.bias)
+        self.style_k_proj.to(dtype=torch.bfloat16,device="cuda")
+        self.style_v_proj.to(dtype=torch.bfloat16,device="cuda")
 
     def __call__(
         self,
@@ -881,7 +881,7 @@ class QwenDoubleStreamAttnProcessor2_0WithStyleControl(nn.Module):
         noise_patches_length = kwargs.get("noise_patches_length", None) # 噪声部分的 patch 数量
         content_patches_length = kwargs.get("content_patches_length", None) # 内容图像部分的 patch 数量
         style_scale = kwargs.get("style_scale", 1.0) # 控制风格强度的缩放因子
-        print(f"style_start_idx: {style_start_idx}, style_end_idx: {style_end_idx}, noise_patches_length: {noise_patches_length}, content_patches_length: {content_patches_length}")
+        #print(f"style_start_idx: {style_start_idx}, style_end_idx: {style_end_idx}, noise_patches_length: {noise_patches_length}, content_patches_length: {content_patches_length}")
 
         seq_txt = encoder_hidden_states.shape[1]
 
@@ -933,7 +933,7 @@ class QwenDoubleStreamAttnProcessor2_0WithStyleControl(nn.Module):
         # 应用 RoPE - 只取噪声+内容部分的编码
         if image_rotary_emb is not None:
             img_freqs, txt_freqs = image_rotary_emb
-            print(f"img_freqs shape: {img_freqs.shape}, txt_freqs shape: {txt_freqs.shape}")
+            #print(f"img_freqs shape: {img_freqs.shape}, txt_freqs shape: {txt_freqs.shape}")
             # 只取噪声+内容部分的位置编码
             img_freqs_nc = img_freqs[:noise_content_hidden_states.shape[1], :] if img_freqs is not None else None
             txt_freqs_used = txt_freqs  # 文本部分保持不变
@@ -982,7 +982,7 @@ class QwenDoubleStreamAttnProcessor2_0WithStyleControl(nn.Module):
             # 注意：这里需要从原始的噪声+内容 hidden_states 计算噪声部分的 query
             #print(f"11111noise_content_hidden_states shape: {noise_patches_length}")
             noise_hidden_states = noise_content_hidden_states[:,:noise_patches_length, :] # [B, L_noise, D_hidden]
-            print(f"noise_hidden_states shape: {noise_hidden_states.shape}")
+            #print(f"noise_hidden_states shape: {noise_hidden_states.shape}")
             img_query_noise = attn.to_q(noise_hidden_states).unflatten(-1, (attn.heads, -1)) # [B, H, L_noise, D]
             
             # 应用 Q 归一化

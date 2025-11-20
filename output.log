@@ -1,0 +1,234 @@
+Using RTX 4000 series which doesn't support faster communication speedups. Ensuring P2P and IB communications are disabled.
+W1120 08:40:31.641000 1289680 site-packages/torch/distributed/run.py:803] 
+W1120 08:40:31.641000 1289680 site-packages/torch/distributed/run.py:803] *****************************************
+W1120 08:40:31.641000 1289680 site-packages/torch/distributed/run.py:803] Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+W1120 08:40:31.641000 1289680 site-packages/torch/distributed/run.py:803] *****************************************
+Multiple distributions found for package optimum. Picked distribution: optimum-quanto
+Multiple distributions found for package optimum. Picked distribution: optimum-quanto
+Multiple distributions found for package optimum. Picked distribution: optimum-quanto
+Multiple distributions found for package optimum. Picked distribution: optimum-quanto
+/root/miniconda3/envs/qwenimage/lib/python3.12/site-packages/accelerate/accelerator.py:529: UserWarning: `log_with=wandb` was passed but no supported trackers are currently installed.
+  warnings.warn(f"`log_with={log_with}` was passed but no supported trackers are currently installed.")
+11/20/2025 08:40:38 - INFO - __main__ - Distributed environment: DistributedType.DEEPSPEED  Backend: nccl
+Num processes: 4
+Process index: 1
+Local process index: 1
+Device: cuda:1
+
+Mixed precision type: bf16
+ds_config: {'train_batch_size': 'auto', 'train_micro_batch_size_per_gpu': 'auto', 'gradient_accumulation_steps': 2, 'zero_optimization': {'stage': 3, 'offload_optimizer': {'device': 'cpu', 'nvme_path': None}, 'offload_param': {'device': 'cpu', 'nvme_path': None}, 'stage3_gather_16bit_weights_on_model_save': True}, 'gradient_clipping': 'auto', 'steps_per_print': inf, 'bf16': {'enabled': True}, 'fp16': {'enabled': False}}
+
+/root/miniconda3/envs/qwenimage/lib/python3.12/site-packages/accelerate/accelerator.py:529: UserWarning: `log_with=wandb` was passed but no supported trackers are currently installed.
+  warnings.warn(f"`log_with={log_with}` was passed but no supported trackers are currently installed.")
+11/20/2025 08:40:38 - INFO - __main__ - Distributed environment: DistributedType.DEEPSPEED  Backend: nccl
+Num processes: 4
+Process index: 2
+Local process index: 2
+Device: cuda:2
+
+Mixed precision type: bf16
+ds_config: {'train_batch_size': 'auto', 'train_micro_batch_size_per_gpu': 'auto', 'gradient_accumulation_steps': 2, 'zero_optimization': {'stage': 3, 'offload_optimizer': {'device': 'cpu', 'nvme_path': None}, 'offload_param': {'device': 'cpu', 'nvme_path': None}, 'stage3_gather_16bit_weights_on_model_save': True}, 'gradient_clipping': 'auto', 'steps_per_print': inf, 'bf16': {'enabled': True}, 'fp16': {'enabled': False}}
+
+/root/miniconda3/envs/qwenimage/lib/python3.12/site-packages/accelerate/accelerator.py:529: UserWarning: `log_with=wandb` was passed but no supported trackers are currently installed.
+  warnings.warn(f"`log_with={log_with}` was passed but no supported trackers are currently installed.")
+11/20/2025 08:40:38 - INFO - __main__ - Distributed environment: DistributedType.DEEPSPEED  Backend: nccl
+Num processes: 4
+Process index: 3
+Local process index: 3
+Device: cuda:3
+
+Mixed precision type: bf16
+ds_config: {'train_batch_size': 'auto', 'train_micro_batch_size_per_gpu': 'auto', 'gradient_accumulation_steps': 2, 'zero_optimization': {'stage': 3, 'offload_optimizer': {'device': 'cpu', 'nvme_path': None}, 'offload_param': {'device': 'cpu', 'nvme_path': None}, 'stage3_gather_16bit_weights_on_model_save': True}, 'gradient_clipping': 'auto', 'steps_per_print': inf, 'bf16': {'enabled': True}, 'fp16': {'enabled': False}}
+
+/root/miniconda3/envs/qwenimage/lib/python3.12/site-packages/accelerate/accelerator.py:529: UserWarning: `log_with=wandb` was passed but no supported trackers are currently installed.
+  warnings.warn(f"`log_with={log_with}` was passed but no supported trackers are currently installed.")
+Detected kernel version 5.4.0, which is below the recommended minimum of 5.5.0; this can cause the process to hang. It is recommended to upgrade the kernel to the minimum version or higher.
+11/20/2025 08:40:38 - INFO - __main__ - Distributed environment: DistributedType.DEEPSPEED  Backend: nccl
+Num processes: 4
+Process index: 0
+Local process index: 0
+Device: cuda:0
+
+Mixed precision type: bf16
+ds_config: {'train_batch_size': 'auto', 'train_micro_batch_size_per_gpu': 'auto', 'gradient_accumulation_steps': 2, 'zero_optimization': {'stage': 3, 'offload_optimizer': {'device': 'cpu', 'nvme_path': None}, 'offload_param': {'device': 'cpu', 'nvme_path': None}, 'stage3_gather_16bit_weights_on_model_save': True}, 'gradient_clipping': 'auto', 'steps_per_print': inf, 'bf16': {'enabled': True}, 'fp16': {'enabled': False}}
+
+All model checkpoint weights were used when initializing AutoencoderKLQwenImage.
+
+All the weights of AutoencoderKLQwenImage were initialized from the model checkpoint at /app/cold1/Qwen-Image-Edit-2509.
+If your task is similar to the task the model of the checkpoint was trained on, you can already use AutoencoderKLQwenImage for predictions without further training.
+Loading pipeline components...:   0%|          | 0/5 [00:00<?, ?it/s]Loading pipeline components...:   0%|          | 0/5 [00:00<?, ?it/s]Loading pipeline components...:   0%|          | 0/5 [00:00<?, ?it/s]Loading pipeline components...:   0%|          | 0/5 [00:00<?, ?it/s]Loading pipeline components...:  20%|██        | 1/5 [00:00<00:00,  5.88it/s]Loaded tokenizer as Qwen2Tokenizer from `tokenizer` subfolder of /app/cold1/Qwen-Image-Edit-2509.
+Loading pipeline components...:  20%|██        | 1/5 [00:00<00:00,  6.19it/s]Loading pipeline components...:  60%|██████    | 3/5 [00:00<00:00, 18.18it/s]Loaded processor as Qwen2VLProcessor from `processor` subfolder of /app/cold1/Qwen-Image-Edit-2509.
+Loading pipeline components...:  40%|████      | 2/5 [00:00<00:01,  2.31it/s]`torch_dtype` is deprecated! Use `dtype` instead!
+
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s][A
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s][A
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s][A
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s][A
+Loading checkpoint shards:  25%|██▌       | 1/4 [00:01<00:05,  1.71s/it][A
+Loading checkpoint shards:  25%|██▌       | 1/4 [00:01<00:05,  1.71s/it][A
+Loading checkpoint shards:  25%|██▌       | 1/4 [00:01<00:05,  1.71s/it][A
+Loading checkpoint shards:  25%|██▌       | 1/4 [00:01<00:05,  1.91s/it][A
+
+Loading checkpoint shards:  50%|█████     | 2/4 [00:03<00:03,  1.82s/it][ALoading checkpoint shards:  50%|█████     | 2/4 [00:03<00:03,  1.82s/it][A
+Loading checkpoint shards:  50%|█████     | 2/4 [00:03<00:03,  1.82s/it][A
+Loading checkpoint shards:  50%|█████     | 2/4 [00:03<00:03,  1.90s/it][A
+
+Loading checkpoint shards:  75%|███████▌  | 3/4 [00:05<00:01,  1.93s/it][ALoading checkpoint shards:  75%|███████▌  | 3/4 [00:05<00:01,  1.93s/it][A
+Loading checkpoint shards:  75%|███████▌  | 3/4 [00:05<00:01,  1.93s/it][A
+Loading checkpoint shards:  75%|███████▌  | 3/4 [00:05<00:01,  2.00s/it][A
+Loading checkpoint shards: 100%|██████████| 4/4 [00:06<00:00,  1.49s/it][ALoading checkpoint shards: 100%|██████████| 4/4 [00:06<00:00,  1.62s/it]
+Loading pipeline components...:  80%|████████  | 4/5 [00:10<00:02,  2.94s/it]
+Loading checkpoint shards: 100%|██████████| 4/4 [00:06<00:00,  1.50s/it][ALoading checkpoint shards: 100%|██████████| 4/4 [00:06<00:00,  1.62s/it]
+
+Loading checkpoint shards: 100%|██████████| 4/4 [00:06<00:00,  1.51s/it][ALoading checkpoint shards: 100%|██████████| 4/4 [00:06<00:00,  1.64s/it]
+Loading pipeline components...:  20%|██        | 1/5 [00:10<00:43, 10.99s/it]
+Loading checkpoint shards: 100%|██████████| 4/4 [00:06<00:00,  1.47s/it][ALoading checkpoint shards: 100%|██████████| 4/4 [00:06<00:00,  1.64s/it]
+Loaded text_encoder as Qwen2_5_VLForConditionalGeneration from `text_encoder` subfolder of /app/cold1/Qwen-Image-Edit-2509.
+Loading pipeline components...:  60%|██████    | 3/5 [00:10<00:09,  4.89s/it]Loaded scheduler as FlowMatchEulerDiscreteScheduler from `scheduler` subfolder of /app/cold1/Qwen-Image-Edit-2509.
+Loading pipeline components...: 100%|██████████| 5/5 [00:10<00:00,  2.20s/it]
+🔥开始热插拔 Attention Processors for Style Control...
+⚠️ 警告: 找不到 transformer.transformer_blocks。热插拔失败。
+✅ 热插拔完成！
+Loading pipeline components...:  40%|████      | 2/5 [00:11<00:13,  4.63s/it]Loading pipeline components...: 100%|██████████| 5/5 [00:11<00:00,  2.33s/it]Loading pipeline components...: 100%|██████████| 5/5 [00:11<00:00,  2.33s/it]
+🔥开始热插拔 Attention Processors for Style Control...
+⚠️ 警告: 找不到 transformer.transformer_blocks。热插拔失败。
+✅ 热插拔完成！
+Loading pipeline components...: 100%|██████████| 5/5 [00:11<00:00,  2.83s/it]Loading pipeline components...: 100%|██████████| 5/5 [00:11<00:00,  2.33s/it]
+🔥开始热插拔 Attention Processors for Style Control...
+⚠️ 警告: 找不到 transformer.transformer_blocks。热插拔失败。
+✅ 热插拔完成！
+Finished caching embeddings.
+Loading pipeline components...:  60%|██████    | 3/5 [00:11<00:05,  2.83s/it]Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]Loading pipeline components...: 100%|██████████| 5/5 [00:11<00:00,  2.37s/it]
+🔥开始热插拔 Attention Processors for Style Control...
+⚠️ 警告: 找不到 transformer.transformer_blocks。热插拔失败。
+✅ 热插拔完成！
+Finished caching embeddings.
+Finished caching embeddings.
+Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]Finished caching embeddings.
+Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]Loading checkpoint shards:  20%|██        | 1/5 [00:15<01:02, 15.69s/it]Loading checkpoint shards:  20%|██        | 1/5 [00:16<01:06, 16.55s/it]Loading checkpoint shards:  20%|██        | 1/5 [00:15<01:03, 15.93s/it]Loading checkpoint shards:  20%|██        | 1/5 [00:15<01:03, 15.95s/it]W1120 08:42:54.886000 1289680 site-packages/torch/distributed/elastic/agent/server/api.py:725] Received 2 death signal, shutting down workers
+W1120 08:42:54.889000 1289680 site-packages/torch/distributed/elastic/multiprocessing/api.py:908] Sending process 1290125 closing signal SIGINT
+W1120 08:42:54.890000 1289680 site-packages/torch/distributed/elastic/multiprocessing/api.py:908] Sending process 1290126 closing signal SIGINT
+W1120 08:42:54.891000 1289680 site-packages/torch/distributed/elastic/multiprocessing/api.py:908] Sending process 1290127 closing signal SIGINT
+W1120 08:42:54.892000 1289680 site-packages/torch/distributed/elastic/multiprocessing/api.py:908] Sending process 1290128 closing signal SIGINT
+Loading checkpoint shards:  20%|██        | 1/5 [02:04<08:16, 124.07s/it]
+[rank1]: Traceback (most recent call last):
+[rank1]:   File "/app/code/texteditRoPE/train_qwen_edit_style_kv.py", line 649, in <module>
+[rank1]:     main()
+[rank1]:   File "/app/code/texteditRoPE/train_qwen_edit_style_kv.py", line 289, in main
+[rank1]:     flux_transformer = QwenImageTransformer2DModel.from_pretrained(
+[rank1]:                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/root/miniconda3/envs/qwenimage/lib/python3.12/site-packages/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
+[rank1]:     return fn(*args, **kwargs)
+[rank1]:            ^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/root/miniconda3/envs/qwenimage/lib/python3.12/site-packages/diffusers/models/modeling_utils.py", line 1285, in from_pretrained
+[rank1]:     ) = cls._load_pretrained_model(
+[rank1]:         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/root/miniconda3/envs/qwenimage/lib/python3.12/site-packages/diffusers/models/modeling_utils.py", line 1667, in _load_pretrained_model
+[rank1]:     offload_index, state_dict_index, _mismatched_keys, _error_msgs = load_fn(shard_file)
+[rank1]:                                                                      ^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/root/miniconda3/envs/qwenimage/lib/python3.12/site-packages/diffusers/models/model_loading_utils.py", line 367, in _load_shard_file
+[rank1]:     offload_index, state_dict_index = load_model_dict_into_meta(
+[rank1]:                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/root/miniconda3/envs/qwenimage/lib/python3.12/site-packages/diffusers/models/model_loading_utils.py", line 273, in load_model_dict_into_meta
+[rank1]:     param = param.to(old_param.dtype)
+[rank1]:             ^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank1]: KeyboardInterrupt
+Loading checkpoint shards:  20%|██        | 1/5 [02:03<08:15, 123.95s/it]
+Loading checkpoint shards:  20%|██        | 1/5 [02:04<08:16, 124.06s/it]
+[rank2]: Traceback (most recent call last):
+[rank2]:   File "/app/code/texteditRoPE/train_qwen_edit_style_kv.py", line 649, in <module>
+[rank2]:     main()
+[rank2]:   File "/app/code/texteditRoPE/train_qwen_edit_style_kv.py", line 289, in main
+[rank2]:     flux_transformer = QwenImageTransformer2DModel.from_pretrained(
+[rank2]:                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank2]:   File "/root/miniconda3/envs/qwenimage/lib/python3.12/site-packages/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
+[rank2]:     return fn(*args, **kwargs)
+[rank2]:            ^^^^^^^^^^^^^^^^^^^
+[rank2]:   File "/root/miniconda3/envs/qwenimage/lib/python3.12/site-packages/diffusers/models/modeling_utils.py", line 1285, in from_pretrained
+[rank2]:     ) = cls._load_pretrained_model(
+[rank2]:         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank2]:   File "/root/miniconda3/envs/qwenimage/lib/python3.12/site-packages/diffusers/models/modeling_utils.py", line 1667, in _load_pretrained_model
+[rank2]:     offload_index, state_dict_index, _mismatched_keys, _error_msgs = load_fn(shard_file)
+[rank2]:                                                                      ^^^^^^^^^^^^^^^^^^^
+[rank2]:   File "/root/miniconda3/envs/qwenimage/lib/python3.12/site-packages/diffusers/models/model_loading_utils.py", line 367, in _load_shard_file
+[rank2]:     offload_index, state_dict_index = load_model_dict_into_meta(
+[rank2]:                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank2]:   File "/root/miniconda3/envs/qwenimage/lib/python3.12/site-packages/diffusers/models/model_loading_utils.py", line 273, in load_model_dict_into_meta
+[rank2]:     param = param.to(old_param.dtype)
+[rank2]:             ^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank2]: KeyboardInterrupt
+Loading checkpoint shards:  20%|██        | 1/5 [02:04<08:18, 124.74s/it]
+[rank3]: Traceback (most recent call last):
+[rank3]:   File "/app/code/texteditRoPE/train_qwen_edit_style_kv.py", line 649, in <module>
+[rank3]:     main()
+[rank3]:   File "/app/code/texteditRoPE/train_qwen_edit_style_kv.py", line 289, in main
+[rank3]:     flux_transformer = QwenImageTransformer2DModel.from_pretrained(
+[rank3]:                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank3]:   File "/root/miniconda3/envs/qwenimage/lib/python3.12/site-packages/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
+[rank3]:     return fn(*args, **kwargs)
+[rank3]:            ^^^^^^^^^^^^^^^^^^^
+[rank3]:   File "/root/miniconda3/envs/qwenimage/lib/python3.12/site-packages/diffusers/models/modeling_utils.py", line 1285, in from_pretrained
+[rank3]:     ) = cls._load_pretrained_model(
+[rank3]:         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank3]:   File "/root/miniconda3/envs/qwenimage/lib/python3.12/site-packages/diffusers/models/modeling_utils.py", line 1667, in _load_pretrained_model
+[rank3]:     offload_index, state_dict_index, _mismatched_keys, _error_msgs = load_fn(shard_file)
+[rank3]:                                                                      ^^^^^^^^^^^^^^^^^^^
+[rank3]:   File "/root/miniconda3/envs/qwenimage/lib/python3.12/site-packages/diffusers/models/model_loading_utils.py", line 367, in _load_shard_file
+[rank3]:     offload_index, state_dict_index = load_model_dict_into_meta(
+[rank3]:                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank3]:   File "/root/miniconda3/envs/qwenimage/lib/python3.12/site-packages/diffusers/models/model_loading_utils.py", line 273, in load_model_dict_into_meta
+[rank3]:     param = param.to(old_param.dtype)
+[rank3]:             ^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank3]: KeyboardInterrupt
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/app/code/texteditRoPE/train_qwen_edit_style_kv.py", line 649, in <module>
+[rank0]:     main()
+[rank0]:   File "/app/code/texteditRoPE/train_qwen_edit_style_kv.py", line 289, in main
+[rank0]:     flux_transformer = QwenImageTransformer2DModel.from_pretrained(
+[rank0]:                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/root/miniconda3/envs/qwenimage/lib/python3.12/site-packages/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
+[rank0]:     return fn(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/root/miniconda3/envs/qwenimage/lib/python3.12/site-packages/diffusers/models/modeling_utils.py", line 1285, in from_pretrained
+[rank0]:     ) = cls._load_pretrained_model(
+[rank0]:         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/root/miniconda3/envs/qwenimage/lib/python3.12/site-packages/diffusers/models/modeling_utils.py", line 1667, in _load_pretrained_model
+[rank0]:     offload_index, state_dict_index, _mismatched_keys, _error_msgs = load_fn(shard_file)
+[rank0]:                                                                      ^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/root/miniconda3/envs/qwenimage/lib/python3.12/site-packages/diffusers/models/model_loading_utils.py", line 367, in _load_shard_file
+[rank0]:     offload_index, state_dict_index = load_model_dict_into_meta(
+[rank0]:                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/root/miniconda3/envs/qwenimage/lib/python3.12/site-packages/diffusers/models/model_loading_utils.py", line 273, in load_model_dict_into_meta
+[rank0]:     param = param.to(old_param.dtype)
+[rank0]:             ^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]: KeyboardInterrupt
+[rank0]:[W1120 08:42:58.658589167 ProcessGroupNCCL.cpp:1524] Warning: WARNING: destroy_process_group() was not called before program exit, which can leak resources. For more info, please see https://pytorch.org/docs/stable/distributed.html#shutdown (function operator())
+Traceback (most recent call last):
+  File "/root/miniconda3/envs/qwenimage/bin/accelerate", line 7, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/root/miniconda3/envs/qwenimage/lib/python3.12/site-packages/accelerate/commands/accelerate_cli.py", line 50, in main
+    args.func(args)
+  File "/root/miniconda3/envs/qwenimage/lib/python3.12/site-packages/accelerate/commands/launch.py", line 1220, in launch_command
+    deepspeed_launcher(args)
+  File "/root/miniconda3/envs/qwenimage/lib/python3.12/site-packages/accelerate/commands/launch.py", line 906, in deepspeed_launcher
+    distrib_run.run(args)
+  File "/root/miniconda3/envs/qwenimage/lib/python3.12/site-packages/torch/distributed/run.py", line 927, in run
+    elastic_launch(
+  File "/root/miniconda3/envs/qwenimage/lib/python3.12/site-packages/torch/distributed/launcher/api.py", line 156, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/qwenimage/lib/python3.12/site-packages/torch/distributed/launcher/api.py", line 284, in launch_agent
+    result = agent.run()
+             ^^^^^^^^^^^
+  File "/root/miniconda3/envs/qwenimage/lib/python3.12/site-packages/torch/distributed/elastic/metrics/api.py", line 138, in wrapper
+    result = f(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/qwenimage/lib/python3.12/site-packages/torch/distributed/elastic/agent/server/api.py", line 717, in run
+    result = self._invoke_run(role)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/qwenimage/lib/python3.12/site-packages/torch/distributed/elastic/agent/server/api.py", line 881, in _invoke_run
+    time.sleep(monitor_interval)
+  File "/root/miniconda3/envs/qwenimage/lib/python3.12/site-packages/torch/distributed/elastic/multiprocessing/api.py", line 85, in _terminate_process_handler
+    raise SignalException(f"Process {os.getpid()} got signal: {sigval}", sigval=sigval)
+torch.distributed.elastic.multiprocessing.api.SignalException: Process 1289680 got signal: 2
