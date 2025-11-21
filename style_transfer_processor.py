@@ -3,7 +3,6 @@ import torch.nn as nn
 import torch.nn.functional as F
 from typing import Optional,Tuple,Callable, List, Optional, Tuple, Union
 from transformers import Qwen2_5_VLForConditionalGeneration
-from diffusers.models.attention_processor import Attention
 from diffusers.utils.torch_utils import maybe_allow_in_graph
 from diffusers.models.attention_dispatch import dispatch_attention_fn
 from diffusers.models.transformers.transformer_qwenimage import apply_rotary_emb_qwen
@@ -592,6 +591,7 @@ class Attention(nn.Module):
         # cross_attention_kwargs = {k: w for k, w in cross_attention_kwargs.items() if k in attn_parameters}
         #Attention 类的 forward 方法本身几乎不做任何计算。 
         #Attention.forward 被调用时，它立刻调用 self.processor（也就是 QwenDoubleStreamAttnProcessor2_0）的 forward 方法。
+        print(f"Attention.forward called{cross_attention_kwargs}")
         return self.processor( #QwenDoubleStreamAttnProcessor2_0 现在拿到了所有数据（hidden_states, encoder_hidden_states）和所有零件（self.to_q, self.to_k, self.to_v, self.norm_q, self.norm_k 等）。
             self, #它把 self（即 Attention 类的实例本身）作为第一个参数传递给 processor。
             hidden_states,
@@ -885,6 +885,15 @@ class QwenDoubleStreamAttnProcessor2_0WithStyleControl():
         #style_scale = kwargs.get("style_scale", 1.0) # 控制风格强度的缩放因子
         #print(f"style_start_idx: {style_start_idx}, style_end_idx: {style_end_idx}, noise_patches_length: {noise_patches_length}, content_patches_length: {content_patches_length}")
 
+        if isinstance(style_start_idx, torch.Tensor):
+            style_start_idx = style_start_idx.flatten()[0].item()
+            
+        if isinstance(style_end_idx, torch.Tensor):
+            style_end_idx = style_end_idx.flatten()[0].item()
+            
+        if isinstance(noise_patches_length, torch.Tensor):
+            noise_patches_length = noise_patches_length.flatten()[0].item()
+        
         seq_txt = encoder_hidden_states.shape[1]
         
         # ============================================================
@@ -950,6 +959,7 @@ class QwenDoubleStreamAttnProcessor2_0WithStyleControl():
         if image_rotary_emb is not None:
             img_freqs, txt_freqs = image_rotary_emb
             #print(f"img_freqs shape: {img_freqs.shape}, txt_freqs shape: {txt_freqs.shape}")
+            #print(f"img_freqs shape: {img_freqs.shape}, txt_freqs shape: {txt_freqs.shape}")
             # 只取噪声+内容部分的位置编码
             img_freqs_nc = img_freqs
             txt_freqs_used = txt_freqs 
@@ -997,9 +1007,7 @@ class QwenDoubleStreamAttnProcessor2_0WithStyleControl():
             # 从噪声+内容的注意力输出中提取噪声部分的 query（用于风格调制）
             # 注意：这里需要从原始的噪声+内容 hidden_states 计算噪声部分的 query
             #print(f"11111noise_content_hidden_states shape: {noise_patches_length}")
-            print(f"hidden_states shape: {hidden_states.shape}")
-            print(f"noise_patches_length: {noise_patches_length}")
-            noise_hidden_states = hidden_states[:,:noise_patches_length, :] # [B, L_noise, D_hidden]
+            noise_hidden_states = noise_content_hidden_states[:,:noise_patches_length, :] # [B, L_noise, D_hidden]
             #print(f"noise_hidden_states shape: {noise_hidden_states.shape}")
             img_query_noise = attn.to_q(noise_hidden_states).unflatten(-1, (attn.heads, -1)) # [B, H, L_noise, D]
             
@@ -1032,13 +1040,76 @@ class QwenDoubleStreamAttnProcessor2_0WithStyleControl():
             # 重塑回原始格式
             style_attention = style_attention.flatten(2, 3) # [B, L_noise_patches, H*D]
             style_attention = style_attention.to(img_query_noise.dtype)
+            
+            # # # ======================= 🔍 Debug 打印代码开始 =======================
+            # # # 提取原始的噪声部分输出
+            # original_noise_output = img_attn_output_full[:, :noise_patches_length, :]
+            
+            # # 计算 Scaled Style Contribution
+            # style_contribution = self.style_scale * style_attention
+
+            # # 为了不影响计算图，使用 .detach() 获取数值
+            # # 注意：如果在多卡训练，所有卡都会打印，可能会刷屏。
+            # # 建议只看几步后就停止，或者配合 if random.random() < 0.01: 来抽样打印
+            if torch.distributed.is_initialized():
+                is_main_process = torch.distributed.get_rank() == 0
+            else:
+                is_main_process = True
+
+            if is_main_process: # 只在主进程打印
+            #     orig_abs_mean = original_noise_output.abs().mean().item()
+            #     style_raw_abs_mean = style_attention.abs().mean().item()
+            #     contrib_abs_mean = style_contribution.abs().mean().item()
+                
+            #     # 避免除以零
+            #     ratio = contrib_abs_mean / (orig_abs_mean + 1e-8)
+
+                  print(f"\n📊 [Style Debug] Scale: {self.style_scale}")
+            #     print(f"  1. Original Noise Output Abs Mean: {orig_abs_mean:.6f}")
+            #     print(f"  2. Style Attention Raw Abs Mean:   {style_raw_abs_mean:.6f}")
+            #     print(f"  3. Scaled Contribution Abs Mean:   {contrib_abs_mean:.6f}")
+            #     print(f"  👉 Impact Ratio (Style/Original):  {ratio:.4%} (建议值: 训练初期 1%~10% 较稳妥)")
+            #     print("-" * 40)
+            # # ======================= 🔍 Debug 打印代码结束 =======================
+
+            # 【修改点 2】：类型转换
+            # 缩放因子,因为stylescale只能是bf16，不能太大
+            user_scale_multiplier =500.0
+            
+            # 将 float32 的参数转为和 hidden_states 一样的类型 (如 bfloat16) 再进行计算
+            # 这样既保留了参数更新的高精度，又兼容了模型的计算类型
+            scale_val = self.style_scale.to(hidden_states.dtype) * user_scale_multiplier
+            print(f"Style scale_val used in attention: {scale_val}")
 
             # 将风格信息加到噪声部分上
-            print(f"style_attention shape: {style_attention.shape}, img_attn_output_full before shape: {img_attn_output_full.shape}")
-            print(f"style_scale: {self.style_scale}")
-            img_attn_output_full[:, :noise_patches_length, :] = img_attn_output_full[:, :noise_patches_length, :] + self.style_scale * style_attention
-
-        
+            img_attn_output_full[:, :noise_patches_length, :] = \
+                img_attn_output_full[:, :noise_patches_length, :] + scale_val * style_attention
+        # --- 3. 最终输出：拼接完整的噪声+内容+风格结果 ---
+        # 如果原始 hidden_states 包含风格部分，需要将其附加到结果中
+        if style_start_idx is not None and style_end_idx is not None:
+            # 从原始 hidden_states 中提取风格部分（不参与注意力计算，直接保留）
+            style_part = hidden_states[:, style_start_idx:style_end_idx, :]
+            # 拼接：噪声+内容（已处理）+ 风格（原始）
+            final_img_output = torch.cat([
+                img_attn_output_full[:, :noise_patches_length, :],  # 处理后的噪声部分
+                img_attn_output_full[:, noise_patches_length:, :],  # 处理后的内容部分
+                style_part  # 原始风格部分（未参与第一步注意力）
+            ], dim=1)
+        else:
+            # 如果没有风格索引，使用其他方式确定如何拼接
+            if noise_patches_length is not None and content_patches_length is not None:
+                # 提取原始的风格部分
+                if hidden_states.shape[1] > (noise_patches_length + content_patches_length):
+                    original_style_part = hidden_states[:, (noise_patches_length + content_patches_length):, :]
+                    final_img_output = torch.cat([
+                        img_attn_output_full[:, :noise_patches_length, :],  # 处理后的噪声
+                        img_attn_output_full[:, noise_patches_length:, :],  # 处理后的内容
+                        original_style_part  # 原始风格
+                    ], dim=1)
+                else:
+                    final_img_output = img_attn_output_full  # 没有额外的风格部分
+            else:
+                final_img_output = img_attn_output_full
 
         # 返回完整的图像和文本注意力输出
         # final_img_output 的形状与输入 hidden_states 相同：[B, L_noise + L_content + L_style, H*D]

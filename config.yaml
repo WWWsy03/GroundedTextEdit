@@ -34,6 +34,8 @@ tpu_use_cluster: false
 tpu_use_sudo: false
 use_cpu: false
 
+
+
 # 1. 模型路径
 pretrained_model_name_or_path: "/app/cold1/Qwen-Image-Edit-2509" # e.g., "Qwen/Qwen-Image-Edit"
 output_dir: "/app/code/texteditRoPE/qwenimage-style-control-output"

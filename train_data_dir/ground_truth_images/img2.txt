@@ -1,0 +1,1 @@
+把文字"Average"的样式改成"luminous"的样式

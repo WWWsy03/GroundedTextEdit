@@ -3,6 +3,7 @@ from style_transfer_pipeline import QwenImageEditPlusPipelineWithStyleControl
 from PIL import Image
 import torch
 from safetensors.torch import load_file
+from safetensors.torch import load_file
 # 1. 加载 Qwen 模型基础组件
 pipe = QwenImageEditPlusPipelineWithStyleControl.from_pretrained(
     "/app/cold1/Qwen-Image-Edit-2509", 
@@ -47,6 +48,9 @@ if len(missing_keys) > 0:
         
         
 # 加载图像
+content_image = Image.open("/app/code/texteditRoPE/train_data_dir/content_images/img1.jpg").convert("RGB")
+style_image = Image.open("/app/code/texteditRoPE/train_data_dir/style_images/style1.jpg").convert("RGB")
+prompt = "把文字'BBQ'改成'knight'"
 content_image = Image.open("/app/code/texteditRoPE/train_data_dir/content_images/img1.jpg").convert("RGB")
 style_image = Image.open("/app/code/texteditRoPE/train_data_dir/style_images/style1.jpg").convert("RGB")
 prompt = "把文字'BBQ'改成'knight'"
