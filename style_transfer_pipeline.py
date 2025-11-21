@@ -492,6 +492,7 @@ class QwenImageEditPlusPipelineWithStyleControl(DiffusionPipeline, QwenImageLora
             ]
             image_latents = torch.cat(image_latents, dim=0)
         else:
+            print("Encoding image through VAE...")
             image_latents = retrieve_latents(self.vae.encode(image), generator=generator, sample_mode="argmax")
         latents_mean = (
             torch.tensor(self.vae.config.latents_mean)
@@ -509,7 +510,7 @@ class QwenImageEditPlusPipelineWithStyleControl(DiffusionPipeline, QwenImageLora
 
     def prepare_latents(
         self,
-        images, # 包含 content_image 和 style_image
+        images, # 包含 content_image 和 style_image 的vae结果，是一个列表
         batch_size,
         num_channels_latents,
         height,
@@ -519,6 +520,8 @@ class QwenImageEditPlusPipelineWithStyleControl(DiffusionPipeline, QwenImageLora
         generator,
         latents=None,
     ):
+        print(f"batchsize: {batch_size}, height: {height}, width: {width}")
+        
         # VAE applies 8x compression on images but we must also account for packing which requires
         # latent height and width to be divisible by 2.
         height_packed = 2 * (int(height) // (self.vae_scale_factor * 2))
@@ -811,6 +814,7 @@ class QwenImageEditPlusPipelineWithStyleControl(DiffusionPipeline, QwenImageLora
                 condition_images.append(self.image_processor.resize(img, condition_height, condition_width))
                 vae_images.append(self.image_processor.preprocess(img, vae_height, vae_width).unsqueeze(2))
 
+        print(f"vae shape:{vae_images[0].shape}")
         has_neg_prompt = negative_prompt is not None or (
             negative_prompt_embeds is not None and negative_prompt_embeds_mask is not None
         )
@@ -847,7 +851,8 @@ class QwenImageEditPlusPipelineWithStyleControl(DiffusionPipeline, QwenImageLora
 
         # 4. Prepare latent variables
         num_channels_latents = self.transformer.config.in_channels // 4
-        #print(f"num_channels_latents: {num_channels_latents}")
+        print(f"num_channels_latents: {num_channels_latents}")
+        print(f"num_images_per_prompt: {num_images_per_prompt}")
         # ********************************************
         latents, image_latents, L_noise, style_image_latents, style_start_idx, style_end_idx = self.prepare_latents(
             vae_images, # 传入包含 content 和 style 的图像列表
