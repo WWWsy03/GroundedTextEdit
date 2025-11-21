@@ -14,7 +14,7 @@ pipe.set_progress_bar_config(disable=None)
 # 3. 创建风格投影模
 
 
-checkpoint_path = "/app/code/texteditRoPE/qwenimage-style-control-output/checkpoint-60/style_control_layers.safetensors"
+checkpoint_path = "/app/code/texteditRoPE/qwenimage-style-control-output/checkpoint-25/style_control_layers.safetensors"
 
 print(f"正在加载 Style 权重: {checkpoint_path}")
 
@@ -31,7 +31,7 @@ missing_keys, unexpected_keys = pipe.transformer.load_state_dict(style_state_dic
 # 但在这里 unexpected_keys 指的是 transformer 里有但 state_dict 里没有的键（这会很多，不用管）
 # 我们主要关心的是：我们提供的权重是否都找到了对应的层。
 loaded_keys = style_state_dict.keys()
-print(f"成功加载了 {len(loaded_keys)} 个 Style 参数张量。")
+#print(f"成功加载了 {loaded_keys} 个 Style 参数张量。")
 
 # 简单的验证打印
 if len(missing_keys) > 0:
@@ -67,4 +67,4 @@ inputs = {
 
 # 生成图像
 image = pipe(**inputs).images[0]
-image.save("output_with_style_loadcheckpoint60.png")
+image.save("output_with_style_loadcheckpoint25.png")

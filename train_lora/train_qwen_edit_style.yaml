@@ -1,0 +1,66 @@
+compute_environment: LOCAL_MACHINE
+debug: false
+deepspeed_config:
+  gradient_accumulation_steps: 2
+  offload_optimizer_device: cpu
+  offload_param_device: cpu
+  zero3_init_flag: true
+  zero3_save_16bit_model: true
+  zero_stage: 3
+distributed_type: DEEPSPEED
+downcast_bf16: 'no'
+enable_cpu_affinity: false
+machine_rank: 0
+main_training_function: main
+mixed_precision: bf16
+num_machines: 1
+num_processes: 4
+rdzv_backend: static
+same_network: true
+tpu_env: []
+tpu_use_cluster: false
+tpu_use_sudo: false
+use_cpu: false
+
+
+
+
+
+
+pretrained_model_name_or_path: /app/cold1/Qwen-Image-Edit-2509
+data_config:
+  train_batch_size: 4
+  num_workers: 4
+  img_size: 1024
+  caption_dropout_rate: 0.1
+  img_dir: /app/code/texteditRoPE/train_data_dir/ground_truth_images
+  control_dir: /app/code/texteditRoPE/train_data_dir/content_images
+  style_dir: /app/code/texteditRoPE/train_data_dir/style_images
+  random_ratio: false # support multi crop preprocessing
+  caption_type: txt
+report_to: wandb
+train_batch_size: 4
+output_dir: /app/code/texteditRoPE/qwenimage-style-control-lora-output
+max_train_steps: 300000
+learning_rate: 2e-5
+lr_scheduler: constant
+lr_warmup_steps: 10
+adam_beta1: 0.9
+adam_beta2: 0.999
+adam_weight_decay: 0.01
+adam_epsilon: 1e-8
+max_grad_norm: 1.0
+logging_dir: logs
+checkpointing_steps: 2
+checkpoints_total_limit: 10
+tracker_project_name: style-edit-qwen-test-lora
+resume_from_checkpoint: latest
+gradient_accumulation_steps: 1
+precompute_text_embeddings: true
+precompute_image_embeddings: true
+quantize: false
+adam8bit: false
+save_cache_on_disk: true
+cache_dir: /app/code/texteditRoPE/train_data_dir/cached_embeddings
+rank: 16
+

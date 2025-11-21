@@ -1,1 +1,1 @@
-把文字"BBQ"改成"knight"
+把文字"knight"的样式改成"BBQ"的样式

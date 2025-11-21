@@ -32,12 +32,12 @@ import numpy as np
 from optimum.quanto import quantize, qfloat8, freeze
 import bitsandbytes as bnb
 logger = get_logger(__name__, log_level="INFO")
-from style_transfer_processor import QwenDoubleStreamAttnProcessor2_0WithStyleControl
-from style_transfer_pipeline import QwenImageEditPlusPipelineWithStyleControl
+from style_transfer_processor_doubelstyle import QwenDoubleStreamAttnProcessor2_0WithStyleControl
+from style_transfer_pipeline_doublestyle import QwenImageEditPlusPipelineWithStyleControl
 import gc
 import math
 TARGET_IMAGE_SIZE = 1024
-STYLE_SCALE = 1.0
+STYLE_SCALE = 10000.0
 def parse_args():
     parser = argparse.ArgumentParser(description="Simple example of a training script.")
     parser.add_argument(
@@ -131,6 +131,7 @@ def main():
         subfolder="vae",
     )
     vae.to(accelerator.device, dtype=weight_dtype)
+    #*********************
     text_encoding_pipeline = QwenImageEditPlusPipelineWithStyleControl.from_pretrained(
         args.pretrained_model_name_or_path, transformer=None, vae=vae, torch_dtype=weight_dtype
     )
@@ -364,9 +365,12 @@ def main():
             # 解冻 style_k_proj 和 style_v_proj
             module.style_k_proj.requires_grad_(True)
             module.style_v_proj.requires_grad_(True)
+            module.style_scale.requires_grad_(True)
+            module.style_scale.data = module.style_scale.data.to(torch.float32)
             
             trainable_params.extend(module.style_k_proj.parameters())
             trainable_params.extend(module.style_v_proj.parameters())
+            trainable_params.append(module.style_scale)
 
     # 计算并打印参数量
     total_trainable_params = sum(p.numel() for p in trainable_params)
@@ -414,7 +418,7 @@ def main():
     flux_transformer, optimizer, train_dataloader, lr_scheduler = accelerator.prepare(
         flux_transformer, optimizer, train_dataloader, lr_scheduler
     )
-
+    
     initial_global_step = 0
 
     if accelerator.is_main_process:
@@ -433,7 +437,7 @@ def main():
         disable=not accelerator.is_local_main_process,
     )
     vae_scale_factor = 2 ** len(vae.temperal_downsample)
-    for epoch in range(100):
+    for epoch in range(10000):
         train_loss = 0.0
         for step, batch in enumerate(train_dataloader):
             #print(f"batch keys: {list(batch[0].keys())}")
@@ -622,7 +626,7 @@ def main():
                         # 注意：get_state_dict 返回的是完整参数名
                         # 我们需要筛选出 style_k_proj 和 style_v_proj
                         for k, v in full_state_dict.items():
-                            if "style_k_proj" in k or "style_v_proj" in k:
+                            if "style_k_proj" in k or "style_v_proj" in k or "style_scale" in k:
                                 trainable_state_dict[k] = v.cpu()
                         
                         # 5. 保存

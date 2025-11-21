@@ -1,1 +1,1 @@
-把文字"ZIP AWAY"改成"opulent"
+把文字"opulent"的样式改成"ZIP AWAY"的样式
