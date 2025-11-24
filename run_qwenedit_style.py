@@ -16,7 +16,7 @@ pipe.set_progress_bar_config(disable=None)
 
 
 
-checkpoint_path = "/app/cold1/qwen-style-checkpoint/double-style/checkpoint-840/style_control_layers.safetensors"
+checkpoint_path = "/app/cold1/qwen-style-checkpoint/double-style/checkpoint-5840/style_control_layers.safetensors"
 
 print(f"正在加载 Style 权重: {checkpoint_path}")
 
@@ -70,4 +70,4 @@ inputs = {
 
 # 生成图像
 image = pipe(**inputs).images[0]
-image.save("output_with_style_test_doubel_checkpoint840scale1.png")
+image.save("output_with_style_test_doubel_checkpoint5840.png")
