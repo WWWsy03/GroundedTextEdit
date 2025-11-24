@@ -416,7 +416,7 @@ def main():
         num_warmup_steps=args.lr_warmup_steps * accelerator.num_processes,
         num_training_steps=args.max_train_steps * accelerator.num_processes,
     )
-    # global_step = 0
+    global_step = 0
     # dataset1 = ToyDataset(num_samples=100, input_dim=10)
     # dataloader1 = DataLoader(dataset1, batch_size=8, shuffle=True)
 

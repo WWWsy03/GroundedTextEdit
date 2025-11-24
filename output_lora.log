@@ -1,16 +1,15 @@
 /root/miniconda3/envs/qwenimage/lib/python3.12/site-packages/accelerate/utils/launch.py:447: UserWarning: Port `29500` is already in use. Accelerate will attempt to launch in a standalone-like mode by finding an open port automatically for this session. If this current attempt fails, or for more control in future runs, please specify a different port (e.g., `--main_process_port <your_chosen_port>`) or use `--main_process_port 0` for automatic selection in your launch command or Accelerate config file.
   warnings.warn(
 Using RTX 4000 series which doesn't support faster communication speedups. Ensuring P2P and IB communications are disabled.
-W1121 09:07:36.039000 1837231 site-packages/torch/distributed/run.py:803] 
-W1121 09:07:36.039000 1837231 site-packages/torch/distributed/run.py:803] *****************************************
-W1121 09:07:36.039000 1837231 site-packages/torch/distributed/run.py:803] Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
-W1121 09:07:36.039000 1837231 site-packages/torch/distributed/run.py:803] *****************************************
+W1121 14:52:04.611000 2851332 site-packages/torch/distributed/run.py:803] 
+W1121 14:52:04.611000 2851332 site-packages/torch/distributed/run.py:803] *****************************************
+W1121 14:52:04.611000 2851332 site-packages/torch/distributed/run.py:803] Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+W1121 14:52:04.611000 2851332 site-packages/torch/distributed/run.py:803] *****************************************
 Multiple distributions found for package optimum. Picked distribution: optimum-quanto
 Multiple distributions found for package optimum. Picked distribution: optimum-quanto
 Multiple distributions found for package optimum. Picked distribution: optimum-quanto
-Multiple distributions found for package optimum. Picked distribution: optimum-quanto
-11/21/2025 09:07:43 - INFO - __main__ - Distributed environment: DistributedType.DEEPSPEED  Backend: nccl
-Num processes: 4
+11/21/2025 14:52:11 - INFO - __main__ - Distributed environment: DistributedType.DEEPSPEED  Backend: nccl
+Num processes: 3
 Process index: 2
 Local process index: 2
 Device: cuda:2
@@ -18,17 +17,8 @@ Device: cuda:2
 Mixed precision type: bf16
 ds_config: {'train_batch_size': 'auto', 'train_micro_batch_size_per_gpu': 'auto', 'gradient_accumulation_steps': 2, 'zero_optimization': {'stage': 3, 'offload_optimizer': {'device': 'cpu', 'nvme_path': None}, 'offload_param': {'device': 'cpu', 'nvme_path': None}, 'stage3_gather_16bit_weights_on_model_save': True}, 'gradient_clipping': 'auto', 'steps_per_print': inf, 'bf16': {'enabled': True}, 'fp16': {'enabled': False}}
 
-11/21/2025 09:07:43 - INFO - __main__ - Distributed environment: DistributedType.DEEPSPEED  Backend: nccl
-Num processes: 4
-Process index: 3
-Local process index: 3
-Device: cuda:3
-
-Mixed precision type: bf16
-ds_config: {'train_batch_size': 'auto', 'train_micro_batch_size_per_gpu': 'auto', 'gradient_accumulation_steps': 2, 'zero_optimization': {'stage': 3, 'offload_optimizer': {'device': 'cpu', 'nvme_path': None}, 'offload_param': {'device': 'cpu', 'nvme_path': None}, 'stage3_gather_16bit_weights_on_model_save': True}, 'gradient_clipping': 'auto', 'steps_per_print': inf, 'bf16': {'enabled': True}, 'fp16': {'enabled': False}}
-
-11/21/2025 09:07:43 - INFO - __main__ - Distributed environment: DistributedType.DEEPSPEED  Backend: nccl
-Num processes: 4
+11/21/2025 14:52:11 - INFO - __main__ - Distributed environment: DistributedType.DEEPSPEED  Backend: nccl
+Num processes: 3
 Process index: 1
 Local process index: 1
 Device: cuda:1
@@ -37,8 +27,8 @@ Mixed precision type: bf16
 ds_config: {'train_batch_size': 'auto', 'train_micro_batch_size_per_gpu': 'auto', 'gradient_accumulation_steps': 2, 'zero_optimization': {'stage': 3, 'offload_optimizer': {'device': 'cpu', 'nvme_path': None}, 'offload_param': {'device': 'cpu', 'nvme_path': None}, 'stage3_gather_16bit_weights_on_model_save': True}, 'gradient_clipping': 'auto', 'steps_per_print': inf, 'bf16': {'enabled': True}, 'fp16': {'enabled': False}}
 
 Detected kernel version 5.4.0, which is below the recommended minimum of 5.5.0; this can cause the process to hang. It is recommended to upgrade the kernel to the minimum version or higher.
-11/21/2025 09:07:43 - INFO - __main__ - Distributed environment: DistributedType.DEEPSPEED  Backend: nccl
-Num processes: 4
+11/21/2025 14:52:11 - INFO - __main__ - Distributed environment: DistributedType.DEEPSPEED  Backend: nccl
+Num processes: 3
 Process index: 0
 Local process index: 0
 Device: cuda:0
@@ -50,53 +40,215 @@ All model checkpoint weights were used when initializing AutoencoderKLQwenImage.
 
 All the weights of AutoencoderKLQwenImage were initialized from the model checkpoint at /app/cold1/Qwen-Image-Edit-2509.
 If your task is similar to the task the model of the checkpoint was trained on, you can already use AutoencoderKLQwenImage for predictions without further training.
-Loading pipeline components...:   0%|          | 0/5 [00:00<?, ?it/s]Loaded scheduler as FlowMatchEulerDiscreteScheduler from `scheduler` subfolder of /app/cold1/Qwen-Image-Edit-2509.
-Loading pipeline components...:   0%|          | 0/5 [00:00<?, ?it/s]Loading pipeline components...:   0%|          | 0/5 [00:00<?, ?it/s]Loading pipeline components...:   0%|          | 0/5 [00:00<?, ?it/s]Loaded tokenizer as Qwen2Tokenizer from `tokenizer` subfolder of /app/cold1/Qwen-Image-Edit-2509.
-Loading pipeline components...:  60%|██████    | 3/5 [00:00<00:00,  4.03it/s]Loading pipeline components...:  60%|██████    | 3/5 [00:01<00:00,  2.18it/s]Loaded processor as Qwen2VLProcessor from `processor` subfolder of /app/cold1/Qwen-Image-Edit-2509.
-Loading pipeline components...:  80%|████████  | 4/5 [00:01<00:00,  2.59it/s]`torch_dtype` is deprecated! Use `dtype` instead!
-Loading pipeline components...:  80%|████████  | 4/5 [00:01<00:00,  2.74it/s]
-Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s][A
-Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s][A
-Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s][A
-Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s][A
-
-Loading checkpoint shards:  25%|██▌       | 1/4 [00:36<01:49, 36.45s/it][ALoading checkpoint shards:  25%|██▌       | 1/4 [00:36<01:49, 36.46s/it][A
-Loading checkpoint shards:  25%|██▌       | 1/4 [00:36<01:49, 36.45s/it][A
-Loading checkpoint shards:  25%|██▌       | 1/4 [00:36<01:49, 36.55s/it][A
-
-Loading checkpoint shards:  50%|█████     | 2/4 [01:22<01:24, 42.19s/it][ALoading checkpoint shards:  50%|█████     | 2/4 [01:22<01:24, 42.19s/it][A
-Loading checkpoint shards:  50%|█████     | 2/4 [01:22<01:24, 42.19s/it][A
-Loading checkpoint shards:  50%|█████     | 2/4 [01:22<01:24, 42.26s/it][A
-Loading checkpoint shards:  75%|███████▌  | 3/4 [01:43<00:32, 32.32s/it][A
-Loading checkpoint shards:  75%|███████▌  | 3/4 [01:43<00:32, 32.32s/it][A
-Loading checkpoint shards:  75%|███████▌  | 3/4 [01:43<00:32, 32.32s/it][A
-Loading checkpoint shards:  75%|███████▌  | 3/4 [01:43<00:32, 32.33s/it][A
-Loading checkpoint shards: 100%|██████████| 4/4 [01:55<00:00, 24.25s/it][ALoading checkpoint shards: 100%|██████████| 4/4 [01:55<00:00, 28.78s/it]
-
-
-Loading checkpoint shards: 100%|██████████| 4/4 [01:55<00:00, 24.23s/it][ALoading checkpoint shards: 100%|██████████| 4/4 [01:55<00:00, 24.26s/it][ALoading checkpoint shards: 100%|██████████| 4/4 [01:55<00:00, 28.78s/it]
-Loading checkpoint shards: 100%|██████████| 4/4 [01:55<00:00, 28.78s/it]
-
-Loading checkpoint shards: 100%|██████████| 4/4 [01:55<00:00, 24.26s/it][ALoading checkpoint shards: 100%|██████████| 4/4 [01:55<00:00, 28.78s/it]
-Loading pipeline components...:  60%|██████    | 3/5 [02:00<01:20, 40.05s/it]Loading pipeline components...:  20%|██        | 1/5 [02:00<08:00, 120.20s/it]Loading pipeline components...: 100%|██████████| 5/5 [02:00<00:00, 37.68s/it]Loaded text_encoder as Qwen2_5_VLForConditionalGeneration from `text_encoder` subfolder of /app/cold1/Qwen-Image-Edit-2509.
-Loading pipeline components...: 100%|██████████| 5/5 [02:00<00:00, 24.04s/it]
-Loading pipeline components...: 100%|██████████| 5/5 [02:00<00:00, 37.74s/it]Loading pipeline components...: 100%|██████████| 5/5 [02:00<00:00, 24.04s/it]
-🔥开始热插拔 Attention Processors for Style Control...
-⚠️ 警告: 找不到 transformer.transformer_blocks。热插拔失败。
-✅ 热插拔完成！
-🔥开始热插拔 Attention Processors for Style Control...
-⚠️ 警告: 找不到 transformer.transformer_blocks。热插拔失败。
-✅ 热插拔完成！
-Loading pipeline components...:  80%|████████  | 4/5 [02:00<00:27, 27.37s/it]Loading pipeline components...:  40%|████      | 2/5 [02:00<02:29, 49.93s/it] Finished precomputing embeddings.
-Loading pipeline components...: 100%|██████████| 5/5 [02:01<00:00, 18.79s/it]Loading pipeline components...: 100%|██████████| 5/5 [02:01<00:00, 24.21s/it]
-🔥开始热插拔 Attention Processors for Style Control...
-⚠️ 警告: 找不到 transformer.transformer_blocks。热插拔失败。
-✅ 热插拔完成！
-Loading pipeline components...:  60%|██████    | 3/5 [02:01<00:54, 27.21s/it]Loading pipeline components...: 100%|██████████| 5/5 [02:01<00:00, 24.22s/it]
-🔥开始热插拔 Attention Processors for Style Control...
-⚠️ 警告: 找不到 transformer.transformer_blocks。热插拔失败。
-✅ 热插拔完成！
-Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]Finished precomputing embeddings.
-Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]Finished precomputing embeddings.
-Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]Finished precomputing embeddings.
-Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]
+Loading pipeline components...:   0%|          | 0/5 [00:00<?, ?it/s]Loading pipeline components...:   0%|          | 0/5 [00:00<?, ?it/s]`torch_dtype` is deprecated! Use `dtype` instead!
+Loading pipeline components...:   0%|          | 0/5 [00:00<?, ?it/s]Loading pipeline components...:  20%|██        | 1/5 [00:00<00:01,  3.46it/s]Loading pipeline components...:  60%|██████    | 3/5 [00:00<00:00,  4.03it/s]Loading pipeline components...:  80%|████████  | 4/5 [00:00<00:00,  4.29it/s]W1121 14:52:13.975000 2851332 site-packages/torch/distributed/elastic/agent/server/api.py:725] Received 2 death signal, shutting down workers
+W1121 14:52:13.977000 2851332 site-packages/torch/distributed/elastic/multiprocessing/api.py:908] Sending process 2851849 closing signal SIGINT
+W1121 14:52:13.978000 2851332 site-packages/torch/distributed/elastic/multiprocessing/api.py:908] Sending process 2851850 closing signal SIGINT
+W1121 14:52:13.978000 2851332 site-packages/torch/distributed/elastic/multiprocessing/api.py:908] Sending process 2851851 closing signal SIGINT
+Loading pipeline components...:  20%|██        | 1/5 [00:01<00:06,  1.52s/it]
+[rank1]: Traceback (most recent call last):
+[rank1]:   File "/app/code/texteditRoPE/train_lora/train_qwen_edit_lora.py", line 645, in <module>
+[rank1]:     main()
+[rank1]:   File "/app/code/texteditRoPE/train_lora/train_qwen_edit_lora.py", line 154, in main
+[rank1]:     text_encoding_pipeline = QwenImageEditPlusPipelineWithStyleControl.from_pretrained(
+[rank1]:                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/root/miniconda3/envs/qwenimage/lib/python3.12/site-packages/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
+[rank1]:     return fn(*args, **kwargs)
+[rank1]:            ^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/root/miniconda3/envs/qwenimage/lib/python3.12/site-packages/diffusers/pipelines/pipeline_utils.py", line 1021, in from_pretrained
+[rank1]:     loaded_sub_model = load_sub_model(
+[rank1]:                        ^^^^^^^^^^^^^^^
+[rank1]:   File "/root/miniconda3/envs/qwenimage/lib/python3.12/site-packages/diffusers/pipelines/pipeline_loading_utils.py", line 876, in load_sub_model
+[rank1]:     loaded_sub_model = load_method(os.path.join(cached_folder, name), **loading_kwargs)
+[rank1]:                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/root/miniconda3/envs/qwenimage/lib/python3.12/site-packages/transformers/modeling_utils.py", line 277, in _wrapper
+[rank1]:     return func(*args, **kwargs)
+[rank1]:            ^^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/root/miniconda3/envs/qwenimage/lib/python3.12/site-packages/transformers/modeling_utils.py", line 4971, in from_pretrained
+[rank1]:     model = cls(config, *model_args, **model_kwargs)
+[rank1]:             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/root/miniconda3/envs/qwenimage/lib/python3.12/site-packages/deepspeed/runtime/zero/partition_parameters.py", line 529, in wrapper
+[rank1]:     f(module, *args, **kwargs)
+[rank1]:   File "/root/miniconda3/envs/qwenimage/lib/python3.12/site-packages/transformers/models/qwen2_5_vl/modeling_qwen2_5_vl.py", line 1369, in __init__
+[rank1]:     self.model = Qwen2_5_VLModel(config)
+[rank1]:                  ^^^^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/root/miniconda3/envs/qwenimage/lib/python3.12/site-packages/deepspeed/runtime/zero/partition_parameters.py", line 529, in wrapper
+[rank1]:     f(module, *args, **kwargs)
+[rank1]:   File "/root/miniconda3/envs/qwenimage/lib/python3.12/site-packages/transformers/models/qwen2_5_vl/modeling_qwen2_5_vl.py", line 938, in __init__
+[rank1]:     self.language_model = Qwen2_5_VLTextModel._from_config(config.text_config)
+[rank1]:                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/root/miniconda3/envs/qwenimage/lib/python3.12/site-packages/transformers/modeling_utils.py", line 277, in _wrapper
+[rank1]:     return func(*args, **kwargs)
+[rank1]:            ^^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/root/miniconda3/envs/qwenimage/lib/python3.12/site-packages/transformers/modeling_utils.py", line 2311, in _from_config
+[rank1]:     model = cls(config, **kwargs)
+[rank1]:             ^^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/root/miniconda3/envs/qwenimage/lib/python3.12/site-packages/deepspeed/runtime/zero/partition_parameters.py", line 529, in wrapper
+[rank1]:     f(module, *args, **kwargs)
+[rank1]:   File "/root/miniconda3/envs/qwenimage/lib/python3.12/site-packages/transformers/models/qwen2_5_vl/modeling_qwen2_5_vl.py", line 777, in __init__
+[rank1]:     self.embed_tokens = nn.Embedding(config.vocab_size, config.hidden_size, self.padding_idx)
+[rank1]:                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/root/miniconda3/envs/qwenimage/lib/python3.12/site-packages/deepspeed/runtime/zero/partition_parameters.py", line 539, in wrapper
+[rank1]:     self._post_init_method(module)
+[rank1]:   File "/root/miniconda3/envs/qwenimage/lib/python3.12/site-packages/deepspeed/runtime/zero/partition_parameters.py", line 1156, in _post_init_method
+[rank1]:     self._zero_init_param(param)
+[rank1]:   File "/root/miniconda3/envs/qwenimage/lib/python3.12/site-packages/deepspeed/runtime/zero/partition_parameters.py", line 1115, in _zero_init_param
+[rank1]:     param.partition()
+[rank1]:   File "/root/miniconda3/envs/qwenimage/lib/python3.12/site-packages/deepspeed/runtime/zero/partition_parameters.py", line 1487, in partition
+[rank1]:     self._partition(param_list, has_been_updated=has_been_updated, free_data=True)
+[rank1]:   File "/root/miniconda3/envs/qwenimage/lib/python3.12/site-packages/deepspeed/runtime/zero/partition_parameters.py", line 1636, in _partition
+[rank1]:     self._partition_param(param, has_been_updated=has_been_updated, free_data=True)
+[rank1]:   File "/root/miniconda3/envs/qwenimage/lib/python3.12/site-packages/deepspeed/utils/nvtx.py", line 20, in wrapped_fn
+[rank1]:     ret_val = func(*args, **kwargs)
+[rank1]:               ^^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/root/miniconda3/envs/qwenimage/lib/python3.12/site-packages/deepspeed/runtime/zero/partition_parameters.py", line 1729, in _partition_param
+[rank1]:     param.ds_tensor.copy_(src_tensor)
+[rank1]: KeyboardInterrupt
+Loading pipeline components...:  80%|████████  | 4/5 [00:01<00:00,  2.49it/s]
+Loading pipeline components...:   0%|          | 0/5 [00:01<?, ?it/s]
+[rank2]: Traceback (most recent call last):
+[rank2]:   File "/app/code/texteditRoPE/train_lora/train_qwen_edit_lora.py", line 645, in <module>
+[rank2]:     main()
+[rank2]:   File "/app/code/texteditRoPE/train_lora/train_qwen_edit_lora.py", line 154, in main
+[rank2]:     text_encoding_pipeline = QwenImageEditPlusPipelineWithStyleControl.from_pretrained(
+[rank2]:                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank2]:   File "/root/miniconda3/envs/qwenimage/lib/python3.12/site-packages/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
+[rank2]:     return fn(*args, **kwargs)
+[rank2]:            ^^^^^^^^^^^^^^^^^^^
+[rank2]:   File "/root/miniconda3/envs/qwenimage/lib/python3.12/site-packages/diffusers/pipelines/pipeline_utils.py", line 1021, in from_pretrained
+[rank2]:     loaded_sub_model = load_sub_model(
+[rank2]:                        ^^^^^^^^^^^^^^^
+[rank2]:   File "/root/miniconda3/envs/qwenimage/lib/python3.12/site-packages/diffusers/pipelines/pipeline_loading_utils.py", line 876, in load_sub_model
+[rank2]:     loaded_sub_model = load_method(os.path.join(cached_folder, name), **loading_kwargs)
+[rank2]:                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank2]:   File "/root/miniconda3/envs/qwenimage/lib/python3.12/site-packages/transformers/modeling_utils.py", line 277, in _wrapper
+[rank2]:     return func(*args, **kwargs)
+[rank2]:            ^^^^^^^^^^^^^^^^^^^^^
+[rank2]:   File "/root/miniconda3/envs/qwenimage/lib/python3.12/site-packages/transformers/modeling_utils.py", line 4971, in from_pretrained
+[rank2]:     model = cls(config, *model_args, **model_kwargs)
+[rank2]:             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank2]:   File "/root/miniconda3/envs/qwenimage/lib/python3.12/site-packages/deepspeed/runtime/zero/partition_parameters.py", line 529, in wrapper
+[rank2]:     f(module, *args, **kwargs)
+[rank2]:   File "/root/miniconda3/envs/qwenimage/lib/python3.12/site-packages/transformers/models/qwen2_5_vl/modeling_qwen2_5_vl.py", line 1369, in __init__
+[rank2]:     self.model = Qwen2_5_VLModel(config)
+[rank2]:                  ^^^^^^^^^^^^^^^^^^^^^^^
+[rank2]:   File "/root/miniconda3/envs/qwenimage/lib/python3.12/site-packages/deepspeed/runtime/zero/partition_parameters.py", line 529, in wrapper
+[rank2]:     f(module, *args, **kwargs)
+[rank2]:   File "/root/miniconda3/envs/qwenimage/lib/python3.12/site-packages/transformers/models/qwen2_5_vl/modeling_qwen2_5_vl.py", line 938, in __init__
+[rank2]:     self.language_model = Qwen2_5_VLTextModel._from_config(config.text_config)
+[rank2]:                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank2]:   File "/root/miniconda3/envs/qwenimage/lib/python3.12/site-packages/transformers/modeling_utils.py", line 277, in _wrapper
+[rank2]:     return func(*args, **kwargs)
+[rank2]:            ^^^^^^^^^^^^^^^^^^^^^
+[rank2]:   File "/root/miniconda3/envs/qwenimage/lib/python3.12/site-packages/transformers/modeling_utils.py", line 2311, in _from_config
+[rank2]:     model = cls(config, **kwargs)
+[rank2]:             ^^^^^^^^^^^^^^^^^^^^^
+[rank2]:   File "/root/miniconda3/envs/qwenimage/lib/python3.12/site-packages/deepspeed/runtime/zero/partition_parameters.py", line 529, in wrapper
+[rank2]:     f(module, *args, **kwargs)
+[rank2]:   File "/root/miniconda3/envs/qwenimage/lib/python3.12/site-packages/transformers/models/qwen2_5_vl/modeling_qwen2_5_vl.py", line 777, in __init__
+[rank2]:     self.embed_tokens = nn.Embedding(config.vocab_size, config.hidden_size, self.padding_idx)
+[rank2]:                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank2]:   File "/root/miniconda3/envs/qwenimage/lib/python3.12/site-packages/deepspeed/runtime/zero/partition_parameters.py", line 539, in wrapper
+[rank2]:     self._post_init_method(module)
+[rank2]:   File "/root/miniconda3/envs/qwenimage/lib/python3.12/site-packages/deepspeed/runtime/zero/partition_parameters.py", line 1156, in _post_init_method
+[rank2]:     self._zero_init_param(param)
+[rank2]:   File "/root/miniconda3/envs/qwenimage/lib/python3.12/site-packages/deepspeed/runtime/zero/partition_parameters.py", line 1115, in _zero_init_param
+[rank2]:     param.partition()
+[rank2]:   File "/root/miniconda3/envs/qwenimage/lib/python3.12/site-packages/deepspeed/runtime/zero/partition_parameters.py", line 1487, in partition
+[rank2]:     self._partition(param_list, has_been_updated=has_been_updated, free_data=True)
+[rank2]:   File "/root/miniconda3/envs/qwenimage/lib/python3.12/site-packages/deepspeed/runtime/zero/partition_parameters.py", line 1636, in _partition
+[rank2]:     self._partition_param(param, has_been_updated=has_been_updated, free_data=True)
+[rank2]:   File "/root/miniconda3/envs/qwenimage/lib/python3.12/site-packages/deepspeed/utils/nvtx.py", line 20, in wrapped_fn
+[rank2]:     ret_val = func(*args, **kwargs)
+[rank2]:               ^^^^^^^^^^^^^^^^^^^^^
+[rank2]:   File "/root/miniconda3/envs/qwenimage/lib/python3.12/site-packages/deepspeed/runtime/zero/partition_parameters.py", line 1729, in _partition_param
+[rank2]:     param.ds_tensor.copy_(src_tensor)
+[rank2]: KeyboardInterrupt
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/app/code/texteditRoPE/train_lora/train_qwen_edit_lora.py", line 645, in <module>
+[rank0]:     main()
+[rank0]:   File "/app/code/texteditRoPE/train_lora/train_qwen_edit_lora.py", line 154, in main
+[rank0]:     text_encoding_pipeline = QwenImageEditPlusPipelineWithStyleControl.from_pretrained(
+[rank0]:                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/root/miniconda3/envs/qwenimage/lib/python3.12/site-packages/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
+[rank0]:     return fn(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/root/miniconda3/envs/qwenimage/lib/python3.12/site-packages/diffusers/pipelines/pipeline_utils.py", line 1021, in from_pretrained
+[rank0]:     loaded_sub_model = load_sub_model(
+[rank0]:                        ^^^^^^^^^^^^^^^
+[rank0]:   File "/root/miniconda3/envs/qwenimage/lib/python3.12/site-packages/diffusers/pipelines/pipeline_loading_utils.py", line 876, in load_sub_model
+[rank0]:     loaded_sub_model = load_method(os.path.join(cached_folder, name), **loading_kwargs)
+[rank0]:                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/root/miniconda3/envs/qwenimage/lib/python3.12/site-packages/transformers/modeling_utils.py", line 277, in _wrapper
+[rank0]:     return func(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/root/miniconda3/envs/qwenimage/lib/python3.12/site-packages/transformers/modeling_utils.py", line 4971, in from_pretrained
+[rank0]:     model = cls(config, *model_args, **model_kwargs)
+[rank0]:             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/root/miniconda3/envs/qwenimage/lib/python3.12/site-packages/deepspeed/runtime/zero/partition_parameters.py", line 529, in wrapper
+[rank0]:     f(module, *args, **kwargs)
+[rank0]:   File "/root/miniconda3/envs/qwenimage/lib/python3.12/site-packages/transformers/models/qwen2_5_vl/modeling_qwen2_5_vl.py", line 1369, in __init__
+[rank0]:     self.model = Qwen2_5_VLModel(config)
+[rank0]:                  ^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/root/miniconda3/envs/qwenimage/lib/python3.12/site-packages/deepspeed/runtime/zero/partition_parameters.py", line 529, in wrapper
+[rank0]:     f(module, *args, **kwargs)
+[rank0]:   File "/root/miniconda3/envs/qwenimage/lib/python3.12/site-packages/transformers/models/qwen2_5_vl/modeling_qwen2_5_vl.py", line 938, in __init__
+[rank0]:     self.language_model = Qwen2_5_VLTextModel._from_config(config.text_config)
+[rank0]:                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/root/miniconda3/envs/qwenimage/lib/python3.12/site-packages/transformers/modeling_utils.py", line 277, in _wrapper
+[rank0]:     return func(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/root/miniconda3/envs/qwenimage/lib/python3.12/site-packages/transformers/modeling_utils.py", line 2311, in _from_config
+[rank0]:     model = cls(config, **kwargs)
+[rank0]:             ^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/root/miniconda3/envs/qwenimage/lib/python3.12/site-packages/deepspeed/runtime/zero/partition_parameters.py", line 529, in wrapper
+[rank0]:     f(module, *args, **kwargs)
+[rank0]:   File "/root/miniconda3/envs/qwenimage/lib/python3.12/site-packages/transformers/models/qwen2_5_vl/modeling_qwen2_5_vl.py", line 777, in __init__
+[rank0]:     self.embed_tokens = nn.Embedding(config.vocab_size, config.hidden_size, self.padding_idx)
+[rank0]:                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/root/miniconda3/envs/qwenimage/lib/python3.12/site-packages/deepspeed/runtime/zero/partition_parameters.py", line 539, in wrapper
+[rank0]:     self._post_init_method(module)
+[rank0]:   File "/root/miniconda3/envs/qwenimage/lib/python3.12/site-packages/deepspeed/runtime/zero/partition_parameters.py", line 1156, in _post_init_method
+[rank0]:     self._zero_init_param(param)
+[rank0]:   File "/root/miniconda3/envs/qwenimage/lib/python3.12/site-packages/deepspeed/runtime/zero/partition_parameters.py", line 1115, in _zero_init_param
+[rank0]:     param.partition()
+[rank0]:   File "/root/miniconda3/envs/qwenimage/lib/python3.12/site-packages/deepspeed/runtime/zero/partition_parameters.py", line 1487, in partition
+[rank0]:     self._partition(param_list, has_been_updated=has_been_updated, free_data=True)
+[rank0]:   File "/root/miniconda3/envs/qwenimage/lib/python3.12/site-packages/deepspeed/runtime/zero/partition_parameters.py", line 1636, in _partition
+[rank0]:     self._partition_param(param, has_been_updated=has_been_updated, free_data=True)
+[rank0]:   File "/root/miniconda3/envs/qwenimage/lib/python3.12/site-packages/deepspeed/utils/nvtx.py", line 20, in wrapped_fn
+[rank0]:     ret_val = func(*args, **kwargs)
+[rank0]:               ^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/root/miniconda3/envs/qwenimage/lib/python3.12/site-packages/deepspeed/runtime/zero/partition_parameters.py", line 1729, in _partition_param
+[rank0]:     param.ds_tensor.copy_(src_tensor)
+[rank0]: KeyboardInterrupt
+[rank0]:[W1121 14:52:14.676975269 ProcessGroupNCCL.cpp:1524] Warning: WARNING: destroy_process_group() was not called before program exit, which can leak resources. For more info, please see https://pytorch.org/docs/stable/distributed.html#shutdown (function operator())
+Traceback (most recent call last):
+  File "/root/miniconda3/envs/qwenimage/bin/accelerate", line 7, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/root/miniconda3/envs/qwenimage/lib/python3.12/site-packages/accelerate/commands/accelerate_cli.py", line 50, in main
+    args.func(args)
+  File "/root/miniconda3/envs/qwenimage/lib/python3.12/site-packages/accelerate/commands/launch.py", line 1220, in launch_command
+    deepspeed_launcher(args)
+  File "/root/miniconda3/envs/qwenimage/lib/python3.12/site-packages/accelerate/commands/launch.py", line 906, in deepspeed_launcher
+    distrib_run.run(args)
+  File "/root/miniconda3/envs/qwenimage/lib/python3.12/site-packages/torch/distributed/run.py", line 927, in run
+    elastic_launch(
+  File "/root/miniconda3/envs/qwenimage/lib/python3.12/site-packages/torch/distributed/launcher/api.py", line 156, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/qwenimage/lib/python3.12/site-packages/torch/distributed/launcher/api.py", line 284, in launch_agent
+    result = agent.run()
+             ^^^^^^^^^^^
+  File "/root/miniconda3/envs/qwenimage/lib/python3.12/site-packages/torch/distributed/elastic/metrics/api.py", line 138, in wrapper
+    result = f(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/qwenimage/lib/python3.12/site-packages/torch/distributed/elastic/agent/server/api.py", line 717, in run
+    result = self._invoke_run(role)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/qwenimage/lib/python3.12/site-packages/torch/distributed/elastic/agent/server/api.py", line 881, in _invoke_run
+    time.sleep(monitor_interval)
+  File "/root/miniconda3/envs/qwenimage/lib/python3.12/site-packages/torch/distributed/elastic/multiprocessing/api.py", line 85, in _terminate_process_handler
+    raise SignalException(f"Process {os.getpid()} got signal: {sigval}", sigval=sigval)
+torch.distributed.elastic.multiprocessing.api.SignalException: Process 2851332 got signal: 2
