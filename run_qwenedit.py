@@ -30,18 +30,17 @@ pipeline = QwenImageEditPlusPipeline.from_pretrained(
 
 pipeline.set_progress_bar_config(disable=None)
 
-image_ori = Image.open("/app/code/texteditRoPE/samples/time.png").convert("RGB")
-image_mask = Image.open("/app/code/texteditRoPE/samples/generated_mask.png").convert("L")
-image_con = Image.open("/app/code/texteditRoPE/samples/time_con.png").convert("RGB").resize((900, 1350))
-     
+content_image = Image.open("/app/code/texteditRoPE/train_data_dir/content_images/img1.jpg").convert("RGB")
+content_image = Image.open("/app/code/texteditRoPE/train_data_dir/style_images/style1.jpg").convert("RGB")
+prompt = "把文字\"knight\"的样式改成\"BBQ\"的样式，保持文字内容不变"
 # 配置输入参数
 inputs = {
-    "image": [image_ori,image_con],
-    "prompt": "把图1中文字'The WHELL OF TIME'改成'时间之轮'，文字布局与第二张图相同，文字样式与第一张图原本文字样式相同",
-    #"generator": torch.manual_seed(0),
+    "image": [content_image,content_image],
+    "prompt": prompt,
+    "generator": torch.manual_seed(0),
     "true_cfg_scale": 4.0,
     "negative_prompt": " ",
-    "num_inference_steps": 10,
+    "num_inference_steps": 50,
     "guidance_scale": 1.0,
     "num_images_per_prompt": 1,
 }
@@ -50,6 +49,6 @@ inputs = {
 with torch.inference_mode():
     output = pipeline(**inputs)
     output_image = output.images[0]
-    output_image.save("/app/code/texteditRoPE/results/输入两张图qwen原生.png")
+    output_image.save("/app/code/texteditRoPE/results/风格控制knight原版.png")
     #print(f"Edited image saved at: {output_path}")
     

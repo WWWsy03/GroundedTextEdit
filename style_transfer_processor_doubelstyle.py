@@ -852,7 +852,7 @@ class QwenDoubleStreamAttnProcessor2_0WithStyleControl(nn.Module):
         # 输入维度是 style_image_latents 的最后一个维度
         self.style_k_proj = nn.Linear(style_context_dim, style_hidden_dim, bias=True)
         self.style_v_proj = nn.Linear(style_context_dim, style_hidden_dim, bias=True)
-        self.style_scale = nn.Parameter(torch.tensor(10.0))
+        self.style_scale = nn.Parameter(torch.tensor(100.0))
         # 初始化为零，符合 IP-Adapter 的做法
         # 用小的随机值初始化，这样训练初期就能看到风格控制的效果
         nn.init.normal_(self.style_k_proj.weight, std=0.01)
@@ -860,9 +860,9 @@ class QwenDoubleStreamAttnProcessor2_0WithStyleControl(nn.Module):
         nn.init.normal_(self.style_v_proj.weight, std=0.01) 
         nn.init.zeros_(self.style_v_proj.bias)
         #训练的时候要注释掉
-        # self.style_k_proj.to(dtype=torch.bfloat16,device="cuda")
-        # self.style_v_proj.to(dtype=torch.bfloat16,device="cuda")
-        # self.style_scale.to(dtype=torch.bfloat16,device="cuda")
+        self.style_k_proj.to(dtype=torch.bfloat16,device="cuda")
+        self.style_v_proj.to(dtype=torch.bfloat16,device="cuda")
+        self.style_scale.to(dtype=torch.bfloat16,device="cuda")
         
 
     def __call__(
@@ -1035,7 +1035,8 @@ class QwenDoubleStreamAttnProcessor2_0WithStyleControl(nn.Module):
             # 将风格信息加到噪声部分上
             #print(f"style_attention shape: {style_attention.shape}, img_attn_output_full before shape: {img_attn_output_full.shape}")
             #print(f"style_scale: {self.style_scale}")
-            img_attn_output_full[:, :noise_patches_length, :] = img_attn_output_full[:, :noise_patches_length, :] + self.style_scale * style_attention
+            #print(f"stylescale{self.style_scale}")
+            img_attn_output_full[:, :noise_patches_length, :] = img_attn_output_full[:, :noise_patches_length, :] + 1 * style_attention
 
         
 

@@ -1,4 +1,4 @@
-from style_transfer_pipeline import QwenImageEditPlusPipelineWithStyleControl
+from style_transfer_pipeline_doublestyle import QwenImageEditPlusPipelineWithStyleControl
 #from style_transfer_processor import QwenDoubleStreamAttnProcessor2_0WithStyleControl
 from PIL import Image
 import torch
@@ -16,7 +16,7 @@ pipe.set_progress_bar_config(disable=None)
 
 
 
-checkpoint_path = "/app/cold1/checkpoint-220/style_control_layers.safetensors"
+checkpoint_path = "/app/cold1/qwen-style-checkpoint/double-style/checkpoint-840/style_control_layers.safetensors"
 
 print(f"正在加载 Style 权重: {checkpoint_path}")
 
@@ -33,7 +33,7 @@ missing_keys, unexpected_keys = pipe.transformer.load_state_dict(style_state_dic
 # 但在这里 unexpected_keys 指的是 transformer 里有但 state_dict 里没有的键（这会很多，不用管）
 # 我们主要关心的是：我们提供的权重是否都找到了对应的层。
 loaded_keys = style_state_dict.keys()
-#print(f"成功加载了 {loaded_keys} 个 Style 参数张量。")
+print(f"成功加载了 {loaded_keys} 个 Style 参数张量。")
 
 # 简单的验证打印
 if len(missing_keys) > 0:
@@ -50,10 +50,7 @@ if len(missing_keys) > 0:
 # 加载图像
 content_image = Image.open("/app/code/texteditRoPE/train_data_dir/content_images/img1.jpg").convert("RGB")
 style_image = Image.open("/app/code/texteditRoPE/train_data_dir/style_images/style1.jpg").convert("RGB")
-prompt = "把文字'BBQ'改成'knight'"
-content_image = Image.open("/app/code/texteditRoPE/train_data_dir/content_images/img1.jpg").convert("RGB")
-style_image = Image.open("/app/code/texteditRoPE/train_data_dir/style_images/style1.jpg").convert("RGB")
-prompt = "把文字'BBQ'改成'knight'"
+prompt = "把文字\"knight\"的样式改成\"BBQ\"的样式,保持文字内容不变"
 #style_image = style_image.resize((content_image.width, content_image.height))
 print(f"Style image size: {style_image.size}")
 inputs = {
@@ -73,4 +70,4 @@ inputs = {
 
 # 生成图像
 image = pipe(**inputs).images[0]
-image.save("output_with_style_testcheckpoint220scale5000.png")
+image.save("output_with_style_test_doubel_checkpoint840scale1.png")

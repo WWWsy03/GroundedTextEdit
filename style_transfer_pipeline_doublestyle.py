@@ -8,7 +8,7 @@ import torch.nn.functional as F
 from transformers import CLIPVisionModelWithProjection, CLIPImageProcessor
 
 # 导入你刚创建的 Processor
-from style_transfer_processor import QwenDoubleStreamAttnProcessor2_0WithStyleControl
+from style_transfer_processor_doubelstyle import QwenDoubleStreamAttnProcessor2_0WithStyleControl
 
 # Copyright 2025 Qwen-Image Team and The HuggingFace Team. All rights reserved.
 #
