@@ -25,8 +25,6 @@ use_cpu: false
 
 
 
-
-
 pretrained_model_name_or_path: /app/cold1/Qwen-Image-Edit-2509
 data_config:
   train_batch_size: 4
