@@ -3,6 +3,7 @@ from style_transfer_pipeline import QwenImageEditPlusPipelineWithStyleControl
 from PIL import Image
 import torch
 from safetensors.torch import load_file
+from safetensors.torch import load_file
 # 1. 加载 Qwen 模型基础组件
 pipe = QwenImageEditPlusPipelineWithStyleControl.from_pretrained(
     "/app/cold1/Qwen-Image-Edit-2509", 
@@ -14,7 +15,8 @@ pipe.set_progress_bar_config(disable=None)
 # 3. 创建风格投影模
 
 
-checkpoint_path = "/app/code/texteditRoPE/qwenimage-style-control-output/checkpoint-25/style_control_layers.safetensors"
+
+checkpoint_path = "/app/cold1/checkpoint-220/style_control_layers.safetensors"
 
 print(f"正在加载 Style 权重: {checkpoint_path}")
 
@@ -43,8 +45,12 @@ if len(missing_keys) > 0:
         print("✅ 所有 Style Control 参数已成功注入模型！")
         
         
-
+        
+        
 # 加载图像
+content_image = Image.open("/app/code/texteditRoPE/train_data_dir/content_images/img1.jpg").convert("RGB")
+style_image = Image.open("/app/code/texteditRoPE/train_data_dir/style_images/style1.jpg").convert("RGB")
+prompt = "把文字'BBQ'改成'knight'"
 content_image = Image.open("/app/code/texteditRoPE/train_data_dir/content_images/img1.jpg").convert("RGB")
 style_image = Image.open("/app/code/texteditRoPE/train_data_dir/style_images/style1.jpg").convert("RGB")
 prompt = "把文字'BBQ'改成'knight'"
@@ -61,10 +67,10 @@ inputs = {
     "num_inference_steps": 50,
     "guidance_scale": 1.0,
     "num_images_per_prompt": 1,
-    "style_scale": 3.0,
+    "style_scale": 5000.0,
     #"style_image": style_image, 
 }
 
 # 生成图像
 image = pipe(**inputs).images[0]
-image.save("output_with_style_loadcheckpoint25.png")
+image.save("output_with_style_testcheckpoint220scale5000.png")

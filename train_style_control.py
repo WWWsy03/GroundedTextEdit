@@ -14,7 +14,7 @@ from tqdm.auto import tqdm
 from PIL import Image
 import numpy as np
 
-from accelerate import Accelerator
+from accelerate import Accelerator, init_empty_weights
 from accelerate.logging import get_logger
 from accelerate.utils import ProjectConfiguration
 import datasets
@@ -38,6 +38,7 @@ from diffusers.models import AutoencoderKLQwenImage, QwenImageTransformer2DModel
 from typing import Union, List, Optional, Dict, Any, Callable
 import torch.nn as nn
 from diffusers.utils.torch_utils import randn_tensor
+from transformers import Qwen2_5_VLForConditionalGeneration, Qwen2Tokenizer, Qwen2VLProcessor
 from style_transfer_pipeline import (
     retrieve_latents,
     calculate_dimensions,
@@ -183,6 +184,8 @@ def main():
     args = OmegaConf.load(config_path)
 
     logging_dir = os.path.join(args.output_dir, args.logging_dir)
+
+    # 1. 初始化 Accelerator (DeepSpeed 配置从 `accelerate config` 自动读取)
     accelerator_project_config = ProjectConfiguration(project_dir=args.output_dir, logging_dir=logging_dir)
 
     # 1. 初始化 Accelerator (标准 DDP，不需要 DeepSpeed/FSDP)
@@ -190,12 +193,12 @@ def main():
         gradient_accumulation_steps=args.gradient_accumulation_steps,
         mixed_precision=args.mixed_precision,
         log_with=args.report_to,
-        project_config=accelerator_project_config,
+        project_config=ProjectConfiguration(project_dir=args.output_dir, logging_dir=logging_dir),
     )
 
     logging.basicConfig(
         format="%(asctime)s - %(levelname)s - %(name)s - %(message)s",
-        datefmt="%m/%d/%Y %H:%M:%S",
+        datefmt="%m/%d/%Y %H:%MS",
         level=logging.INFO,
     )
     logger.info(accelerator.state, main_process_only=False)
@@ -254,7 +257,7 @@ def main():
     pipeline.vae.requires_grad_(False)
     pipeline.text_encoder.requires_grad_(False)
     pipeline.transformer.requires_grad_(False)
-
+    
     trainable_params = []
     if hasattr(pipeline.transformer, "transformer_blocks"):
         for i, block in enumerate(pipeline.transformer.transformer_blocks):
@@ -337,6 +340,7 @@ def main():
 
     for epoch in range(args.num_train_epochs):
         train_loss = 0.0
+        
         for step, batch in enumerate(train_dataloader):
             
             with torch.no_grad():

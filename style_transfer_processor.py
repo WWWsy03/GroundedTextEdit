@@ -825,7 +825,7 @@ class Attention(nn.Module):
         self.fused_projections = fuse
 
 
-class QwenDoubleStreamAttnProcessor2_0WithStyleControl(nn.Module):
+class QwenDoubleStreamAttnProcessor2_0WithStyleControl():
     """
     为 Qwen-Image-Edit 的双流架构设计的注意力处理器，增加了对风格控制图像的支持。
     该处理器将风格图像潜变量与主要内容（噪声+content_image_latents）分离，
@@ -834,7 +834,7 @@ class QwenDoubleStreamAttnProcessor2_0WithStyleControl(nn.Module):
     _attention_backend = None
     _parallel_config = None
     def __init__(self, style_context_dim: int, style_hidden_dim: int):
-        super().__init__()
+        #super().__init__()
         """
         Args:
             style_context_dim (`int`): 风格图像潜变量的维度 (e.g., 16 * 4 for Qwen's VAE latent channels * 4 from packing)。
@@ -852,8 +852,6 @@ class QwenDoubleStreamAttnProcessor2_0WithStyleControl(nn.Module):
         # 输入维度是 style_image_latents 的最后一个维度
         self.style_k_proj = nn.Linear(style_context_dim, style_hidden_dim, bias=True)
         self.style_v_proj = nn.Linear(style_context_dim, style_hidden_dim, bias=True)
-        
-        # 强制使用 float32，无论外界是否开启混合精度
         self.style_scale = nn.Parameter(torch.tensor(10.0))
         # 初始化为零，符合 IP-Adapter 的做法
         # 用小的随机值初始化，这样训练初期就能看到风格控制的效果
@@ -861,9 +859,9 @@ class QwenDoubleStreamAttnProcessor2_0WithStyleControl(nn.Module):
         nn.init.zeros_(self.style_k_proj.bias)
         nn.init.normal_(self.style_v_proj.weight, std=0.01) 
         nn.init.zeros_(self.style_v_proj.bias)
-        # self.style_k_proj.to(dtype=torch.bfloat16,device="cuda")
-        # self.style_v_proj.to(dtype=torch.bfloat16,device="cuda")
-        # self.style_scale.to(dtype=torch.bfloat16,device="cuda")
+        self.style_k_proj.to(dtype=torch.bfloat16,device="cuda")
+        self.style_v_proj.to(dtype=torch.bfloat16,device="cuda")
+        self.style_scale.to(dtype=torch.bfloat16,device="cuda")
 
     def __call__(
         self,
@@ -897,28 +895,42 @@ class QwenDoubleStreamAttnProcessor2_0WithStyleControl(nn.Module):
             noise_patches_length = noise_patches_length.flatten()[0].item()
         
         seq_txt = encoder_hidden_states.shape[1]
+        
+        # ============================================================
+        # 【Fix 修复】必须把 Tensor 转为 Python int，否则切片会报错
+        # ============================================================
+        if isinstance(noise_patches_length, torch.Tensor):
+            noise_patches_length = int(noise_patches_length.item())
+            
+            
+        if isinstance(style_start_idx, torch.Tensor):
+            style_start_idx = int(style_start_idx.item())
+            
+        if isinstance(style_end_idx, torch.Tensor):
+            style_end_idx = int(style_end_idx.item())
+        # ============================================================
 
-        # --- 1. 执行标准的双流联合注意力，但只针对噪声+内容部分，排除风格 ---
-        # 首先分离噪声和内容部分（不包含风格）
-        if style_start_idx is not None and style_end_idx is not None:
-            # 提取噪声+内容部分，排除风格部分
-            noise_content_hidden_states = torch.cat([
-                hidden_states[:, :style_start_idx, :],  # 噪声+内容部分
-                hidden_states[:, style_end_idx:, :]     # 如果风格后面还有其他部分（通常没有）
-            ], dim=1) if style_end_idx < hidden_states.shape[1] else hidden_states[:, :style_start_idx, :]
-        else:
-            # 如果没有风格索引信息，假设风格在最后
-            if noise_patches_length is not None and content_patches_length is not None:
-                total_noise_content_len = noise_patches_length + content_patches_length
-                noise_content_hidden_states = hidden_states[:, :total_noise_content_len, :]
-            else:
-                # 如果没有明确的长度信息，需要根据其他方式确定噪声+内容的长度
-                raise ValueError("Either style indices or noise/content lengths must be provided")
+        # # --- 1. 执行标准的双流联合注意力，但只针对噪声+内容部分，排除风格 ---
+        # # 首先分离噪声和内容部分（不包含风格）
+        # if style_start_idx is not None and style_end_idx is not None:
+        #     # 提取噪声+内容部分，排除风格部分
+        #     noise_content_hidden_states = torch.cat([
+        #         hidden_states[:, :style_start_idx, :],  # 噪声+内容部分
+        #         hidden_states[:, style_end_idx:, :]     # 如果风格后面还有其他部分（通常没有）
+        #     ], dim=1) if style_end_idx < hidden_states.shape[1] else hidden_states[:, :style_start_idx, :]
+        # else:
+        #     # 如果没有风格索引信息，假设风格在最后
+        #     if noise_patches_length is not None and content_patches_length is not None:
+        #         total_noise_content_len = noise_patches_length + content_patches_length
+        #         noise_content_hidden_states = hidden_states[:, :total_noise_content_len, :]
+        #     else:
+        #         # 如果没有明确的长度信息，需要根据其他方式确定噪声+内容的长度
+        #         raise ValueError("Either style indices or noise/content lengths must be provided")
 
         # 计算噪声+内容部分的 Q, K, V
-        img_query_nc = attn.to_q(noise_content_hidden_states) # [B, L_noise+L_content, D_qk]
-        img_key_nc = attn.to_k(noise_content_hidden_states)   # [B, L_noise+L_content, D_qk]
-        img_value_nc = attn.to_v(noise_content_hidden_states) # [B, L_noise+L_content, D_v]
+        img_query_nc = attn.to_q(hidden_states) # [B, L_noise+L_content+L_style, D_qk]
+        img_key_nc = attn.to_k(hidden_states)   # [B, L_noise+L_content+L_style, D_qk]
+        img_value_nc = attn.to_v(hidden_states) # [B, L_noise+L_content+L_style, D_v]
 
         # 计算文本流的 Q, K, V
         txt_query = attn.add_q_proj(encoder_hidden_states) # [B, L_txt, D_qk]
@@ -943,13 +955,14 @@ class QwenDoubleStreamAttnProcessor2_0WithStyleControl(nn.Module):
         if attn.norm_added_k is not None:
             txt_key = attn.norm_added_k(txt_key)
 
-        # 应用 RoPE - 只取噪声+内容部分的编码
+        # 应用 RoPE
         if image_rotary_emb is not None:
             img_freqs, txt_freqs = image_rotary_emb
             #print(f"img_freqs shape: {img_freqs.shape}, txt_freqs shape: {txt_freqs.shape}")
+            #print(f"img_freqs shape: {img_freqs.shape}, txt_freqs shape: {txt_freqs.shape}")
             # 只取噪声+内容部分的位置编码
-            img_freqs_nc = img_freqs[:noise_content_hidden_states.shape[1], :] if img_freqs is not None else None
-            txt_freqs_used = txt_freqs  # 文本部分保持不变
+            img_freqs_nc = img_freqs
+            txt_freqs_used = txt_freqs 
             
             if img_freqs_nc is not None:
                 img_query_nc = apply_rotary_emb_qwen(img_query_nc, img_freqs_nc, use_real=False)
@@ -979,7 +992,7 @@ class QwenDoubleStreamAttnProcessor2_0WithStyleControl(nn.Module):
 
         # 分离注意力输出
         txt_attn_output = joint_hidden_states[:, :seq_txt, :]  # 文本部分 [B, L_txt, H*D]
-        img_attn_output_nc = joint_hidden_states[:, seq_txt:, :]  # 图像部分 (噪声 + content) [B, L_noise+L_content, H*D]
+        img_attn_output_nc = joint_hidden_states[:, seq_txt:, :]  # 图像部分 (噪声 + content) [B, L_noise+L_content+L_style, H*D]
 
         # 应用输出投影 (这部分是标准流程)
         img_attn_output_nc = attn.to_out[0](img_attn_output_nc)
@@ -1002,11 +1015,11 @@ class QwenDoubleStreamAttnProcessor2_0WithStyleControl(nn.Module):
             if attn.norm_q is not None:
                 img_query_noise = attn.norm_q(img_query_noise)
             
-            # 应用 RoPE - 只取噪声部分的位置编码
-            if image_rotary_emb is not None and img_freqs is not None:
-                #print(f"noise img_freqs shape: {noise_patches_length, img_freqs.shape}")
-                img_freqs_noise = img_freqs[:noise_patches_length, :]  # 只取噪声部分的编码
-                img_query_noise = apply_rotary_emb_qwen(img_query_noise, img_freqs_noise, use_real=False)
+            # # 应用 RoPE - 只取噪声部分的位置编码
+            # if image_rotary_emb is not None and img_freqs is not None:
+            #     #print(f"noise img_freqs shape: {noise_patches_length, img_freqs.shape}")
+            #     img_freqs_noise = img_freqs[:noise_patches_length, :]  # 只取噪声部分的编码
+            #     img_query_noise = apply_rotary_emb_qwen(img_query_noise, img_freqs_noise, use_real=False)
 
             # 将 style_image_latents 投影为 K 和 V
             style_key = self.style_k_proj(style_image_latents) # [B, L_style, style_hidden_dim]
@@ -1100,4 +1113,4 @@ class QwenDoubleStreamAttnProcessor2_0WithStyleControl(nn.Module):
 
         # 返回完整的图像和文本注意力输出
         # final_img_output 的形状与输入 hidden_states 相同：[B, L_noise + L_content + L_style, H*D]
-        return final_img_output, txt_attn_output
+        return img_attn_output_full, txt_attn_output
