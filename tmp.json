@@ -1,0 +1,78 @@
+{
+  "prunedResult": {
+    "model_settings": {
+      "use_doc_preprocessor": false,
+      "use_textline_orientation": false
+    },
+    "dt_polys": [
+      [
+        [
+          27,
+          88
+        ],
+        [
+          302,
+          91
+        ],
+        [
+          300,
+          230
+        ],
+        [
+          26,
+          227
+        ]
+      ]
+    ],
+    "text_det_params": {
+      "limit_side_len": 736,
+      "limit_type": "min",
+      "thresh": 0.3,
+      "max_side_limit": 4000,
+      "box_thresh": 0.6,
+      "unclip_ratio": 1.5
+    },
+    "text_type": "general",
+    "textline_orientation_angles": [
+      -1
+    ],
+    "text_rec_score_thresh": 0,
+    "rec_texts": [
+      "BBQ"
+    ],
+    "rec_scores": [
+      0.9851807951927185
+    ],
+    "rec_polys": [
+      [
+        [
+          27,
+          88
+        ],
+        [
+          302,
+          91
+        ],
+        [
+          300,
+          230
+        ],
+        [
+          26,
+          227
+        ]
+      ]
+    ],
+    "rec_boxes": [
+      [
+        26,
+        88,
+        302,
+        230
+      ]
+    ]
+  },
+  "ocrImage": "https://pplines-online.bj.bcebos.com/deploy/official/visual-information-extraction-in-document-v3//2f73e9e5-59d7-42c5-996b-7e56c9d4735a/ocr_img_0.jpg?authorization=bce-auth-v1%2F5cfe9a5e1454405eb2a975c43eace6ec%2F2025-11-24T14%3A00%3A29Z%2F-1%2F%2Fb48d4d546e586063966b41fe9ee93ec3839c3124b9c61652105589c48890d016",
+  "docPreprocessingImage": null,
+  "inputImage": "https://pplines-online.bj.bcebos.com/deploy/official/visual-information-extraction-in-document-v3//2f73e9e5-59d7-42c5-996b-7e56c9d4735a/input_img_0.jpg?authorization=bce-auth-v1%2F5cfe9a5e1454405eb2a975c43eace6ec%2F2025-11-24T14%3A00%3A29Z%2F-1%2F%2F7927652f557b0efaa2671f691a30bc0fc6acc6a971789fd3bec3bb0828e832d6"
+}

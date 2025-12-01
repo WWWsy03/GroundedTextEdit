@@ -4,13 +4,13 @@
         "style_description": "Liquid mercury text with flowing ribbon font under cinematic golden hour lighting",
         "reference": {
             "word": "哈哈哈",
-            "image_path": "dataset_images/style_images/pair_0000_ref.jpg",
+            "image_path": "/app/cold1/code/texteditRoPE/data_construction_style/dataset_images/style_images/pair_0000_ref.jpg",
             "position": "centered",
             "tilt": "straight"
         },
         "target": {
             "word": "Ash",
-            "image_path": "dataset_images/images/pair_0000_target.jpg",
+            "image_path": "/app/cold1/code/texteditRoPE/data_construction_style/dataset_images/images/pair_0000_target.jpg",
             "position_prompt": "located in the bottom-left corner",
             "tilt_prompt": "straight orientation, no tilt"
         },
@@ -21,13 +21,13 @@
         "style_description": "Cracked porcelain letters with bubbled edges and studio softbox white light",
         "reference": {
             "word": "Future",
-            "image_path": "dataset_images/style_images/pair_0001_ref.jpg",
+            "image_path": "/app/cold1/code/texteditRoPE/data_construction_style/dataset_images/style_images/pair_0001_ref.jpg",
             "position": "centered",
             "tilt": "straight"
         },
         "target": {
             "word": "Matcha",
-            "image_path": "dataset_images/images/pair_0001_target.jpg",
+            "image_path": "/app/cold1/code/texteditRoPE/data_construction_style/dataset_images/images/pair_0001_target.jpg",
             "position_prompt": "positioned on the right side",
             "tilt_prompt": "straight orientation, no tilt"
         },
@@ -38,13 +38,13 @@
         "style_description": "Bioluminescent algae glyphs in jagged pixelated form with deep sea blue glow",
         "reference": {
             "word": "Ash",
-            "image_path": "dataset_images/style_images/pair_0002_ref.jpg",
+            "image_path": "/app/cold1/code/texteditRoPE/data_construction_style/dataset_images/style_images/pair_0002_ref.jpg",
             "position": "centered",
             "tilt": "straight"
         },
         "target": {
             "word": "Wizard",
-            "image_path": "dataset_images/images/pair_0002_target.jpg",
+            "image_path": "/app/cold1/code/texteditRoPE/data_construction_style/dataset_images/images/pair_0002_target.jpg",
             "position_prompt": "positioned on the right side",
             "tilt_prompt": "rotated about 15 degrees counter-clockwise"
         },
@@ -55,13 +55,13 @@
         "style_description": "Melting wax font with drips and studio softbox amber illumination",
         "reference": {
             "word": "Dew",
-            "image_path": "dataset_images/style_images/pair_0003_ref.jpg",
+            "image_path": "/app/cold1/code/texteditRoPE/data_construction_style/dataset_images/style_images/pair_0003_ref.jpg",
             "position": "centered",
             "tilt": "straight"
         },
         "target": {
             "word": "Ice",
-            "image_path": "dataset_images/images/pair_0003_target.jpg",
+            "image_path": "/app/cold1/code/texteditRoPE/data_construction_style/dataset_images/images/pair_0003_target.jpg",
             "position_prompt": "slightly off-center to the left",
             "tilt_prompt": "straight orientation, no tilt"
         },
@@ -72,13 +72,13 @@
         "style_description": "Prismatic crystal text with geometric font under neon pulsating lighting",
         "reference": {
             "word": "Water",
-            "image_path": "dataset_images/style_images/pair_0004_ref.jpg",
+            "image_path": "/app/cold1/code/texteditRoPE/data_construction_style/dataset_images/style_images/pair_0004_ref.jpg",
             "position": "centered",
             "tilt": "straight"
         },
         "target": {
             "word": "Espresso",
-            "image_path": "dataset_images/images/pair_0004_target.jpg",
+            "image_path": "/app/cold1/code/texteditRoPE/data_construction_style/dataset_images/images/pair_0004_target.jpg",
             "position_prompt": "positioned on the left side",
             "tilt_prompt": "tilted slightly counter-clockwise"
         },
@@ -89,13 +89,13 @@
         "style_description": "Polished obsidian letters with razor-sharp edges under dark ambient moonlight",
         "reference": {
             "word": "Magic",
-            "image_path": "dataset_images/style_images/pair_0005_ref.jpg",
+            "image_path": "/app/cold1/code/texteditRoPE/data_construction_style/dataset_images/style_images/pair_0005_ref.jpg",
             "position": "centered",
             "tilt": "straight"
         },
         "target": {
             "word": "Cloud",
-            "image_path": "dataset_images/images/pair_0005_target.jpg",
+            "image_path": "/app/cold1/code/texteditRoPE/data_construction_style/dataset_images/images/pair_0005_target.jpg",
             "position_prompt": "located in the top-left corner",
             "tilt_prompt": "straight orientation, no tilt"
         },
@@ -106,13 +106,13 @@
         "style_description": "Synthetic carbon fiber font with hexagonal patterns under studio cold blue lighting",
         "reference": {
             "word": "哈哈哈",
-            "image_path": "dataset_images/style_images/pair_0006_ref.jpg",
+            "image_path": "/app/cold1/code/texteditRoPE/data_construction_style/dataset_images/style_images/pair_0006_ref.jpg",
             "position": "centered",
             "tilt": "straight"
         },
         "target": {
             "word": "Neon",
-            "image_path": "dataset_images/images/pair_0006_target.jpg",
+            "image_path": "/app/cold1/code/texteditRoPE/data_construction_style/dataset_images/images/pair_0006_target.jpg",
             "position_prompt": "located in the top-left corner",
             "tilt_prompt": "straight orientation, no tilt"
         },
@@ -123,13 +123,13 @@
         "style_description": "Fungal mycelium glyphs in irregular spiral shapes under dim bioluminescent green glow",
         "reference": {
             "word": "Sand",
-            "image_path": "dataset_images/style_images/pair_0007_ref.jpg",
+            "image_path": "/app/cold1/code/texteditRoPE/data_construction_style/dataset_images/style_images/pair_0007_ref.jpg",
             "position": "centered",
             "tilt": "straight"
         },
         "target": {
             "word": "加油！",
-            "image_path": "dataset_images/images/pair_0007_target.jpg",
+            "image_path": "/app/cold1/code/texteditRoPE/data_construction_style/dataset_images/images/pair_0007_target.jpg",
             "position_prompt": "slightly off-center to the left",
             "tilt_prompt": "tilted slightly clockwise"
         },
@@ -140,13 +140,13 @@
         "style_description": "Volcanic ash text with smoldering ember font under dynamic lightning lighting",
         "reference": {
             "word": "Water",
-            "image_path": "dataset_images/style_images/pair_0008_ref.jpg",
+            "image_path": "/app/cold1/code/texteditRoPE/data_construction_style/dataset_images/style_images/pair_0008_ref.jpg",
             "position": "centered",
             "tilt": "straight"
         },
         "target": {
             "word": "Time",
-            "image_path": "dataset_images/images/pair_0008_target.jpg",
+            "image_path": "/app/cold1/code/texteditRoPE/data_construction_style/dataset_images/images/pair_0008_target.jpg",
             "position_prompt": "located in the bottom-right corner",
             "tilt_prompt": "straight orientation, no tilt"
         },
@@ -157,13 +157,13 @@
         "style_description": "Metallic foil letters with reflective hexagon patterns under shadowy ultraviolet glow",
         "reference": {
             "word": "Latte",
-            "image_path": "dataset_images/style_images/pair_0009_ref.jpg",
+            "image_path": "/app/cold1/code/texteditRoPE/data_construction_style/dataset_images/style_images/pair_0009_ref.jpg",
             "position": "centered",
             "tilt": "straight"
         },
         "target": {
             "word": "Knight",
-            "image_path": "dataset_images/images/pair_0009_target.jpg",
+            "image_path": "/app/cold1/code/texteditRoPE/data_construction_style/dataset_images/images/pair_0009_target.jpg",
             "position_prompt": "located in the top-right corner",
             "tilt_prompt": "tilted slightly counter-clockwise"
         },
@@ -174,13 +174,13 @@
         "style_description": "Stained glass fragments arranged in flowing script under retro fluorescent lighting",
         "reference": {
             "word": "Cloud",
-            "image_path": "dataset_images/style_images/pair_0010_ref.jpg",
+            "image_path": "/app/cold1/code/texteditRoPE/data_construction_style/dataset_images/style_images/pair_0010_ref.jpg",
             "position": "centered",
             "tilt": "straight"
         },
         "target": {
             "word": "Alchemist",
-            "image_path": "dataset_images/images/pair_0010_target.jpg",
+            "image_path": "/app/cold1/code/texteditRoPE/data_construction_style/dataset_images/images/pair_0010_target.jpg",
             "position_prompt": "located in the top-right corner",
             "tilt_prompt": "tilted slightly clockwise"
         },
@@ -191,13 +191,13 @@
         "style_description": "Coral reef textures forming organic curves with electric teal and pink gradients",
         "reference": {
             "word": "吃烧烤",
-            "image_path": "dataset_images/style_images/pair_0011_ref.jpg",
+            "image_path": "/app/cold1/code/texteditRoPE/data_construction_style/dataset_images/style_images/pair_0011_ref.jpg",
             "position": "centered",
             "tilt": "straight"
         },
         "target": {
             "word": "Wizard",
-            "image_path": "dataset_images/images/pair_0011_target.jpg",
+            "image_path": "/app/cold1/code/texteditRoPE/data_construction_style/dataset_images/images/pair_0011_target.jpg",
             "position_prompt": "located in the top-right corner",
             "tilt_prompt": "rotated about 15 degrees counter-clockwise"
         },
@@ -208,13 +208,13 @@
         "style_description": "Bioluminescent jellyfish ink with swirling tentacle-like font and deep-sea blue glow",
         "reference": {
             "word": "Matcha",
-            "image_path": "dataset_images/style_images/pair_0012_ref.jpg",
+            "image_path": "/app/cold1/code/texteditRoPE/data_construction_style/dataset_images/style_images/pair_0012_ref.jpg",
             "position": "centered",
             "tilt": "straight"
         },
         "target": {
             "word": "贴秋膘",
-            "image_path": "dataset_images/images/pair_0012_target.jpg",
+            "image_path": "/app/cold1/code/texteditRoPE/data_construction_style/dataset_images/images/pair_0012_target.jpg",
             "position_prompt": "located in the bottom-left corner",
             "tilt_prompt": "rotated about 15 degrees clockwise"
         },
@@ -225,13 +225,13 @@
         "style_description": "Crystallized spider silk script with fractal patterns and prismatic light refraction",
         "reference": {
             "word": "晚安zzz~",
-            "image_path": "dataset_images/style_images/pair_0013_ref.jpg",
+            "image_path": "/app/cold1/code/texteditRoPE/data_construction_style/dataset_images/style_images/pair_0013_ref.jpg",
             "position": "centered",
             "tilt": "straight"
         },
         "target": {
             "word": "Synth",
-            "image_path": "dataset_images/images/pair_0013_target.jpg",
+            "image_path": "/app/cold1/code/texteditRoPE/data_construction_style/dataset_images/images/pair_0013_target.jpg",
             "position_prompt": "located in the bottom-right corner",
             "tilt_prompt": "tilted slightly counter-clockwise"
         },
@@ -242,13 +242,13 @@
         "style_description": "Melting obsidian runes with molten lava veins and volcanic orange radiance",
         "reference": {
             "word": "Wizard",
-            "image_path": "dataset_images/style_images/pair_0014_ref.jpg",
+            "image_path": "/app/cold1/code/texteditRoPE/data_construction_style/dataset_images/style_images/pair_0014_ref.jpg",
             "position": "centered",
             "tilt": "straight"
         },
         "target": {
             "word": "Myth",
-            "image_path": "dataset_images/images/pair_0014_target.jpg",
+            "image_path": "/app/cold1/code/texteditRoPE/data_construction_style/dataset_images/images/pair_0014_target.jpg",
             "position_prompt": "positioned at the bottom center",
             "tilt_prompt": "straight orientation, no tilt"
         },
@@ -259,13 +259,13 @@
         "style_description": "Quantum foam texture with shifting holographic glyphs and iridescent neon haze",
         "reference": {
             "word": "贴秋膘",
-            "image_path": "dataset_images/style_images/pair_0015_ref.jpg",
+            "image_path": "/app/cold1/code/texteditRoPE/data_construction_style/dataset_images/style_images/pair_0015_ref.jpg",
             "position": "centered",
             "tilt": "straight"
         },
         "target": {
             "word": "Neon",
-            "image_path": "dataset_images/images/pair_0015_target.jpg",
+            "image_path": "/app/cold1/code/texteditRoPE/data_construction_style/dataset_images/images/pair_0015_target.jpg",
             "position_prompt": "centered in the frame",
             "tilt_prompt": "rotated about 15 degrees counter-clockwise"
         },
@@ -276,13 +276,13 @@
         "style_description": "Iridescent scale-like texture with spiral font and muted teal and silver hues",
         "reference": {
             "word": "Sorcerer",
-            "image_path": "dataset_images/style_images/pair_0016_ref.jpg",
+            "image_path": "/app/cold1/code/texteditRoPE/data_construction_style/dataset_images/style_images/pair_0016_ref.jpg",
             "position": "centered",
             "tilt": "straight"
         },
         "target": {
             "word": "Cloud",
-            "image_path": "dataset_images/images/pair_0016_target.jpg",
+            "image_path": "/app/cold1/code/texteditRoPE/data_construction_style/dataset_images/images/pair_0016_target.jpg",
             "position_prompt": "positioned at the top center",
             "tilt_prompt": "straight orientation, no tilt"
         },
@@ -293,13 +293,13 @@
         "style_description": "Magnetic ore fragments with angular font and charcoal and cobalt contrast",
         "reference": {
             "word": "Myth",
-            "image_path": "dataset_images/style_images/pair_0017_ref.jpg",
+            "image_path": "/app/cold1/code/texteditRoPE/data_construction_style/dataset_images/style_images/pair_0017_ref.jpg",
             "position": "centered",
             "tilt": "straight"
         },
         "target": {
             "word": "Latte",
-            "image_path": "dataset_images/images/pair_0017_target.jpg",
+            "image_path": "/app/cold1/code/texteditRoPE/data_construction_style/dataset_images/images/pair_0017_target.jpg",
             "position_prompt": "located in the bottom-right corner",
             "tilt_prompt": "tilted slightly clockwise"
         },
@@ -310,13 +310,13 @@
         "style_description": "Bio-luminescent algae filaments with fractal font and emerald and cyan glow",
         "reference": {
             "word": "Matcha",
-            "image_path": "dataset_images/style_images/pair_0018_ref.jpg",
+            "image_path": "/app/cold1/code/texteditRoPE/data_construction_style/dataset_images/style_images/pair_0018_ref.jpg",
             "position": "centered",
             "tilt": "straight"
         },
         "target": {
             "word": "Latte",
-            "image_path": "dataset_images/images/pair_0018_target.jpg",
+            "image_path": "/app/cold1/code/texteditRoPE/data_construction_style/dataset_images/images/pair_0018_target.jpg",
             "position_prompt": "positioned at the bottom center",
             "tilt_prompt": "straight orientation, no tilt"
         },
@@ -327,13 +327,13 @@
         "style_description": "Synthetic rubber elasticity with geometric font and neon magenta and black gradient",
         "reference": {
             "word": "Alchemist",
-            "image_path": "dataset_images/style_images/pair_0019_ref.jpg",
+            "image_path": "/app/cold1/code/texteditRoPE/data_construction_style/dataset_images/style_images/pair_0019_ref.jpg",
             "position": "centered",
             "tilt": "straight"
         },
         "target": {
             "word": "Chaos",
-            "image_path": "dataset_images/images/pair_0019_target.jpg",
+            "image_path": "/app/cold1/code/texteditRoPE/data_construction_style/dataset_images/images/pair_0019_target.jpg",
             "position_prompt": "slightly off-center to the left",
             "tilt_prompt": "straight orientation, no tilt"
         },

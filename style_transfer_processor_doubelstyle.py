@@ -863,6 +863,7 @@ class QwenDoubleStreamAttnProcessor2_0WithStyleControl(nn.Module):
         self.style_k_proj.to(dtype=torch.bfloat16,device="cuda")
         self.style_v_proj.to(dtype=torch.bfloat16,device="cuda")
         self.style_scale.to(dtype=torch.bfloat16,device="cuda")
+        #print("Initialized QwenDoubleStreamAttnProcessor2_0WithStyleControl")
         
 
     def __call__(
@@ -949,18 +950,72 @@ class QwenDoubleStreamAttnProcessor2_0WithStyleControl(nn.Module):
         # 应用 RoPE
         if image_rotary_emb is not None:
             img_freqs, txt_freqs = image_rotary_emb
-            #print(f"img_freqs shape: {img_freqs.shape}, txt_freqs shape: {txt_freqs.shape}")
-            # 只取噪声+内容部分的位置编码
-            img_freqs_nc = img_freqs
-            txt_freqs_used = txt_freqs 
             
-            if img_freqs_nc is not None:
-                img_query_nc = apply_rotary_emb_qwen(img_query_nc, img_freqs_nc, use_real=False)
-                img_key_nc = apply_rotary_emb_qwen(img_key_nc, img_freqs_nc, use_real=False)
-            if txt_freqs_used is not None:
-                txt_query = apply_rotary_emb_qwen(txt_query, txt_freqs_used, use_real=False)
-                txt_key = apply_rotary_emb_qwen(txt_key, txt_freqs_used, use_real=False)
+            # 1. 确定切分点
+            # style_start_idx: Style Image 开始的索引 (也是 Content 结束的地方)
+            # noise_patches_length: Noise 结束的索引 (也是 Content 开始的地方)
+            L_noise = int(noise_patches_length)
+            idx_style_start = int(style_start_idx)
+            
+            # 2. 准备频率 (Frequencies)
+            # [Set A] Noise 的坐标系 (0,0 -> H,W)。这是我们的"基准坐标"。
+            freqs_noise = img_freqs[:L_noise] 
+            
+            # [Set B] Style 原本的坐标系。
+            # Style 在序列的最后，它天然拥有偏移的坐标 (比如 t=1, 或者 h,w 很大)。
+            # 我们直接用它原本的频率，利用这种天然的"平移"来防止结构泄露。
+            # 注意：我们需要截取 img_freqs 中对应 Style 那一段的长度
+            style_len = hidden_states.shape[1] - idx_style_start
+            # 从 img_freqs 中取出对应 Style 的那一段频率
+            freqs_style_original = img_freqs[idx_style_start : idx_style_start + style_len]
 
+            # --- 3. 处理 Query (Q) ---
+            # 我们主要关心 Noise 的 Q 带有位置信息，它是"手电筒"
+            # 切片维度: [Batch, SeqLen, Heads, Dim] -> 切第1维
+            q_noise   = img_query_nc[:, :L_noise, :, :]
+            q_content = img_query_nc[:, L_noise:idx_style_start, :, :]
+            q_style   = img_query_nc[:, idx_style_start:, :, :]
+            
+            # 给 Noise Q 加上基准坐标 (Set A)
+            q_noise_roped = apply_rotary_emb_qwen(q_noise, freqs_noise, use_real=False)
+            
+            # Content 和 Style 的 Q 在生成过程中通常不重要 (因为我们取的是 Noise 的输出)
+            # 为了不报错，可以不加 RoPE，或者加上对应的。这里选择保持原样(不加)以节省计算。
+            q_content_roped = q_content 
+            q_style_roped = q_style
+            
+            # 拼回 Query
+            img_query_nc = torch.cat([q_noise_roped, q_content_roped, q_style_roped], dim=1)
+            
+            # --- 4. 处理 Key (K) - 这是魔法发生的地方 ---
+            # 切片维度: [Batch, SeqLen, Heads, Dim] -> 切第1维
+            k_noise   = img_key_nc[:, :L_noise, :, :]
+            k_content = img_key_nc[:, L_noise:idx_style_start, :, :]
+            k_style   = img_key_nc[:, idx_style_start:, :, :]
+            
+            # [关键点 1] Noise K 使用基准坐标 (Set A)
+            # 自我认知正确
+            k_noise_roped = apply_rotary_emb_qwen(k_noise, freqs_noise, use_real=False)
+            
+            # [关键点 2] Content K 强行使用 Noise 的坐标 (Set A) !!!
+            # 欺骗模型：Content 的像素就在 Noise 的同一个位置。
+            # 这会产生极强的对角线 Attention，锁死结构 (knight 的形状)。
+            # 前提：Content 和 Noise 的分辨率必须一致 (通常 pipeline 处理后是一致的)
+            k_content_roped = apply_rotary_emb_qwen(k_content, freqs_noise, use_real=False)
+            
+            # [关键点 3] Style K 使用它原本的坐标 (Set B)
+            # 它的坐标天然就是平移过的 (比如 t 不同，或者在画布的其他位置)。
+            # 这样 Q_noise 去查 K_style 时，位置对不上，无法复制形状，只能学习纹理。
+            # 同时因为加了 RoPE，向量空间旋转是合法的，风格特征可以被计算。
+            k_style_roped = apply_rotary_emb_qwen(k_style, freqs_style_original, use_real=False)
+            
+            # 拼回 Key
+            img_key_nc = torch.cat([k_noise_roped, k_content_roped, k_style_roped], dim=1)
+            
+            # --- 5. 处理 Text RoPE (保持不变) ---
+            if txt_freqs is not None:
+                txt_query = apply_rotary_emb_qwen(txt_query, txt_freqs, use_real=False)
+                txt_key = apply_rotary_emb_qwen(txt_key, txt_freqs, use_real=False)
         # 拼接进行联合注意力（文本 + 噪声+内容，不包含风格）
         joint_query = torch.cat([txt_query, img_query_nc], dim=1) # [B, H, L_txt+L_noise+L_content, D]
         joint_key = torch.cat([txt_key, img_key_nc], dim=1)   # [B, H, L_txt+L_noise+L_content, D]
@@ -1036,7 +1091,7 @@ class QwenDoubleStreamAttnProcessor2_0WithStyleControl(nn.Module):
             #print(f"style_attention shape: {style_attention.shape}, img_attn_output_full before shape: {img_attn_output_full.shape}")
             #print(f"style_scale: {self.style_scale}")
             #print(f"stylescale{self.style_scale}")
-            img_attn_output_full[:, :noise_patches_length, :] = img_attn_output_full[:, :noise_patches_length, :] + self.style_scale * style_attention
+            img_attn_output_full[:, :noise_patches_length, :] = img_attn_output_full[:, :noise_patches_length, :] + 0 * style_attention
 
         
 

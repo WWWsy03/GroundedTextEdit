@@ -31,14 +31,14 @@ data_config:
   num_workers: 4
   img_size: 1024
   caption_dropout_rate: 0.1
-  img_dir: /app/code/texteditRoPE/train_data_dir/ground_truth_images
-  control_dir: /app/code/texteditRoPE/train_data_dir/content_images
-  style_dir: /app/code/texteditRoPE/train_data_dir/style_images
+  img_dir: /app/cold1/code/texteditRoPE/train_data_dir/ground_truth_images
+  control_dir: /app/cold1/code/texteditRoPE/train_data_dir/content_images
+  style_dir: /app/cold1/code/texteditRoPE/train_data_dir/style_images
   random_ratio: false # support multi crop preprocessing
   caption_type: txt
 report_to: wandb
 train_batch_size: 1
-output_dir: /app/code/texteditRoPE/qwenimage-style-control-double-output
+output_dir: /app/cold1/code/texteditRoPE/qwenimage-style-rope-lora
 max_train_steps: 300000
 learning_rate: 2e-5
 lr_scheduler: constant
@@ -51,7 +51,7 @@ max_grad_norm: 1.0
 logging_dir: logs
 checkpointing_steps: 40
 checkpoints_total_limit: 10
-tracker_project_name: style-edit-qwen-test
+tracker_project_name: style-edit-qwen-test-rope-lora
 resume_from_checkpoint: latest
 gradient_accumulation_steps: 1
 precompute_text_embeddings: true
@@ -59,5 +59,5 @@ precompute_image_embeddings: true
 quantize: false
 adam8bit: false
 save_cache_on_disk: true
-cache_dir: /app/code/texteditRoPE/train_data_dir/cached_embeddings
+cache_dir: /app/cold1/code/texteditRoPE/train_data_dir/cached_embeddings
 

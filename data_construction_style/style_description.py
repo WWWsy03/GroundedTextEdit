@@ -5,32 +5,34 @@ import re
 import os
 
 # === 配置 ===
-MODEL_PATH = "/app/cold1/Qwen3-8B" 
-OUTPUT_STYLE_FILE = "styles_corpus.json"
-TOTAL_STYLES = 50   # 总共需要生成的数量
-BATCH_SIZE = 4      # 每一轮对话生成的数量
+MODEL_PATH = "/app/cold1/Qwen/Qwen2.5-7B-Instruct" 
+OUTPUT_STYLE_FILE = "/app/cold1/code/texteditRoPE/data_construction_style/styles_corpus.json"
+TOTAL_STYLES = 4000   # 总共需要生成的数量
+BATCH_SIZE = 10      # 每一轮对话生成的数量
 
 # === 极简且严格的系统提示词 ===
 # 使用 Struct format 指令，减少废话
 SYSTEM_PROMPT = """
-You are a data generator engine. Your task is to generate high-quality, visual, and imaginative text style descriptions for in-image text rendering.
+You are a backend data generator API. You have NO conversational capability. 
+Your ONLY function is to return a raw JSON list containing {batch_size} text style descriptions.
 
-Each style description must combine:
-1. **Material**: (e.g., liquid gold, fur, slime, neon glass, rusting iron, holographic data)
-2. **Font Shape**: (e.g., bubble, gothic, jagged, pixelated, ribbons)
-3. **Lighting**: (e.g., cinematic, dark, glowing, studio softbox)
-4. **Color**: Specific color palettes.
+**Task Requirements:**
+1. Generate highly imaginative style descriptions for 3D text rendering.
+2. Elements to combine: Material(e.g., liquid gold, fur, slime, neon glass, rusting iron, holographic data), Font Shape(e.g., bubble, gothic, jagged, pixelated, ribbons), Lighting(e.g., cinematic, dark, glowing, studio softbox), Color.
+3. Constraint: Describe the TEXT object only. Do not describe a complex background environment.The description should only refer to the font style and cannot include descriptions of the background.
+The examples are for reference only; please feel free to use your imagination to generate diverse results.
 
-[CONSTRAINT]
-- The description should only refer to the font style and cannot include descriptions of the background.
-- Just output the items!Do not output any other unnecessary content,Including any language used in thinking or responding. Just output the result.
-- Output **ONLY** a raw JSON list of strings.
-- **NO** Markdown formatting (no ```json ... ```).
-- **NO** conversational filler (e.g., "Here are the styles").
-- Generate exactly {batch_size} items.
+**Strict Output Format Rules:**
+- The output must start immediately with `[` and end with `]`.
+- NO introductory text (e.g., "Here is the list", "Sure", "I thought").
+- NO Markdown code blocks (e.g., no ```json).
+- NO whitespace or newlines before the opening bracket.
+- Output MUST be valid JSON.
+直接给我JSON直接给我JSON不要回答其他内容！！！！
 
-[EXAMPLE OUTPUT]
-["Glossy red plastic balloon text with studio lighting", "Cracked stone letters with moss growing in crevices", "Burning magma text with floating embers and dark background", "Transparent ice block font with frozen bubbles inside"]
+**Example of Exact Expected Output:**
+["Translucent blue jelly text with internal bubbles", "Rusty iron block letters with oil stains", "Neon glowing cybernetic font with circuit patterns", "Fluffy white fur text in soft studio lighting"]
+The examples are for reference only; please feel free to use your imagination to generate diverse results.
 """
 
 def extract_json_from_text(text):
@@ -84,8 +86,8 @@ def generate_styles_iterative():
     while len(all_styles) < TOTAL_STYLES:
         # 准备输入
         text = tokenizer.apply_chat_template(
-            messages, 
-            tokenize=False, 
+            messages,
+            tokenize=False,
             add_generation_prompt=True
         )
         model_inputs = tokenizer([text], return_tensors="pt").to(model.device)
@@ -94,16 +96,14 @@ def generate_styles_iterative():
         
         # 生成
         generated_ids = model.generate(
-            **model_inputs, 
-            max_new_tokens=512,  # 不需要太长
-            temperature=0.85,    # 增加创造性
-            do_sample=True,
-            top_p=0.9,
-            repetition_penalty=1.1 # 稍微惩罚重复，防止复读机
+            **model_inputs,
+            max_new_tokens=512
         )
-        
-        output_ids = generated_ids[0][len(model_inputs.input_ids[0]):]
-        response_text = tokenizer.decode(output_ids, skip_special_tokens=True).strip()
+        generated_ids = [
+            output_ids[len(input_ids):] for input_ids, output_ids in zip(model_inputs.input_ids, generated_ids)
+        ]
+
+        response_text = tokenizer.batch_decode(generated_ids, skip_special_tokens=True)[0]
         
         # 解析数据
         new_batch = extract_json_from_text(response_text)
@@ -128,7 +128,7 @@ def generate_styles_iterative():
             # 2. 添加下一轮的用户指令，明确要求“不重复”
             messages.append({
                 "role": "user", 
-                "content": f"Generate {BATCH_SIZE} MORE styles. Use completely different materials and colors from the ones above. Strict JSON format."
+                "content": f"Generate {BATCH_SIZE} MORE styles. Use completely different materials and colors from the ones above. Strict JSON format.No other output."
             })
             
             # 3. 历史记录清理（滑动窗口）

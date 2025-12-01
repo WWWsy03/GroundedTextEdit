@@ -1,0 +1,3887 @@
+[
+    {
+        "id": 8,
+        "input_image": "/app/cold1/code/texteditRoPE/data_construction_style/dataset_images_2/content_images/pair_00008_input.jpg",
+        "style_image": "dataset_images_2/style_images/pair_00008_ref.jpg",
+        "target_image": "dataset_images_2/images/pair_00008_target.jpg",
+        "instruction": "Apply the style from image 2 to the text \"Shadowfall\" shown in image 1.",
+        "metadata": {
+            "word": "Shadowfall",
+            "style_desc": "Volcanic ash text with smoldering ember font under dynamic lightning lighting",
+            "ocr_boxes": [
+                [
+                    [
+                        51,
+                        269
+                    ],
+                    [
+                        1016,
+                        386
+                    ],
+                    [
+                        980,
+                        681
+                    ],
+                    [
+                        15,
+                        564
+                    ]
+                ]
+            ],
+            "ocr_texts": [
+                "Shadowfall"
+            ],
+            "box_count": 1
+        },
+        "reject_reason": "NO"
+    },
+    {
+        "id": 192,
+        "input_image": "/app/cold1/code/texteditRoPE/data_construction_style/dataset_images_2/content_images/pair_00192_input.jpg",
+        "style_image": "dataset_images_2/style_images/pair_00192_ref.jpg",
+        "target_image": "dataset_images_2/images/pair_00192_target.jpg",
+        "instruction": "Change the style of the text \"岁月静好\" in the first image to match the style of the second image.",
+        "metadata": {
+            "word": "岁月静好",
+            "style_desc": "Fur coat text in vibrant sunset hues",
+            "ocr_boxes": [
+                [
+                    [
+                        51,
+                        340
+                    ],
+                    [
+                        1010,
+                        340
+                    ],
+                    [
+                        1010,
+                        719
+                    ],
+                    [
+                        51,
+                        719
+                    ]
+                ]
+            ],
+            "ocr_texts": [
+                "岁月静好"
+            ],
+            "box_count": 1
+        },
+        "reject_reason": "NO"
+    },
+    {
+        "id": 240,
+        "input_image": "/app/cold1/code/texteditRoPE/data_construction_style/dataset_images_2/content_images/pair_00240_input.jpg",
+        "style_image": "dataset_images_2/style_images/pair_00240_ref.jpg",
+        "target_image": "dataset_images_2/images/pair_00240_target.jpg",
+        "instruction": "使用第二张图的风格来渲染第一张图中的文字\"落日熔\"。",
+        "metadata": {
+            "word": "落日熔",
+            "style_desc": "Frost white text with snowflakes",
+            "ocr_boxes": [
+                [
+                    [
+                        29,
+                        287
+                    ],
+                    [
+                        949,
+                        235
+                    ],
+                    [
+                        979,
+                        763
+                    ],
+                    [
+                        59,
+                        815
+                    ]
+                ]
+            ],
+            "ocr_texts": [
+                "落日熔"
+            ],
+            "box_count": 1
+        },
+        "reject_reason": "NO"
+    },
+    {
+        "id": 600,
+        "input_image": "/app/cold1/code/texteditRoPE/data_construction_style/dataset_images_2/content_images/pair_00600_input.jpg",
+        "style_image": "dataset_images_2/style_images/pair_00600_ref.jpg",
+        "target_image": "dataset_images_2/images/pair_00600_target.jpg",
+        "instruction": "让\"烟火气\"具有和参考图一样的视觉风格。",
+        "metadata": {
+            "word": "烟火气",
+            "style_desc": "Obsidian black text with starry night glow",
+            "ocr_boxes": [
+                [
+                    [
+                        0,
+                        213
+                    ],
+                    [
+                        1024,
+                        266
+                    ],
+                    [
+                        1024,
+                        809
+                    ],
+                    [
+                        0,
+                        756
+                    ]
+                ]
+            ],
+            "ocr_texts": [
+                "烟火气"
+            ],
+            "box_count": 1
+        },
+        "reject_reason": "NO"
+    },
+    {
+        "id": 736,
+        "input_image": "/app/cold1/code/texteditRoPE/data_construction_style/dataset_images_2/content_images/pair_00736_input.jpg",
+        "style_image": "dataset_images_2/style_images/pair_00736_ref.jpg",
+        "target_image": "dataset_images_2/images/pair_00736_target.jpg",
+        "instruction": "Apply the style from image 2 to the text \"翻车了\" shown in image 1.",
+        "metadata": {
+            "word": "翻车了",
+            "style_desc": "Sulfur yellow lava text with molten rock effects",
+            "ocr_boxes": [
+                [
+                    [
+                        0,
+                        370
+                    ],
+                    [
+                        978,
+                        218
+                    ],
+                    [
+                        1024,
+                        724
+                    ],
+                    [
+                        30,
+                        876
+                    ]
+                ]
+            ],
+            "ocr_texts": [
+                "翻车了"
+            ],
+            "box_count": 1
+        },
+        "reject_reason": "NO"
+    },
+    {
+        "id": 792,
+        "input_image": "/app/cold1/code/texteditRoPE/data_construction_style/dataset_images_2/content_images/pair_00792_input.jpg",
+        "style_image": "dataset_images_2/style_images/pair_00792_ref.jpg",
+        "target_image": "dataset_images_2/images/pair_00792_target.jpg",
+        "instruction": "Change the style of the text \"岁月静好\" to the style of the second image, keeping the text content unchanged.",
+        "metadata": {
+            "word": "岁月静好",
+            "style_desc": "Leathery parchment text with ancient ink",
+            "ocr_boxes": [
+                [
+                    [
+                        157,
+                        446
+                    ],
+                    [
+                        878,
+                        356
+                    ],
+                    [
+                        913,
+                        630
+                    ],
+                    [
+                        192,
+                        720
+                    ]
+                ]
+            ],
+            "ocr_texts": [
+                "岁月静好"
+            ],
+            "box_count": 1
+        },
+        "reject_reason": "NO"
+    },
+    {
+        "id": 848,
+        "input_image": "/app/cold1/code/texteditRoPE/data_construction_style/dataset_images_2/content_images/pair_00848_input.jpg",
+        "style_image": "dataset_images_2/style_images/pair_00848_ref.jpg",
+        "target_image": "dataset_images_2/images/pair_00848_target.jpg",
+        "instruction": "将第一张图中的文字\"别慌\"应用第二张图的风格进行转换。",
+        "metadata": {
+            "word": "别慌",
+            "style_desc": "Glowing red slime text with blood splatters",
+            "ocr_boxes": [
+                [
+                    [
+                        9,
+                        175
+                    ],
+                    [
+                        1024,
+                        280
+                    ],
+                    [
+                        976,
+                        843
+                    ],
+                    [
+                        0,
+                        738
+                    ]
+                ]
+            ],
+            "ocr_texts": [
+                "别慌"
+            ],
+            "box_count": 1
+        },
+        "reject_reason": "NO"
+    },
+    {
+        "id": 1216,
+        "input_image": "/app/cold1/code/texteditRoPE/data_construction_style/dataset_images_2/content_images/pair_01216_input.jpg",
+        "style_image": "dataset_images_2/style_images/pair_01216_ref.jpg",
+        "target_image": "dataset_images_2/images/pair_01216_target.jpg",
+        "instruction": "Make the text \"用心感受\" look like the style in the reference image.",
+        "metadata": {
+            "word": "用心感受",
+            "style_desc": "Silver mist text with fog",
+            "ocr_boxes": [
+                [
+                    [
+                        168,
+                        364
+                    ],
+                    [
+                        850,
+                        359
+                    ],
+                    [
+                        851,
+                        553
+                    ],
+                    [
+                        169,
+                        558
+                    ]
+                ]
+            ],
+            "ocr_texts": [
+                "用心感受"
+            ],
+            "box_count": 1
+        },
+        "reject_reason": "NO\n\n### Reasoning:\n1. **Clean Background**: The background is not clean. It has a dark, smoky, or cloudy effect surrounding the central white block, which violates the requirement for a clean white or solid color background.\n2. **Correct Text**: The main text \"用心感受\" is correctly displayed"
+    },
+    {
+        "id": 1264,
+        "input_image": "/app/cold1/code/texteditRoPE/data_construction_style/dataset_images_2/content_images/pair_01264_input.jpg",
+        "style_image": "dataset_images_2/style_images/pair_01264_ref.jpg",
+        "target_image": "dataset_images_2/images/pair_01264_target.jpg",
+        "instruction": "Apply the style from image 2 to the text \"海风拂面\" shown in image 1.",
+        "metadata": {
+            "word": "海风拂面",
+            "style_desc": "Rusty red brick text with cobwebs",
+            "ocr_boxes": [
+                [
+                    [
+                        180,
+                        53
+                    ],
+                    [
+                        1022,
+                        148
+                    ],
+                    [
+                        972,
+                        592
+                    ],
+                    [
+                        130,
+                        497
+                    ]
+                ],
+                [
+                    [
+                        11,
+                        408
+                    ],
+                    [
+                        984,
+                        408
+                    ],
+                    [
+                        984,
+                        972
+                    ],
+                    [
+                        11,
+                        972
+                    ]
+                ]
+            ],
+            "ocr_texts": [
+                "海风",
+                "拂面"
+            ],
+            "box_count": 2
+        },
+        "reject_reason": "NO"
+    },
+    {
+        "id": 1640,
+        "input_image": "/app/cold1/code/texteditRoPE/data_construction_style/dataset_images_2/content_images/pair_01640_input.jpg",
+        "style_image": "dataset_images_2/style_images/pair_01640_ref.jpg",
+        "target_image": "dataset_images_2/images/pair_01640_target.jpg",
+        "instruction": "把\"锅开了\"变成参考图里展示的那种风格。",
+        "metadata": {
+            "word": "锅开了",
+            "style_desc": "Slippery wet ink text on a blackboard",
+            "ocr_boxes": [
+                [
+                    [
+                        128,
+                        210
+                    ],
+                    [
+                        979,
+                        210
+                    ],
+                    [
+                        979,
+                        612
+                    ],
+                    [
+                        128,
+                        612
+                    ]
+                ]
+            ],
+            "ocr_texts": [
+                "锅开了"
+            ],
+            "box_count": 1
+        },
+        "reject_reason": "NO"
+    },
+    {
+        "id": 1784,
+        "input_image": "/app/cold1/code/texteditRoPE/data_construction_style/dataset_images_2/content_images/pair_01784_input.jpg",
+        "style_image": "dataset_images_2/style_images/pair_01784_ref.jpg",
+        "target_image": "dataset_images_2/images/pair_01784_target.jpg",
+        "instruction": "把\"烫手山芋\"的样式改成参考图的样子。",
+        "metadata": {
+            "word": "烫手山芋",
+            "style_desc": "Glowing neon lava text with ash particles",
+            "ocr_boxes": [
+                [
+                    [
+                        125,
+                        529
+                    ],
+                    [
+                        797,
+                        197
+                    ],
+                    [
+                        888,
+                        382
+                    ],
+                    [
+                        216,
+                        714
+                    ]
+                ]
+            ],
+            "ocr_texts": [
+                "烫手山芋"
+            ],
+            "box_count": 1
+        },
+        "reject_reason": "NO"
+    },
+    {
+        "id": 1928,
+        "input_image": "/app/cold1/code/texteditRoPE/data_construction_style/dataset_images_2/content_images/pair_01928_input.jpg",
+        "style_image": "dataset_images_2/style_images/pair_01928_ref.jpg",
+        "target_image": "dataset_images_2/images/pair_01928_target.jpg",
+        "instruction": "把\"Wane\"变成第二张图里展示的那种风格。",
+        "metadata": {
+            "word": "Wane",
+            "style_desc": "Holographic gold text with floating diamonds",
+            "ocr_boxes": [
+                [
+                    [
+                        35,
+                        434
+                    ],
+                    [
+                        986,
+                        294
+                    ],
+                    [
+                        1024,
+                        628
+                    ],
+                    [
+                        84,
+                        768
+                    ]
+                ]
+            ],
+            "ocr_texts": [
+                "Wane"
+            ],
+            "box_count": 1
+        },
+        "reject_reason": "NO"
+    },
+    {
+        "id": 2000,
+        "input_image": "/app/cold1/code/texteditRoPE/data_construction_style/dataset_images_2/content_images/pair_02000_input.jpg",
+        "style_image": "dataset_images_2/style_images/pair_02000_ref.jpg",
+        "target_image": "dataset_images_2/images/pair_02000_target.jpg",
+        "instruction": "Change the style of the text \"走神\" in the first image to match the style of the second image.",
+        "metadata": {
+            "word": "走神",
+            "style_desc": "Wet asphalt text with tire tracks",
+            "ocr_boxes": [
+                [
+                    [
+                        151,
+                        60
+                    ],
+                    [
+                        1024,
+                        441
+                    ],
+                    [
+                        861,
+                        968
+                    ],
+                    [
+                        0,
+                        587
+                    ]
+                ]
+            ],
+            "ocr_texts": [
+                "走神"
+            ],
+            "box_count": 1
+        },
+        "reject_reason": "NO"
+    },
+    {
+        "id": 2400,
+        "input_image": "/app/cold1/code/texteditRoPE/data_construction_style/dataset_images_2/content_images/pair_02400_input.jpg",
+        "style_image": "dataset_images_2/style_images/pair_02400_ref.jpg",
+        "target_image": "dataset_images_2/images/pair_02400_target.jpg",
+        "instruction": "参考第二张图的风格，改变第一张图中文字\"湖面倒影\"的外观。",
+        "metadata": {
+            "word": "湖面倒影",
+            "style_desc": "Furry orange text in a desert landscape",
+            "ocr_boxes": [
+                [
+                    [
+                        129,
+                        171
+                    ],
+                    [
+                        876,
+                        176
+                    ],
+                    [
+                        875,
+                        392
+                    ],
+                    [
+                        128,
+                        387
+                    ]
+                ]
+            ],
+            "ocr_texts": [
+                "湖面倒影"
+            ],
+            "box_count": 1
+        },
+        "reject_reason": "NO"
+    },
+    {
+        "id": 2552,
+        "input_image": "/app/cold1/code/texteditRoPE/data_construction_style/dataset_images_2/content_images/pair_02552_input.jpg",
+        "style_image": "dataset_images_2/style_images/pair_02552_ref.jpg",
+        "target_image": "dataset_images_2/images/pair_02552_target.jpg",
+        "instruction": "把\"听雨声\"的样式改成参考图的样子。",
+        "metadata": {
+            "word": "听雨声",
+            "style_desc": "Furry white snow text with frosty patterns",
+            "ocr_boxes": [
+                [
+                    [
+                        0,
+                        229
+                    ],
+                    [
+                        1024,
+                        162
+                    ],
+                    [
+                        1024,
+                        779
+                    ],
+                    [
+                        32,
+                        846
+                    ]
+                ]
+            ],
+            "ocr_texts": [
+                "听雨声"
+            ],
+            "box_count": 1
+        },
+        "reject_reason": "NO"
+    },
+    {
+        "id": 129,
+        "input_image": "/app/cold1/code/texteditRoPE/data_construction_style/dataset_images_2/content_images/pair_00129_input.jpg",
+        "style_image": "dataset_images_2/style_images/pair_00129_ref.jpg",
+        "target_image": "dataset_images_2/images/pair_00129_target.jpg",
+        "instruction": "使用第二张图的风格来渲染第一张图中的文字\"Future\"。",
+        "metadata": {
+            "word": "Future",
+            "style_desc": "Ruby red text with metallic shine",
+            "ocr_boxes": [
+                [
+                    [
+                        105,
+                        156
+                    ],
+                    [
+                        1021,
+                        287
+                    ],
+                    [
+                        966,
+                        671
+                    ],
+                    [
+                        50,
+                        540
+                    ]
+                ]
+            ],
+            "ocr_texts": [
+                "Future"
+            ],
+            "box_count": 1
+        },
+        "reject_reason": "NO"
+    },
+    {
+        "id": 201,
+        "input_image": "/app/cold1/code/texteditRoPE/data_construction_style/dataset_images_2/content_images/pair_00201_input.jpg",
+        "style_image": "dataset_images_2/style_images/pair_00201_ref.jpg",
+        "target_image": "dataset_images_2/images/pair_00201_target.jpg",
+        "instruction": "使用第二张图的风格来渲染第一张图中的文字\"Void\"。",
+        "metadata": {
+            "word": "Void",
+            "style_desc": "Glowing ethereal mist text in pastel shades",
+            "ocr_boxes": [
+                [
+                    [
+                        0,
+                        46
+                    ],
+                    [
+                        1024,
+                        137
+                    ],
+                    [
+                        979,
+                        822
+                    ],
+                    [
+                        0,
+                        731
+                    ]
+                ]
+            ],
+            "ocr_texts": [
+                "Void"
+            ],
+            "box_count": 1
+        },
+        "reject_reason": "NO"
+    },
+    {
+        "id": 377,
+        "input_image": "/app/cold1/code/texteditRoPE/data_construction_style/dataset_images_2/content_images/pair_00377_input.jpg",
+        "style_image": "dataset_images_2/style_images/pair_00377_ref.jpg",
+        "target_image": "dataset_images_2/images/pair_00377_target.jpg",
+        "instruction": "Change the style of the text \"走神\" in the first image to match the style of the second image.",
+        "metadata": {
+            "word": "走神",
+            "style_desc": "Turquoise water text with ripples",
+            "ocr_boxes": [
+                [
+                    [
+                        323,
+                        359
+                    ],
+                    [
+                        831,
+                        351
+                    ],
+                    [
+                        836,
+                        635
+                    ],
+                    [
+                        328,
+                        643
+                    ]
+                ]
+            ],
+            "ocr_texts": [
+                "走神"
+            ],
+            "box_count": 1
+        },
+        "reject_reason": "NO"
+    },
+    {
+        "id": 385,
+        "input_image": "/app/cold1/code/texteditRoPE/data_construction_style/dataset_images_2/content_images/pair_00385_input.jpg",
+        "style_image": "dataset_images_2/style_images/pair_00385_ref.jpg",
+        "target_image": "dataset_images_2/images/pair_00385_target.jpg",
+        "instruction": "把\"追剧\"变成参考图里展示的那种风格。",
+        "metadata": {
+            "word": "追剧",
+            "style_desc": "Slate blue text with smoky texture",
+            "ocr_boxes": [
+                [
+                    [
+                        117,
+                        423
+                    ],
+                    [
+                        911,
+                        225
+                    ],
+                    [
+                        1022,
+                        669
+                    ],
+                    [
+                        228,
+                        867
+                    ]
+                ]
+            ],
+            "ocr_texts": [
+                "追剧"
+            ],
+            "box_count": 1
+        },
+        "reject_reason": "NO"
+    },
+    {
+        "id": 1049,
+        "input_image": "/app/cold1/code/texteditRoPE/data_construction_style/dataset_images_2/content_images/pair_01049_input.jpg",
+        "style_image": "dataset_images_2/style_images/pair_01049_ref.jpg",
+        "target_image": "dataset_images_2/images/pair_01049_target.jpg",
+        "instruction": "将第一张图中的文字\"烫手山芋\"应用第二张图的风格进行转换。",
+        "metadata": {
+            "word": "烫手山芋",
+            "style_desc": "Glowing bioluminescent text in a marine theme",
+            "ocr_boxes": [
+                [
+                    [
+                        0,
+                        466
+                    ],
+                    [
+                        948,
+                        201
+                    ],
+                    [
+                        1024,
+                        515
+                    ],
+                    [
+                        41,
+                        780
+                    ]
+                ]
+            ],
+            "ocr_texts": [
+                "烫手山芋"
+            ],
+            "box_count": 1
+        },
+        "reject_reason": "NO"
+    },
+    {
+        "id": 1321,
+        "input_image": "/app/cold1/code/texteditRoPE/data_construction_style/dataset_images_2/content_images/pair_01321_input.jpg",
+        "style_image": "dataset_images_2/style_images/pair_01321_ref.jpg",
+        "target_image": "dataset_images_2/images/pair_01321_target.jpg",
+        "instruction": "Change the style of the text \"落日熔\" to the style of the second image, keeping the text content unchanged.",
+        "metadata": {
+            "word": "落日熔",
+            "style_desc": "Charcoal gray rust text with smoke patterns",
+            "ocr_boxes": [
+                [
+                    [
+                        0,
+                        634
+                    ],
+                    [
+                        814,
+                        156
+                    ],
+                    [
+                        1017,
+                        504
+                    ],
+                    [
+                        196,
+                        982
+                    ]
+                ]
+            ],
+            "ocr_texts": [
+                "落日熔"
+            ],
+            "box_count": 1
+        },
+        "reject_reason": "NO"
+    },
+    {
+        "id": 1801,
+        "input_image": "/app/cold1/code/texteditRoPE/data_construction_style/dataset_images_2/content_images/pair_01801_input.jpg",
+        "style_image": "dataset_images_2/style_images/pair_01801_ref.jpg",
+        "target_image": "dataset_images_2/images/pair_01801_target.jpg",
+        "instruction": "将第一张图中的文字\"Fog\"应用第二张图的风格进行转换。",
+        "metadata": {
+            "word": "Fog",
+            "style_desc": "Amethyst crystal text with frost patterns",
+            "ocr_boxes": [
+                [
+                    [
+                        78,
+                        0
+                    ],
+                    [
+                        1024,
+                        166
+                    ],
+                    [
+                        973,
+                        1024
+                    ],
+                    [
+                        0,
+                        884
+                    ]
+                ]
+            ],
+            "ocr_texts": [
+                "fog"
+            ],
+            "box_count": 1
+        },
+        "reject_reason": "NO"
+    },
+    {
+        "id": 1809,
+        "input_image": "/app/cold1/code/texteditRoPE/data_construction_style/dataset_images_2/content_images/pair_01809_input.jpg",
+        "style_image": "dataset_images_2/style_images/pair_01809_ref.jpg",
+        "target_image": "dataset_images_2/images/pair_01809_target.jpg",
+        "instruction": "Change the text style of \"Phoenix\" to match the reference image.",
+        "metadata": {
+            "word": "Phoenix",
+            "style_desc": "Ruby red fur text with sparkles",
+            "ocr_boxes": [
+                [
+                    [
+                        0,
+                        372
+                    ],
+                    [
+                        1002,
+                        115
+                    ],
+                    [
+                        1024,
+                        552
+                    ],
+                    [
+                        0,
+                        809
+                    ]
+                ]
+            ],
+            "ocr_texts": [
+                "Phoenix"
+            ],
+            "box_count": 1
+        },
+        "reject_reason": "NO"
+    },
+    {
+        "id": 2025,
+        "input_image": "/app/cold1/code/texteditRoPE/data_construction_style/dataset_images_2/content_images/pair_02025_input.jpg",
+        "style_image": "dataset_images_2/style_images/pair_02025_ref.jpg",
+        "target_image": "dataset_images_2/images/pair_02025_target.jpg",
+        "instruction": "Apply the style from image 2 to the text \"Mist\" shown in image 1.",
+        "metadata": {
+            "word": "Mist",
+            "style_desc": "Shimmering silver spider silk text with dew drops",
+            "ocr_boxes": [
+                [
+                    [
+                        0,
+                        82
+                    ],
+                    [
+                        1024,
+                        135
+                    ],
+                    [
+                        1009,
+                        847
+                    ],
+                    [
+                        0,
+                        794
+                    ]
+                ]
+            ],
+            "ocr_texts": [
+                "Mist"
+            ],
+            "box_count": 1
+        },
+        "reject_reason": "NO"
+    },
+    {
+        "id": 2129,
+        "input_image": "/app/cold1/code/texteditRoPE/data_construction_style/dataset_images_2/content_images/pair_02129_input.jpg",
+        "style_image": "dataset_images_2/style_images/pair_02129_ref.jpg",
+        "target_image": "dataset_images_2/images/pair_02129_target.jpg",
+        "instruction": "使用第二张图的风格来渲染第一张图中的文字\"空灵之音\"。",
+        "metadata": {
+            "word": "空灵之音",
+            "style_desc": "Crimson velvet text with spider webs",
+            "ocr_boxes": [
+                [
+                    [
+                        76,
+                        374
+                    ],
+                    [
+                        931,
+                        329
+                    ],
+                    [
+                        947,
+                        627
+                    ],
+                    [
+                        92,
+                        672
+                    ]
+                ]
+            ],
+            "ocr_texts": [
+                "空灵之音"
+            ],
+            "box_count": 1
+        },
+        "reject_reason": "NO"
+    },
+    {
+        "id": 2393,
+        "input_image": "/app/cold1/code/texteditRoPE/data_construction_style/dataset_images_2/content_images/pair_02393_input.jpg",
+        "style_image": "dataset_images_2/style_images/pair_02393_ref.jpg",
+        "target_image": "dataset_images_2/images/pair_02393_target.jpg",
+        "instruction": "把\"Starlight\"的样式改成参考图的样子。",
+        "metadata": {
+            "word": "Starlight",
+            "style_desc": "Furry brown text in a cave setting",
+            "ocr_boxes": [
+                [
+                    [
+                        75,
+                        348
+                    ],
+                    [
+                        910,
+                        370
+                    ],
+                    [
+                        902,
+                        677
+                    ],
+                    [
+                        67,
+                        655
+                    ]
+                ]
+            ],
+            "ocr_texts": [
+                "Starlight"
+            ],
+            "box_count": 1
+        },
+        "reject_reason": "NO"
+    },
+    {
+        "id": 42,
+        "input_image": "/app/cold1/code/texteditRoPE/data_construction_style/dataset_images_2/content_images/pair_00042_input.jpg",
+        "style_image": "dataset_images_2/style_images/pair_00042_ref.jpg",
+        "target_image": "dataset_images_2/images/pair_00042_target.jpg",
+        "instruction": "使用第二张图的风格来渲染第一张图中的文字\"溜达\"。",
+        "metadata": {
+            "word": "溜达",
+            "style_desc": "Fungal mycelium network text with organic blob shapes and ethereal aurora lighting in viridian and pale lavender",
+            "ocr_boxes": [
+                [
+                    [
+                        0,
+                        153
+                    ],
+                    [
+                        1024,
+                        151
+                    ],
+                    [
+                        1024,
+                        839
+                    ],
+                    [
+                        0,
+                        841
+                    ]
+                ]
+            ],
+            "ocr_texts": [
+                "溜达"
+            ],
+            "box_count": 1
+        },
+        "reject_reason": "NO"
+    },
+    {
+        "id": 338,
+        "input_image": "/app/cold1/code/texteditRoPE/data_construction_style/dataset_images_2/content_images/pair_00338_input.jpg",
+        "style_image": "dataset_images_2/style_images/pair_00338_ref.jpg",
+        "target_image": "dataset_images_2/images/pair_00338_target.jpg",
+        "instruction": "将第一张图中的文字\"Mist\"应用第二张图的风格进行转换。",
+        "metadata": {
+            "word": "Mist",
+            "style_desc": "Holographic rainbow dust text with floating particles",
+            "ocr_boxes": [
+                [
+                    [
+                        0,
+                        192
+                    ],
+                    [
+                        1024,
+                        207
+                    ],
+                    [
+                        1024,
+                        850
+                    ],
+                    [
+                        0,
+                        835
+                    ]
+                ]
+            ],
+            "ocr_texts": [
+                "Mist"
+            ],
+            "box_count": 1
+        },
+        "reject_reason": "NO"
+    },
+    {
+        "id": 554,
+        "input_image": "/app/cold1/code/texteditRoPE/data_construction_style/dataset_images_2/content_images/pair_00554_input.jpg",
+        "style_image": "dataset_images_2/style_images/pair_00554_ref.jpg",
+        "target_image": "dataset_images_2/images/pair_00554_target.jpg",
+        "instruction": "参考第二张图的风格，改变第一张图中文字\"猫伸腰\"的外观。",
+        "metadata": {
+            "word": "猫伸腰",
+            "style_desc": "Amethyst purple text with starry night effect",
+            "ocr_boxes": [
+                [
+                    [
+                        247,
+                        132
+                    ],
+                    [
+                        1015,
+                        733
+                    ],
+                    [
+                        775,
+                        1024
+                    ],
+                    [
+                        7,
+                        439
+                    ]
+                ]
+            ],
+            "ocr_texts": [
+                "猫伸腰"
+            ],
+            "box_count": 1
+        },
+        "reject_reason": "NO"
+    },
+    {
+        "id": 658,
+        "input_image": "/app/cold1/code/texteditRoPE/data_construction_style/dataset_images_2/content_images/pair_00658_input.jpg",
+        "style_image": "dataset_images_2/style_images/pair_00658_ref.jpg",
+        "target_image": "dataset_images_2/images/pair_00658_target.jpg",
+        "instruction": "Change the style of the text \"Ashes\" in the first image to match the style of the second image.",
+        "metadata": {
+            "word": "Ashes",
+            "style_desc": "Foggy mist text with floating leaves",
+            "ocr_boxes": [
+                [
+                    [
+                        54,
+                        275
+                    ],
+                    [
+                        952,
+                        269
+                    ],
+                    [
+                        954,
+                        630
+                    ],
+                    [
+                        56,
+                        636
+                    ]
+                ]
+            ],
+            "ocr_texts": [
+                "Ashes"
+            ],
+            "box_count": 1
+        },
+        "reject_reason": "NO"
+    },
+    {
+        "id": 802,
+        "input_image": "/app/cold1/code/texteditRoPE/data_construction_style/dataset_images_2/content_images/pair_00802_input.jpg",
+        "style_image": "dataset_images_2/style_images/pair_00802_ref.jpg",
+        "target_image": "dataset_images_2/images/pair_00802_target.jpg",
+        "instruction": "Change the text style of \"翻旧照\" to match the reference image.",
+        "metadata": {
+            "word": "翻旧照",
+            "style_desc": "Gossamer web text with spider droppings",
+            "ocr_boxes": [
+                [
+                    [
+                        45,
+                        392
+                    ],
+                    [
+                        886,
+                        184
+                    ],
+                    [
+                        972,
+                        532
+                    ],
+                    [
+                        132,
+                        741
+                    ]
+                ]
+            ],
+            "ocr_texts": [
+                "翻旧照"
+            ],
+            "box_count": 1
+        },
+        "reject_reason": "NO"
+    },
+    {
+        "id": 810,
+        "input_image": "/app/cold1/code/texteditRoPE/data_construction_style/dataset_images_2/content_images/pair_00810_input.jpg",
+        "style_image": "dataset_images_2/style_images/pair_00810_ref.jpg",
+        "target_image": "dataset_images_2/images/pair_00810_target.jpg",
+        "instruction": "Using the second image as a style reference, transform the appearance of the text \"雨停了\" in the first image.",
+        "metadata": {
+            "word": "雨停了",
+            "style_desc": "Slick black tar text with glowing maggots",
+            "ocr_boxes": [
+                [
+                    [
+                        31,
+                        269
+                    ],
+                    [
+                        1024,
+                        344
+                    ],
+                    [
+                        1004,
+                        820
+                    ],
+                    [
+                        0,
+                        745
+                    ]
+                ]
+            ],
+            "ocr_texts": [
+                "雨停了"
+            ],
+            "box_count": 1
+        },
+        "reject_reason": "NO"
+    },
+    {
+        "id": 1090,
+        "input_image": "/app/cold1/code/texteditRoPE/data_construction_style/dataset_images_2/content_images/pair_01090_input.jpg",
+        "style_image": "dataset_images_2/style_images/pair_01090_ref.jpg",
+        "target_image": "dataset_images_2/images/pair_01090_target.jpg",
+        "instruction": "使用第二张图的风格来渲染第一张图中的文字\"风铃的声音\"。",
+        "metadata": {
+            "word": "风铃的声音",
+            "style_desc": "Furry yellow text with glowing stars",
+            "ocr_boxes": [
+                [
+                    [
+                        50,
+                        162
+                    ],
+                    [
+                        1007,
+                        97
+                    ],
+                    [
+                        1024,
+                        480
+                    ],
+                    [
+                        76,
+                        545
+                    ]
+                ],
+                [
+                    [
+                        23,
+                        393
+                    ],
+                    [
+                        1024,
+                        318
+                    ],
+                    [
+                        1024,
+                        921
+                    ],
+                    [
+                        66,
+                        996
+                    ]
+                ]
+            ],
+            "ocr_texts": [
+                "风铃",
+                "的声音"
+            ],
+            "box_count": 2
+        },
+        "reject_reason": "NO"
+    },
+    {
+        "id": 1378,
+        "input_image": "/app/cold1/code/texteditRoPE/data_construction_style/dataset_images_2/content_images/pair_01378_input.jpg",
+        "style_image": "dataset_images_2/style_images/pair_01378_ref.jpg",
+        "target_image": "dataset_images_2/images/pair_01378_target.jpg",
+        "instruction": "把\"云游\"变成参考图里展示的那种风格。",
+        "metadata": {
+            "word": "云游",
+            "style_desc": "Neon pink coral text with oceanic waves",
+            "ocr_boxes": [
+                [
+                    [
+                        129,
+                        191
+                    ],
+                    [
+                        1003,
+                        255
+                    ],
+                    [
+                        963,
+                        801
+                    ],
+                    [
+                        89,
+                        737
+                    ]
+                ]
+            ],
+            "ocr_texts": [
+                "云游"
+            ],
+            "box_count": 1
+        },
+        "reject_reason": "NO"
+    },
+    {
+        "id": 1770,
+        "input_image": "/app/cold1/code/texteditRoPE/data_construction_style/dataset_images_2/content_images/pair_01770_input.jpg",
+        "style_image": "dataset_images_2/style_images/pair_01770_ref.jpg",
+        "target_image": "dataset_images_2/images/pair_01770_target.jpg",
+        "instruction": "Apply the reference style to the word \"翻旧照\".",
+        "metadata": {
+            "word": "翻旧照",
+            "style_desc": "Holographic data stream with floating particles",
+            "ocr_boxes": [
+                [
+                    [
+                        94,
+                        335
+                    ],
+                    [
+                        955,
+                        360
+                    ],
+                    [
+                        945,
+                        682
+                    ],
+                    [
+                        84,
+                        657
+                    ]
+                ]
+            ],
+            "ocr_texts": [
+                "翻旧照"
+            ],
+            "box_count": 1
+        },
+        "reject_reason": "NO"
+    },
+    {
+        "id": 1978,
+        "input_image": "/app/cold1/code/texteditRoPE/data_construction_style/dataset_images_2/content_images/pair_01978_input.jpg",
+        "style_image": "dataset_images_2/style_images/pair_01978_ref.jpg",
+        "target_image": "dataset_images_2/images/pair_01978_target.jpg",
+        "instruction": "参考第二张图的风格，改变第一张图中文字\"迷人的笑容\"的外观。",
+        "metadata": {
+            "word": "迷人的笑容",
+            "style_desc": "Moss-covered text growing on a stone wall",
+            "ocr_boxes": [
+                [
+                    [
+                        175,
+                        266
+                    ],
+                    [
+                        862,
+                        291
+                    ],
+                    [
+                        852,
+                        569
+                    ],
+                    [
+                        165,
+                        544
+                    ]
+                ],
+                [
+                    [
+                        17,
+                        490
+                    ],
+                    [
+                        833,
+                        509
+                    ],
+                    [
+                        825,
+                        853
+                    ],
+                    [
+                        9,
+                        834
+                    ]
+                ]
+            ],
+            "ocr_texts": [
+                "迷人的",
+                "笑容"
+            ],
+            "box_count": 2
+        },
+        "reject_reason": "NO"
+    },
+    {
+        "id": 2002,
+        "input_image": "/app/cold1/code/texteditRoPE/data_construction_style/dataset_images_2/content_images/pair_02002_input.jpg",
+        "style_image": "dataset_images_2/style_images/pair_02002_ref.jpg",
+        "target_image": "dataset_images_2/images/pair_02002_target.jpg",
+        "instruction": "Change the style of the text \"卡顿\" in the first image to match the style of the second image.",
+        "metadata": {
+            "word": "卡顿",
+            "style_desc": "Slick black tar text with glowing worms",
+            "ocr_boxes": [
+                [
+                    [
+                        10,
+                        0
+                    ],
+                    [
+                        1024,
+                        240
+                    ],
+                    [
+                        976,
+                        1024
+                    ],
+                    [
+                        0,
+                        844
+                    ]
+                ]
+            ],
+            "ocr_texts": [
+                "卡顿"
+            ],
+            "box_count": 1
+        },
+        "reject_reason": "NO"
+    },
+    {
+        "id": 2218,
+        "input_image": "/app/cold1/code/texteditRoPE/data_construction_style/dataset_images_2/content_images/pair_02218_input.jpg",
+        "style_image": "dataset_images_2/style_images/pair_02218_ref.jpg",
+        "target_image": "dataset_images_2/images/pair_02218_target.jpg",
+        "instruction": "Change the text style of \"薯片袋里最后一片\" to match the reference image.",
+        "metadata": {
+            "word": "薯片袋里最后一片",
+            "style_desc": "Frosty white ice text with crackling patterns",
+            "ocr_boxes": [
+                [
+                    [
+                        124,
+                        380
+                    ],
+                    [
+                        845,
+                        215
+                    ],
+                    [
+                        895,
+                        434
+                    ],
+                    [
+                        174,
+                        599
+                    ]
+                ],
+                [
+                    [
+                        150,
+                        538
+                    ],
+                    [
+                        870,
+                        388
+                    ],
+                    [
+                        919,
+                        621
+                    ],
+                    [
+                        199,
+                        771
+                    ]
+                ]
+            ],
+            "ocr_texts": [
+                "薯片袋里",
+                "最后一片"
+            ],
+            "box_count": 2
+        },
+        "reject_reason": "NO"
+    },
+    {
+        "id": 2322,
+        "input_image": "/app/cold1/code/texteditRoPE/data_construction_style/dataset_images_2/content_images/pair_02322_input.jpg",
+        "style_image": "dataset_images_2/style_images/pair_02322_ref.jpg",
+        "target_image": "dataset_images_2/images/pair_02322_target.jpg",
+        "instruction": "将第二张图的风格应用到第一张图中的文字\"Pixel\"上。",
+        "metadata": {
+            "word": "Pixel",
+            "style_desc": "Liquid mercury letters with floating particles",
+            "ocr_boxes": [
+                [
+                    [
+                        95,
+                        303
+                    ],
+                    [
+                        936,
+                        276
+                    ],
+                    [
+                        947,
+                        632
+                    ],
+                    [
+                        106,
+                        659
+                    ]
+                ]
+            ],
+            "ocr_texts": [
+                "Pixel"
+            ],
+            "box_count": 1
+        },
+        "reject_reason": "NO"
+    },
+    {
+        "id": 2330,
+        "input_image": "/app/cold1/code/texteditRoPE/data_construction_style/dataset_images_2/content_images/pair_02330_input.jpg",
+        "style_image": "dataset_images_2/style_images/pair_02330_ref.jpg",
+        "target_image": "dataset_images_2/images/pair_02330_target.jpg",
+        "instruction": "Change the style of the text \"渔火\" in the first image to match the style of the second image.",
+        "metadata": {
+            "word": "渔火",
+            "style_desc": "Turquoise sea foam text with coral details",
+            "ocr_boxes": [
+                [
+                    [
+                        0,
+                        354
+                    ],
+                    [
+                        929,
+                        20
+                    ],
+                    [
+                        1024,
+                        634
+                    ],
+                    [
+                        99,
+                        968
+                    ]
+                ]
+            ],
+            "ocr_texts": [
+                "渔火"
+            ],
+            "box_count": 1
+        },
+        "reject_reason": "NO"
+    },
+    {
+        "id": 2346,
+        "input_image": "/app/cold1/code/texteditRoPE/data_construction_style/dataset_images_2/content_images/pair_02346_input.jpg",
+        "style_image": "dataset_images_2/style_images/pair_02346_ref.jpg",
+        "target_image": "dataset_images_2/images/pair_02346_target.jpg",
+        "instruction": "让\"嗑瓜子\"具有和参考图一样的视觉风格。",
+        "metadata": {
+            "word": "嗑瓜子",
+            "style_desc": "Luminous starlight text with cosmic rays",
+            "ocr_boxes": [
+                [
+                    [
+                        45,
+                        220
+                    ],
+                    [
+                        923,
+                        201
+                    ],
+                    [
+                        931,
+                        571
+                    ],
+                    [
+                        53,
+                        590
+                    ]
+                ]
+            ],
+            "ocr_texts": [
+                "嗑瓜子"
+            ],
+            "box_count": 1
+        },
+        "reject_reason": "NO"
+    },
+    {
+        "id": 2434,
+        "input_image": "/app/cold1/code/texteditRoPE/data_construction_style/dataset_images_2/content_images/pair_02434_input.jpg",
+        "style_image": "dataset_images_2/style_images/pair_02434_ref.jpg",
+        "target_image": "dataset_images_2/images/pair_02434_target.jpg",
+        "instruction": "把\"Tea\"变成第二张图里展示的那种风格。",
+        "metadata": {
+            "word": "Tea",
+            "style_desc": "Slippery wet concrete text",
+            "ocr_boxes": [
+                [
+                    [
+                        116,
+                        0
+                    ],
+                    [
+                        1024,
+                        215
+                    ],
+                    [
+                        916,
+                        953
+                    ],
+                    [
+                        0,
+                        655
+                    ]
+                ]
+            ],
+            "ocr_texts": [
+                "Tea"
+            ],
+            "box_count": 1
+        },
+        "reject_reason": "NO"
+    },
+    {
+        "id": 27,
+        "input_image": "/app/cold1/code/texteditRoPE/data_construction_style/dataset_images_2/content_images/pair_00027_input.jpg",
+        "style_image": "dataset_images_2/style_images/pair_00027_ref.jpg",
+        "target_image": "dataset_images_2/images/pair_00027_target.jpg",
+        "instruction": "把\"Knight\"变成第二张图里展示的那种风格。",
+        "metadata": {
+            "word": "Knight",
+            "style_desc": "Fungal mycelium font with twisted spiral shapes under dim green-brown tones with faint bioluminescence",
+            "ocr_boxes": [
+                [
+                    [
+                        0,
+                        385
+                    ],
+                    [
+                        966,
+                        97
+                    ],
+                    [
+                        1024,
+                        634
+                    ],
+                    [
+                        37,
+                        922
+                    ]
+                ]
+            ],
+            "ocr_texts": [
+                "Knight"
+            ],
+            "box_count": 1
+        },
+        "reject_reason": "NO"
+    },
+    {
+        "id": 179,
+        "input_image": "/app/cold1/code/texteditRoPE/data_construction_style/dataset_images_2/content_images/pair_00179_input.jpg",
+        "style_image": "dataset_images_2/style_images/pair_00179_ref.jpg",
+        "target_image": "dataset_images_2/images/pair_00179_target.jpg",
+        "instruction": "把文字\"一抹微笑\"的样式改成第二张图的样式,保持文字内容不变。",
+        "metadata": {
+            "word": "一抹微笑",
+            "style_desc": "Glowing emerald text with forest green",
+            "ocr_boxes": [
+                [
+                    [
+                        90,
+                        136
+                    ],
+                    [
+                        686,
+                        18
+                    ],
+                    [
+                        757,
+                        377
+                    ],
+                    [
+                        161,
+                        495
+                    ]
+                ]
+            ],
+            "ocr_texts": [
+                "一抹微笑"
+            ],
+            "box_count": 1
+        },
+        "reject_reason": "NO"
+    },
+    {
+        "id": 475,
+        "input_image": "/app/cold1/code/texteditRoPE/data_construction_style/dataset_images_2/content_images/pair_00475_input.jpg",
+        "style_image": "dataset_images_2/style_images/pair_00475_ref.jpg",
+        "target_image": "dataset_images_2/images/pair_00475_target.jpg",
+        "instruction": "把\"Myth\"变成第二张图里展示的那种风格。",
+        "metadata": {
+            "word": "Myth",
+            "style_desc": "Slippery black text with ink splatters",
+            "ocr_boxes": [
+                [
+                    [
+                        0,
+                        62
+                    ],
+                    [
+                        1024,
+                        62
+                    ],
+                    [
+                        1024,
+                        883
+                    ],
+                    [
+                        0,
+                        883
+                    ]
+                ]
+            ],
+            "ocr_texts": [
+                "Myth"
+            ],
+            "box_count": 1
+        },
+        "reject_reason": "NO"
+    },
+    {
+        "id": 795,
+        "input_image": "/app/cold1/code/texteditRoPE/data_construction_style/dataset_images_2/content_images/pair_00795_input.jpg",
+        "style_image": "dataset_images_2/style_images/pair_00795_ref.jpg",
+        "target_image": "dataset_images_2/images/pair_00795_target.jpg",
+        "instruction": "把文字\"Whirlwind\"的样式改成第二张图的样式,保持文字内容不变。",
+        "metadata": {
+            "word": "Whirlwind",
+            "style_desc": "Fungal growth text with mossy green",
+            "ocr_boxes": [
+                [
+                    [
+                        24,
+                        361
+                    ],
+                    [
+                        1024,
+                        333
+                    ],
+                    [
+                        1024,
+                        603
+                    ],
+                    [
+                        31,
+                        631
+                    ]
+                ]
+            ],
+            "ocr_texts": [
+                "Whirlwind"
+            ],
+            "box_count": 1
+        },
+        "reject_reason": "NO"
+    },
+    {
+        "id": 1011,
+        "input_image": "/app/cold1/code/texteditRoPE/data_construction_style/dataset_images_2/content_images/pair_01011_input.jpg",
+        "style_image": "dataset_images_2/style_images/pair_01011_ref.jpg",
+        "target_image": "dataset_images_2/images/pair_01011_target.jpg",
+        "instruction": "Keep the text content \"Phoenix\" from the first image, but render it using the style of the second image.",
+        "metadata": {
+            "word": "Phoenix",
+            "style_desc": "Translucent green jelly text with glowing algae",
+            "ocr_boxes": [
+                [
+                    [
+                        24,
+                        215
+                    ],
+                    [
+                        1024,
+                        425
+                    ],
+                    [
+                        1002,
+                        775
+                    ],
+                    [
+                        0,
+                        565
+                    ]
+                ]
+            ],
+            "ocr_texts": [
+                "Phoenix"
+            ],
+            "box_count": 1
+        },
+        "reject_reason": "NO"
+    },
+    {
+        "id": 1075,
+        "input_image": "/app/cold1/code/texteditRoPE/data_construction_style/dataset_images_2/content_images/pair_01075_input.jpg",
+        "style_image": "dataset_images_2/style_images/pair_01075_ref.jpg",
+        "target_image": "dataset_images_2/images/pair_01075_target.jpg",
+        "instruction": "Take the text \"困了\" from image 1 and apply the visual style from image 2.",
+        "metadata": {
+            "word": "困了",
+            "style_desc": "Slippery black text with glowing ink",
+            "ocr_boxes": [
+                [
+                    [
+                        775,
+                        38
+                    ],
+                    [
+                        984,
+                        32
+                    ],
+                    [
+                        987,
+                        147
+                    ],
+                    [
+                        778,
+                        153
+                    ]
+                ]
+            ],
+            "ocr_texts": [
+                "困了"
+            ],
+            "box_count": 1
+        },
+        "reject_reason": "NO"
+    },
+    {
+        "id": 1091,
+        "input_image": "/app/cold1/code/texteditRoPE/data_construction_style/dataset_images_2/content_images/pair_01091_input.jpg",
+        "style_image": "dataset_images_2/style_images/pair_01091_ref.jpg",
+        "target_image": "dataset_images_2/images/pair_01091_target.jpg",
+        "instruction": "把文字\"冲鸭～\"的样式改成第二张图的样式,保持文字内容不变。",
+        "metadata": {
+            "word": "冲鸭～",
+            "style_desc": "Slippery red text with blood splatters",
+            "ocr_boxes": [
+                [
+                    [
+                        0,
+                        382
+                    ],
+                    [
+                        948,
+                        49
+                    ],
+                    [
+                        1024,
+                        624
+                    ],
+                    [
+                        52,
+                        957
+                    ]
+                ]
+            ],
+            "ocr_texts": [
+                "冲鸭～"
+            ],
+            "box_count": 1
+        },
+        "reject_reason": "NO"
+    },
+    {
+        "id": 1155,
+        "input_image": "/app/cold1/code/texteditRoPE/data_construction_style/dataset_images_2/content_images/pair_01155_input.jpg",
+        "style_image": "dataset_images_2/style_images/pair_01155_ref.jpg",
+        "target_image": "dataset_images_2/images/pair_01155_target.jpg",
+        "instruction": "使用第二张图的风格来渲染第一张图中的文字\"岁月静好\"。",
+        "metadata": {
+            "word": "岁月静好",
+            "style_desc": "Rusty red text with a weathered leather texture",
+            "ocr_boxes": [
+                [
+                    [
+                        578,
+                        0
+                    ],
+                    [
+                        1024,
+                        0
+                    ],
+                    [
+                        1024,
+                        958
+                    ],
+                    [
+                        592,
+                        965
+                    ]
+                ]
+            ],
+            "ocr_texts": [
+                "岁月静好"
+            ],
+            "box_count": 1
+        },
+        "reject_reason": "NO"
+    },
+    {
+        "id": 1355,
+        "input_image": "/app/cold1/code/texteditRoPE/data_construction_style/dataset_images_2/content_images/pair_01355_input.jpg",
+        "style_image": "dataset_images_2/style_images/pair_01355_ref.jpg",
+        "target_image": "dataset_images_2/images/pair_01355_target.jpg",
+        "instruction": "把文字\"雨骤风急\"的样式改成第二张图的样式,保持文字内容不变。",
+        "metadata": {
+            "word": "雨骤风急",
+            "style_desc": "Neon red glass text with shattered fragments",
+            "ocr_boxes": [
+                [
+                    [
+                        58,
+                        264
+                    ],
+                    [
+                        1011,
+                        363
+                    ],
+                    [
+                        972,
+                        731
+                    ],
+                    [
+                        19,
+                        632
+                    ]
+                ]
+            ],
+            "ocr_texts": [
+                "雨骤风急"
+            ],
+            "box_count": 1
+        },
+        "reject_reason": "NO"
+    },
+    {
+        "id": 1563,
+        "input_image": "/app/cold1/code/texteditRoPE/data_construction_style/dataset_images_2/content_images/pair_01563_input.jpg",
+        "style_image": "dataset_images_2/style_images/pair_01563_ref.jpg",
+        "target_image": "dataset_images_2/images/pair_01563_target.jpg",
+        "instruction": "让\"追逐梦想\"具有和参考图一样的视觉风格。",
+        "metadata": {
+            "word": "追逐梦想",
+            "style_desc": "Neon pink tentacle text with pulsating lights",
+            "ocr_boxes": [
+                [
+                    [
+                        63,
+                        400
+                    ],
+                    [
+                        898,
+                        303
+                    ],
+                    [
+                        927,
+                        551
+                    ],
+                    [
+                        92,
+                        648
+                    ]
+                ]
+            ],
+            "ocr_texts": [
+                "追逐梦想"
+            ],
+            "box_count": 1
+        },
+        "reject_reason": "NO"
+    },
+    {
+        "id": 1779,
+        "input_image": "/app/cold1/code/texteditRoPE/data_construction_style/dataset_images_2/content_images/pair_01779_input.jpg",
+        "style_image": "dataset_images_2/style_images/pair_01779_ref.jpg",
+        "target_image": "dataset_images_2/images/pair_01779_target.jpg",
+        "instruction": "保持第一张图中文字\"空灵之音\"的内容不变，但使用第二张图的风格进行渲染。",
+        "metadata": {
+            "word": "空灵之音",
+            "style_desc": "Cactus spiky text with cactus flowers",
+            "ocr_boxes": [
+                [
+                    [
+                        88,
+                        288
+                    ],
+                    [
+                        946,
+                        288
+                    ],
+                    [
+                        946,
+                        754
+                    ],
+                    [
+                        88,
+                        754
+                    ]
+                ]
+            ],
+            "ocr_texts": [
+                "空灵之音"
+            ],
+            "box_count": 1
+        },
+        "reject_reason": "NO"
+    },
+    {
+        "id": 2475,
+        "input_image": "/app/cold1/code/texteditRoPE/data_construction_style/dataset_images_2/content_images/pair_02475_input.jpg",
+        "style_image": "dataset_images_2/style_images/pair_02475_ref.jpg",
+        "target_image": "dataset_images_2/images/pair_02475_target.jpg",
+        "instruction": "Keep the text content \"绝了！\" from the first image, but render it using the style of the second image.",
+        "metadata": {
+            "word": "绝了！",
+            "style_desc": "Neon pink slush text in a futuristic cityscape",
+            "ocr_boxes": [
+                [
+                    [
+                        0,
+                        330
+                    ],
+                    [
+                        932,
+                        43
+                    ],
+                    [
+                        1024,
+                        570
+                    ],
+                    [
+                        32,
+                        857
+                    ]
+                ]
+            ],
+            "ocr_texts": [
+                "绝了！"
+            ],
+            "box_count": 1
+        },
+        "reject_reason": "NO"
+    },
+    {
+        "id": 52,
+        "input_image": "/app/cold1/code/texteditRoPE/data_construction_style/dataset_images_2/content_images/pair_00052_input.jpg",
+        "style_image": "dataset_images_2/style_images/pair_00052_ref.jpg",
+        "target_image": "dataset_images_2/images/pair_00052_target.jpg",
+        "instruction": "Change the text style of \"Rain\" to match the reference image.",
+        "metadata": {
+            "word": "Rain",
+            "style_desc": "Rustling parchment scrolls with quill script under warm candlelight and sepia tones",
+            "ocr_boxes": [
+                [
+                    [
+                        51,
+                        167
+                    ],
+                    [
+                        934,
+                        150
+                    ],
+                    [
+                        945,
+                        731
+                    ],
+                    [
+                        62,
+                        748
+                    ]
+                ]
+            ],
+            "ocr_texts": [
+                "Rain"
+            ],
+            "box_count": 1
+        },
+        "reject_reason": "NO"
+    },
+    {
+        "id": 228,
+        "input_image": "/app/cold1/code/texteditRoPE/data_construction_style/dataset_images_2/content_images/pair_00228_input.jpg",
+        "style_image": "dataset_images_2/style_images/pair_00228_ref.jpg",
+        "target_image": "dataset_images_2/images/pair_00228_target.jpg",
+        "instruction": "将第一张图中的文字\"未曾相遇\"应用第二张图的风格进行转换。",
+        "metadata": {
+            "word": "未曾相遇",
+            "style_desc": "Furry black text with starry night lighting",
+            "ocr_boxes": [
+                [
+                    [
+                        0,
+                        309
+                    ],
+                    [
+                        989,
+                        324
+                    ],
+                    [
+                        982,
+                        818
+                    ],
+                    [
+                        0,
+                        803
+                    ]
+                ]
+            ],
+            "ocr_texts": [
+                "未曾相遇"
+            ],
+            "box_count": 1
+        },
+        "reject_reason": "NO"
+    },
+    {
+        "id": 444,
+        "input_image": "/app/cold1/code/texteditRoPE/data_construction_style/dataset_images_2/content_images/pair_00444_input.jpg",
+        "style_image": "dataset_images_2/style_images/pair_00444_ref.jpg",
+        "target_image": "dataset_images_2/images/pair_00444_target.jpg",
+        "instruction": "Using the second image as a style reference, transform the appearance of the text \"撸猫\" in the first image.",
+        "metadata": {
+            "word": "撸猫",
+            "style_desc": "Rusting iron script with crackling texture",
+            "ocr_boxes": [
+                [
+                    [
+                        28,
+                        219
+                    ],
+                    [
+                        1021,
+                        232
+                    ],
+                    [
+                        1013,
+                        829
+                    ],
+                    [
+                        20,
+                        816
+                    ]
+                ]
+            ],
+            "ocr_texts": [
+                "撸猫"
+            ],
+            "box_count": 1
+        },
+        "reject_reason": "NO"
+    },
+    {
+        "id": 484,
+        "input_image": "/app/cold1/code/texteditRoPE/data_construction_style/dataset_images_2/content_images/pair_00484_input.jpg",
+        "style_image": "dataset_images_2/style_images/pair_00484_ref.jpg",
+        "target_image": "dataset_images_2/images/pair_00484_target.jpg",
+        "instruction": "保持第一张图中文字\"Silent thunder\"的内容不变，但使用第二张图的风格进行渲染。",
+        "metadata": {
+            "word": "Silent thunder",
+            "style_desc": "Rusty brown text with cobweb details",
+            "ocr_boxes": [
+                [
+                    [
+                        69,
+                        399
+                    ],
+                    [
+                        762,
+                        127
+                    ],
+                    [
+                        859,
+                        374
+                    ],
+                    [
+                        166,
+                        646
+                    ]
+                ],
+                [
+                    [
+                        38,
+                        629
+                    ],
+                    [
+                        982,
+                        263
+                    ],
+                    [
+                        1024,
+                        511
+                    ],
+                    [
+                        135,
+                        877
+                    ]
+                ]
+            ],
+            "ocr_texts": [
+                "Silent",
+                "thunder"
+            ],
+            "box_count": 2
+        },
+        "reject_reason": "NO"
+    },
+    {
+        "id": 564,
+        "input_image": "/app/cold1/code/texteditRoPE/data_construction_style/dataset_images_2/content_images/pair_00564_input.jpg",
+        "style_image": "dataset_images_2/style_images/pair_00564_ref.jpg",
+        "target_image": "dataset_images_2/images/pair_00564_target.jpg",
+        "instruction": "保持第一张图中文字\"追逐梦想\"的内容不变，但使用第二张图的风格进行渲染。",
+        "metadata": {
+            "word": "追逐梦想",
+            "style_desc": "Amethyst crystal text with sparkly facets",
+            "ocr_boxes": [
+                [
+                    [
+                        30,
+                        318
+                    ],
+                    [
+                        1024,
+                        318
+                    ],
+                    [
+                        1024,
+                        669
+                    ],
+                    [
+                        30,
+                        669
+                    ]
+                ]
+            ],
+            "ocr_texts": [
+                "追逐梦想"
+            ],
+            "box_count": 1
+        },
+        "reject_reason": "NO"
+    },
+    {
+        "id": 644,
+        "input_image": "/app/cold1/code/texteditRoPE/data_construction_style/dataset_images_2/content_images/pair_00644_input.jpg",
+        "style_image": "dataset_images_2/style_images/pair_00644_ref.jpg",
+        "target_image": "dataset_images_2/images/pair_00644_target.jpg",
+        "instruction": "Make the text \"别慌\" look like the style in the reference image.",
+        "metadata": {
+            "word": "别慌",
+            "style_desc": "Holographic cloud text with raindrops",
+            "ocr_boxes": [
+                [
+                    [
+                        207,
+                        132
+                    ],
+                    [
+                        977,
+                        428
+                    ],
+                    [
+                        827,
+                        819
+                    ],
+                    [
+                        57,
+                        523
+                    ]
+                ]
+            ],
+            "ocr_texts": [
+                "别慌"
+            ],
+            "box_count": 1
+        },
+        "reject_reason": "NO"
+    },
+    {
+        "id": 708,
+        "input_image": "/app/cold1/code/texteditRoPE/data_construction_style/dataset_images_2/content_images/pair_00708_input.jpg",
+        "style_image": "dataset_images_2/style_images/pair_00708_ref.jpg",
+        "target_image": "dataset_images_2/images/pair_00708_target.jpg",
+        "instruction": "Take the text \"Rain\" from image 1 and apply the visual style from image 2.",
+        "metadata": {
+            "word": "Rain",
+            "style_desc": "Furry red text with bloodstains",
+            "ocr_boxes": [
+                [
+                    [
+                        0,
+                        288
+                    ],
+                    [
+                        967,
+                        38
+                    ],
+                    [
+                        1024,
+                        647
+                    ],
+                    [
+                        48,
+                        897
+                    ]
+                ]
+            ],
+            "ocr_texts": [
+                "Rain"
+            ],
+            "box_count": 1
+        },
+        "reject_reason": "NO"
+    },
+    {
+        "id": 1148,
+        "input_image": "/app/cold1/code/texteditRoPE/data_construction_style/dataset_images_2/content_images/pair_01148_input.jpg",
+        "style_image": "dataset_images_2/style_images/pair_01148_ref.jpg",
+        "target_image": "dataset_images_2/images/pair_01148_target.jpg",
+        "instruction": "Render the text \"逛夜市\" from the first input image using the visual characteristics defined in the second image.",
+        "metadata": {
+            "word": "逛夜市",
+            "style_desc": "Holographic data stream text in a futuristic ribbon font",
+            "ocr_boxes": [
+                [
+                    [
+                        0,
+                        255
+                    ],
+                    [
+                        989,
+                        86
+                    ],
+                    [
+                        1024,
+                        632
+                    ],
+                    [
+                        83,
+                        801
+                    ]
+                ]
+            ],
+            "ocr_texts": [
+                "逛夜市"
+            ],
+            "box_count": 1
+        },
+        "reject_reason": "NO"
+    },
+    {
+        "id": 1164,
+        "input_image": "/app/cold1/code/texteditRoPE/data_construction_style/dataset_images_2/content_images/pair_01164_input.jpg",
+        "style_image": "dataset_images_2/style_images/pair_01164_ref.jpg",
+        "target_image": "dataset_images_2/images/pair_01164_target.jpg",
+        "instruction": "Apply the style from image 2 to the text \"听雨声\" shown in image 1.",
+        "metadata": {
+            "word": "听雨声",
+            "style_desc": "Fuzzy gray text in a modernist font",
+            "ocr_boxes": [
+                [
+                    [
+                        261,
+                        360
+                    ],
+                    [
+                        867,
+                        243
+                    ],
+                    [
+                        914,
+                        487
+                    ],
+                    [
+                        308,
+                        604
+                    ]
+                ]
+            ],
+            "ocr_texts": [
+                "听雨声"
+            ],
+            "box_count": 1
+        },
+        "reject_reason": "NO"
+    },
+    {
+        "id": 1612,
+        "input_image": "/app/cold1/code/texteditRoPE/data_construction_style/dataset_images_2/content_images/pair_01612_input.jpg",
+        "style_image": "dataset_images_2/style_images/pair_01612_ref.jpg",
+        "target_image": "dataset_images_2/images/pair_01612_target.jpg",
+        "instruction": "Make the text \"断片\" look like the style in the reference image.",
+        "metadata": {
+            "word": "断片",
+            "style_desc": "Rusting iron script with cracked surface",
+            "ocr_boxes": [
+                [
+                    [
+                        34,
+                        274
+                    ],
+                    [
+                        878,
+                        117
+                    ],
+                    [
+                        998,
+                        763
+                    ],
+                    [
+                        154,
+                        920
+                    ]
+                ]
+            ],
+            "ocr_texts": [
+                "断片"
+            ],
+            "box_count": 1
+        },
+        "reject_reason": "NO"
+    },
+    {
+        "id": 1972,
+        "input_image": "/app/cold1/code/texteditRoPE/data_construction_style/dataset_images_2/content_images/pair_01972_input.jpg",
+        "style_image": "dataset_images_2/style_images/pair_01972_ref.jpg",
+        "target_image": "dataset_images_2/images/pair_01972_target.jpg",
+        "instruction": "把\"吃一碗热汤\"的样式改成参考图的样子。",
+        "metadata": {
+            "word": "吃一碗热汤",
+            "style_desc": "Frostbitten script on a snow-covered branch",
+            "ocr_boxes": [
+                [
+                    [
+                        88,
+                        189
+                    ],
+                    [
+                        874,
+                        183
+                    ],
+                    [
+                        876,
+                        479
+                    ],
+                    [
+                        90,
+                        485
+                    ]
+                ],
+                [
+                    [
+                        200,
+                        429
+                    ],
+                    [
+                        754,
+                        383
+                    ],
+                    [
+                        778,
+                        666
+                    ],
+                    [
+                        224,
+                        712
+                    ]
+                ]
+            ],
+            "ocr_texts": [
+                "吃一碗",
+                "热汤"
+            ],
+            "box_count": 2
+        },
+        "reject_reason": "NO"
+    },
+    {
+        "id": 2404,
+        "input_image": "/app/cold1/code/texteditRoPE/data_construction_style/dataset_images_2/content_images/pair_02404_input.jpg",
+        "style_image": "dataset_images_2/style_images/pair_02404_ref.jpg",
+        "target_image": "dataset_images_2/images/pair_02404_target.jpg",
+        "instruction": "保持第一张图中文字\"绝了！\"的内容不变，但使用第二张图的风格进行渲染。",
+        "metadata": {
+            "word": "绝了！",
+            "style_desc": "Fuzzy lavender text in a floral setting",
+            "ocr_boxes": [
+                [
+                    [
+                        65,
+                        245
+                    ],
+                    [
+                        1024,
+                        253
+                    ],
+                    [
+                        1024,
+                        840
+                    ],
+                    [
+                        60,
+                        832
+                    ]
+                ]
+            ],
+            "ocr_texts": [
+                "绝了！"
+            ],
+            "box_count": 1
+        },
+        "reject_reason": "NO"
+    },
+    {
+        "id": 2500,
+        "input_image": "/app/cold1/code/texteditRoPE/data_construction_style/dataset_images_2/content_images/pair_02500_input.jpg",
+        "style_image": "dataset_images_2/style_images/pair_02500_ref.jpg",
+        "target_image": "dataset_images_2/images/pair_02500_target.jpg",
+        "instruction": "Render the text \"冰雪\" from the first input image using the visual characteristics defined in the second image.",
+        "metadata": {
+            "word": "冰雪",
+            "style_desc": "Charcoal black text with coal texture",
+            "ocr_boxes": [
+                [
+                    [
+                        98,
+                        275
+                    ],
+                    [
+                        901,
+                        269
+                    ],
+                    [
+                        905,
+                        794
+                    ],
+                    [
+                        102,
+                        800
+                    ]
+                ]
+            ],
+            "ocr_texts": [
+                "冰雪"
+            ],
+            "box_count": 1
+        },
+        "reject_reason": "NO"
+    },
+    {
+        "id": 2540,
+        "input_image": "/app/cold1/code/texteditRoPE/data_construction_style/dataset_images_2/content_images/pair_02540_input.jpg",
+        "style_image": "dataset_images_2/style_images/pair_02540_ref.jpg",
+        "target_image": "dataset_images_2/images/pair_02540_target.jpg",
+        "instruction": "让\"追逐梦想\"具有和参考图一样的视觉风格。",
+        "metadata": {
+            "word": "追逐梦想",
+            "style_desc": "Neon blue slime mold text with fungal growth",
+            "ocr_boxes": [
+                [
+                    [
+                        58,
+                        193
+                    ],
+                    [
+                        990,
+                        193
+                    ],
+                    [
+                        990,
+                        769
+                    ],
+                    [
+                        58,
+                        769
+                    ]
+                ]
+            ],
+            "ocr_texts": [
+                "追逐梦想"
+            ],
+            "box_count": 1
+        },
+        "reject_reason": "NO"
+    },
+    {
+        "id": 461,
+        "input_image": "/app/cold1/code/texteditRoPE/data_construction_style/dataset_images_2/content_images/pair_00461_input.jpg",
+        "style_image": "dataset_images_2/style_images/pair_00461_ref.jpg",
+        "target_image": "dataset_images_2/images/pair_00461_target.jpg",
+        "instruction": "Change the style of the text \"黑夜漫步\" in the first image to match the style of the second image.",
+        "metadata": {
+            "word": "黑夜漫步",
+            "style_desc": "Mushroom brown text with glowing fungal growth",
+            "ocr_boxes": [
+                [
+                    [
+                        0,
+                        412
+                    ],
+                    [
+                        986,
+                        259
+                    ],
+                    [
+                        1024,
+                        583
+                    ],
+                    [
+                        31,
+                        736
+                    ]
+                ]
+            ],
+            "ocr_texts": [
+                "黑夜漫步"
+            ],
+            "box_count": 1
+        },
+        "reject_reason": "NO"
+    },
+    {
+        "id": 725,
+        "input_image": "/app/cold1/code/texteditRoPE/data_construction_style/dataset_images_2/content_images/pair_00725_input.jpg",
+        "style_image": "dataset_images_2/style_images/pair_00725_ref.jpg",
+        "target_image": "dataset_images_2/images/pair_00725_target.jpg",
+        "instruction": "把\"断片\"变成第二张图里展示的那种风格。",
+        "metadata": {
+            "word": "断片",
+            "style_desc": "Neon pink smoke text with heartbeats",
+            "ocr_boxes": [
+                [
+                    [
+                        0,
+                        21
+                    ],
+                    [
+                        661,
+                        0
+                    ],
+                    [
+                        689,
+                        757
+                    ],
+                    [
+                        0,
+                        782
+                    ]
+                ],
+                [
+                    [
+                        67,
+                        326
+                    ],
+                    [
+                        1024,
+                        175
+                    ],
+                    [
+                        1024,
+                        906
+                    ],
+                    [
+                        177,
+                        1024
+                    ]
+                ]
+            ],
+            "ocr_texts": [
+                "断",
+                "片"
+            ],
+            "box_count": 2
+        },
+        "reject_reason": "NO"
+    },
+    {
+        "id": 1589,
+        "input_image": "/app/cold1/code/texteditRoPE/data_construction_style/dataset_images_2/content_images/pair_01589_input.jpg",
+        "style_image": "dataset_images_2/style_images/pair_01589_ref.jpg",
+        "target_image": "dataset_images_2/images/pair_01589_target.jpg",
+        "instruction": "将第二张图的风格应用到第一张图中的文字\"雨骤风急\"上。",
+        "metadata": {
+            "word": "雨骤风急",
+            "style_desc": "Glowing bioluminescent text with underwater hues",
+            "ocr_boxes": [
+                [
+                    [
+                        200,
+                        183
+                    ],
+                    [
+                        939,
+                        605
+                    ],
+                    [
+                        797,
+                        853
+                    ],
+                    [
+                        58,
+                        431
+                    ]
+                ]
+            ],
+            "ocr_texts": [
+                "雨骤风急"
+            ],
+            "box_count": 1
+        },
+        "reject_reason": "NO"
+    },
+    {
+        "id": 1629,
+        "input_image": "/app/cold1/code/texteditRoPE/data_construction_style/dataset_images_2/content_images/pair_01629_input.jpg",
+        "style_image": "dataset_images_2/style_images/pair_01629_ref.jpg",
+        "target_image": "dataset_images_2/images/pair_01629_target.jpg",
+        "instruction": "把\"稳住\"的样式改成参考图的样子。",
+        "metadata": {
+            "word": "稳住",
+            "style_desc": "Fuzzy brown fur text with shadowed patches",
+            "ocr_boxes": [
+                [
+                    [
+                        0,
+                        174
+                    ],
+                    [
+                        1024,
+                        194
+                    ],
+                    [
+                        1024,
+                        913
+                    ],
+                    [
+                        0,
+                        893
+                    ]
+                ]
+            ],
+            "ocr_texts": [
+                "稳住"
+            ],
+            "box_count": 1
+        },
+        "reject_reason": "NO"
+    },
+    {
+        "id": 1789,
+        "input_image": "/app/cold1/code/texteditRoPE/data_construction_style/dataset_images_2/content_images/pair_01789_input.jpg",
+        "style_image": "dataset_images_2/style_images/pair_01789_ref.jpg",
+        "target_image": "dataset_images_2/images/pair_01789_target.jpg",
+        "instruction": "将第一张图中的文字\"Static\"应用第二张图的风格进行转换。",
+        "metadata": {
+            "word": "Static",
+            "style_desc": "Wet concrete text with graffiti tags",
+            "ocr_boxes": [
+                [
+                    [
+                        111,
+                        298
+                    ],
+                    [
+                        1024,
+                        284
+                    ],
+                    [
+                        1024,
+                        829
+                    ],
+                    [
+                        119,
+                        843
+                    ]
+                ]
+            ],
+            "ocr_texts": [
+                "Static"
+            ],
+            "box_count": 1
+        },
+        "reject_reason": "NO"
+    },
+    {
+        "id": 2085,
+        "input_image": "/app/cold1/code/texteditRoPE/data_construction_style/dataset_images_2/content_images/pair_02085_input.jpg",
+        "style_image": "dataset_images_2/style_images/pair_02085_ref.jpg",
+        "target_image": "dataset_images_2/images/pair_02085_target.jpg",
+        "instruction": "把\"摸鱼\"变成参考图里展示的那种风格。",
+        "metadata": {
+            "word": "摸鱼",
+            "style_desc": "Amethyst crystal shards in mystical aura",
+            "ocr_boxes": [
+                [
+                    [
+                        458,
+                        95
+                    ],
+                    [
+                        886,
+                        234
+                    ],
+                    [
+                        762,
+                        615
+                    ],
+                    [
+                        334,
+                        476
+                    ]
+                ],
+                [
+                    [
+                        366,
+                        410
+                    ],
+                    [
+                        792,
+                        586
+                    ],
+                    [
+                        660,
+                        905
+                    ],
+                    [
+                        234,
+                        729
+                    ]
+                ]
+            ],
+            "ocr_texts": [
+                "摸",
+                "鱼"
+            ],
+            "box_count": 2
+        },
+        "reject_reason": "NO"
+    },
+    {
+        "id": 2301,
+        "input_image": "/app/cold1/code/texteditRoPE/data_construction_style/dataset_images_2/content_images/pair_02301_input.jpg",
+        "style_image": "dataset_images_2/style_images/pair_02301_ref.jpg",
+        "target_image": "dataset_images_2/images/pair_02301_target.jpg",
+        "instruction": "Take the text \"Zen\" from image 1 and apply the visual style from image 2.",
+        "metadata": {
+            "word": "Zen",
+            "style_desc": "Smutty coal text with coal dust",
+            "ocr_boxes": [
+                [
+                    [
+                        32,
+                        215
+                    ],
+                    [
+                        1024,
+                        286
+                    ],
+                    [
+                        1001,
+                        827
+                    ],
+                    [
+                        0,
+                        756
+                    ]
+                ]
+            ],
+            "ocr_texts": [
+                "Zen"
+            ],
+            "box_count": 1
+        },
+        "reject_reason": "NO"
+    },
+    {
+        "id": 6,
+        "input_image": "/app/cold1/code/texteditRoPE/data_construction_style/dataset_images_2/content_images/pair_00006_input.jpg",
+        "style_image": "dataset_images_2/style_images/pair_00006_ref.jpg",
+        "target_image": "dataset_images_2/images/pair_00006_target.jpg",
+        "instruction": "Keep the text content \"心如止水\" from the first image, but render it using the style of the second image.",
+        "metadata": {
+            "word": "心如止水",
+            "style_desc": "Synthetic carbon fiber font with hexagonal patterns under studio cold blue lighting",
+            "ocr_boxes": [
+                [
+                    [
+                        0,
+                        630
+                    ],
+                    [
+                        879,
+                        15
+                    ],
+                    [
+                        1024,
+                        320
+                    ],
+                    [
+                        103,
+                        936
+                    ]
+                ]
+            ],
+            "ocr_texts": [
+                "心如止水"
+            ],
+            "box_count": 1
+        },
+        "reject_reason": "NO"
+    },
+    {
+        "id": 126,
+        "input_image": "/app/cold1/code/texteditRoPE/data_construction_style/dataset_images_2/content_images/pair_00126_input.jpg",
+        "style_image": "dataset_images_2/style_images/pair_00126_ref.jpg",
+        "target_image": "dataset_images_2/images/pair_00126_target.jpg",
+        "instruction": "Render the text \"火烈鸟\" from the first input image using the visual characteristics defined in the second image.",
+        "metadata": {
+            "word": "火烈鸟",
+            "style_desc": "Bronze metal text with patina",
+            "ocr_boxes": [
+                [
+                    [
+                        62,
+                        333
+                    ],
+                    [
+                        806,
+                        289
+                    ],
+                    [
+                        828,
+                        656
+                    ],
+                    [
+                        84,
+                        700
+                    ]
+                ]
+            ],
+            "ocr_texts": [
+                "火烈鸟"
+            ],
+            "box_count": 1
+        },
+        "reject_reason": "NO"
+    },
+    {
+        "id": 582,
+        "input_image": "/app/cold1/code/texteditRoPE/data_construction_style/dataset_images_2/content_images/pair_00582_input.jpg",
+        "style_image": "dataset_images_2/style_images/pair_00582_ref.jpg",
+        "target_image": "dataset_images_2/images/pair_00582_target.jpg",
+        "instruction": "参考第二张图的风格，改变第一张图中文字\"吃宵夜\"的外观。",
+        "metadata": {
+            "word": "吃宵夜",
+            "style_desc": "Pearl white text with mother-of-pearl luster",
+            "ocr_boxes": [
+                [
+                    [
+                        43,
+                        445
+                    ],
+                    [
+                        857,
+                        242
+                    ],
+                    [
+                        941,
+                        579
+                    ],
+                    [
+                        127,
+                        782
+                    ]
+                ]
+            ],
+            "ocr_texts": [
+                "吃宵夜"
+            ],
+            "box_count": 1
+        },
+        "reject_reason": "NO"
+    },
+    {
+        "id": 646,
+        "input_image": "/app/cold1/code/texteditRoPE/data_construction_style/dataset_images_2/content_images/pair_00646_input.jpg",
+        "style_image": "dataset_images_2/style_images/pair_00646_ref.jpg",
+        "target_image": "dataset_images_2/images/pair_00646_target.jpg",
+        "instruction": "让\"共赴山海\"具有和参考图一样的视觉风格。",
+        "metadata": {
+            "word": "共赴山海",
+            "style_desc": "Ragged parchment text with ink stains",
+            "ocr_boxes": [
+                [
+                    [
+                        125,
+                        209
+                    ],
+                    [
+                        911,
+                        209
+                    ],
+                    [
+                        911,
+                        651
+                    ],
+                    [
+                        125,
+                        651
+                    ]
+                ],
+                [
+                    [
+                        319,
+                        547
+                    ],
+                    [
+                        797,
+                        563
+                    ],
+                    [
+                        788,
+                        818
+                    ],
+                    [
+                        310,
+                        802
+                    ]
+                ]
+            ],
+            "ocr_texts": [
+                "共赴",
+                "山海"
+            ],
+            "box_count": 2
+        },
+        "reject_reason": "NO"
+    },
+    {
+        "id": 742,
+        "input_image": "/app/cold1/code/texteditRoPE/data_construction_style/dataset_images_2/content_images/pair_00742_input.jpg",
+        "style_image": "dataset_images_2/style_images/pair_00742_ref.jpg",
+        "target_image": "dataset_images_2/images/pair_00742_target.jpg",
+        "instruction": "Take the text \"Static hum\" from image 1 and apply the visual style from image 2.",
+        "metadata": {
+            "word": "Static hum",
+            "style_desc": "Electric blue lightning text with storm clouds",
+            "ocr_boxes": [
+                [
+                    [
+                        73,
+                        221
+                    ],
+                    [
+                        911,
+                        190
+                    ],
+                    [
+                        926,
+                        584
+                    ],
+                    [
+                        88,
+                        615
+                    ]
+                ],
+                [
+                    [
+                        267,
+                        493
+                    ],
+                    [
+                        810,
+                        493
+                    ],
+                    [
+                        810,
+                        680
+                    ],
+                    [
+                        267,
+                        680
+                    ]
+                ]
+            ],
+            "ocr_texts": [
+                "Static",
+                "hum"
+            ],
+            "box_count": 2
+        },
+        "reject_reason": "NO"
+    },
+    {
+        "id": 894,
+        "input_image": "/app/cold1/code/texteditRoPE/data_construction_style/dataset_images_2/content_images/pair_00894_input.jpg",
+        "style_image": "dataset_images_2/style_images/pair_00894_ref.jpg",
+        "target_image": "dataset_images_2/images/pair_00894_target.jpg",
+        "instruction": "将第一张图中的文字\"蹲守打折酸奶\"应用第二张图的风格进行转换。",
+        "metadata": {
+            "word": "蹲守打折酸奶",
+            "style_desc": "Neon glass shards font",
+            "ocr_boxes": [
+                [
+                    [
+                        198,
+                        195
+                    ],
+                    [
+                        936,
+                        542
+                    ],
+                    [
+                        872,
+                        677
+                    ],
+                    [
+                        135,
+                        330
+                    ]
+                ]
+            ],
+            "ocr_texts": [
+                "蹲守打折酸奶"
+            ],
+            "box_count": 1
+        },
+        "reject_reason": "NO"
+    },
+    {
+        "id": 950,
+        "input_image": "/app/cold1/code/texteditRoPE/data_construction_style/dataset_images_2/content_images/pair_00950_input.jpg",
+        "style_image": "dataset_images_2/style_images/pair_00950_ref.jpg",
+        "target_image": "dataset_images_2/images/pair_00950_target.jpg",
+        "instruction": "Render the text \"冰雪\" from the first input image using the visual characteristics defined in the second image.",
+        "metadata": {
+            "word": "冰雪",
+            "style_desc": "Slippery blue text resembling an ice crystal",
+            "ocr_boxes": [
+                [
+                    [
+                        320,
+                        7
+                    ],
+                    [
+                        957,
+                        116
+                    ],
+                    [
+                        876,
+                        587
+                    ],
+                    [
+                        239,
+                        478
+                    ]
+                ],
+                [
+                    [
+                        315,
+                        444
+                    ],
+                    [
+                        834,
+                        418
+                    ],
+                    [
+                        858,
+                        884
+                    ],
+                    [
+                        339,
+                        910
+                    ]
+                ]
+            ],
+            "ocr_texts": [
+                "冰",
+                "雪"
+            ],
+            "box_count": 2
+        },
+        "reject_reason": "NO"
+    },
+    {
+        "id": 1134,
+        "input_image": "/app/cold1/code/texteditRoPE/data_construction_style/dataset_images_2/content_images/pair_01134_input.jpg",
+        "style_image": "dataset_images_2/style_images/pair_01134_ref.jpg",
+        "target_image": "dataset_images_2/images/pair_01134_target.jpg",
+        "instruction": "Apply the reference style to the word \"Haze\".",
+        "metadata": {
+            "word": "Haze",
+            "style_desc": "Fuzzy gray wool text in soft moonlight",
+            "ocr_boxes": [
+                [
+                    [
+                        8,
+                        336
+                    ],
+                    [
+                        988,
+                        247
+                    ],
+                    [
+                        1024,
+                        656
+                    ],
+                    [
+                        45,
+                        745
+                    ]
+                ]
+            ],
+            "ocr_texts": [
+                "Haze"
+            ],
+            "box_count": 1
+        },
+        "reject_reason": "NO"
+    },
+    {
+        "id": 1262,
+        "input_image": "/app/cold1/code/texteditRoPE/data_construction_style/dataset_images_2/content_images/pair_01262_input.jpg",
+        "style_image": "dataset_images_2/style_images/pair_01262_ref.jpg",
+        "target_image": "dataset_images_2/images/pair_01262_target.jpg",
+        "instruction": "Apply the reference style to the word \"青春年华\".",
+        "metadata": {
+            "word": "青春年华",
+            "style_desc": "Smutty black tar text with cracks",
+            "ocr_boxes": [
+                [
+                    [
+                        3,
+                        641
+                    ],
+                    [
+                        856,
+                        27
+                    ],
+                    [
+                        1024,
+                        325
+                    ],
+                    [
+                        218,
+                        939
+                    ]
+                ]
+            ],
+            "ocr_texts": [
+                "青春年华"
+            ],
+            "box_count": 1
+        },
+        "reject_reason": "NO"
+    },
+    {
+        "id": 1614,
+        "input_image": "/app/cold1/code/texteditRoPE/data_construction_style/dataset_images_2/content_images/pair_01614_input.jpg",
+        "style_image": "dataset_images_2/style_images/pair_01614_ref.jpg",
+        "target_image": "dataset_images_2/images/pair_01614_target.jpg",
+        "instruction": "将第二张图的风格应用到第一张图中的文字\"一抹微笑\"上。",
+        "metadata": {
+            "word": "一抹微笑",
+            "style_desc": "Frosted ice text with frosty glow",
+            "ocr_boxes": [
+                [
+                    [
+                        212,
+                        27
+                    ],
+                    [
+                        980,
+                        104
+                    ],
+                    [
+                        934,
+                        564
+                    ],
+                    [
+                        166,
+                        487
+                    ]
+                ],
+                [
+                    [
+                        74,
+                        282
+                    ],
+                    [
+                        1009,
+                        389
+                    ],
+                    [
+                        933,
+                        1024
+                    ],
+                    [
+                        0,
+                        952
+                    ]
+                ]
+            ],
+            "ocr_texts": [
+                "一抹",
+                "微笑"
+            ],
+            "box_count": 2
+        },
+        "reject_reason": "NO"
+    },
+    {
+        "id": 1798,
+        "input_image": "/app/cold1/code/texteditRoPE/data_construction_style/dataset_images_2/content_images/pair_01798_input.jpg",
+        "style_image": "dataset_images_2/style_images/pair_01798_ref.jpg",
+        "target_image": "dataset_images_2/images/pair_01798_target.jpg",
+        "instruction": "Keep the text content \"绝了！\" from the first image, but render it using the style of the second image.",
+        "metadata": {
+            "word": "绝了！",
+            "style_desc": "Slippery algae text with underwater vibe",
+            "ocr_boxes": [
+                [
+                    [
+                        0,
+                        346
+                    ],
+                    [
+                        1019,
+                        48
+                    ],
+                    [
+                        1024,
+                        784
+                    ],
+                    [
+                        82,
+                        1024
+                    ]
+                ]
+            ],
+            "ocr_texts": [
+                "绝了！"
+            ],
+            "box_count": 1
+        },
+        "reject_reason": "NO"
+    },
+    {
+        "id": 2070,
+        "input_image": "/app/cold1/code/texteditRoPE/data_construction_style/dataset_images_2/content_images/pair_02070_input.jpg",
+        "style_image": "dataset_images_2/style_images/pair_02070_ref.jpg",
+        "target_image": "dataset_images_2/images/pair_02070_target.jpg",
+        "instruction": "使用第二张图的风格来渲染第一张图中的文字\"吃烧烤\"。",
+        "metadata": {
+            "word": "吃烧烤",
+            "style_desc": "Neon glass shards forming a bold sans-serif",
+            "ocr_boxes": [
+                [
+                    [
+                        212,
+                        81
+                    ],
+                    [
+                        1024,
+                        425
+                    ],
+                    [
+                        893,
+                        809
+                    ],
+                    [
+                        54,
+                        466
+                    ]
+                ]
+            ],
+            "ocr_texts": [
+                "吃烧烤"
+            ],
+            "box_count": 1
+        },
+        "reject_reason": "NO"
+    },
+    {
+        "id": 2190,
+        "input_image": "/app/cold1/code/texteditRoPE/data_construction_style/dataset_images_2/content_images/pair_02190_input.jpg",
+        "style_image": "dataset_images_2/style_images/pair_02190_ref.jpg",
+        "target_image": "dataset_images_2/images/pair_02190_target.jpg",
+        "instruction": "参考第二张图的风格，改变第一张图中文字\"吃宵夜\"的外观。",
+        "metadata": {
+            "word": "吃宵夜",
+            "style_desc": "Holographic mist text with floating particles",
+            "ocr_boxes": [
+                [
+                    [
+                        20,
+                        264
+                    ],
+                    [
+                        994,
+                        315
+                    ],
+                    [
+                        972,
+                        735
+                    ],
+                    [
+                        0,
+                        684
+                    ]
+                ]
+            ],
+            "ocr_texts": [
+                "吃宵夜"
+            ],
+            "box_count": 1
+        },
+        "reject_reason": "NO"
+    },
+    {
+        "id": 2326,
+        "input_image": "/app/cold1/code/texteditRoPE/data_construction_style/dataset_images_2/content_images/pair_02326_input.jpg",
+        "style_image": "dataset_images_2/style_images/pair_02326_ref.jpg",
+        "target_image": "dataset_images_2/images/pair_02326_target.jpg",
+        "instruction": "把文字\"雨骤风急\"的样式改成第二张图的样式,保持文字内容不变。",
+        "metadata": {
+            "word": "雨骤风急",
+            "style_desc": "Lava red lava flow text with ash",
+            "ocr_boxes": [
+                [
+                    [
+                        0,
+                        510
+                    ],
+                    [
+                        1005,
+                        201
+                    ],
+                    [
+                        1024,
+                        548
+                    ],
+                    [
+                        27,
+                        857
+                    ]
+                ]
+            ],
+            "ocr_texts": [
+                "雨骤风急"
+            ],
+            "box_count": 1
+        },
+        "reject_reason": "NO"
+    },
+    {
+        "id": 7,
+        "input_image": "/app/cold1/code/texteditRoPE/data_construction_style/dataset_images_2/content_images/pair_00007_input.jpg",
+        "style_image": "dataset_images_2/style_images/pair_00007_ref.jpg",
+        "target_image": "dataset_images_2/images/pair_00007_target.jpg",
+        "instruction": "Keep the text content \"嗑瓜子\" from the first image, but render it using the style of the second image.",
+        "metadata": {
+            "word": "嗑瓜子",
+            "style_desc": "Fungal mycelium glyphs in irregular spiral shapes under dim bioluminescent green glow",
+            "ocr_boxes": [
+                [
+                    [
+                        37,
+                        285
+                    ],
+                    [
+                        977,
+                        285
+                    ],
+                    [
+                        977,
+                        681
+                    ],
+                    [
+                        37,
+                        681
+                    ]
+                ]
+            ],
+            "ocr_texts": [
+                "嗑瓜子"
+            ],
+            "box_count": 1
+        },
+        "reject_reason": "NO"
+    },
+    {
+        "id": 143,
+        "input_image": "/app/cold1/code/texteditRoPE/data_construction_style/dataset_images_2/content_images/pair_00143_input.jpg",
+        "style_image": "dataset_images_2/style_images/pair_00143_ref.jpg",
+        "target_image": "dataset_images_2/images/pair_00143_target.jpg",
+        "instruction": "让\"煎饼摊前排长队\"具有和参考图一样的视觉风格。",
+        "metadata": {
+            "word": "煎饼摊前排长队",
+            "style_desc": "Electric purple slime text with lightning bolts",
+            "ocr_boxes": [
+                [
+                    [
+                        49,
+                        385
+                    ],
+                    [
+                        915,
+                        221
+                    ],
+                    [
+                        957,
+                        442
+                    ],
+                    [
+                        91,
+                        606
+                    ]
+                ],
+                [
+                    [
+                        139,
+                        562
+                    ],
+                    [
+                        822,
+                        420
+                    ],
+                    [
+                        867,
+                        637
+                    ],
+                    [
+                        184,
+                        779
+                    ]
+                ]
+            ],
+            "ocr_texts": [
+                "煎饼摊前",
+                "排长队"
+            ],
+            "box_count": 2
+        },
+        "reject_reason": "NO"
+    },
+    {
+        "id": 327,
+        "input_image": "/app/cold1/code/texteditRoPE/data_construction_style/dataset_images_2/content_images/pair_00327_input.jpg",
+        "style_image": "dataset_images_2/style_images/pair_00327_ref.jpg",
+        "target_image": "dataset_images_2/images/pair_00327_target.jpg",
+        "instruction": "Make the text \"煮咖啡\" look like the style in the reference image.",
+        "metadata": {
+            "word": "煮咖啡",
+            "style_desc": "Slippery blue ice text with frost patterns",
+            "ocr_boxes": [
+                [
+                    [
+                        0,
+                        224
+                    ],
+                    [
+                        1024,
+                        224
+                    ],
+                    [
+                        1024,
+                        822
+                    ],
+                    [
+                        0,
+                        822
+                    ]
+                ]
+            ],
+            "ocr_texts": [
+                "煮咖啡"
+            ],
+            "box_count": 1
+        },
+        "reject_reason": "NO"
+    },
+    {
+        "id": 591,
+        "input_image": "/app/cold1/code/texteditRoPE/data_construction_style/dataset_images_2/content_images/pair_00591_input.jpg",
+        "style_image": "dataset_images_2/style_images/pair_00591_ref.jpg",
+        "target_image": "dataset_images_2/images/pair_00591_target.jpg",
+        "instruction": "保持第一张图中文字\"Hologram\"的内容不变，但使用第二张图的风格进行渲染。",
+        "metadata": {
+            "word": "Hologram",
+            "style_desc": "Glowing ethereal text in misty vapor",
+            "ocr_boxes": [
+                [
+                    [
+                        39,
+                        474
+                    ],
+                    [
+                        930,
+                        226
+                    ],
+                    [
+                        1000,
+                        476
+                    ],
+                    [
+                        109,
+                        724
+                    ]
+                ]
+            ],
+            "ocr_texts": [
+                "Hologram"
+            ],
+            "box_count": 1
+        },
+        "reject_reason": "NO"
+    },
+    {
+        "id": 663,
+        "input_image": "/app/cold1/code/texteditRoPE/data_construction_style/dataset_images_2/content_images/pair_00663_input.jpg",
+        "style_image": "dataset_images_2/style_images/pair_00663_ref.jpg",
+        "target_image": "dataset_images_2/images/pair_00663_target.jpg",
+        "instruction": "将第二张图的风格应用到第一张图中的文字\"哈哈哈\"上。",
+        "metadata": {
+            "word": "哈哈哈",
+            "style_desc": "Fuzzy gray text with static electricity",
+            "ocr_boxes": [
+                [
+                    [
+                        0,
+                        378
+                    ],
+                    [
+                        931,
+                        173
+                    ],
+                    [
+                        1023,
+                        613
+                    ],
+                    [
+                        38,
+                        818
+                    ]
+                ]
+            ],
+            "ocr_texts": [
+                "哈哈哈"
+            ],
+            "box_count": 1
+        },
+        "reject_reason": "NO"
+    },
+    {
+        "id": 1103,
+        "input_image": "/app/cold1/code/texteditRoPE/data_construction_style/dataset_images_2/content_images/pair_01103_input.jpg",
+        "style_image": "dataset_images_2/style_images/pair_01103_ref.jpg",
+        "target_image": "dataset_images_2/images/pair_01103_target.jpg",
+        "instruction": "保持第一张图中文字\"黑夜漫步\"的内容不变，但使用第二张图的风格进行渲染。",
+        "metadata": {
+            "word": "黑夜漫步",
+            "style_desc": "Wax封住蜡文本在复古风格中",
+            "ocr_boxes": [
+                [
+                    [
+                        772,
+                        52
+                    ],
+                    [
+                        949,
+                        120
+                    ],
+                    [
+                        927,
+                        177
+                    ],
+                    [
+                        750,
+                        109
+                    ]
+                ],
+                [
+                    [
+                        144,
+                        104
+                    ],
+                    [
+                        912,
+                        104
+                    ],
+                    [
+                        912,
+                        568
+                    ],
+                    [
+                        144,
+                        568
+                    ]
+                ]
+            ],
+            "ocr_texts": [
+                "黑夜",
+                "漫步"
+            ],
+            "box_count": 2
+        },
+        "reject_reason": "NO"
+    },
+    {
+        "id": 1143,
+        "input_image": "/app/cold1/code/texteditRoPE/data_construction_style/dataset_images_2/content_images/pair_01143_input.jpg",
+        "style_image": "dataset_images_2/style_images/pair_01143_ref.jpg",
+        "target_image": "dataset_images_2/images/pair_01143_target.jpg",
+        "instruction": "将第一张图中的文字\"悠然自得\"应用第二张图的风格进行转换。",
+        "metadata": {
+            "word": "悠然自得",
+            "style_desc": "Fuzzy red velvet text in warm lamp light",
+            "ocr_boxes": [
+                [
+                    [
+                        262,
+                        251
+                    ],
+                    [
+                        688,
+                        151
+                    ],
+                    [
+                        715,
+                        264
+                    ],
+                    [
+                        289,
+                        364
+                    ]
+                ]
+            ],
+            "ocr_texts": [
+                "悠然自得"
+            ],
+            "box_count": 1
+        },
+        "reject_reason": "NO"
+    },
+    {
+        "id": 1335,
+        "input_image": "/app/cold1/code/texteditRoPE/data_construction_style/dataset_images_2/content_images/pair_01335_input.jpg",
+        "style_image": "dataset_images_2/style_images/pair_01335_ref.jpg",
+        "target_image": "dataset_images_2/images/pair_01335_target.jpg",
+        "instruction": "让\"吹晚风\"具有和参考图一样的视觉风格。",
+        "metadata": {
+            "word": "吹晚风",
+            "style_desc": "Rose quartz fur text in gothic font with candlelight glow",
+            "ocr_boxes": [
+                [
+                    [
+                        70,
+                        238
+                    ],
+                    [
+                        962,
+                        285
+                    ],
+                    [
+                        938,
+                        732
+                    ],
+                    [
+                        46,
+                        685
+                    ]
+                ]
+            ],
+            "ocr_texts": [
+                "吹晚风"
+            ],
+            "box_count": 1
+        },
+        "reject_reason": "NO"
+    },
+    {
+        "id": 1527,
+        "input_image": "/app/cold1/code/texteditRoPE/data_construction_style/dataset_images_2/content_images/pair_01527_input.jpg",
+        "style_image": "dataset_images_2/style_images/pair_01527_ref.jpg",
+        "target_image": "dataset_images_2/images/pair_01527_target.jpg",
+        "instruction": "Change the text style of \"断片\" to match the reference image.",
+        "metadata": {
+            "word": "断片",
+            "style_desc": "Neon green fur text with glowing tips",
+            "ocr_boxes": [
+                [
+                    [
+                        32,
+                        300
+                    ],
+                    [
+                        830,
+                        144
+                    ],
+                    [
+                        934,
+                        677
+                    ],
+                    [
+                        136,
+                        833
+                    ]
+                ]
+            ],
+            "ocr_texts": [
+                "断片"
+            ],
+            "box_count": 1
+        },
+        "reject_reason": "NO"
+    },
+    {
+        "id": 1927,
+        "input_image": "/app/cold1/code/texteditRoPE/data_construction_style/dataset_images_2/content_images/pair_01927_input.jpg",
+        "style_image": "dataset_images_2/style_images/pair_01927_ref.jpg",
+        "target_image": "dataset_images_2/images/pair_01927_target.jpg",
+        "instruction": "Apply the reference style to the word \"Fragmented memory\".",
+        "metadata": {
+            "word": "Fragmented memory",
+            "style_desc": "Slippery blue slime text with glowing bacteria",
+            "ocr_boxes": [
+                [
+                    [
+                        729,
+                        77
+                    ],
+                    [
+                        882,
+                        59
+                    ],
+                    [
+                        890,
+                        126
+                    ],
+                    [
+                        737,
+                        144
+                    ]
+                ],
+                [
+                    [
+                        0,
+                        512
+                    ],
+                    [
+                        908,
+                        200
+                    ],
+                    [
+                        973,
+                        388
+                    ],
+                    [
+                        65,
+                        700
+                    ]
+                ]
+            ],
+            "ocr_texts": [
+                "Fragmented",
+                "memory"
+            ],
+            "box_count": 2
+        },
+        "reject_reason": "NO"
+    },
+    {
+        "id": 2407,
+        "input_image": "/app/cold1/code/texteditRoPE/data_construction_style/dataset_images_2/content_images/pair_02407_input.jpg",
+        "style_image": "dataset_images_2/style_images/pair_02407_ref.jpg",
+        "target_image": "dataset_images_2/images/pair_02407_target.jpg",
+        "instruction": "使用第二张图的风格来渲染第一张图中的文字\"雨停了\"。",
+        "metadata": {
+            "word": "雨停了",
+            "style_desc": "Fuzzy mint text in cool ambient lighting",
+            "ocr_boxes": [
+                [
+                    [
+                        32,
+                        102
+                    ],
+                    [
+                        1024,
+                        86
+                    ],
+                    [
+                        1024,
+                        593
+                    ],
+                    [
+                        40,
+                        609
+                    ]
+                ]
+            ],
+            "ocr_texts": [
+                "雨停了"
+            ],
+            "box_count": 1
+        },
+        "reject_reason": "NO"
+    }
+]

@@ -1,4 +1,16 @@
 qwenimage-style-control-double-output
 qwenimage-style-control-non-learnable-output
 qwenimage-style-control-output
+qwenimage-style-rope-lora
+qwenimage-style-control-lora-output
+qwenimage-style-control-output
+__pycache__
 wandb
+data_construction_style/clean_dataset_final
+data_construction_style/dataset_images
+data_construction_style/dataset_images_test
+data_construction_style/dataset_images_2
+data_construction_style/dataset_images_3
+qwenimage-style-rope-lora-large-scale
+qwenimage-style-rope-lora
+data_construction_style/textFonts.zip

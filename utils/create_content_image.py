@@ -8,7 +8,7 @@ def create_image(text, image_size=(1024, 1024), font_size=40):
     # 使用指定字号的字体
     try:
         # 尝试使用系统字体
-        font = ImageFont.truetype("/app/code/EasyText/font/arial.ttf", font_size)
+        font = ImageFont.truetype("/app/code/EasyText/font/simhei.ttf", font_size)
     except IOError:
         # 如果系统字体不可用，则使用默认字体并尝试调整大小
         font = ImageFont.load_default()
@@ -21,7 +21,7 @@ def create_image(text, image_size=(1024, 1024), font_size=40):
     text_width = bbox[2] - bbox[0]  # 文本的宽度
     text_height = bbox[3] - bbox[1]  # 文本的高度
 
-    position = ((image_size[0] - text_width) // 2, (image_size[1] - text_height) // 2)
+    position = ((image_size[0] - text_width) // 2, (image_size[1] - text_height) // 2-80)
 
     # 使用黑色字体绘制文本
     draw.text(position, text, font=font, fill=(0, 0, 0))
@@ -31,4 +31,4 @@ def create_image(text, image_size=(1024, 1024), font_size=40):
 
 
 # 调用函数
-create_image("jade", font_size=260)
+create_image("中文测试", font_size=260)

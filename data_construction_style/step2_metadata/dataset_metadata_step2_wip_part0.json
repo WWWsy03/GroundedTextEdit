@@ -1,0 +1,5102 @@
+[
+    {
+        "pair_id": 720,
+        "style_description": "Slime green holographic text with pulsating colors",
+        "reference": {
+            "word": "孤独的旅行者",
+            "image_path": "dataset_images/style_images/pair_00720_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "绝了！",
+            "image_path": "dataset_images/images/pair_00720_target.jpg",
+            "position_prompt": "slightly off-center to the top",
+            "tilt_prompt": "rotated about 15 degrees counter-clockwise"
+        },
+        "generation_seed": 2561997462
+    },
+    {
+        "pair_id": 728,
+        "style_description": "Glowing purple plasma text with cosmic swirls",
+        "reference": {
+            "word": "Coffee",
+            "image_path": "dataset_images/style_images/pair_00728_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "地铁门关闭的瞬间",
+            "image_path": "dataset_images/images/pair_00728_target.jpg",
+            "position_prompt": "positioned at the bottom center",
+            "tilt_prompt": "rotated about 15 degrees counter-clockwise"
+        },
+        "generation_seed": 2409540202
+    },
+    {
+        "pair_id": 736,
+        "style_description": "Sulfur yellow lava text with molten rock effects",
+        "reference": {
+            "word": "Lull",
+            "image_path": "dataset_images/style_images/pair_00736_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Crimson Sky",
+            "image_path": "dataset_images/images/pair_00736_target.jpg",
+            "position_prompt": "positioned at the top center",
+            "tilt_prompt": "tilted slightly counter-clockwise"
+        },
+        "generation_seed": 408285141
+    },
+    {
+        "pair_id": 744,
+        "style_description": "Metallic bronze text with ancient ruins",
+        "reference": {
+            "word": "风铃的声音",
+            "image_path": "dataset_images/style_images/pair_00744_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Wait—did that just happen?",
+            "image_path": "dataset_images/images/pair_00744_target.jpg",
+            "position_prompt": "slightly off-center to the left",
+            "tilt_prompt": "straight orientation, no tilt"
+        },
+        "generation_seed": 3390521166
+    },
+    {
+        "pair_id": 752,
+        "style_description": "Rustic wooden planks with weathered edges",
+        "reference": {
+            "word": "猫跳上键盘的那一刻",
+            "image_path": "dataset_images/style_images/pair_00752_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Wizard",
+            "image_path": "dataset_images/images/pair_00752_target.jpg",
+            "position_prompt": "located in the bottom-left corner",
+            "tilt_prompt": "straight orientation, no tilt"
+        },
+        "generation_seed": 727635449
+    },
+    {
+        "pair_id": 760,
+        "style_description": "Moss-covered stone text with lichen",
+        "reference": {
+            "word": "从容而立",
+            "image_path": "dataset_images/style_images/pair_00760_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "月光下的舞者",
+            "image_path": "dataset_images/images/pair_00760_target.jpg",
+            "position_prompt": "located in the top-right corner",
+            "tilt_prompt": "straight orientation, no tilt"
+        },
+        "generation_seed": 2547462696
+    },
+    {
+        "pair_id": 768,
+        "style_description": "Shimmering scales text with dragon motifs",
+        "reference": {
+            "word": "未曾相遇",
+            "image_path": "dataset_images/style_images/pair_00768_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Rose Petals",
+            "image_path": "dataset_images/images/pair_00768_target.jpg",
+            "position_prompt": "positioned at the top center",
+            "tilt_prompt": "rotated about 15 degrees counter-clockwise"
+        },
+        "generation_seed": 1742334132
+    },
+    {
+        "pair_id": 776,
+        "style_description": "Slime-covered text with glowing eyes",
+        "reference": {
+            "word": "Dancing Lights",
+            "image_path": "dataset_images/style_images/pair_00776_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Ashes",
+            "image_path": "dataset_images/images/pair_00776_target.jpg",
+            "position_prompt": "centered in the frame",
+            "tilt_prompt": "straight orientation, no tilt"
+        },
+        "generation_seed": 2085773229
+    },
+    {
+        "pair_id": 784,
+        "style_description": "Bioluminescent algae text with underwater glow",
+        "reference": {
+            "word": "泡面升腾的热气",
+            "image_path": "dataset_images/style_images/pair_00784_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Rising Sun",
+            "image_path": "dataset_images/images/pair_00784_target.jpg",
+            "position_prompt": "positioned on the right side",
+            "tilt_prompt": "straight orientation, no tilt"
+        },
+        "generation_seed": 3086529433
+    },
+    {
+        "pair_id": 792,
+        "style_description": "Leathery parchment text with ancient ink",
+        "reference": {
+            "word": "外婆说‘趁热吃’",
+            "image_path": "dataset_images/style_images/pair_00792_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "从容而立",
+            "image_path": "dataset_images/images/pair_00792_target.jpg",
+            "position_prompt": "positioned at the bottom center",
+            "tilt_prompt": "straight orientation, no tilt"
+        },
+        "generation_seed": 2629839834
+    },
+    {
+        "pair_id": 800,
+        "style_description": "Shiny metallic text with acid etching",
+        "reference": {
+            "word": "Twilight Dreams",
+            "image_path": "dataset_images/style_images/pair_00800_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Rose Petals",
+            "image_path": "dataset_images/images/pair_00800_target.jpg",
+            "position_prompt": "positioned on the left side",
+            "tilt_prompt": "tilted slightly counter-clockwise"
+        },
+        "generation_seed": 2163879941
+    },
+    {
+        "pair_id": 808,
+        "style_description": "Neon pink text with microscopic fibers",
+        "reference": {
+            "word": "贴秋膘",
+            "image_path": "dataset_images/style_images/pair_00808_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "用心感受",
+            "image_path": "dataset_images/images/pair_00808_target.jpg",
+            "position_prompt": "located in the top-left corner",
+            "tilt_prompt": "rotated about 15 degrees counter-clockwise"
+        },
+        "generation_seed": 3548105471
+    },
+    {
+        "pair_id": 816,
+        "style_description": "Rusty brown iron text with oil slicks",
+        "reference": {
+            "word": "鸟语花香",
+            "image_path": "dataset_images/style_images/pair_00816_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "撸猫",
+            "image_path": "dataset_images/images/pair_00816_target.jpg",
+            "position_prompt": "centered in the frame",
+            "tilt_prompt": "straight orientation, no tilt"
+        },
+        "generation_seed": 4023979502
+    },
+    {
+        "pair_id": 824,
+        "style_description": "Holographic blue data with ocean waves",
+        "reference": {
+            "word": "Dust motes in sunlight",
+            "image_path": "dataset_images/style_images/pair_00824_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Samurai",
+            "image_path": "dataset_images/images/pair_00824_target.jpg",
+            "position_prompt": "positioned on the right side",
+            "tilt_prompt": "straight orientation, no tilt"
+        },
+        "generation_seed": 820474063
+    },
+    {
+        "pair_id": 832,
+        "style_description": "Fur coat text with glowing eyes",
+        "reference": {
+            "word": "Fume",
+            "image_path": "dataset_images/style_images/pair_00832_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "吃宵夜",
+            "image_path": "dataset_images/images/pair_00832_target.jpg",
+            "position_prompt": "positioned at the bottom center",
+            "tilt_prompt": "straight orientation, no tilt"
+        },
+        "generation_seed": 1079305306
+    },
+    {
+        "pair_id": 840,
+        "style_description": "Rustic wood text with wormholes",
+        "reference": {
+            "word": "海风拂面",
+            "image_path": "dataset_images/style_images/pair_00840_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "静谧的湖泊",
+            "image_path": "dataset_images/images/pair_00840_target.jpg",
+            "position_prompt": "located in the bottom-right corner",
+            "tilt_prompt": "rotated about 15 degrees clockwise"
+        },
+        "generation_seed": 1483579064
+    },
+    {
+        "pair_id": 848,
+        "style_description": "Glowing red slime text with blood splatters",
+        "reference": {
+            "word": "人海浮沉",
+            "image_path": "dataset_images/style_images/pair_00848_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Synth",
+            "image_path": "dataset_images/images/pair_00848_target.jpg",
+            "position_prompt": "located in the bottom-left corner",
+            "tilt_prompt": "straight orientation, no tilt"
+        },
+        "generation_seed": 3509191591
+    },
+    {
+        "pair_id": 856,
+        "style_description": "Fuzzy green fur text with leaf vein details",
+        "reference": {
+            "word": "卡壳",
+            "image_path": "dataset_images/style_images/pair_00856_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "月光下的舞者",
+            "image_path": "dataset_images/images/pair_00856_target.jpg",
+            "position_prompt": "positioned at the top center",
+            "tilt_prompt": "rotated about 15 degrees clockwise"
+        },
+        "generation_seed": 2797064485
+    },
+    {
+        "pair_id": 864,
+        "style_description": "Neon glass shard font",
+        "reference": {
+            "word": "Tidal Wave",
+            "image_path": "dataset_images/style_images/pair_00864_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "溜达",
+            "image_path": "dataset_images/images/pair_00864_target.jpg",
+            "position_prompt": "positioned at the top center",
+            "tilt_prompt": "tilted slightly counter-clockwise"
+        },
+        "generation_seed": 1654625393
+    },
+    {
+        "pair_id": 872,
+        "style_description": "Black obsidian text with moonlight",
+        "reference": {
+            "word": "Whirlwind",
+            "image_path": "dataset_images/style_images/pair_00872_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "听雨声",
+            "image_path": "dataset_images/images/pair_00872_target.jpg",
+            "position_prompt": "centered in the frame",
+            "tilt_prompt": "tilted slightly counter-clockwise"
+        },
+        "generation_seed": 153346141
+    },
+    {
+        "pair_id": 880,
+        "style_description": "Aqua slime text with bubbles",
+        "reference": {
+            "word": "Fire",
+            "image_path": "dataset_images/style_images/pair_00880_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "咖啡的香气",
+            "image_path": "dataset_images/images/pair_00880_target.jpg",
+            "position_prompt": "located in the top-right corner",
+            "tilt_prompt": "tilted slightly counter-clockwise"
+        },
+        "generation_seed": 2278211587
+    },
+    {
+        "pair_id": 888,
+        "style_description": "Slate rock text",
+        "reference": {
+            "word": "Wind",
+            "image_path": "dataset_images/style_images/pair_00888_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Water",
+            "image_path": "dataset_images/images/pair_00888_target.jpg",
+            "position_prompt": "slightly off-center to the left",
+            "tilt_prompt": "straight orientation, no tilt"
+        },
+        "generation_seed": 2255642313
+    },
+    {
+        "pair_id": 896,
+        "style_description": "Frosty ice text with starlight reflections",
+        "reference": {
+            "word": "Lunar Eclipse",
+            "image_path": "dataset_images/style_images/pair_00896_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "月光下的舞者",
+            "image_path": "dataset_images/images/pair_00896_target.jpg",
+            "position_prompt": "located in the top-right corner",
+            "tilt_prompt": "rotated about 15 degrees clockwise"
+        },
+        "generation_seed": 1182983769
+    },
+    {
+        "pair_id": 904,
+        "style_description": "Sandy desert sand text with dunes",
+        "reference": {
+            "word": "……后来，风停了",
+            "image_path": "dataset_images/style_images/pair_00904_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "月亮的思念",
+            "image_path": "dataset_images/images/pair_00904_target.jpg",
+            "position_prompt": "located in the top-left corner",
+            "tilt_prompt": "tilted slightly clockwise"
+        },
+        "generation_seed": 4029992411
+    },
+    {
+        "pair_id": 912,
+        "style_description": "Fuchsia velvet text with silk threads",
+        "reference": {
+            "word": "Solstice night",
+            "image_path": "dataset_images/style_images/pair_00912_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "螺蛳粉配冰啤酒",
+            "image_path": "dataset_images/images/pair_00912_target.jpg",
+            "position_prompt": "slightly off-center to the top",
+            "tilt_prompt": "rotated about 15 degrees counter-clockwise"
+        },
+        "generation_seed": 2028164886
+    },
+    {
+        "pair_id": 920,
+        "style_description": "Holographic data swirls in neon purple",
+        "reference": {
+            "word": "Time Flies",
+            "image_path": "dataset_images/style_images/pair_00920_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "嗦粉",
+            "image_path": "dataset_images/images/pair_00920_target.jpg",
+            "position_prompt": "positioned at the bottom center",
+            "tilt_prompt": "straight orientation, no tilt"
+        },
+        "generation_seed": 2464437123
+    },
+    {
+        "pair_id": 928,
+        "style_description": "Rustic wooden text with moss growth",
+        "reference": {
+            "word": "锅开了",
+            "image_path": "dataset_images/style_images/pair_00928_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "番茄炒蛋的哲学",
+            "image_path": "dataset_images/images/pair_00928_target.jpg",
+            "position_prompt": "located in the top-left corner",
+            "tilt_prompt": "straight orientation, no tilt"
+        },
+        "generation_seed": 1543230753
+    },
+    {
+        "pair_id": 936,
+        "style_description": "Slime covered liquid bronze script",
+        "reference": {
+            "word": "星空下的誓言",
+            "image_path": "dataset_images/style_images/pair_00936_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "打麻将",
+            "image_path": "dataset_images/images/pair_00936_target.jpg",
+            "position_prompt": "located in the top-left corner",
+            "tilt_prompt": "rotated about 15 degrees clockwise"
+        },
+        "generation_seed": 3878144037
+    },
+    {
+        "pair_id": 944,
+        "style_description": "Bio-luminescent cloud text",
+        "reference": {
+            "word": "Whispered oath",
+            "image_path": "dataset_images/style_images/pair_00944_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "煮咖啡",
+            "image_path": "dataset_images/images/pair_00944_target.jpg",
+            "position_prompt": "located in the top-left corner",
+            "tilt_prompt": "rotated about 15 degrees clockwise"
+        },
+        "generation_seed": 812512301
+    },
+    {
+        "pair_id": 952,
+        "style_description": "Glowing purple text with starfield texture",
+        "reference": {
+            "word": "冰雪",
+            "image_path": "dataset_images/style_images/pair_00952_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Moonlit Path",
+            "image_path": "dataset_images/images/pair_00952_target.jpg",
+            "position_prompt": "positioned on the left side",
+            "tilt_prompt": "straight orientation, no tilt"
+        },
+        "generation_seed": 1410467382
+    },
+    {
+        "pair_id": 960,
+        "style_description": "Slippery green text resembling algae",
+        "reference": {
+            "word": "Silent Forest",
+            "image_path": "dataset_images/style_images/pair_00960_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "吃烧烤",
+            "image_path": "dataset_images/images/pair_00960_target.jpg",
+            "position_prompt": "located in the top-left corner",
+            "tilt_prompt": "straight orientation, no tilt"
+        },
+        "generation_seed": 2497817125
+    },
+    {
+        "pair_id": 968,
+        "style_description": "Glossy black text with sharkskin texture",
+        "reference": {
+            "word": "Rain",
+            "image_path": "dataset_images/style_images/pair_00968_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "月亮的思念",
+            "image_path": "dataset_images/images/pair_00968_target.jpg",
+            "position_prompt": "positioned on the left side",
+            "tilt_prompt": "tilted slightly clockwise"
+        },
+        "generation_seed": 3542685367
+    },
+    {
+        "pair_id": 976,
+        "style_description": "Rusting metal text with ancient inscriptions",
+        "reference": {
+            "word": "用心感受",
+            "image_path": "dataset_images/style_images/pair_00976_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Fragmented memory",
+            "image_path": "dataset_images/images/pair_00976_target.jpg",
+            "position_prompt": "slightly off-center to the left",
+            "tilt_prompt": "straight orientation, no tilt"
+        },
+        "generation_seed": 1044448948
+    },
+    {
+        "pair_id": 984,
+        "style_description": "Rustic wooden text with carved details",
+        "reference": {
+            "word": "Echoes of Time",
+            "image_path": "dataset_images/style_images/pair_00984_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Time Flies",
+            "image_path": "dataset_images/images/pair_00984_target.jpg",
+            "position_prompt": "located in the top-right corner",
+            "tilt_prompt": "straight orientation, no tilt"
+        },
+        "generation_seed": 2278226115
+    },
+    {
+        "pair_id": 992,
+        "style_description": "Charcoal graphite text with smudges",
+        "reference": {
+            "word": "Hologram",
+            "image_path": "dataset_images/style_images/pair_00992_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Rain",
+            "image_path": "dataset_images/images/pair_00992_target.jpg",
+            "position_prompt": "centered in the frame",
+            "tilt_prompt": "tilted slightly clockwise"
+        },
+        "generation_seed": 2727079456
+    },
+    {
+        "pair_id": 1000,
+        "style_description": "Glowing purple text with cosmic dust particles",
+        "reference": {
+            "word": "Echo",
+            "image_path": "dataset_images/style_images/pair_01000_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Chaos",
+            "image_path": "dataset_images/images/pair_01000_target.jpg",
+            "position_prompt": "positioned at the bottom center",
+            "tilt_prompt": "straight orientation, no tilt"
+        },
+        "generation_seed": 667698939
+    },
+    {
+        "pair_id": 1008,
+        "style_description": "Fuzzy gray text resembling sheep wool",
+        "reference": {
+            "word": "骑单车冲下坡的自由",
+            "image_path": "dataset_images/style_images/pair_01008_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Frost",
+            "image_path": "dataset_images/images/pair_01008_target.jpg",
+            "position_prompt": "positioned at the bottom center",
+            "tilt_prompt": "tilted slightly counter-clockwise"
+        },
+        "generation_seed": 4264818351
+    },
+    {
+        "pair_id": 1016,
+        "style_description": "Frosty silver text with ice shards",
+        "reference": {
+            "word": "哈哈哈",
+            "image_path": "dataset_images/style_images/pair_01016_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Whoa",
+            "image_path": "dataset_images/images/pair_01016_target.jpg",
+            "position_prompt": "positioned at the top center",
+            "tilt_prompt": "rotated about 15 degrees counter-clockwise"
+        },
+        "generation_seed": 2213263529
+    },
+    {
+        "pair_id": 1024,
+        "style_description": "Succulent green text with dew droplets",
+        "reference": {
+            "word": "Echo",
+            "image_path": "dataset_images/style_images/pair_01024_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Cappuccino",
+            "image_path": "dataset_images/images/pair_01024_target.jpg",
+            "position_prompt": "located in the top-right corner",
+            "tilt_prompt": "rotated about 15 degrees counter-clockwise"
+        },
+        "generation_seed": 1057180498
+    },
+    {
+        "pair_id": 1032,
+        "style_description": "Frost white text with ice crystals",
+        "reference": {
+            "word": "Zen",
+            "image_path": "dataset_images/style_images/pair_01032_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Stone",
+            "image_path": "dataset_images/images/pair_01032_target.jpg",
+            "position_prompt": "centered in the frame",
+            "tilt_prompt": "rotated about 15 degrees counter-clockwise"
+        },
+        "generation_seed": 977083145
+    },
+    {
+        "pair_id": 1040,
+        "style_description": "Peach blossom text with floral patterns",
+        "reference": {
+            "word": "Waves Crash",
+            "image_path": "dataset_images/style_images/pair_01040_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "黑夜漫步",
+            "image_path": "dataset_images/images/pair_01040_target.jpg",
+            "position_prompt": "slightly off-center to the left",
+            "tilt_prompt": "straight orientation, no tilt"
+        },
+        "generation_seed": 4217960755
+    },
+    {
+        "pair_id": 1048,
+        "style_description": "Neon pink slime text with glitter",
+        "reference": {
+            "word": "Dusk",
+            "image_path": "dataset_images/style_images/pair_01048_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Echo",
+            "image_path": "dataset_images/images/pair_01048_target.jpg",
+            "position_prompt": "positioned on the left side",
+            "tilt_prompt": "straight orientation, no tilt"
+        },
+        "generation_seed": 2926512870
+    },
+    {
+        "pair_id": 1056,
+        "style_description": "Gold dust text with starry night effects",
+        "reference": {
+            "word": "湖面倒影",
+            "image_path": "dataset_images/style_images/pair_01056_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "用心感受",
+            "image_path": "dataset_images/images/pair_01056_target.jpg",
+            "position_prompt": "positioned on the left side",
+            "tilt_prompt": "rotated about 15 degrees clockwise"
+        },
+        "generation_seed": 597579501
+    },
+    {
+        "pair_id": 1064,
+        "style_description": "Sapphire blue text with water droplets",
+        "reference": {
+            "word": "秋裤穿还是不穿",
+            "image_path": "dataset_images/style_images/pair_01064_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Pixel",
+            "image_path": "dataset_images/images/pair_01064_target.jpg",
+            "position_prompt": "positioned on the right side",
+            "tilt_prompt": "rotated about 15 degrees counter-clockwise"
+        },
+        "generation_seed": 2183450856
+    },
+    {
+        "pair_id": 1072,
+        "style_description": "Slime orange text with swirling smoke effect",
+        "reference": {
+            "word": "心如止水",
+            "image_path": "dataset_images/style_images/pair_01072_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Static hum",
+            "image_path": "dataset_images/images/pair_01072_target.jpg",
+            "position_prompt": "positioned on the right side",
+            "tilt_prompt": "straight orientation, no tilt"
+        },
+        "generation_seed": 137239189
+    },
+    {
+        "pair_id": 1080,
+        "style_description": "Furry red text with glowing flames",
+        "reference": {
+            "word": "哈哈哈",
+            "image_path": "dataset_images/style_images/pair_01080_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "追逐梦想",
+            "image_path": "dataset_images/images/pair_01080_target.jpg",
+            "position_prompt": "located in the top-right corner",
+            "tilt_prompt": "tilted slightly clockwise"
+        },
+        "generation_seed": 1977624157
+    },
+    {
+        "pair_id": 1088,
+        "style_description": "Shiny metallic green text with leaf veins",
+        "reference": {
+            "word": "稳了！",
+            "image_path": "dataset_images/style_images/pair_01088_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Wisp",
+            "image_path": "dataset_images/images/pair_01088_target.jpg",
+            "position_prompt": "located in the top-right corner",
+            "tilt_prompt": "tilted slightly clockwise"
+        },
+        "generation_seed": 1752943480
+    },
+    {
+        "pair_id": 1096,
+        "style_description": "Glowing bio-luminescent text",
+        "reference": {
+            "word": "秋裤穿还是不穿",
+            "image_path": "dataset_images/style_images/pair_01096_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Dew on spiderweb",
+            "image_path": "dataset_images/images/pair_01096_target.jpg",
+            "position_prompt": "slightly off-center to the top",
+            "tilt_prompt": "rotated about 15 degrees clockwise"
+        },
+        "generation_seed": 1155658783
+    },
+    {
+        "pair_id": 1104,
+        "style_description": "Crimson red blood text with veins",
+        "reference": {
+            "word": "Echo",
+            "image_path": "dataset_images/style_images/pair_01104_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Dew on spiderweb",
+            "image_path": "dataset_images/images/pair_01104_target.jpg",
+            "position_prompt": "positioned on the left side",
+            "tilt_prompt": "straight orientation, no tilt"
+        },
+        "generation_seed": 1439520084
+    },
+    {
+        "pair_id": 1112,
+        "style_description": "Glowing green algae text",
+        "reference": {
+            "word": "Glow",
+            "image_path": "dataset_images/style_images/pair_01112_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Silent Forest",
+            "image_path": "dataset_images/images/pair_01112_target.jpg",
+            "position_prompt": "positioned at the bottom center",
+            "tilt_prompt": "tilted slightly counter-clockwise"
+        },
+        "generation_seed": 3000849389
+    },
+    {
+        "pair_id": 1120,
+        "style_description": "Slime green moss text with dew drops",
+        "reference": {
+            "word": "听雨声",
+            "image_path": "dataset_images/style_images/pair_01120_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Alchemist",
+            "image_path": "dataset_images/images/pair_01120_target.jpg",
+            "position_prompt": "centered in the frame",
+            "tilt_prompt": "rotated about 15 degrees clockwise"
+        },
+        "generation_seed": 255823849
+    },
+    {
+        "pair_id": 1128,
+        "style_description": "Glowing purple slime text with floating confetti",
+        "reference": {
+            "word": "Hiss",
+            "image_path": "dataset_images/style_images/pair_01128_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Chaos",
+            "image_path": "dataset_images/images/pair_01128_target.jpg",
+            "position_prompt": "slightly off-center to the left",
+            "tilt_prompt": "straight orientation, no tilt"
+        },
+        "generation_seed": 1447832961
+    },
+    {
+        "pair_id": 1136,
+        "style_description": "Holographic silver text with cosmic dust",
+        "reference": {
+            "word": "Dew",
+            "image_path": "dataset_images/style_images/pair_01136_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "鸟语花香",
+            "image_path": "dataset_images/images/pair_01136_target.jpg",
+            "position_prompt": "located in the bottom-right corner",
+            "tilt_prompt": "straight orientation, no tilt"
+        },
+        "generation_seed": 495691565
+    },
+    {
+        "pair_id": 1144,
+        "style_description": "Slippery green moss text with dew",
+        "reference": {
+            "word": "Time Flies",
+            "image_path": "dataset_images/style_images/pair_01144_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "不负春光",
+            "image_path": "dataset_images/images/pair_01144_target.jpg",
+            "position_prompt": "centered in the frame",
+            "tilt_prompt": "straight orientation, no tilt"
+        },
+        "generation_seed": 3873517870
+    },
+    {
+        "pair_id": 1152,
+        "style_description": "Neon orange text with a lava flow pattern",
+        "reference": {
+            "word": "等等，好像不对……",
+            "image_path": "dataset_images/style_images/pair_01152_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Tidal Wave",
+            "image_path": "dataset_images/images/pair_01152_target.jpg",
+            "position_prompt": "slightly off-center to the top",
+            "tilt_prompt": "straight orientation, no tilt"
+        },
+        "generation_seed": 1343542557
+    },
+    {
+        "pair_id": 1160,
+        "style_description": "Neon green text with a jungle leaf effect",
+        "reference": {
+            "word": "螺蛳粉配冰啤酒",
+            "image_path": "dataset_images/style_images/pair_01160_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Glitch",
+            "image_path": "dataset_images/images/pair_01160_target.jpg",
+            "position_prompt": "positioned at the bottom center",
+            "tilt_prompt": "straight orientation, no tilt"
+        },
+        "generation_seed": 943332232
+    },
+    {
+        "pair_id": 1168,
+        "style_description": "Frosted black text with a diamond texture",
+        "reference": {
+            "word": "烤红薯",
+            "image_path": "dataset_images/style_images/pair_01168_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Snap",
+            "image_path": "dataset_images/images/pair_01168_target.jpg",
+            "position_prompt": "positioned on the right side",
+            "tilt_prompt": "rotated about 15 degrees counter-clockwise"
+        },
+        "generation_seed": 3428142144
+    },
+    {
+        "pair_id": 1176,
+        "style_description": "Holographic smoke text with digital glitches",
+        "reference": {
+            "word": "心如止水",
+            "image_path": "dataset_images/style_images/pair_01176_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "骑单车冲下坡的自由",
+            "image_path": "dataset_images/images/pair_01176_target.jpg",
+            "position_prompt": "positioned on the left side",
+            "tilt_prompt": "tilted slightly counter-clockwise"
+        },
+        "generation_seed": 554923360
+    },
+    {
+        "pair_id": 1184,
+        "style_description": "Furry purple text with starry night effect",
+        "reference": {
+            "word": "月亮的思念",
+            "image_path": "dataset_images/style_images/pair_01184_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "从容而立",
+            "image_path": "dataset_images/images/pair_01184_target.jpg",
+            "position_prompt": "slightly off-center to the left",
+            "tilt_prompt": "tilted slightly counter-clockwise"
+        },
+        "generation_seed": 1440239892
+    },
+    {
+        "pair_id": 1192,
+        "style_description": "Fuzzy pink text with cotton candy effect",
+        "reference": {
+            "word": "猫跳上键盘的那一刻",
+            "image_path": "dataset_images/style_images/pair_01192_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "清晨的微光",
+            "image_path": "dataset_images/images/pair_01192_target.jpg",
+            "position_prompt": "positioned on the left side",
+            "tilt_prompt": "rotated about 15 degrees clockwise"
+        },
+        "generation_seed": 2296508909
+    },
+    {
+        "pair_id": 1200,
+        "style_description": "Flickering neon plasma text with fractal edges",
+        "reference": {
+            "word": "Magic",
+            "image_path": "dataset_images/style_images/pair_01200_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Matcha",
+            "image_path": "dataset_images/images/pair_01200_target.jpg",
+            "position_prompt": "located in the bottom-right corner",
+            "tilt_prompt": "tilted slightly counter-clockwise"
+        },
+        "generation_seed": 1950384137
+    },
+    {
+        "pair_id": 1208,
+        "style_description": "Shiny obsidian text with starlight reflections",
+        "reference": {
+            "word": "Phoenix",
+            "image_path": "dataset_images/style_images/pair_01208_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Twilight Dreams",
+            "image_path": "dataset_images/images/pair_01208_target.jpg",
+            "position_prompt": "located in the top-left corner",
+            "tilt_prompt": "tilted slightly counter-clockwise"
+        },
+        "generation_seed": 647627828
+    },
+    {
+        "pair_id": 1216,
+        "style_description": "Silver mist text with fog",
+        "reference": {
+            "word": "晚安zzz~",
+            "image_path": "dataset_images/style_images/pair_01216_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Echoes of Time",
+            "image_path": "dataset_images/images/pair_01216_target.jpg",
+            "position_prompt": "centered in the frame",
+            "tilt_prompt": "straight orientation, no tilt"
+        },
+        "generation_seed": 264598570
+    },
+    {
+        "pair_id": 1224,
+        "style_description": "Vibrant orange text with flames",
+        "reference": {
+            "word": "加油！",
+            "image_path": "dataset_images/style_images/pair_01224_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Ninja",
+            "image_path": "dataset_images/images/pair_01224_target.jpg",
+            "position_prompt": "positioned on the right side",
+            "tilt_prompt": "rotated about 15 degrees counter-clockwise"
+        },
+        "generation_seed": 1604567088
+    },
+    {
+        "pair_id": 1232,
+        "style_description": "Spider silk text with dew drops",
+        "reference": {
+            "word": "Glow",
+            "image_path": "dataset_images/style_images/pair_01232_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "摸鱼",
+            "image_path": "dataset_images/images/pair_01232_target.jpg",
+            "position_prompt": "located in the top-left corner",
+            "tilt_prompt": "straight orientation, no tilt"
+        },
+        "generation_seed": 3185846501
+    },
+    {
+        "pair_id": 1240,
+        "style_description": "Crystal clear ice text with frost",
+        "reference": {
+            "word": "未曾相遇",
+            "image_path": "dataset_images/style_images/pair_01240_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "共赴山海",
+            "image_path": "dataset_images/images/pair_01240_target.jpg",
+            "position_prompt": "centered in the frame",
+            "tilt_prompt": "tilted slightly clockwise"
+        },
+        "generation_seed": 2309119925
+    },
+    {
+        "pair_id": 1248,
+        "style_description": "Rusty orange metal text with patina",
+        "reference": {
+            "word": "让我们去海边",
+            "image_path": "dataset_images/style_images/pair_01248_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Void",
+            "image_path": "dataset_images/images/pair_01248_target.jpg",
+            "position_prompt": "slightly off-center to the left",
+            "tilt_prompt": "straight orientation, no tilt"
+        },
+        "generation_seed": 826830570
+    },
+    {
+        "pair_id": 1256,
+        "style_description": "Liquid mercury script with reflections",
+        "reference": {
+            "word": "Alchemist",
+            "image_path": "dataset_images/style_images/pair_01256_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Echoes of Time",
+            "image_path": "dataset_images/images/pair_01256_target.jpg",
+            "position_prompt": "located in the top-left corner",
+            "tilt_prompt": "tilted slightly counter-clockwise"
+        },
+        "generation_seed": 1496283327
+    },
+    {
+        "pair_id": 1264,
+        "style_description": "Rusty red brick text with cobwebs",
+        "reference": {
+            "word": "Sorcerer",
+            "image_path": "dataset_images/style_images/pair_01264_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "桂花香穿窗而入",
+            "image_path": "dataset_images/images/pair_01264_target.jpg",
+            "position_prompt": "located in the bottom-left corner",
+            "tilt_prompt": "rotated about 15 degrees clockwise"
+        },
+        "generation_seed": 612850472
+    },
+    {
+        "pair_id": 1272,
+        "style_description": "Glowing orange ember text with ash",
+        "reference": {
+            "word": "The silence between notes",
+            "image_path": "dataset_images/style_images/pair_01272_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "困了",
+            "image_path": "dataset_images/images/pair_01272_target.jpg",
+            "position_prompt": "positioned on the left side",
+            "tilt_prompt": "tilted slightly counter-clockwise"
+        },
+        "generation_seed": 2137251436
+    },
+    {
+        "pair_id": 1280,
+        "style_description": "Silky red velvet text with fringes",
+        "reference": {
+            "word": "晚风轻拂",
+            "image_path": "dataset_images/style_images/pair_01280_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Zero-point energy",
+            "image_path": "dataset_images/images/pair_01280_target.jpg",
+            "position_prompt": "positioned at the top center",
+            "tilt_prompt": "straight orientation, no tilt"
+        },
+        "generation_seed": 1287816289
+    },
+    {
+        "pair_id": 1288,
+        "style_description": "Holographic starfield text with shooting stars",
+        "reference": {
+            "word": "Shhh",
+            "image_path": "dataset_images/style_images/pair_01288_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Fractured light",
+            "image_path": "dataset_images/images/pair_01288_target.jpg",
+            "position_prompt": "located in the top-right corner",
+            "tilt_prompt": "straight orientation, no tilt"
+        },
+        "generation_seed": 1078693980
+    },
+    {
+        "pair_id": 1296,
+        "style_description": "Moss green slime text with leaves",
+        "reference": {
+            "word": "Echo",
+            "image_path": "dataset_images/style_images/pair_01296_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "星辰大海",
+            "image_path": "dataset_images/images/pair_01296_target.jpg",
+            "position_prompt": "located in the bottom-left corner",
+            "tilt_prompt": "straight orientation, no tilt"
+        },
+        "generation_seed": 769511467
+    },
+    {
+        "pair_id": 1304,
+        "style_description": "Fuzzy gray fur text with dirt",
+        "reference": {
+            "word": "Lunar Eclipse",
+            "image_path": "dataset_images/style_images/pair_01304_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "螺蛳粉配冰啤酒",
+            "image_path": "dataset_images/images/pair_01304_target.jpg",
+            "position_prompt": "positioned on the left side",
+            "tilt_prompt": "straight orientation, no tilt"
+        },
+        "generation_seed": 2341665341
+    },
+    {
+        "pair_id": 1312,
+        "style_description": "Neon pink holographic text with swirling patterns",
+        "reference": {
+            "word": "梦的彼岸",
+            "image_path": "dataset_images/style_images/pair_01312_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "加油！",
+            "image_path": "dataset_images/images/pair_01312_target.jpg",
+            "position_prompt": "positioned on the right side",
+            "tilt_prompt": "straight orientation, no tilt"
+        },
+        "generation_seed": 1757337795
+    },
+    {
+        "pair_id": 1320,
+        "style_description": "Crimson slime text with fire reflections",
+        "reference": {
+            "word": "火候刚好",
+            "image_path": "dataset_images/style_images/pair_01320_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Knight",
+            "image_path": "dataset_images/images/pair_01320_target.jpg",
+            "position_prompt": "located in the top-left corner",
+            "tilt_prompt": "straight orientation, no tilt"
+        },
+        "generation_seed": 742350053
+    },
+    {
+        "pair_id": 1328,
+        "style_description": "Electric blue liquid text with lightning strikes",
+        "reference": {
+            "word": "打麻将",
+            "image_path": "dataset_images/style_images/pair_01328_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "摸鱼",
+            "image_path": "dataset_images/images/pair_01328_target.jpg",
+            "position_prompt": "located in the bottom-left corner",
+            "tilt_prompt": "straight orientation, no tilt"
+        },
+        "generation_seed": 4207807086
+    },
+    {
+        "pair_id": 1336,
+        "style_description": "Violet holographic text in jagged shape with sparkles",
+        "reference": {
+            "word": "翻车了",
+            "image_path": "dataset_images/style_images/pair_01336_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Murmur",
+            "image_path": "dataset_images/images/pair_01336_target.jpg",
+            "position_prompt": "positioned at the bottom center",
+            "tilt_prompt": "tilted slightly clockwise"
+        },
+        "generation_seed": 2132729468
+    },
+    {
+        "pair_id": 1344,
+        "style_description": "Holographic silver data text with neon edges",
+        "reference": {
+            "word": "渔火",
+            "image_path": "dataset_images/style_images/pair_01344_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Fire",
+            "image_path": "dataset_images/images/pair_01344_target.jpg",
+            "position_prompt": "positioned on the left side",
+            "tilt_prompt": "rotated about 15 degrees clockwise"
+        },
+        "generation_seed": 328737746
+    },
+    {
+        "pair_id": 1352,
+        "style_description": "Rustic wooden text with weathered carvings",
+        "reference": {
+            "word": "静谧的湖泊",
+            "image_path": "dataset_images/style_images/pair_01352_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Glitch",
+            "image_path": "dataset_images/images/pair_01352_target.jpg",
+            "position_prompt": "located in the bottom-right corner",
+            "tilt_prompt": "straight orientation, no tilt"
+        },
+        "generation_seed": 2907348967
+    },
+    {
+        "pair_id": 1360,
+        "style_description": "Luminous fog text with floating particles",
+        "reference": {
+            "word": "Time Flies",
+            "image_path": "dataset_images/style_images/pair_01360_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "BBQ",
+            "image_path": "dataset_images/images/pair_01360_target.jpg",
+            "position_prompt": "centered in the frame",
+            "tilt_prompt": "rotated about 15 degrees counter-clockwise"
+        },
+        "generation_seed": 2029897638
+    },
+    {
+        "pair_id": 1368,
+        "style_description": "Neon green algae text with aquatic glow",
+        "reference": {
+            "word": "Gale",
+            "image_path": "dataset_images/style_images/pair_01368_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "夜晚的星辰",
+            "image_path": "dataset_images/images/pair_01368_target.jpg",
+            "position_prompt": "positioned at the top center",
+            "tilt_prompt": "tilted slightly counter-clockwise"
+        },
+        "generation_seed": 2115766496
+    },
+    {
+        "pair_id": 1376,
+        "style_description": "Shimmering silver mist text with moonlight glow",
+        "reference": {
+            "word": "吃一碗热汤",
+            "image_path": "dataset_images/style_images/pair_01376_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "火候刚好",
+            "image_path": "dataset_images/images/pair_01376_target.jpg",
+            "position_prompt": "located in the bottom-right corner",
+            "tilt_prompt": "rotated about 15 degrees counter-clockwise"
+        },
+        "generation_seed": 1951783569
+    },
+    {
+        "pair_id": 1384,
+        "style_description": "Rusted bronze text with age spots",
+        "reference": {
+            "word": "Flicker—then gone",
+            "image_path": "dataset_images/style_images/pair_01384_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Rising Sun",
+            "image_path": "dataset_images/images/pair_01384_target.jpg",
+            "position_prompt": "positioned on the left side",
+            "tilt_prompt": "tilted slightly clockwise"
+        },
+        "generation_seed": 3484023768
+    },
+    {
+        "pair_id": 1392,
+        "style_description": "Slippery black tar text",
+        "reference": {
+            "word": "Lunar Eclipse",
+            "image_path": "dataset_images/style_images/pair_01392_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "文件未保存，断电",
+            "image_path": "dataset_images/images/pair_01392_target.jpg",
+            "position_prompt": "slightly off-center to the top",
+            "tilt_prompt": "straight orientation, no tilt"
+        },
+        "generation_seed": 3590437035
+    },
+    {
+        "pair_id": 1400,
+        "style_description": "Glowing blue ice crystal font",
+        "reference": {
+            "word": "Glow",
+            "image_path": "dataset_images/style_images/pair_01400_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Latent variable",
+            "image_path": "dataset_images/images/pair_01400_target.jpg",
+            "position_prompt": "positioned on the right side",
+            "tilt_prompt": "tilted slightly counter-clockwise"
+        },
+        "generation_seed": 158489392
+    },
+    {
+        "pair_id": 1408,
+        "style_description": "Furry gray wool text",
+        "reference": {
+            "word": "Mystic Dreams",
+            "image_path": "dataset_images/style_images/pair_01408_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Neon Lights",
+            "image_path": "dataset_images/images/pair_01408_target.jpg",
+            "position_prompt": "located in the top-right corner",
+            "tilt_prompt": "tilted slightly clockwise"
+        },
+        "generation_seed": 1823988400
+    },
+    {
+        "pair_id": 1416,
+        "style_description": "Holographic rainbow text with shifting colors",
+        "reference": {
+            "word": "稳住",
+            "image_path": "dataset_images/style_images/pair_01416_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Ice",
+            "image_path": "dataset_images/images/pair_01416_target.jpg",
+            "position_prompt": "slightly off-center to the left",
+            "tilt_prompt": "straight orientation, no tilt"
+        },
+        "generation_seed": 4247441636
+    },
+    {
+        "pair_id": 1424,
+        "style_description": "Fur texture text in emerald green",
+        "reference": {
+            "word": "Mystic Dreams",
+            "image_path": "dataset_images/style_images/pair_01424_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "泡茶去",
+            "image_path": "dataset_images/images/pair_01424_target.jpg",
+            "position_prompt": "centered in the frame",
+            "tilt_prompt": "rotated about 15 degrees clockwise"
+        },
+        "generation_seed": 2482950533
+    },
+    {
+        "pair_id": 1432,
+        "style_description": "Neon red glass text with etched design",
+        "reference": {
+            "word": "Tea",
+            "image_path": "dataset_images/style_images/pair_01432_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "老板，打包一份人间烟火",
+            "image_path": "dataset_images/images/pair_01432_target.jpg",
+            "position_prompt": "positioned at the bottom center",
+            "tilt_prompt": "tilted slightly counter-clockwise"
+        },
+        "generation_seed": 1808817185
+    },
+    {
+        "pair_id": 1440,
+        "style_description": "Fur coat serif text",
+        "reference": {
+            "word": "Volcano!",
+            "image_path": "dataset_images/style_images/pair_01440_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Oops",
+            "image_path": "dataset_images/images/pair_01440_target.jpg",
+            "position_prompt": "located in the top-right corner",
+            "tilt_prompt": "tilted slightly counter-clockwise"
+        },
+        "generation_seed": 4254349526
+    },
+    {
+        "pair_id": 1448,
+        "style_description": "Wax封印古文",
+        "reference": {
+            "word": "Snap",
+            "image_path": "dataset_images/style_images/pair_01448_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "呼吸大自然",
+            "image_path": "dataset_images/images/pair_01448_target.jpg",
+            "position_prompt": "located in the bottom-right corner",
+            "tilt_prompt": "straight orientation, no tilt"
+        },
+        "generation_seed": 4183041226
+    },
+    {
+        "pair_id": 1456,
+        "style_description": "Chalkboard green text",
+        "reference": {
+            "word": "烟火气",
+            "image_path": "dataset_images/style_images/pair_01456_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Unspoken understanding",
+            "image_path": "dataset_images/images/pair_01456_target.jpg",
+            "position_prompt": "slightly off-center to the left",
+            "tilt_prompt": "straight orientation, no tilt"
+        },
+        "generation_seed": 2625573755
+    },
+    {
+        "pair_id": 1464,
+        "style_description": "Indigo velvet text",
+        "reference": {
+            "word": "Future",
+            "image_path": "dataset_images/style_images/pair_01464_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Hologram",
+            "image_path": "dataset_images/images/pair_01464_target.jpg",
+            "position_prompt": "positioned at the top center",
+            "tilt_prompt": "rotated about 15 degrees clockwise"
+        },
+        "generation_seed": 2751807561
+    },
+    {
+        "pair_id": 1472,
+        "style_description": "Turquoise coral text with ocean waves",
+        "reference": {
+            "word": "朝霞",
+            "image_path": "dataset_images/style_images/pair_01472_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Fray",
+            "image_path": "dataset_images/images/pair_01472_target.jpg",
+            "position_prompt": "positioned at the top center",
+            "tilt_prompt": "straight orientation, no tilt"
+        },
+        "generation_seed": 1194723213
+    },
+    {
+        "pair_id": 1480,
+        "style_description": "Slate gray text with stone cracks",
+        "reference": {
+            "word": "猫跳上键盘的那一刻",
+            "image_path": "dataset_images/style_images/pair_01480_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Synth",
+            "image_path": "dataset_images/images/pair_01480_target.jpg",
+            "position_prompt": "positioned at the bottom center",
+            "tilt_prompt": "straight orientation, no tilt"
+        },
+        "generation_seed": 2284507705
+    },
+    {
+        "pair_id": 1488,
+        "style_description": "Holographic dew drop text with sparkling gems",
+        "reference": {
+            "word": "Moonlit Path",
+            "image_path": "dataset_images/style_images/pair_01488_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Quantum Leap",
+            "image_path": "dataset_images/images/pair_01488_target.jpg",
+            "position_prompt": "slightly off-center to the top",
+            "tilt_prompt": "rotated about 15 degrees clockwise"
+        },
+        "generation_seed": 3401041259
+    },
+    {
+        "pair_id": 1496,
+        "style_description": "Glowing amber text with ancient hieroglyphs",
+        "reference": {
+            "word": "鸟语花香",
+            "image_path": "dataset_images/style_images/pair_01496_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Electric Dreams",
+            "image_path": "dataset_images/images/pair_01496_target.jpg",
+            "position_prompt": "positioned on the left side",
+            "tilt_prompt": "straight orientation, no tilt"
+        },
+        "generation_seed": 571725518
+    },
+    {
+        "pair_id": 1504,
+        "style_description": "Shiny silver foil text with laser etching",
+        "reference": {
+            "word": "Dream",
+            "image_path": "dataset_images/style_images/pair_01504_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "薯片袋里最后一片",
+            "image_path": "dataset_images/images/pair_01504_target.jpg",
+            "position_prompt": "located in the top-left corner",
+            "tilt_prompt": "straight orientation, no tilt"
+        },
+        "generation_seed": 2666615984
+    },
+    {
+        "pair_id": 1512,
+        "style_description": "Holographic data text in pixelated shape with neon colors",
+        "reference": {
+            "word": "Future",
+            "image_path": "dataset_images/style_images/pair_01512_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Moonlit Path",
+            "image_path": "dataset_images/images/pair_01512_target.jpg",
+            "position_prompt": "located in the bottom-left corner",
+            "tilt_prompt": "rotated about 15 degrees counter-clockwise"
+        },
+        "generation_seed": 4060005486
+    },
+    {
+        "pair_id": 1520,
+        "style_description": "Crystal clear ice text with frosty edges",
+        "reference": {
+            "word": "Moonlight Serenade",
+            "image_path": "dataset_images/style_images/pair_01520_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "翻旧照",
+            "image_path": "dataset_images/images/pair_01520_target.jpg",
+            "position_prompt": "positioned at the top center",
+            "tilt_prompt": "straight orientation, no tilt"
+        },
+        "generation_seed": 3032128124
+    },
+    {
+        "pair_id": 1528,
+        "style_description": "Vibrant orange lava text with flowing effects",
+        "reference": {
+            "word": "Knight",
+            "image_path": "dataset_images/style_images/pair_01528_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "桂花香穿窗而入",
+            "image_path": "dataset_images/images/pair_01528_target.jpg",
+            "position_prompt": "slightly off-center to the left",
+            "tilt_prompt": "rotated about 15 degrees clockwise"
+        },
+        "generation_seed": 1433431839
+    },
+    {
+        "pair_id": 1536,
+        "style_description": "Neon blue fur text with glowing edges",
+        "reference": {
+            "word": "糖炒栗",
+            "image_path": "dataset_images/style_images/pair_01536_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "火烈鸟",
+            "image_path": "dataset_images/images/pair_01536_target.jpg",
+            "position_prompt": "positioned at the bottom center",
+            "tilt_prompt": "straight orientation, no tilt"
+        },
+        "generation_seed": 2121834225
+    },
+    {
+        "pair_id": 1544,
+        "style_description": "Glowing pink gelatin text with sparkles",
+        "reference": {
+            "word": "Dust",
+            "image_path": "dataset_images/style_images/pair_01544_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Dew",
+            "image_path": "dataset_images/images/pair_01544_target.jpg",
+            "position_prompt": "located in the top-right corner",
+            "tilt_prompt": "straight orientation, no tilt"
+        },
+        "generation_seed": 2100202744
+    },
+    {
+        "pair_id": 1552,
+        "style_description": "Shimmering turquoise slime text with bubbles",
+        "reference": {
+            "word": "Sorcerer",
+            "image_path": "dataset_images/style_images/pair_01552_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "外婆说‘趁热吃’",
+            "image_path": "dataset_images/images/pair_01552_target.jpg",
+            "position_prompt": "slightly off-center to the left",
+            "tilt_prompt": "rotated about 15 degrees clockwise"
+        },
+        "generation_seed": 3062872938
+    },
+    {
+        "pair_id": 1560,
+        "style_description": "Furry red text with thorns",
+        "reference": {
+            "word": "Golden Hour",
+            "image_path": "dataset_images/style_images/pair_01560_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Hollow",
+            "image_path": "dataset_images/images/pair_01560_target.jpg",
+            "position_prompt": "located in the top-right corner",
+            "tilt_prompt": "rotated about 15 degrees counter-clockwise"
+        },
+        "generation_seed": 4277921304
+    },
+    {
+        "pair_id": 1568,
+        "style_description": "Rusty red brick text with cobweb details",
+        "reference": {
+            "word": "猫伸腰",
+            "image_path": "dataset_images/style_images/pair_01568_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Time Flies",
+            "image_path": "dataset_images/images/pair_01568_target.jpg",
+            "position_prompt": "positioned at the bottom center",
+            "tilt_prompt": "straight orientation, no tilt"
+        },
+        "generation_seed": 1677001822
+    },
+    {
+        "pair_id": 1576,
+        "style_description": "Fuzzy pink velvet text with embroidery",
+        "reference": {
+            "word": "锅气十足",
+            "image_path": "dataset_images/style_images/pair_01576_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Dew",
+            "image_path": "dataset_images/images/pair_01576_target.jpg",
+            "position_prompt": "located in the top-right corner",
+            "tilt_prompt": "straight orientation, no tilt"
+        },
+        "generation_seed": 3251121798
+    },
+    {
+        "pair_id": 1584,
+        "style_description": "Slime green liquid text with pulsating waves",
+        "reference": {
+            "word": "Cloud",
+            "image_path": "dataset_images/style_images/pair_01584_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "呼吸大自然",
+            "image_path": "dataset_images/images/pair_01584_target.jpg",
+            "position_prompt": "located in the bottom-left corner",
+            "tilt_prompt": "tilted slightly counter-clockwise"
+        },
+        "generation_seed": 3538730736
+    },
+    {
+        "pair_id": 1592,
+        "style_description": "Rustic parchment text with aged yellowing",
+        "reference": {
+            "word": "锅气十足",
+            "image_path": "dataset_images/style_images/pair_01592_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "烫手山芋",
+            "image_path": "dataset_images/images/pair_01592_target.jpg",
+            "position_prompt": "located in the top-right corner",
+            "tilt_prompt": "tilted slightly counter-clockwise"
+        },
+        "generation_seed": 495035905
+    },
+    {
+        "pair_id": 1600,
+        "style_description": "Rippling silk text with golden sheen",
+        "reference": {
+            "word": "冰箱空荡荡",
+            "image_path": "dataset_images/style_images/pair_01600_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "贴秋膘",
+            "image_path": "dataset_images/images/pair_01600_target.jpg",
+            "position_prompt": "slightly off-center to the left",
+            "tilt_prompt": "tilted slightly clockwise"
+        },
+        "generation_seed": 2029702838
+    },
+    {
+        "pair_id": 1608,
+        "style_description": "Glowing violet neon text with cosmic rays",
+        "reference": {
+            "word": "Frozen moment",
+            "image_path": "dataset_images/style_images/pair_01608_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "泡面升腾的热气",
+            "image_path": "dataset_images/images/pair_01608_target.jpg",
+            "position_prompt": "slightly off-center to the left",
+            "tilt_prompt": "tilted slightly clockwise"
+        },
+        "generation_seed": 2439411834
+    },
+    {
+        "pair_id": 1616,
+        "style_description": "Glowing bio-luminescent text with tentacle-like strokes",
+        "reference": {
+            "word": "Cloud",
+            "image_path": "dataset_images/style_images/pair_01616_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "用心感受",
+            "image_path": "dataset_images/images/pair_01616_target.jpg",
+            "position_prompt": "centered in the frame",
+            "tilt_prompt": "tilted slightly clockwise"
+        },
+        "generation_seed": 1528105863
+    },
+    {
+        "pair_id": 1624,
+        "style_description": "Gold leaf text with glittering dust",
+        "reference": {
+            "word": "失联",
+            "image_path": "dataset_images/style_images/pair_01624_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "月光下的舞者",
+            "image_path": "dataset_images/images/pair_01624_target.jpg",
+            "position_prompt": "positioned at the bottom center",
+            "tilt_prompt": "rotated about 15 degrees clockwise"
+        },
+        "generation_seed": 4293078148
+    },
+    {
+        "pair_id": 1632,
+        "style_description": "Sandy beige text with desert sun reflection",
+        "reference": {
+            "word": "Espresso",
+            "image_path": "dataset_images/style_images/pair_01632_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Dust motes in sunlight",
+            "image_path": "dataset_images/images/pair_01632_target.jpg",
+            "position_prompt": "located in the bottom-left corner",
+            "tilt_prompt": "straight orientation, no tilt"
+        },
+        "generation_seed": 4131055536
+    },
+    {
+        "pair_id": 1640,
+        "style_description": "Slippery wet ink text on a blackboard",
+        "reference": {
+            "word": "Golden Hour",
+            "image_path": "dataset_images/style_images/pair_01640_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "青春年华",
+            "image_path": "dataset_images/images/pair_01640_target.jpg",
+            "position_prompt": "slightly off-center to the top",
+            "tilt_prompt": "straight orientation, no tilt"
+        },
+        "generation_seed": 76198088
+    },
+    {
+        "pair_id": 1648,
+        "style_description": "Electric purple plasma text with neon edges",
+        "reference": {
+            "word": "吹晚风",
+            "image_path": "dataset_images/style_images/pair_01648_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Dust motes in sunlight",
+            "image_path": "dataset_images/images/pair_01648_target.jpg",
+            "position_prompt": "located in the bottom-left corner",
+            "tilt_prompt": "rotated about 15 degrees clockwise"
+        },
+        "generation_seed": 2310199826
+    },
+    {
+        "pair_id": 1656,
+        "style_description": "Turquoise liquid water text with ripples",
+        "reference": {
+            "word": "Cappuccino Magic",
+            "image_path": "dataset_images/style_images/pair_01656_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "绝了！",
+            "image_path": "dataset_images/images/pair_01656_target.jpg",
+            "position_prompt": "positioned at the bottom center",
+            "tilt_prompt": "rotated about 15 degrees counter-clockwise"
+        },
+        "generation_seed": 1413852203
+    },
+    {
+        "pair_id": 1664,
+        "style_description": "Holographic rainbow text shimmering in the air",
+        "reference": {
+            "word": "渔火",
+            "image_path": "dataset_images/style_images/pair_01664_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Whirlwind",
+            "image_path": "dataset_images/images/pair_01664_target.jpg",
+            "position_prompt": "positioned on the left side",
+            "tilt_prompt": "tilted slightly clockwise"
+        },
+        "generation_seed": 231881197
+    },
+    {
+        "pair_id": 1672,
+        "style_description": "Glowing emerald text with moss growth",
+        "reference": {
+            "word": "追剧",
+            "image_path": "dataset_images/style_images/pair_01672_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Dragon",
+            "image_path": "dataset_images/images/pair_01672_target.jpg",
+            "position_prompt": "located in the top-right corner",
+            "tilt_prompt": "rotated about 15 degrees counter-clockwise"
+        },
+        "generation_seed": 731415748
+    },
+    {
+        "pair_id": 1680,
+        "style_description": "Glowing violet text with butterfly wings",
+        "reference": {
+            "word": "Electric Dreams",
+            "image_path": "dataset_images/style_images/pair_01680_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "晚来风",
+            "image_path": "dataset_images/images/pair_01680_target.jpg",
+            "position_prompt": "positioned at the bottom center",
+            "tilt_prompt": "tilted slightly clockwise"
+        },
+        "generation_seed": 3387672150
+    },
+    {
+        "pair_id": 1688,
+        "style_description": "Furry pelt text in a dark forest hue",
+        "reference": {
+            "word": "早上好啊！",
+            "image_path": "dataset_images/style_images/pair_01688_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Phoenix",
+            "image_path": "dataset_images/images/pair_01688_target.jpg",
+            "position_prompt": "positioned at the top center",
+            "tilt_prompt": "tilted slightly clockwise"
+        },
+        "generation_seed": 2644857958
+    },
+    {
+        "pair_id": 1696,
+        "style_description": "Shimmering star dust text in pastel shades",
+        "reference": {
+            "word": "Hush",
+            "image_path": "dataset_images/style_images/pair_01696_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "老板说‘再改一版’",
+            "image_path": "dataset_images/images/pair_01696_target.jpg",
+            "position_prompt": "located in the bottom-right corner",
+            "tilt_prompt": "rotated about 15 degrees clockwise"
+        },
+        "generation_seed": 1550727805
+    },
+    {
+        "pair_id": 1704,
+        "style_description": "Falling snow text in white and silver",
+        "reference": {
+            "word": "哈哈哈",
+            "image_path": "dataset_images/style_images/pair_01704_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "蹲守打折酸奶",
+            "image_path": "dataset_images/images/pair_01704_target.jpg",
+            "position_prompt": "located in the bottom-left corner",
+            "tilt_prompt": "straight orientation, no tilt"
+        },
+        "generation_seed": 1567180349
+    },
+    {
+        "pair_id": 1712,
+        "style_description": "Shiny chrome text in metallic silver",
+        "reference": {
+            "word": "Ash after bonfire",
+            "image_path": "dataset_images/style_images/pair_01712_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "摸鱼",
+            "image_path": "dataset_images/images/pair_01712_target.jpg",
+            "position_prompt": "slightly off-center to the left",
+            "tilt_prompt": "straight orientation, no tilt"
+        },
+        "generation_seed": 72473150
+    },
+    {
+        "pair_id": 1720,
+        "style_description": "Frosty ice crystal text",
+        "reference": {
+            "word": "Lava",
+            "image_path": "dataset_images/style_images/pair_01720_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "晚来风",
+            "image_path": "dataset_images/images/pair_01720_target.jpg",
+            "position_prompt": "positioned at the top center",
+            "tilt_prompt": "straight orientation, no tilt"
+        },
+        "generation_seed": 2277857156
+    },
+    {
+        "pair_id": 1728,
+        "style_description": "Ruby red glass shards text",
+        "reference": {
+            "word": "Cappuccino",
+            "image_path": "dataset_images/style_images/pair_01728_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Cyber",
+            "image_path": "dataset_images/images/pair_01728_target.jpg",
+            "position_prompt": "slightly off-center to the top",
+            "tilt_prompt": "straight orientation, no tilt"
+        },
+        "generation_seed": 1348230592
+    },
+    {
+        "pair_id": 1736,
+        "style_description": "Crimson bloodstone text",
+        "reference": {
+            "word": "嗑瓜子",
+            "image_path": "dataset_images/style_images/pair_01736_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Rust",
+            "image_path": "dataset_images/images/pair_01736_target.jpg",
+            "position_prompt": "located in the top-right corner",
+            "tilt_prompt": "straight orientation, no tilt"
+        },
+        "generation_seed": 2660779560
+    },
+    {
+        "pair_id": 1744,
+        "style_description": "Rusting iron text with dried blood spots",
+        "reference": {
+            "word": "翻旧照",
+            "image_path": "dataset_images/style_images/pair_01744_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Rose Petals",
+            "image_path": "dataset_images/images/pair_01744_target.jpg",
+            "position_prompt": "positioned on the left side",
+            "tilt_prompt": "tilted slightly counter-clockwise"
+        },
+        "generation_seed": 2776154011
+    },
+    {
+        "pair_id": 1752,
+        "style_description": "Velvet red text with spider web details",
+        "reference": {
+            "word": "Tilt",
+            "image_path": "dataset_images/style_images/pair_01752_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "失联",
+            "image_path": "dataset_images/images/pair_01752_target.jpg",
+            "position_prompt": "slightly off-center to the left",
+            "tilt_prompt": "straight orientation, no tilt"
+        },
+        "generation_seed": 1883256921
+    },
+    {
+        "pair_id": 1760,
+        "style_description": "Muddy brown text with dirt and grass",
+        "reference": {
+            "word": "等公交",
+            "image_path": "dataset_images/style_images/pair_01760_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Phoenix Rising",
+            "image_path": "dataset_images/images/pair_01760_target.jpg",
+            "position_prompt": "located in the bottom-left corner",
+            "tilt_prompt": "straight orientation, no tilt"
+        },
+        "generation_seed": 2162193110
+    },
+    {
+        "pair_id": 1768,
+        "style_description": "Liquid mercury script with electric sparks",
+        "reference": {
+            "word": "System overload: joy",
+            "image_path": "dataset_images/style_images/pair_01768_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Stone",
+            "image_path": "dataset_images/images/pair_01768_target.jpg",
+            "position_prompt": "centered in the frame",
+            "tilt_prompt": "straight orientation, no tilt"
+        },
+        "generation_seed": 3683773315
+    },
+    {
+        "pair_id": 1776,
+        "style_description": "Moss-covered text with dewdrops",
+        "reference": {
+            "word": "Silent thunder",
+            "image_path": "dataset_images/style_images/pair_01776_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Espresso",
+            "image_path": "dataset_images/images/pair_01776_target.jpg",
+            "position_prompt": "slightly off-center to the left",
+            "tilt_prompt": "rotated about 15 degrees clockwise"
+        },
+        "generation_seed": 1215300690
+    },
+    {
+        "pair_id": 1784,
+        "style_description": "Glowing neon lava text with ash particles",
+        "reference": {
+            "word": "让我们去海边",
+            "image_path": "dataset_images/style_images/pair_01784_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "蹲守打折酸奶",
+            "image_path": "dataset_images/images/pair_01784_target.jpg",
+            "position_prompt": "slightly off-center to the left",
+            "tilt_prompt": "straight orientation, no tilt"
+        },
+        "generation_seed": 3629176438
+    },
+    {
+        "pair_id": 1792,
+        "style_description": "Crystal clear text with rainbow prisms",
+        "reference": {
+            "word": "Ninja",
+            "image_path": "dataset_images/style_images/pair_01792_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "孤独的旅行者",
+            "image_path": "dataset_images/images/pair_01792_target.jpg",
+            "position_prompt": "positioned at the bottom center",
+            "tilt_prompt": "straight orientation, no tilt"
+        },
+        "generation_seed": 1096190488
+    },
+    {
+        "pair_id": 1800,
+        "style_description": "Glowing mold text with bio-luminescence",
+        "reference": {
+            "word": "贴秋膘",
+            "image_path": "dataset_images/style_images/pair_01800_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Flicker—then gone",
+            "image_path": "dataset_images/images/pair_01800_target.jpg",
+            "position_prompt": "slightly off-center to the top",
+            "tilt_prompt": "straight orientation, no tilt"
+        },
+        "generation_seed": 620011994
+    },
+    {
+        "pair_id": 1808,
+        "style_description": "Lavender mist text with dreamy glow",
+        "reference": {
+            "word": "Alchemist",
+            "image_path": "dataset_images/style_images/pair_01808_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "呼吸大自然",
+            "image_path": "dataset_images/images/pair_01808_target.jpg",
+            "position_prompt": "positioned on the left side",
+            "tilt_prompt": "straight orientation, no tilt"
+        },
+        "generation_seed": 1633518038
+    },
+    {
+        "pair_id": 1816,
+        "style_description": "Saffron yellow sand text with dunes",
+        "reference": {
+            "word": "Whispered oath",
+            "image_path": "dataset_images/style_images/pair_01816_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Stone",
+            "image_path": "dataset_images/images/pair_01816_target.jpg",
+            "position_prompt": "slightly off-center to the top",
+            "tilt_prompt": "rotated about 15 degrees clockwise"
+        },
+        "generation_seed": 3002878319
+    },
+    {
+        "pair_id": 1824,
+        "style_description": "Sapphire blue text with water ripple",
+        "reference": {
+            "word": "Blink",
+            "image_path": "dataset_images/style_images/pair_01824_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "雨停了，云还在走",
+            "image_path": "dataset_images/images/pair_01824_target.jpg",
+            "position_prompt": "positioned on the right side",
+            "tilt_prompt": "rotated about 15 degrees clockwise"
+        },
+        "generation_seed": 2486759062
+    },
+    {
+        "pair_id": 1832,
+        "style_description": "Gold leaf text with metallic shine",
+        "reference": {
+            "word": "咖啡的香气",
+            "image_path": "dataset_images/style_images/pair_01832_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "落日熔",
+            "image_path": "dataset_images/images/pair_01832_target.jpg",
+            "position_prompt": "slightly off-center to the top",
+            "tilt_prompt": "rotated about 15 degrees clockwise"
+        },
+        "generation_seed": 4193278138
+    },
+    {
+        "pair_id": 1840,
+        "style_description": "Liquid mercury script with floating sparks",
+        "reference": {
+            "word": "Ash",
+            "image_path": "dataset_images/style_images/pair_01840_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Cappuccino",
+            "image_path": "dataset_images/images/pair_01840_target.jpg",
+            "position_prompt": "located in the top-right corner",
+            "tilt_prompt": "straight orientation, no tilt"
+        },
+        "generation_seed": 4012408160
+    },
+    {
+        "pair_id": 1848,
+        "style_description": "Black obsidian text with glowing red runes",
+        "reference": {
+            "word": "困了",
+            "image_path": "dataset_images/style_images/pair_01848_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "望着远方",
+            "image_path": "dataset_images/images/pair_01848_target.jpg",
+            "position_prompt": "located in the bottom-right corner",
+            "tilt_prompt": "straight orientation, no tilt"
+        },
+        "generation_seed": 1450442224
+    },
+    {
+        "pair_id": 1856,
+        "style_description": "Aqua slime text with underwater coral patterns",
+        "reference": {
+            "word": "Whirlwind",
+            "image_path": "dataset_images/style_images/pair_01856_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "一抹微笑",
+            "image_path": "dataset_images/images/pair_01856_target.jpg",
+            "position_prompt": "positioned on the right side",
+            "tilt_prompt": "tilted slightly counter-clockwise"
+        },
+        "generation_seed": 584015625
+    },
+    {
+        "pair_id": 1864,
+        "style_description": "Lavender slime text with flower petals",
+        "reference": {
+            "word": "Vortex",
+            "image_path": "dataset_images/style_images/pair_01864_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "晚安zzz~",
+            "image_path": "dataset_images/images/pair_01864_target.jpg",
+            "position_prompt": "positioned on the left side",
+            "tilt_prompt": "rotated about 15 degrees clockwise"
+        },
+        "generation_seed": 1071774233
+    },
+    {
+        "pair_id": 1872,
+        "style_description": "Glowing bio-luminescent algae text in an underwater cave",
+        "reference": {
+            "word": "Rising Sun",
+            "image_path": "dataset_images/style_images/pair_01872_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "翻旧照",
+            "image_path": "dataset_images/images/pair_01872_target.jpg",
+            "position_prompt": "located in the bottom-right corner",
+            "tilt_prompt": "rotated about 15 degrees counter-clockwise"
+        },
+        "generation_seed": 1174733091
+    },
+    {
+        "pair_id": 1880,
+        "style_description": "Luminous cyan slime text with electric sparks",
+        "reference": {
+            "word": "Tilt",
+            "image_path": "dataset_images/style_images/pair_01880_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Mist",
+            "image_path": "dataset_images/images/pair_01880_target.jpg",
+            "position_prompt": "located in the top-left corner",
+            "tilt_prompt": "tilted slightly clockwise"
+        },
+        "generation_seed": 2635936634
+    },
+    {
+        "pair_id": 1888,
+        "style_description": "Obsidian stone text with moonlight reflections",
+        "reference": {
+            "word": "冰雪",
+            "image_path": "dataset_images/style_images/pair_01888_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Volcano!",
+            "image_path": "dataset_images/images/pair_01888_target.jpg",
+            "position_prompt": "located in the bottom-right corner",
+            "tilt_prompt": "straight orientation, no tilt"
+        },
+        "generation_seed": 481125126
+    },
+    {
+        "pair_id": 1896,
+        "style_description": "Glowing amber text with smoky outlines",
+        "reference": {
+            "word": "Future",
+            "image_path": "dataset_images/style_images/pair_01896_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "海风拂面",
+            "image_path": "dataset_images/images/pair_01896_target.jpg",
+            "position_prompt": "located in the top-left corner",
+            "tilt_prompt": "tilted slightly clockwise"
+        },
+        "generation_seed": 2804004
+    },
+    {
+        "pair_id": 1904,
+        "style_description": "Frosted glass text with cracked edges",
+        "reference": {
+            "word": "梦的彼岸",
+            "image_path": "dataset_images/style_images/pair_01904_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Hologram",
+            "image_path": "dataset_images/images/pair_01904_target.jpg",
+            "position_prompt": "positioned on the right side",
+            "tilt_prompt": "straight orientation, no tilt"
+        },
+        "generation_seed": 924823036
+    },
+    {
+        "pair_id": 1912,
+        "style_description": "Shiny silver text with mirror reflections",
+        "reference": {
+            "word": "一抹微笑",
+            "image_path": "dataset_images/style_images/pair_01912_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "打麻将",
+            "image_path": "dataset_images/images/pair_01912_target.jpg",
+            "position_prompt": "slightly off-center to the left",
+            "tilt_prompt": "straight orientation, no tilt"
+        },
+        "generation_seed": 4259774437
+    },
+    {
+        "pair_id": 1920,
+        "style_description": "Holographic purple smoke text with floating particles",
+        "reference": {
+            "word": "……后来，风停了",
+            "image_path": "dataset_images/style_images/pair_01920_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "贴秋膘",
+            "image_path": "dataset_images/images/pair_01920_target.jpg",
+            "position_prompt": "positioned at the bottom center",
+            "tilt_prompt": "tilted slightly clockwise"
+        },
+        "generation_seed": 1703775031
+    },
+    {
+        "pair_id": 1928,
+        "style_description": "Holographic gold text with floating diamonds",
+        "reference": {
+            "word": "雨停了，云还在走",
+            "image_path": "dataset_images/style_images/pair_01928_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "岁月静好",
+            "image_path": "dataset_images/images/pair_01928_target.jpg",
+            "position_prompt": "slightly off-center to the left",
+            "tilt_prompt": "rotated about 15 degrees clockwise"
+        },
+        "generation_seed": 3919868646
+    },
+    {
+        "pair_id": 1936,
+        "style_description": "Fuzzy gray fur text with glowing moths",
+        "reference": {
+            "word": "静谧的湖泊",
+            "image_path": "dataset_images/style_images/pair_01936_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Ninja",
+            "image_path": "dataset_images/images/pair_01936_target.jpg",
+            "position_prompt": "positioned on the left side",
+            "tilt_prompt": "tilted slightly clockwise"
+        },
+        "generation_seed": 2242861181
+    },
+    {
+        "pair_id": 1944,
+        "style_description": "Rustic leather embossed text with cracked surface",
+        "reference": {
+            "word": "嗑瓜子",
+            "image_path": "dataset_images/style_images/pair_01944_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Lava",
+            "image_path": "dataset_images/images/pair_01944_target.jpg",
+            "position_prompt": "located in the top-right corner",
+            "tilt_prompt": "tilted slightly counter-clockwise"
+        },
+        "generation_seed": 3525683614
+    },
+    {
+        "pair_id": 1952,
+        "style_description": "Rotted wood text with mold growth",
+        "reference": {
+            "word": "螺蛳粉配冰啤酒",
+            "image_path": "dataset_images/style_images/pair_01952_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "望着远方",
+            "image_path": "dataset_images/images/pair_01952_target.jpg",
+            "position_prompt": "located in the top-left corner",
+            "tilt_prompt": "tilted slightly counter-clockwise"
+        },
+        "generation_seed": 2092344956
+    },
+    {
+        "pair_id": 1960,
+        "style_description": "Fuzzy brown fur text with glowing eyes",
+        "reference": {
+            "word": "番茄炒蛋的哲学",
+            "image_path": "dataset_images/style_images/pair_01960_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "渔火",
+            "image_path": "dataset_images/images/pair_01960_target.jpg",
+            "position_prompt": "located in the top-right corner",
+            "tilt_prompt": "straight orientation, no tilt"
+        },
+        "generation_seed": 259125044
+    },
+    {
+        "pair_id": 1968,
+        "style_description": "Charcoal black text with graphite details",
+        "reference": {
+            "word": "螺蛳粉配冰啤酒",
+            "image_path": "dataset_images/style_images/pair_01968_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Whispered oath",
+            "image_path": "dataset_images/images/pair_01968_target.jpg",
+            "position_prompt": "centered in the frame",
+            "tilt_prompt": "tilted slightly clockwise"
+        },
+        "generation_seed": 1062075096
+    },
+    {
+        "pair_id": 1976,
+        "style_description": "Wax seals with intricate designs on each letter",
+        "reference": {
+            "word": "稳住",
+            "image_path": "dataset_images/style_images/pair_01976_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "困了",
+            "image_path": "dataset_images/images/pair_01976_target.jpg",
+            "position_prompt": "located in the top-right corner",
+            "tilt_prompt": "tilted slightly clockwise"
+        },
+        "generation_seed": 353631011
+    },
+    {
+        "pair_id": 1984,
+        "style_description": "Silver mist text with moonlight reflections",
+        "reference": {
+            "word": "番茄炒蛋的哲学",
+            "image_path": "dataset_images/style_images/pair_01984_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "稳住",
+            "image_path": "dataset_images/images/pair_01984_target.jpg",
+            "position_prompt": "located in the top-left corner",
+            "tilt_prompt": "straight orientation, no tilt"
+        },
+        "generation_seed": 585371238
+    },
+    {
+        "pair_id": 1992,
+        "style_description": "Emerald jade text with leaf veins",
+        "reference": {
+            "word": "朝霞",
+            "image_path": "dataset_images/style_images/pair_01992_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Espresso",
+            "image_path": "dataset_images/images/pair_01992_target.jpg",
+            "position_prompt": "slightly off-center to the left",
+            "tilt_prompt": "rotated about 15 degrees clockwise"
+        },
+        "generation_seed": 3885353655
+    },
+    {
+        "pair_id": 2000,
+        "style_description": "Wet asphalt text with tire tracks",
+        "reference": {
+            "word": "断片",
+            "image_path": "dataset_images/style_images/pair_02000_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Fragmented memory",
+            "image_path": "dataset_images/images/pair_02000_target.jpg",
+            "position_prompt": "located in the top-right corner",
+            "tilt_prompt": "tilted slightly clockwise"
+        },
+        "generation_seed": 2929023548
+    },
+    {
+        "pair_id": 2008,
+        "style_description": "Tangled roots text with moss",
+        "reference": {
+            "word": "Time",
+            "image_path": "dataset_images/style_images/pair_02008_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Alchemist",
+            "image_path": "dataset_images/images/pair_02008_target.jpg",
+            "position_prompt": "positioned at the bottom center",
+            "tilt_prompt": "rotated about 15 degrees clockwise"
+        },
+        "generation_seed": 309899754
+    },
+    {
+        "pair_id": 2016,
+        "style_description": "Shiny silver text with spider webs",
+        "reference": {
+            "word": "Tilt",
+            "image_path": "dataset_images/style_images/pair_02016_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Tea",
+            "image_path": "dataset_images/images/pair_02016_target.jpg",
+            "position_prompt": "centered in the frame",
+            "tilt_prompt": "straight orientation, no tilt"
+        },
+        "generation_seed": 3365878319
+    },
+    {
+        "pair_id": 2024,
+        "style_description": "Bio-luminescent coral text with tentacles",
+        "reference": {
+            "word": "自由翱翔",
+            "image_path": "dataset_images/style_images/pair_02024_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "图书馆角落的哈欠",
+            "image_path": "dataset_images/images/pair_02024_target.jpg",
+            "position_prompt": "located in the top-right corner",
+            "tilt_prompt": "rotated about 15 degrees clockwise"
+        },
+        "generation_seed": 3015648872
+    },
+    {
+        "pair_id": 2032,
+        "style_description": "Turquoise sea foam text with waves",
+        "reference": {
+            "word": "煮咖啡",
+            "image_path": "dataset_images/style_images/pair_02032_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Time",
+            "image_path": "dataset_images/images/pair_02032_target.jpg",
+            "position_prompt": "located in the top-right corner",
+            "tilt_prompt": "tilted slightly clockwise"
+        },
+        "generation_seed": 203562476
+    },
+    {
+        "pair_id": 2040,
+        "style_description": "Saffron yellow sand text with grains",
+        "reference": {
+            "word": "番茄炒蛋的哲学",
+            "image_path": "dataset_images/style_images/pair_02040_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Moonlight Serenade",
+            "image_path": "dataset_images/images/pair_02040_target.jpg",
+            "position_prompt": "positioned at the top center",
+            "tilt_prompt": "straight orientation, no tilt"
+        },
+        "generation_seed": 265143910
+    },
+    {
+        "pair_id": 2048,
+        "style_description": "Slick purple rubber text with water droplets",
+        "reference": {
+            "word": "烟火气",
+            "image_path": "dataset_images/style_images/pair_02048_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "星空下的誓言",
+            "image_path": "dataset_images/images/pair_02048_target.jpg",
+            "position_prompt": "centered in the frame",
+            "tilt_prompt": "straight orientation, no tilt"
+        },
+        "generation_seed": 1231636782
+    },
+    {
+        "pair_id": 2056,
+        "style_description": "Waxy green wax text with candle flame texture",
+        "reference": {
+            "word": "Matcha",
+            "image_path": "dataset_images/style_images/pair_02056_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Wane",
+            "image_path": "dataset_images/images/pair_02056_target.jpg",
+            "position_prompt": "positioned on the left side",
+            "tilt_prompt": "rotated about 15 degrees clockwise"
+        },
+        "generation_seed": 207769711
+    },
+    {
+        "pair_id": 2064,
+        "style_description": "Glistening silver foil text with laser etchings",
+        "reference": {
+            "word": "Alchemist",
+            "image_path": "dataset_images/style_images/pair_02064_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "青春年华",
+            "image_path": "dataset_images/images/pair_02064_target.jpg",
+            "position_prompt": "slightly off-center to the top",
+            "tilt_prompt": "straight orientation, no tilt"
+        },
+        "generation_seed": 2137752942
+    },
+    {
+        "pair_id": 2072,
+        "style_description": "Liquid silver ripple text with cosmic dust",
+        "reference": {
+            "word": "Zen",
+            "image_path": "dataset_images/style_images/pair_02072_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Tidal Wave",
+            "image_path": "dataset_images/images/pair_02072_target.jpg",
+            "position_prompt": "located in the top-right corner",
+            "tilt_prompt": "rotated about 15 degrees clockwise"
+        },
+        "generation_seed": 3337055592
+    },
+    {
+        "pair_id": 2080,
+        "style_description": "Fuzzy peach fur text in warm candlelight",
+        "reference": {
+            "word": "咖啡的香气",
+            "image_path": "dataset_images/style_images/pair_02080_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Wave",
+            "image_path": "dataset_images/images/pair_02080_target.jpg",
+            "position_prompt": "slightly off-center to the left",
+            "tilt_prompt": "straight orientation, no tilt"
+        },
+        "generation_seed": 3310412105
+    },
+    {
+        "pair_id": 2088,
+        "style_description": "Velvet black text in dimly lit room",
+        "reference": {
+            "word": "冰箱空荡荡",
+            "image_path": "dataset_images/style_images/pair_02088_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "番茄炒蛋的哲学",
+            "image_path": "dataset_images/images/pair_02088_target.jpg",
+            "position_prompt": "located in the top-right corner",
+            "tilt_prompt": "straight orientation, no tilt"
+        },
+        "generation_seed": 320684212
+    },
+    {
+        "pair_id": 2096,
+        "style_description": "Luminous liquid silver text with starry night effect",
+        "reference": {
+            "word": "Espresso",
+            "image_path": "dataset_images/style_images/pair_02096_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Hush",
+            "image_path": "dataset_images/images/pair_02096_target.jpg",
+            "position_prompt": "slightly off-center to the left",
+            "tilt_prompt": "rotated about 15 degrees clockwise"
+        },
+        "generation_seed": 2110363137
+    },
+    {
+        "pair_id": 2104,
+        "style_description": "Rotten brown wood text with mold",
+        "reference": {
+            "word": "城市的夜晚",
+            "image_path": "dataset_images/style_images/pair_02104_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "摸鱼",
+            "image_path": "dataset_images/images/pair_02104_target.jpg",
+            "position_prompt": "positioned at the bottom center",
+            "tilt_prompt": "rotated about 15 degrees counter-clockwise"
+        },
+        "generation_seed": 730365422
+    },
+    {
+        "pair_id": 2112,
+        "style_description": "Neon blue water text with ripples",
+        "reference": {
+            "word": "Knight",
+            "image_path": "dataset_images/style_images/pair_02112_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Mist",
+            "image_path": "dataset_images/images/pair_02112_target.jpg",
+            "position_prompt": "positioned at the bottom center",
+            "tilt_prompt": "rotated about 15 degrees counter-clockwise"
+        },
+        "generation_seed": 1015766372
+    },
+    {
+        "pair_id": 2120,
+        "style_description": "Electric purple plasma text with cosmic rays",
+        "reference": {
+            "word": "让我们去海边",
+            "image_path": "dataset_images/style_images/pair_02120_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "……后来，风停了",
+            "image_path": "dataset_images/images/pair_02120_target.jpg",
+            "position_prompt": "slightly off-center to the top",
+            "tilt_prompt": "tilted slightly counter-clockwise"
+        },
+        "generation_seed": 699330869
+    },
+    {
+        "pair_id": 2128,
+        "style_description": "Black obsidian text with glowing eyes",
+        "reference": {
+            "word": "Cyber",
+            "image_path": "dataset_images/style_images/pair_02128_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "悠然自得",
+            "image_path": "dataset_images/images/pair_02128_target.jpg",
+            "position_prompt": "slightly off-center to the left",
+            "tilt_prompt": "straight orientation, no tilt"
+        },
+        "generation_seed": 2671548070
+    },
+    {
+        "pair_id": 2136,
+        "style_description": "Amber text with fossilized patterns",
+        "reference": {
+            "word": "听雨声",
+            "image_path": "dataset_images/style_images/pair_02136_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "用心感受",
+            "image_path": "dataset_images/images/pair_02136_target.jpg",
+            "position_prompt": "slightly off-center to the left",
+            "tilt_prompt": "rotated about 15 degrees counter-clockwise"
+        },
+        "generation_seed": 4055565946
+    },
+    {
+        "pair_id": 2144,
+        "style_description": "Fur coat text in deep forest green with moonlight reflections",
+        "reference": {
+            "word": "Volcano!",
+            "image_path": "dataset_images/style_images/pair_02144_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Shining Horizon",
+            "image_path": "dataset_images/images/pair_02144_target.jpg",
+            "position_prompt": "positioned on the right side",
+            "tilt_prompt": "tilted slightly counter-clockwise"
+        },
+        "generation_seed": 1734069995
+    },
+    {
+        "pair_id": 2152,
+        "style_description": "Crystal clear text with rainbow refractions",
+        "reference": {
+            "word": "Ash",
+            "image_path": "dataset_images/style_images/pair_02152_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Wait—did that just happen?",
+            "image_path": "dataset_images/images/pair_02152_target.jpg",
+            "position_prompt": "slightly off-center to the left",
+            "tilt_prompt": "rotated about 15 degrees clockwise"
+        },
+        "generation_seed": 521275266
+    },
+    {
+        "pair_id": 2160,
+        "style_description": "Glass shard text with rainbow prisms",
+        "reference": {
+            "word": "迷失在森林",
+            "image_path": "dataset_images/style_images/pair_02160_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "等公交",
+            "image_path": "dataset_images/images/pair_02160_target.jpg",
+            "position_prompt": "centered in the frame",
+            "tilt_prompt": "rotated about 15 degrees counter-clockwise"
+        },
+        "generation_seed": 1454016756
+    },
+    {
+        "pair_id": 2168,
+        "style_description": "Fuzzy caterpillar skin text with tiny hairs",
+        "reference": {
+            "word": "Glow",
+            "image_path": "dataset_images/style_images/pair_02168_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Silent Forest",
+            "image_path": "dataset_images/images/pair_02168_target.jpg",
+            "position_prompt": "centered in the frame",
+            "tilt_prompt": "rotated about 15 degrees counter-clockwise"
+        },
+        "generation_seed": 4207987123
+    },
+    {
+        "pair_id": 2176,
+        "style_description": "Silver metallic text with water droplets",
+        "reference": {
+            "word": "嗦粉",
+            "image_path": "dataset_images/style_images/pair_02176_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Skyline",
+            "image_path": "dataset_images/images/pair_02176_target.jpg",
+            "position_prompt": "located in the bottom-right corner",
+            "tilt_prompt": "tilted slightly counter-clockwise"
+        },
+        "generation_seed": 3561861138
+    },
+    {
+        "pair_id": 2184,
+        "style_description": "Glowing bio-luminescent algae script",
+        "reference": {
+            "word": "Silent Forest",
+            "image_path": "dataset_images/style_images/pair_02184_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Ninja",
+            "image_path": "dataset_images/images/pair_02184_target.jpg",
+            "position_prompt": "centered in the frame",
+            "tilt_prompt": "rotated about 15 degrees clockwise"
+        },
+        "generation_seed": 893789533
+    },
+    {
+        "pair_id": 2192,
+        "style_description": "Shimmering silver sand text with starry night glow",
+        "reference": {
+            "word": "自由翱翔",
+            "image_path": "dataset_images/style_images/pair_02192_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "失联",
+            "image_path": "dataset_images/images/pair_02192_target.jpg",
+            "position_prompt": "positioned on the left side",
+            "tilt_prompt": "straight orientation, no tilt"
+        },
+        "generation_seed": 684364022
+    },
+    {
+        "pair_id": 2200,
+        "style_description": "Shimmery butterfly wings text with fireflies",
+        "reference": {
+            "word": "雨停了，云还在走",
+            "image_path": "dataset_images/style_images/pair_02200_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Knight",
+            "image_path": "dataset_images/images/pair_02200_target.jpg",
+            "position_prompt": "located in the bottom-left corner",
+            "tilt_prompt": "rotated about 15 degrees counter-clockwise"
+        },
+        "generation_seed": 3357758276
+    },
+    {
+        "pair_id": 2208,
+        "style_description": "Furry rabbit fur text with pastel hues",
+        "reference": {
+            "word": "竹影扫阶尘不动",
+            "image_path": "dataset_images/style_images/pair_02208_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Hollow",
+            "image_path": "dataset_images/images/pair_02208_target.jpg",
+            "position_prompt": "located in the top-left corner",
+            "tilt_prompt": "straight orientation, no tilt"
+        },
+        "generation_seed": 3932605828
+    },
+    {
+        "pair_id": 2216,
+        "style_description": "Furrowed leather text with aged grains",
+        "reference": {
+            "word": "自由翱翔",
+            "image_path": "dataset_images/style_images/pair_02216_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Zen Garden",
+            "image_path": "dataset_images/images/pair_02216_target.jpg",
+            "position_prompt": "slightly off-center to the top",
+            "tilt_prompt": "straight orientation, no tilt"
+        },
+        "generation_seed": 971415778
+    },
+    {
+        "pair_id": 2224,
+        "style_description": "Neon pink bubble text with heart-shaped bubbles",
+        "reference": {
+            "word": "未曾相遇",
+            "image_path": "dataset_images/style_images/pair_02224_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Fragmented memory",
+            "image_path": "dataset_images/images/pair_02224_target.jpg",
+            "position_prompt": "positioned on the right side",
+            "tilt_prompt": "tilted slightly counter-clockwise"
+        },
+        "generation_seed": 394633323
+    },
+    {
+        "pair_id": 2232,
+        "style_description": "Icicle encrusted text in twilight lighting",
+        "reference": {
+            "word": "嗦粉",
+            "image_path": "dataset_images/style_images/pair_02232_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "孤独的旅行者",
+            "image_path": "dataset_images/images/pair_02232_target.jpg",
+            "position_prompt": "positioned on the left side",
+            "tilt_prompt": "straight orientation, no tilt"
+        },
+        "generation_seed": 500237453
+    },
+    {
+        "pair_id": 2240,
+        "style_description": "Rusting metal text with oil slicks",
+        "reference": {
+            "word": "Solitude",
+            "image_path": "dataset_images/style_images/pair_02240_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "薯片袋里最后一片",
+            "image_path": "dataset_images/images/pair_02240_target.jpg",
+            "position_prompt": "slightly off-center to the left",
+            "tilt_prompt": "rotated about 15 degrees clockwise"
+        },
+        "generation_seed": 862643114
+    },
+    {
+        "pair_id": 2248,
+        "style_description": "Rusty iron text with oil stains",
+        "reference": {
+            "word": "Hologram",
+            "image_path": "dataset_images/style_images/pair_02248_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "加油！",
+            "image_path": "dataset_images/images/pair_02248_target.jpg",
+            "position_prompt": "positioned on the left side",
+            "tilt_prompt": "straight orientation, no tilt"
+        },
+        "generation_seed": 3239345937
+    },
+    {
+        "pair_id": 2256,
+        "style_description": "Holographic data flow text in electric purple",
+        "reference": {
+            "word": "下午茶时光",
+            "image_path": "dataset_images/style_images/pair_02256_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "等等，好像不对……",
+            "image_path": "dataset_images/images/pair_02256_target.jpg",
+            "position_prompt": "slightly off-center to the top",
+            "tilt_prompt": "straight orientation, no tilt"
+        },
+        "generation_seed": 4062872064
+    },
+    {
+        "pair_id": 2264,
+        "style_description": "Muddy brown earth text with root-like strokes",
+        "reference": {
+            "word": "Snap",
+            "image_path": "dataset_images/style_images/pair_02264_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "老板说‘再改一版’",
+            "image_path": "dataset_images/images/pair_02264_target.jpg",
+            "position_prompt": "slightly off-center to the top",
+            "tilt_prompt": "straight orientation, no tilt"
+        },
+        "generation_seed": 3559865081
+    },
+    {
+        "pair_id": 2272,
+        "style_description": "Metallic silver text with laser etching",
+        "reference": {
+            "word": "Cloud",
+            "image_path": "dataset_images/style_images/pair_02272_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "孤独的旅行者",
+            "image_path": "dataset_images/images/pair_02272_target.jpg",
+            "position_prompt": "located in the bottom-left corner",
+            "tilt_prompt": "rotated about 15 degrees counter-clockwise"
+        },
+        "generation_seed": 690084765
+    },
+    {
+        "pair_id": 2280,
+        "style_description": "Glowing blue text embedded in ice",
+        "reference": {
+            "word": "Sand",
+            "image_path": "dataset_images/style_images/pair_02280_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "嗦粉",
+            "image_path": "dataset_images/images/pair_02280_target.jpg",
+            "position_prompt": "positioned at the bottom center",
+            "tilt_prompt": "straight orientation, no tilt"
+        },
+        "generation_seed": 968413591
+    },
+    {
+        "pair_id": 2288,
+        "style_description": "Glowing violet text with cosmic dust",
+        "reference": {
+            "word": "共赴山海",
+            "image_path": "dataset_images/style_images/pair_02288_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Phoenix Rising",
+            "image_path": "dataset_images/images/pair_02288_target.jpg",
+            "position_prompt": "located in the bottom-right corner",
+            "tilt_prompt": "tilted slightly counter-clockwise"
+        },
+        "generation_seed": 3510318526
+    },
+    {
+        "pair_id": 2296,
+        "style_description": "Oily green text like spoiled food",
+        "reference": {
+            "word": "Haze",
+            "image_path": "dataset_images/style_images/pair_02296_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Cappuccino Magic",
+            "image_path": "dataset_images/images/pair_02296_target.jpg",
+            "position_prompt": "located in the top-right corner",
+            "tilt_prompt": "rotated about 15 degrees clockwise"
+        },
+        "generation_seed": 1324687068
+    },
+    {
+        "pair_id": 2304,
+        "style_description": "Wax yellow text with antique shine",
+        "reference": {
+            "word": "Cloud",
+            "image_path": "dataset_images/style_images/pair_02304_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Fume",
+            "image_path": "dataset_images/images/pair_02304_target.jpg",
+            "position_prompt": "positioned at the top center",
+            "tilt_prompt": "straight orientation, no tilt"
+        },
+        "generation_seed": 2217695848
+    },
+    {
+        "pair_id": 2312,
+        "style_description": "Leather brown text with grain",
+        "reference": {
+            "word": "梦的彼岸",
+            "image_path": "dataset_images/style_images/pair_02312_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Ash after bonfire",
+            "image_path": "dataset_images/images/pair_02312_target.jpg",
+            "position_prompt": "located in the top-right corner",
+            "tilt_prompt": "rotated about 15 degrees counter-clockwise"
+        },
+        "generation_seed": 3980446180
+    },
+    {
+        "pair_id": 2320,
+        "style_description": "Slime green tentacle text with bioluminescent spots",
+        "reference": {
+            "word": "老板，打包一份人间烟火",
+            "image_path": "dataset_images/style_images/pair_02320_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Wave",
+            "image_path": "dataset_images/images/pair_02320_target.jpg",
+            "position_prompt": "positioned on the left side",
+            "tilt_prompt": "rotated about 15 degrees counter-clockwise"
+        },
+        "generation_seed": 180836282
+    },
+    {
+        "pair_id": 2328,
+        "style_description": "Savannah grass text with dewdrops",
+        "reference": {
+            "word": "Gale",
+            "image_path": "dataset_images/style_images/pair_02328_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "雨骤风急",
+            "image_path": "dataset_images/images/pair_02328_target.jpg",
+            "position_prompt": "positioned on the left side",
+            "tilt_prompt": "straight orientation, no tilt"
+        },
+        "generation_seed": 1460793955
+    },
+    {
+        "pair_id": 2336,
+        "style_description": "Silver metallic text with holographic shimmer",
+        "reference": {
+            "word": "System overload: joy",
+            "image_path": "dataset_images/style_images/pair_02336_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Solitude",
+            "image_path": "dataset_images/images/pair_02336_target.jpg",
+            "position_prompt": "located in the top-left corner",
+            "tilt_prompt": "tilted slightly counter-clockwise"
+        },
+        "generation_seed": 3451162497
+    },
+    {
+        "pair_id": 2344,
+        "style_description": "Glowing bio-luminescent text in deep ocean blues",
+        "reference": {
+            "word": "迷失在森林",
+            "image_path": "dataset_images/style_images/pair_02344_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "等等，好像不对……",
+            "image_path": "dataset_images/images/pair_02344_target.jpg",
+            "position_prompt": "positioned on the left side",
+            "tilt_prompt": "tilted slightly counter-clockwise"
+        },
+        "generation_seed": 635965374
+    },
+    {
+        "pair_id": 2352,
+        "style_description": "Saffron safflower text with petals",
+        "reference": {
+            "word": "未曾相遇",
+            "image_path": "dataset_images/style_images/pair_02352_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "心如止水",
+            "image_path": "dataset_images/images/pair_02352_target.jpg",
+            "position_prompt": "positioned on the left side",
+            "tilt_prompt": "tilted slightly clockwise"
+        },
+        "generation_seed": 3440363521
+    },
+    {
+        "pair_id": 2360,
+        "style_description": "Copper wire text with loops",
+        "reference": {
+            "word": "空灵之音",
+            "image_path": "dataset_images/style_images/pair_02360_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Tidal Wave",
+            "image_path": "dataset_images/images/pair_02360_target.jpg",
+            "position_prompt": "located in the bottom-right corner",
+            "tilt_prompt": "straight orientation, no tilt"
+        },
+        "generation_seed": 2405260612
+    },
+    {
+        "pair_id": 2368,
+        "style_description": "Neon blue text with a metallic sheen",
+        "reference": {
+            "word": "Mystery Garden",
+            "image_path": "dataset_images/style_images/pair_02368_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Frost",
+            "image_path": "dataset_images/images/pair_02368_target.jpg",
+            "position_prompt": "slightly off-center to the top",
+            "tilt_prompt": "rotated about 15 degrees clockwise"
+        },
+        "generation_seed": 729865841
+    },
+    {
+        "pair_id": 2376,
+        "style_description": "Liquid bronze text with rippling waves",
+        "reference": {
+            "word": "Lava",
+            "image_path": "dataset_images/style_images/pair_02376_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "追风",
+            "image_path": "dataset_images/images/pair_02376_target.jpg",
+            "position_prompt": "positioned on the right side",
+            "tilt_prompt": "rotated about 15 degrees clockwise"
+        },
+        "generation_seed": 35945032
+    },
+    {
+        "pair_id": 2384,
+        "style_description": "Liquid copper text with swirling patterns",
+        "reference": {
+            "word": "Moonlight Serenade",
+            "image_path": "dataset_images/style_images/pair_02384_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Tea",
+            "image_path": "dataset_images/images/pair_02384_target.jpg",
+            "position_prompt": "positioned at the top center",
+            "tilt_prompt": "tilted slightly counter-clockwise"
+        },
+        "generation_seed": 951449648
+    },
+    {
+        "pair_id": 2392,
+        "style_description": "Shiny black obsidian text with moonlight reflections",
+        "reference": {
+            "word": "System overload: joy",
+            "image_path": "dataset_images/style_images/pair_02392_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "走神",
+            "image_path": "dataset_images/images/pair_02392_target.jpg",
+            "position_prompt": "located in the top-left corner",
+            "tilt_prompt": "straight orientation, no tilt"
+        },
+        "generation_seed": 2099305824
+    },
+    {
+        "pair_id": 2400,
+        "style_description": "Furry orange text in a desert landscape",
+        "reference": {
+            "word": "Fire",
+            "image_path": "dataset_images/style_images/pair_02400_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "煮咖啡",
+            "image_path": "dataset_images/images/pair_02400_target.jpg",
+            "position_prompt": "slightly off-center to the top",
+            "tilt_prompt": "rotated about 15 degrees counter-clockwise"
+        },
+        "generation_seed": 2672167018
+    },
+    {
+        "pair_id": 2408,
+        "style_description": "Luminous holographic snowflakes forming text",
+        "reference": {
+            "word": "Echo",
+            "image_path": "dataset_images/style_images/pair_02408_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "共赴山海",
+            "image_path": "dataset_images/images/pair_02408_target.jpg",
+            "position_prompt": "slightly off-center to the top",
+            "tilt_prompt": "tilted slightly clockwise"
+        },
+        "generation_seed": 2745179429
+    },
+    {
+        "pair_id": 2416,
+        "style_description": "Translucent violet fog text with swirling patterns",
+        "reference": {
+            "word": "Haze",
+            "image_path": "dataset_images/style_images/pair_02416_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Burning Passion",
+            "image_path": "dataset_images/images/pair_02416_target.jpg",
+            "position_prompt": "positioned at the bottom center",
+            "tilt_prompt": "rotated about 15 degrees clockwise"
+        },
+        "generation_seed": 2088433565
+    },
+    {
+        "pair_id": 2424,
+        "style_description": "Emerald green jade text with fissures",
+        "reference": {
+            "word": "Blink",
+            "image_path": "dataset_images/style_images/pair_02424_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Frozen moment",
+            "image_path": "dataset_images/images/pair_02424_target.jpg",
+            "position_prompt": "positioned on the right side",
+            "tilt_prompt": "rotated about 15 degrees clockwise"
+        },
+        "generation_seed": 1588412063
+    },
+    {
+        "pair_id": 2432,
+        "style_description": "Neon glass pixelated letters",
+        "reference": {
+            "word": "Dancing Lights",
+            "image_path": "dataset_images/style_images/pair_02432_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "稳住",
+            "image_path": "dataset_images/images/pair_02432_target.jpg",
+            "position_prompt": "located in the top-right corner",
+            "tilt_prompt": "straight orientation, no tilt"
+        },
+        "generation_seed": 2399110121
+    },
+    {
+        "pair_id": 2440,
+        "style_description": "Shimmering star dust text",
+        "reference": {
+            "word": "Gale",
+            "image_path": "dataset_images/style_images/pair_02440_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Hollow",
+            "image_path": "dataset_images/images/pair_02440_target.jpg",
+            "position_prompt": "positioned at the top center",
+            "tilt_prompt": "straight orientation, no tilt"
+        },
+        "generation_seed": 327083187
+    },
+    {
+        "pair_id": 2448,
+        "style_description": "Crystal clear text",
+        "reference": {
+            "word": "孤独的旅行者",
+            "image_path": "dataset_images/style_images/pair_02448_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Moonlit Path",
+            "image_path": "dataset_images/images/pair_02448_target.jpg",
+            "position_prompt": "positioned at the top center",
+            "tilt_prompt": "rotated about 15 degrees clockwise"
+        },
+        "generation_seed": 2710003054
+    },
+    {
+        "pair_id": 2456,
+        "style_description": "Glowing neon plasma text with fractal edges",
+        "reference": {
+            "word": "图书馆角落的哈欠",
+            "image_path": "dataset_images/style_images/pair_02456_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "静谧的湖泊",
+            "image_path": "dataset_images/images/pair_02456_target.jpg",
+            "position_prompt": "located in the top-right corner",
+            "tilt_prompt": "rotated about 15 degrees clockwise"
+        },
+        "generation_seed": 2913052894
+    },
+    {
+        "pair_id": 2464,
+        "style_description": "Frosted sugar text with candy decorations",
+        "reference": {
+            "word": "朝霞",
+            "image_path": "dataset_images/style_images/pair_02464_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "烤红薯",
+            "image_path": "dataset_images/images/pair_02464_target.jpg",
+            "position_prompt": "positioned on the left side",
+            "tilt_prompt": "tilted slightly clockwise"
+        },
+        "generation_seed": 2155940186
+    },
+    {
+        "pair_id": 2472,
+        "style_description": "Oily ink text with glowing words",
+        "reference": {
+            "word": "等公交",
+            "image_path": "dataset_images/style_images/pair_02472_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "雨骤风急",
+            "image_path": "dataset_images/images/pair_02472_target.jpg",
+            "position_prompt": "positioned at the top center",
+            "tilt_prompt": "tilted slightly clockwise"
+        },
+        "generation_seed": 756904899
+    },
+    {
+        "pair_id": 2480,
+        "style_description": "Silver metallic text with reflections",
+        "reference": {
+            "word": "心如止水",
+            "image_path": "dataset_images/style_images/pair_02480_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Starship",
+            "image_path": "dataset_images/images/pair_02480_target.jpg",
+            "position_prompt": "positioned at the bottom center",
+            "tilt_prompt": "straight orientation, no tilt"
+        },
+        "generation_seed": 1049972483
+    },
+    {
+        "pair_id": 2488,
+        "style_description": "Pearl white text with luster",
+        "reference": {
+            "word": "文件未保存，断电",
+            "image_path": "dataset_images/style_images/pair_02488_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Sorcerer",
+            "image_path": "dataset_images/images/pair_02488_target.jpg",
+            "position_prompt": "slightly off-center to the left",
+            "tilt_prompt": "straight orientation, no tilt"
+        },
+        "generation_seed": 802768578
+    },
+    {
+        "pair_id": 2496,
+        "style_description": "Serpentine green text with snake skin texture",
+        "reference": {
+            "word": "Ice",
+            "image_path": "dataset_images/style_images/pair_02496_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Echo",
+            "image_path": "dataset_images/images/pair_02496_target.jpg",
+            "position_prompt": "located in the top-right corner",
+            "tilt_prompt": "tilted slightly clockwise"
+        },
+        "generation_seed": 834267248
+    },
+    {
+        "pair_id": 2504,
+        "style_description": "Cloudy white text with cotton-like fibers",
+        "reference": {
+            "word": "Time",
+            "image_path": "dataset_images/style_images/pair_02504_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "晚来风",
+            "image_path": "dataset_images/images/pair_02504_target.jpg",
+            "position_prompt": "located in the bottom-left corner",
+            "tilt_prompt": "rotated about 15 degrees clockwise"
+        },
+        "generation_seed": 2129225794
+    },
+    {
+        "pair_id": 2512,
+        "style_description": "Slime green liquid text with glowing eyes",
+        "reference": {
+            "word": "Wizard",
+            "image_path": "dataset_images/style_images/pair_02512_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Murmur",
+            "image_path": "dataset_images/images/pair_02512_target.jpg",
+            "position_prompt": "centered in the frame",
+            "tilt_prompt": "straight orientation, no tilt"
+        },
+        "generation_seed": 802451540
+    },
+    {
+        "pair_id": 2520,
+        "style_description": "Smoky grey coal text with ember highlights",
+        "reference": {
+            "word": "Dust",
+            "image_path": "dataset_images/style_images/pair_02520_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "文件未保存，断电",
+            "image_path": "dataset_images/images/pair_02520_target.jpg",
+            "position_prompt": "located in the bottom-left corner",
+            "tilt_prompt": "straight orientation, no tilt"
+        },
+        "generation_seed": 408667540
+    },
+    {
+        "pair_id": 2528,
+        "style_description": "Neon cyan glass text with etched patterns",
+        "reference": {
+            "word": "Mystery Garden",
+            "image_path": "dataset_images/style_images/pair_02528_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Dancing Lights",
+            "image_path": "dataset_images/images/pair_02528_target.jpg",
+            "position_prompt": "positioned on the right side",
+            "tilt_prompt": "straight orientation, no tilt"
+        },
+        "generation_seed": 1448261107
+    },
+    {
+        "pair_id": 2536,
+        "style_description": "Holographic quantum data with neon pulses",
+        "reference": {
+            "word": "吹晚风",
+            "image_path": "dataset_images/style_images/pair_02536_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "凌晨四点的键盘声",
+            "image_path": "dataset_images/images/pair_02536_target.jpg",
+            "position_prompt": "positioned at the top center",
+            "tilt_prompt": "straight orientation, no tilt"
+        },
+        "generation_seed": 2094520374
+    },
+    {
+        "pair_id": 2544,
+        "style_description": "Rusting bronze font with age-old engravings",
+        "reference": {
+            "word": "糖醋排骨微焦边",
+            "image_path": "dataset_images/style_images/pair_02544_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "翻旧照",
+            "image_path": "dataset_images/images/pair_02544_target.jpg",
+            "position_prompt": "positioned on the right side",
+            "tilt_prompt": "rotated about 15 degrees counter-clockwise"
+        },
+        "generation_seed": 3830206929
+    },
+    {
+        "pair_id": 2552,
+        "style_description": "Furry white snow text with frosty patterns",
+        "reference": {
+            "word": "吃一碗热汤",
+            "image_path": "dataset_images/style_images/pair_02552_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "人海浮沉",
+            "image_path": "dataset_images/images/pair_02552_target.jpg",
+            "position_prompt": "positioned at the bottom center",
+            "tilt_prompt": "straight orientation, no tilt"
+        },
+        "generation_seed": 3503769853
+    },
+    {
+        "pair_id": 2560,
+        "style_description": "Rustic wood text with carved symbols",
+        "reference": {
+            "word": "嗦粉",
+            "image_path": "dataset_images/style_images/pair_02560_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Chaos",
+            "image_path": "dataset_images/images/pair_02560_target.jpg",
+            "position_prompt": "located in the top-left corner",
+            "tilt_prompt": "straight orientation, no tilt"
+        },
+        "generation_seed": 1691507108
+    },
+    {
+        "pair_id": 2568,
+        "style_description": "Rusty red brick text with weathered texture",
+        "reference": {
+            "word": "Snap",
+            "image_path": "dataset_images/style_images/pair_02568_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Dust",
+            "image_path": "dataset_images/images/pair_02568_target.jpg",
+            "position_prompt": "positioned at the bottom center",
+            "tilt_prompt": "tilted slightly counter-clockwise"
+        },
+        "generation_seed": 3705768451
+    },
+    {
+        "pair_id": 2576,
+        "style_description": "Neon green moss text with dewdrops",
+        "reference": {
+            "word": "泡面升腾的热气",
+            "image_path": "dataset_images/style_images/pair_02576_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "凌晨四点的键盘声",
+            "image_path": "dataset_images/images/pair_02576_target.jpg",
+            "position_prompt": "located in the bottom-right corner",
+            "tilt_prompt": "straight orientation, no tilt"
+        },
+        "generation_seed": 817279761
+    },
+    {
+        "pair_id": 2584,
+        "style_description": "Glowing emerald leaves text in a tropical rainforest",
+        "reference": {
+            "word": "不负春光",
+            "image_path": "dataset_images/style_images/pair_02584_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Burning Passion",
+            "image_path": "dataset_images/images/pair_02584_target.jpg",
+            "position_prompt": "centered in the frame",
+            "tilt_prompt": "straight orientation, no tilt"
+        },
+        "generation_seed": 3984286814
+    },
+    {
+        "pair_id": 2592,
+        "style_description": "Glowing plasma text with neon veins",
+        "reference": {
+            "word": "Frost",
+            "image_path": "dataset_images/style_images/pair_02592_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Mystic Dreams",
+            "image_path": "dataset_images/images/pair_02592_target.jpg",
+            "position_prompt": "located in the top-left corner",
+            "tilt_prompt": "tilted slightly clockwise"
+        },
+        "generation_seed": 3080361072
+    },
+    {
+        "pair_id": 2600,
+        "style_description": "Liquid silver text with ripple effects",
+        "reference": {
+            "word": "Cyberpunk",
+            "image_path": "dataset_images/style_images/pair_02600_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "BBQ",
+            "image_path": "dataset_images/images/pair_02600_target.jpg",
+            "position_prompt": "located in the top-right corner",
+            "tilt_prompt": "rotated about 15 degrees counter-clockwise"
+        },
+        "generation_seed": 2107907539
+    },
+    {
+        "pair_id": 2608,
+        "style_description": "Fuzzy orange flannel text with polka dots",
+        "reference": {
+            "word": "秋裤穿还是不穿",
+            "image_path": "dataset_images/style_images/pair_02608_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "温暖的笑容",
+            "image_path": "dataset_images/images/pair_02608_target.jpg",
+            "position_prompt": "centered in the frame",
+            "tilt_prompt": "rotated about 15 degrees clockwise"
+        },
+        "generation_seed": 2116798883
+    },
+    {
+        "pair_id": 2616,
+        "style_description": "Rusty leather text with embossed patterns",
+        "reference": {
+            "word": "锅开了",
+            "image_path": "dataset_images/style_images/pair_02616_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Gale",
+            "image_path": "dataset_images/images/pair_02616_target.jpg",
+            "position_prompt": "located in the top-right corner",
+            "tilt_prompt": "rotated about 15 degrees counter-clockwise"
+        },
+        "generation_seed": 1173119801
+    },
+    {
+        "pair_id": 2624,
+        "style_description": "Gold leaf text with metallic sheen",
+        "reference": {
+            "word": "螺蛳粉配冰啤酒",
+            "image_path": "dataset_images/style_images/pair_02624_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Reality glitch",
+            "image_path": "dataset_images/images/pair_02624_target.jpg",
+            "position_prompt": "located in the bottom-left corner",
+            "tilt_prompt": "rotated about 15 degrees clockwise"
+        },
+        "generation_seed": 443829619
+    },
+    {
+        "pair_id": 2632,
+        "style_description": "Peach blossom text with petal edges",
+        "reference": {
+            "word": "Cosmos",
+            "image_path": "dataset_images/style_images/pair_02632_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Neon Lights",
+            "image_path": "dataset_images/images/pair_02632_target.jpg",
+            "position_prompt": "located in the top-right corner",
+            "tilt_prompt": "tilted slightly clockwise"
+        },
+        "generation_seed": 4033196591
+    },
+    {
+        "pair_id": 2640,
+        "style_description": "Liquid silver text with starry night glow",
+        "reference": {
+            "word": "Void",
+            "image_path": "dataset_images/style_images/pair_02640_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "等等，好像不对……",
+            "image_path": "dataset_images/images/pair_02640_target.jpg",
+            "position_prompt": "positioned at the top center",
+            "tilt_prompt": "straight orientation, no tilt"
+        },
+        "generation_seed": 837775993
+    },
+    {
+        "pair_id": 2648,
+        "style_description": "Glowing cyan slime text with underwater waves",
+        "reference": {
+            "word": "风铃的声音",
+            "image_path": "dataset_images/style_images/pair_02648_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Ice",
+            "image_path": "dataset_images/images/pair_02648_target.jpg",
+            "position_prompt": "centered in the frame",
+            "tilt_prompt": "rotated about 15 degrees counter-clockwise"
+        },
+        "generation_seed": 377280232
+    },
+    {
+        "pair_id": 2656,
+        "style_description": "Shiny red glass text with fire reflections",
+        "reference": {
+            "word": "Dew on spiderweb",
+            "image_path": "dataset_images/style_images/pair_02656_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Pine Tree",
+            "image_path": "dataset_images/images/pair_02656_target.jpg",
+            "position_prompt": "slightly off-center to the top",
+            "tilt_prompt": "straight orientation, no tilt"
+        },
+        "generation_seed": 1605854482
+    },
+    {
+        "pair_id": 2664,
+        "style_description": "Furry red text in soft velvet",
+        "reference": {
+            "word": "青春年华",
+            "image_path": "dataset_images/style_images/pair_02664_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Time",
+            "image_path": "dataset_images/images/pair_02664_target.jpg",
+            "position_prompt": "slightly off-center to the left",
+            "tilt_prompt": "tilted slightly counter-clockwise"
+        },
+        "generation_seed": 3124287658
+    },
+    {
+        "pair_id": 2672,
+        "style_description": "Rustic leather text with embossed design",
+        "reference": {
+            "word": "Ash after bonfire",
+            "image_path": "dataset_images/style_images/pair_02672_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "番茄炒蛋的哲学",
+            "image_path": "dataset_images/images/pair_02672_target.jpg",
+            "position_prompt": "positioned at the bottom center",
+            "tilt_prompt": "straight orientation, no tilt"
+        },
+        "generation_seed": 1336080705
+    },
+    {
+        "pair_id": 2680,
+        "style_description": "Neon orange slime with fire effect",
+        "reference": {
+            "word": "Americano",
+            "image_path": "dataset_images/style_images/pair_02680_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Moonlight Serenade",
+            "image_path": "dataset_images/images/pair_02680_target.jpg",
+            "position_prompt": "positioned at the bottom center",
+            "tilt_prompt": "rotated about 15 degrees counter-clockwise"
+        },
+        "generation_seed": 719812892
+    },
+    {
+        "pair_id": 2688,
+        "style_description": "Shiny obsidian text with embedded diamonds",
+        "reference": {
+            "word": "鸟语花香",
+            "image_path": "dataset_images/style_images/pair_02688_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Rust",
+            "image_path": "dataset_images/images/pair_02688_target.jpg",
+            "position_prompt": "positioned on the right side",
+            "tilt_prompt": "rotated about 15 degrees counter-clockwise"
+        },
+        "generation_seed": 2781010525
+    },
+    {
+        "pair_id": 2696,
+        "style_description": "Glowing neon cyan text with cosmic rays",
+        "reference": {
+            "word": "Lunar Eclipse",
+            "image_path": "dataset_images/style_images/pair_02696_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "追风",
+            "image_path": "dataset_images/images/pair_02696_target.jpg",
+            "position_prompt": "centered in the frame",
+            "tilt_prompt": "straight orientation, no tilt"
+        },
+        "generation_seed": 3429336538
+    },
+    {
+        "pair_id": 2704,
+        "style_description": "Holographic silver data text with laser beams",
+        "reference": {
+            "word": "迷失在森林",
+            "image_path": "dataset_images/style_images/pair_02704_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Latte",
+            "image_path": "dataset_images/images/pair_02704_target.jpg",
+            "position_prompt": "positioned at the top center",
+            "tilt_prompt": "straight orientation, no tilt"
+        },
+        "generation_seed": 3922547543
+    },
+    {
+        "pair_id": 2712,
+        "style_description": "Neon glass text with holographic reflections",
+        "reference": {
+            "word": "Shadowfall",
+            "image_path": "dataset_images/style_images/pair_02712_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Murmur",
+            "image_path": "dataset_images/images/pair_02712_target.jpg",
+            "position_prompt": "positioned on the left side",
+            "tilt_prompt": "tilted slightly counter-clockwise"
+        },
+        "generation_seed": 1622565247
+    },
+    {
+        "pair_id": 2720,
+        "style_description": "Shimmering gold sand text with desert heat",
+        "reference": {
+            "word": "Moonlit Path",
+            "image_path": "dataset_images/style_images/pair_02720_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Ice",
+            "image_path": "dataset_images/images/pair_02720_target.jpg",
+            "position_prompt": "positioned on the left side",
+            "tilt_prompt": "straight orientation, no tilt"
+        },
+        "generation_seed": 2796525029
+    },
+    {
+        "pair_id": 2728,
+        "style_description": "Neon pink lava text with molten flow",
+        "reference": {
+            "word": "Cyber",
+            "image_path": "dataset_images/style_images/pair_02728_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "海风拂面",
+            "image_path": "dataset_images/images/pair_02728_target.jpg",
+            "position_prompt": "centered in the frame",
+            "tilt_prompt": "tilted slightly clockwise"
+        },
+        "generation_seed": 850868042
+    },
+    {
+        "pair_id": 2736,
+        "style_description": "Furry pelt text with shadowed valleys",
+        "reference": {
+            "word": "Zen",
+            "image_path": "dataset_images/style_images/pair_02736_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "火候刚好",
+            "image_path": "dataset_images/images/pair_02736_target.jpg",
+            "position_prompt": "positioned at the bottom center",
+            "tilt_prompt": "straight orientation, no tilt"
+        },
+        "generation_seed": 908420328
+    },
+    {
+        "pair_id": 2744,
+        "style_description": "Leathery brown hide text with animal prints",
+        "reference": {
+            "word": "糖炒栗",
+            "image_path": "dataset_images/style_images/pair_02744_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "烤红薯",
+            "image_path": "dataset_images/images/pair_02744_target.jpg",
+            "position_prompt": "located in the bottom-left corner",
+            "tilt_prompt": "rotated about 15 degrees clockwise"
+        },
+        "generation_seed": 2508388272
+    },
+    {
+        "pair_id": 2752,
+        "style_description": "Glistening silver mist text with moonlight",
+        "reference": {
+            "word": "雨停了",
+            "image_path": "dataset_images/style_images/pair_02752_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Cloud",
+            "image_path": "dataset_images/images/pair_02752_target.jpg",
+            "position_prompt": "positioned on the left side",
+            "tilt_prompt": "tilted slightly clockwise"
+        },
+        "generation_seed": 3181283054
+    },
+    {
+        "pair_id": 2760,
+        "style_description": "Bubble gum pink text with sparkles",
+        "reference": {
+            "word": "未曾相遇",
+            "image_path": "dataset_images/style_images/pair_02760_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Neon",
+            "image_path": "dataset_images/images/pair_02760_target.jpg",
+            "position_prompt": "positioned on the right side",
+            "tilt_prompt": "rotated about 15 degrees counter-clockwise"
+        },
+        "generation_seed": 993401195
+    },
+    {
+        "pair_id": 2768,
+        "style_description": "Lavender text with floral patterns",
+        "reference": {
+            "word": "望着远方",
+            "image_path": "dataset_images/style_images/pair_02768_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Latte",
+            "image_path": "dataset_images/images/pair_02768_target.jpg",
+            "position_prompt": "slightly off-center to the top",
+            "tilt_prompt": "rotated about 15 degrees clockwise"
+        },
+        "generation_seed": 3827794013
+    },
+    {
+        "pair_id": 2776,
+        "style_description": "Turquoise text with sea glass appearance",
+        "reference": {
+            "word": "失联",
+            "image_path": "dataset_images/style_images/pair_02776_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "煮咖啡",
+            "image_path": "dataset_images/images/pair_02776_target.jpg",
+            "position_prompt": "slightly off-center to the left",
+            "tilt_prompt": "tilted slightly counter-clockwise"
+        },
+        "generation_seed": 3454969076
+    },
+    {
+        "pair_id": 2784,
+        "style_description": "Liquid silver waves text with underwater lighting",
+        "reference": {
+            "word": "Snap",
+            "image_path": "dataset_images/style_images/pair_02784_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Samurai",
+            "image_path": "dataset_images/images/pair_02784_target.jpg",
+            "position_prompt": "located in the top-left corner",
+            "tilt_prompt": "rotated about 15 degrees counter-clockwise"
+        },
+        "generation_seed": 2563714082
+    },
+    {
+        "pair_id": 2792,
+        "style_description": "Liquid gold ripple text with reflective surface",
+        "reference": {
+            "word": "Frost",
+            "image_path": "dataset_images/style_images/pair_02792_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Time Flies",
+            "image_path": "dataset_images/images/pair_02792_target.jpg",
+            "position_prompt": "slightly off-center to the top",
+            "tilt_prompt": "rotated about 15 degrees counter-clockwise"
+        },
+        "generation_seed": 2987646965
+    },
+    {
+        "pair_id": 2800,
+        "style_description": "Rusty metal chain text with aged patina",
+        "reference": {
+            "word": "Wave",
+            "image_path": "dataset_images/style_images/pair_02800_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Alchemist",
+            "image_path": "dataset_images/images/pair_02800_target.jpg",
+            "position_prompt": "located in the top-left corner",
+            "tilt_prompt": "tilted slightly counter-clockwise"
+        },
+        "generation_seed": 3939631516
+    },
+    {
+        "pair_id": 2808,
+        "style_description": "Liquid silver mist text with moonlit sky",
+        "reference": {
+            "word": "凌晨四点的键盘声",
+            "image_path": "dataset_images/style_images/pair_02808_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "听雨声",
+            "image_path": "dataset_images/images/pair_02808_target.jpg",
+            "position_prompt": "slightly off-center to the left",
+            "tilt_prompt": "straight orientation, no tilt"
+        },
+        "generation_seed": 2723258574
+    },
+    {
+        "pair_id": 2816,
+        "style_description": "Waxen yellow text with candle flames",
+        "reference": {
+            "word": "Water",
+            "image_path": "dataset_images/style_images/pair_02816_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "雨停了，云还在走",
+            "image_path": "dataset_images/images/pair_02816_target.jpg",
+            "position_prompt": "positioned at the top center",
+            "tilt_prompt": "straight orientation, no tilt"
+        },
+        "generation_seed": 3850668958
+    },
+    {
+        "pair_id": 2824,
+        "style_description": "Fuzzy pink text with cotton candy swirls",
+        "reference": {
+            "word": "烫手山芋",
+            "image_path": "dataset_images/style_images/pair_02824_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "猫跳上键盘的那一刻",
+            "image_path": "dataset_images/images/pair_02824_target.jpg",
+            "position_prompt": "positioned at the top center",
+            "tilt_prompt": "straight orientation, no tilt"
+        },
+        "generation_seed": 3672535939
+    },
+    {
+        "pair_id": 2832,
+        "style_description": "Neon blue glass shards text with shattered edges",
+        "reference": {
+            "word": "Pine Tree",
+            "image_path": "dataset_images/style_images/pair_02832_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Snap",
+            "image_path": "dataset_images/images/pair_02832_target.jpg",
+            "position_prompt": "located in the bottom-right corner",
+            "tilt_prompt": "tilted slightly clockwise"
+        },
+        "generation_seed": 4229372890
+    },
+    {
+        "pair_id": 2840,
+        "style_description": "Furry red text with ember glow",
+        "reference": {
+            "word": "一抹微笑",
+            "image_path": "dataset_images/style_images/pair_02840_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "悠然自得",
+            "image_path": "dataset_images/images/pair_02840_target.jpg",
+            "position_prompt": "positioned on the right side",
+            "tilt_prompt": "straight orientation, no tilt"
+        },
+        "generation_seed": 22723549
+    },
+    {
+        "pair_id": 2848,
+        "style_description": "Furry orange text with fire texture",
+        "reference": {
+            "word": "晚安zzz~",
+            "image_path": "dataset_images/style_images/pair_02848_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "冰箱空荡荡",
+            "image_path": "dataset_images/images/pair_02848_target.jpg",
+            "position_prompt": "centered in the frame",
+            "tilt_prompt": "straight orientation, no tilt"
+        },
+        "generation_seed": 732605917
+    },
+    {
+        "pair_id": 2856,
+        "style_description": "Shimmering gemstone text with facets",
+        "reference": {
+            "word": "火烈鸟",
+            "image_path": "dataset_images/style_images/pair_02856_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "断片",
+            "image_path": "dataset_images/images/pair_02856_target.jpg",
+            "position_prompt": "located in the bottom-left corner",
+            "tilt_prompt": "straight orientation, no tilt"
+        },
+        "generation_seed": 3750312226
+    },
+    {
+        "pair_id": 2864,
+        "style_description": "Frosty blue ice cream text with chocolate chips",
+        "reference": {
+            "word": "Burning Passion",
+            "image_path": "dataset_images/style_images/pair_02864_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "岁月静好",
+            "image_path": "dataset_images/images/pair_02864_target.jpg",
+            "position_prompt": "slightly off-center to the top",
+            "tilt_prompt": "tilted slightly counter-clockwise"
+        },
+        "generation_seed": 2037387787
+    },
+    {
+        "pair_id": 2872,
+        "style_description": "Fur coat text in warm candlelight",
+        "reference": {
+            "word": "Whispers...",
+            "image_path": "dataset_images/style_images/pair_02872_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Cosmos",
+            "image_path": "dataset_images/images/pair_02872_target.jpg",
+            "position_prompt": "located in the bottom-right corner",
+            "tilt_prompt": "straight orientation, no tilt"
+        },
+        "generation_seed": 2841984851
+    },
+    {
+        "pair_id": 2880,
+        "style_description": "Petroleum black text with sparkles",
+        "reference": {
+            "word": "Dew",
+            "image_path": "dataset_images/style_images/pair_02880_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "追剧",
+            "image_path": "dataset_images/images/pair_02880_target.jpg",
+            "position_prompt": "centered in the frame",
+            "tilt_prompt": "tilted slightly counter-clockwise"
+        },
+        "generation_seed": 1922015591
+    },
+    {
+        "pair_id": 2888,
+        "style_description": "Silk white text with embroidery",
+        "reference": {
+            "word": "嗦粉",
+            "image_path": "dataset_images/style_images/pair_02888_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "烫手山芋",
+            "image_path": "dataset_images/images/pair_02888_target.jpg",
+            "position_prompt": "slightly off-center to the top",
+            "tilt_prompt": "tilted slightly clockwise"
+        },
+        "generation_seed": 710300821
+    },
+    {
+        "pair_id": 2896,
+        "style_description": "Shimmering silver sand text with dunes",
+        "reference": {
+            "word": "Hologram",
+            "image_path": "dataset_images/style_images/pair_02896_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Ash",
+            "image_path": "dataset_images/images/pair_02896_target.jpg",
+            "position_prompt": "located in the top-right corner",
+            "tilt_prompt": "tilted slightly clockwise"
+        },
+        "generation_seed": 26431856
+    },
+    {
+        "pair_id": 2904,
+        "style_description": "Furry rabbit fur text in pastel pink",
+        "reference": {
+            "word": "Dancing Lights",
+            "image_path": "dataset_images/style_images/pair_02904_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Rising Sun",
+            "image_path": "dataset_images/images/pair_02904_target.jpg",
+            "position_prompt": "positioned on the right side",
+            "tilt_prompt": "tilted slightly counter-clockwise"
+        },
+        "generation_seed": 1870804719
+    },
+    {
+        "pair_id": 2912,
+        "style_description": "Fossilized bone script with ancient carvings",
+        "reference": {
+            "word": "Ninja",
+            "image_path": "dataset_images/style_images/pair_02912_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Stone",
+            "image_path": "dataset_images/images/pair_02912_target.jpg",
+            "position_prompt": "positioned on the left side",
+            "tilt_prompt": "straight orientation, no tilt"
+        },
+        "generation_seed": 3421798968
+    },
+    {
+        "pair_id": 2920,
+        "style_description": "Glowing amber text with warm hues",
+        "reference": {
+            "word": "Dew",
+            "image_path": "dataset_images/style_images/pair_02920_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Whispered oath",
+            "image_path": "dataset_images/images/pair_02920_target.jpg",
+            "position_prompt": "slightly off-center to the top",
+            "tilt_prompt": "tilted slightly counter-clockwise"
+        },
+        "generation_seed": 2563964405
+    },
+    {
+        "pair_id": 2928,
+        "style_description": "Charcoal black text with smoky shadows",
+        "reference": {
+            "word": "翻车了",
+            "image_path": "dataset_images/style_images/pair_02928_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "朝霞",
+            "image_path": "dataset_images/images/pair_02928_target.jpg",
+            "position_prompt": "slightly off-center to the left",
+            "tilt_prompt": "rotated about 15 degrees counter-clockwise"
+        },
+        "generation_seed": 1079385937
+    },
+    {
+        "pair_id": 2936,
+        "style_description": "Holographic data text in electric purple",
+        "reference": {
+            "word": "糖炒栗",
+            "image_path": "dataset_images/style_images/pair_02936_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "烤红薯",
+            "image_path": "dataset_images/images/pair_02936_target.jpg",
+            "position_prompt": "positioned at the bottom center",
+            "tilt_prompt": "straight orientation, no tilt"
+        },
+        "generation_seed": 1794682175
+    },
+    {
+        "pair_id": 2944,
+        "style_description": "Glowing bioluminescent text in emerald green",
+        "reference": {
+            "word": "Ninja",
+            "image_path": "dataset_images/style_images/pair_02944_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Samurai",
+            "image_path": "dataset_images/images/pair_02944_target.jpg",
+            "position_prompt": "positioned on the left side",
+            "tilt_prompt": "straight orientation, no tilt"
+        },
+        "generation_seed": 219763067
+    },
+    {
+        "pair_id": 2952,
+        "style_description": "Charcoal ash text in black and gray",
+        "reference": {
+            "word": "晚风轻拂",
+            "image_path": "dataset_images/style_images/pair_02952_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Lava",
+            "image_path": "dataset_images/images/pair_02952_target.jpg",
+            "position_prompt": "located in the top-left corner",
+            "tilt_prompt": "straight orientation, no tilt"
+        },
+        "generation_seed": 2468509857
+    },
+    {
+        "pair_id": 2960,
+        "style_description": "Rusting iron claws with blood stains",
+        "reference": {
+            "word": "翻旧照",
+            "image_path": "dataset_images/style_images/pair_02960_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Quantum leap",
+            "image_path": "dataset_images/images/pair_02960_target.jpg",
+            "position_prompt": "centered in the frame",
+            "tilt_prompt": "rotated about 15 degrees clockwise"
+        },
+        "generation_seed": 1036038775
+    },
+    {
+        "pair_id": 2968,
+        "style_description": "Sanded wood text in rustic brown",
+        "reference": {
+            "word": "晚安zzz~",
+            "image_path": "dataset_images/style_images/pair_02968_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Glitch",
+            "image_path": "dataset_images/images/pair_02968_target.jpg",
+            "position_prompt": "centered in the frame",
+            "tilt_prompt": "straight orientation, no tilt"
+        },
+        "generation_seed": 1675446342
+    },
+    {
+        "pair_id": 2976,
+        "style_description": "Fur coat text in vintage comic sans",
+        "reference": {
+            "word": "吃一碗热汤",
+            "image_path": "dataset_images/style_images/pair_02976_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "火烈鸟",
+            "image_path": "dataset_images/images/pair_02976_target.jpg",
+            "position_prompt": "slightly off-center to the top",
+            "tilt_prompt": "straight orientation, no tilt"
+        },
+        "generation_seed": 1607020090
+    },
+    {
+        "pair_id": 2984,
+        "style_description": "Fuzzy lamb's wool text in pastel hues",
+        "reference": {
+            "word": "朝霞",
+            "image_path": "dataset_images/style_images/pair_02984_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "困了",
+            "image_path": "dataset_images/images/pair_02984_target.jpg",
+            "position_prompt": "located in the bottom-left corner",
+            "tilt_prompt": "tilted slightly clockwise"
+        },
+        "generation_seed": 3835162280
+    },
+    {
+        "pair_id": 2992,
+        "style_description": "Furry cat fur text in deep shades",
+        "reference": {
+            "word": "空灵之音",
+            "image_path": "dataset_images/style_images/pair_02992_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "溜达",
+            "image_path": "dataset_images/images/pair_02992_target.jpg",
+            "position_prompt": "positioned on the right side",
+            "tilt_prompt": "tilted slightly clockwise"
+        },
+        "generation_seed": 4096330402
+    },
+    {
+        "pair_id": 3000,
+        "style_description": "Rusting ancient scrolls with dried ink",
+        "reference": {
+            "word": "稳了！",
+            "image_path": "dataset_images/style_images/pair_03000_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "卡顿",
+            "image_path": "dataset_images/images/pair_03000_target.jpg",
+            "position_prompt": "positioned at the top center",
+            "tilt_prompt": "rotated about 15 degrees clockwise"
+        },
+        "generation_seed": 2839174625
+    },
+    {
+        "pair_id": 3008,
+        "style_description": "Moss covered stone text with dewdrops",
+        "reference": {
+            "word": "温暖的笑容",
+            "image_path": "dataset_images/style_images/pair_03008_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Coffee",
+            "image_path": "dataset_images/images/pair_03008_target.jpg",
+            "position_prompt": "positioned on the right side",
+            "tilt_prompt": "rotated about 15 degrees counter-clockwise"
+        },
+        "generation_seed": 1799406834
+    },
+    {
+        "pair_id": 3016,
+        "style_description": "Emerald jade text with polished surface",
+        "reference": {
+            "word": "Dream",
+            "image_path": "dataset_images/style_images/pair_03016_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Tidal Wave",
+            "image_path": "dataset_images/images/pair_03016_target.jpg",
+            "position_prompt": "located in the top-left corner",
+            "tilt_prompt": "straight orientation, no tilt"
+        },
+        "generation_seed": 333516340
+    },
+    {
+        "pair_id": 3024,
+        "style_description": "Rusting red iron script with crackling texture",
+        "reference": {
+            "word": "Synth",
+            "image_path": "dataset_images/style_images/pair_03024_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "孤独的旅行者",
+            "image_path": "dataset_images/images/pair_03024_target.jpg",
+            "position_prompt": "located in the top-left corner",
+            "tilt_prompt": "straight orientation, no tilt"
+        },
+        "generation_seed": 564548533
+    },
+    {
+        "pair_id": 3032,
+        "style_description": "Liquorice black text with candy coating",
+        "reference": {
+            "word": "Golden Sands",
+            "image_path": "dataset_images/style_images/pair_03032_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "文件未保存，断电",
+            "image_path": "dataset_images/images/pair_03032_target.jpg",
+            "position_prompt": "located in the top-right corner",
+            "tilt_prompt": "rotated about 15 degrees counter-clockwise"
+        },
+        "generation_seed": 2345701552
+    },
+    {
+        "pair_id": 3040,
+        "style_description": "Obsidian text with lava flow",
+        "reference": {
+            "word": "Wait—did that just happen?",
+            "image_path": "dataset_images/style_images/pair_03040_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Latent variable",
+            "image_path": "dataset_images/images/pair_03040_target.jpg",
+            "position_prompt": "located in the bottom-right corner",
+            "tilt_prompt": "straight orientation, no tilt"
+        },
+        "generation_seed": 2804027838
+    },
+    {
+        "pair_id": 3048,
+        "style_description": "Onyx text with night sky",
+        "reference": {
+            "word": "Fractured light",
+            "image_path": "dataset_images/style_images/pair_03048_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "嗑瓜子",
+            "image_path": "dataset_images/images/pair_03048_target.jpg",
+            "position_prompt": "slightly off-center to the top",
+            "tilt_prompt": "tilted slightly counter-clockwise"
+        },
+        "generation_seed": 3855884351
+    },
+    {
+        "pair_id": 3056,
+        "style_description": "Gold leaf text with iridescent sheen",
+        "reference": {
+            "word": "Blink",
+            "image_path": "dataset_images/style_images/pair_03056_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "悠然自得",
+            "image_path": "dataset_images/images/pair_03056_target.jpg",
+            "position_prompt": "positioned at the bottom center",
+            "tilt_prompt": "straight orientation, no tilt"
+        },
+        "generation_seed": 2918871690
+    },
+    {
+        "pair_id": 3064,
+        "style_description": "Fuzzy gray flannel text with lint balls",
+        "reference": {
+            "word": "追逐梦想",
+            "image_path": "dataset_images/style_images/pair_03064_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Solitude",
+            "image_path": "dataset_images/images/pair_03064_target.jpg",
+            "position_prompt": "positioned on the left side",
+            "tilt_prompt": "tilted slightly clockwise"
+        },
+        "generation_seed": 23788934
+    },
+    {
+        "pair_id": 3072,
+        "style_description": "Rusting iron scroll text in a dimly lit cave",
+        "reference": {
+            "word": "Silent Forest",
+            "image_path": "dataset_images/style_images/pair_03072_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "星空下的誓言",
+            "image_path": "dataset_images/images/pair_03072_target.jpg",
+            "position_prompt": "positioned at the top center",
+            "tilt_prompt": "tilted slightly counter-clockwise"
+        },
+        "generation_seed": 3839787586
+    },
+    {
+        "pair_id": 3080,
+        "style_description": "Sandy desert text with sunbeams",
+        "reference": {
+            "word": "Oops, recursion detected",
+            "image_path": "dataset_images/style_images/pair_03080_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "别慌",
+            "image_path": "dataset_images/images/pair_03080_target.jpg",
+            "position_prompt": "positioned on the left side",
+            "tilt_prompt": "tilted slightly counter-clockwise"
+        },
+        "generation_seed": 1272868303
+    },
+    {
+        "pair_id": 3088,
+        "style_description": "Shiny metallic silver text with laser beams",
+        "reference": {
+            "word": "温暖的笑容",
+            "image_path": "dataset_images/style_images/pair_03088_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Wane",
+            "image_path": "dataset_images/images/pair_03088_target.jpg",
+            "position_prompt": "positioned at the bottom center",
+            "tilt_prompt": "tilted slightly counter-clockwise"
+        },
+        "generation_seed": 252811047
+    },
+    {
+        "pair_id": 3096,
+        "style_description": "Fur textured gothic font in dark glow",
+        "reference": {
+            "word": "星空下的誓言",
+            "image_path": "dataset_images/style_images/pair_03096_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Matcha",
+            "image_path": "dataset_images/images/pair_03096_target.jpg",
+            "position_prompt": "slightly off-center to the left",
+            "tilt_prompt": "straight orientation, no tilt"
+        },
+        "generation_seed": 1931085907
+    },
+    {
+        "pair_id": 3104,
+        "style_description": "Liquid gold holographic text with shimmer",
+        "reference": {
+            "word": "Chaos",
+            "image_path": "dataset_images/style_images/pair_03104_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Pixel",
+            "image_path": "dataset_images/images/pair_03104_target.jpg",
+            "position_prompt": "slightly off-center to the left",
+            "tilt_prompt": "tilted slightly counter-clockwise"
+        },
+        "generation_seed": 1108776492
+    },
+    {
+        "pair_id": 3112,
+        "style_description": "Fuzzy purple fur text in dark glow",
+        "reference": {
+            "word": "断片",
+            "image_path": "dataset_images/style_images/pair_03112_ref.jpg",
+            "position": "centered",
+            "tilt": "straight"
+        },
+        "target": {
+            "word": "Waves Crash",
+            "image_path": "dataset_images/images/pair_03112_target.jpg",
+            "position_prompt": "positioned at the bottom center",
+            "tilt_prompt": "tilted slightly counter-clockwise"
+        },
+        "generation_seed": 1521671209
+    }
+]

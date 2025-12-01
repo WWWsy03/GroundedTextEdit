@@ -30,12 +30,14 @@ pipeline = QwenImageEditPlusPipeline.from_pretrained(
 
 pipeline.set_progress_bar_config(disable=None)
 
-content_image = Image.open("/app/code/texteditRoPE/train_data_dir/content_images/img1.jpg").convert("RGB")
-content_image = Image.open("/app/code/texteditRoPE/train_data_dir/style_images/style1.jpg").convert("RGB")
-prompt = "把文字\"knight\"的样式改成\"BBQ\"的样式，保持文字内容不变"
+origin_image = Image.open("/app/cold1/code/texteditRoPE/textEditing-test-case/2_origin.png").convert("RGB").resize((1024,1024))
+content_image = Image.open("/app/cold1/code/texteditRoPE/textEditing-test-case/2_content.png").convert("RGB").resize((1024,1024))
+style_image = Image.open("/app/cold1/code/texteditRoPE/textEditing-test-case/2_style.png").convert("RGB").resize((1024,1024))
+mask_image = Image.open("/app/cold1/code/texteditRoPE/textEditing-test-case/2_mask.png").convert("RGB").resize((1024,1024))
+prompt = "修改图一中的文字，将图一中mask区域所对应的文字去掉，并按照图三文字布局参考图四文字风格在图一上绘制文字Picnic Day"
 # 配置输入参数
 inputs = {
-    "image": [content_image,content_image],
+    "image": [origin_image,mask_image,content_image,style_image],
     "prompt": prompt,
     "generator": torch.manual_seed(0),
     "true_cfg_scale": 4.0,
@@ -49,6 +51,6 @@ inputs = {
 with torch.inference_mode():
     output = pipeline(**inputs)
     output_image = output.images[0]
-    output_image.save("/app/code/texteditRoPE/results/风格控制knight原版.png")
+    output_image.save("/app/cold1/code/texteditRoPE/textEditing-test-case/test_results/test2_prompt2.png")
     #print(f"Edited image saved at: {output_path}")
     

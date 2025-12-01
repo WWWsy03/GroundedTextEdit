@@ -1,0 +1,25 @@
+{
+  "image_latents": {
+    "type": "tensor",
+    "shape": [
+      1,
+      8192,
+      64
+    ],
+    "dtype": "float32",
+    "saved_as": "image_latents_0.txt"
+  },
+  "style_image_latents": {
+    "type": "tensor",
+    "shape": [
+      1,
+      4096,
+      64
+    ],
+    "dtype": "float32",
+    "saved_as": "style_image_latents_1.txt"
+  },
+  "L_noise": 4096,
+  "style_start_idx": 4096,
+  "style_end_idx": 8192
+}
