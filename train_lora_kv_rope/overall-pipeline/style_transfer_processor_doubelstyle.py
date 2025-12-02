@@ -903,41 +903,28 @@ class QwenDoubleStreamAttnProcessor2_0WithStyleControl(nn.Module):
         #     style_end_idx = style_end_idx.flatten()[0].item()
 
         
-        # 2. 切分 hidden_states (注意：这里还没进 Linear 层)
+        # 2. 切分原始 hidden_states (5L)
         h_noise   = hidden_states[:, :L_noise, :]
         h_orig    = hidden_states[:, idx_orig_start:idx_mask_start, :]
-        # h_mask  = hidden_states[:, idx_mask_start:idx_content_start, :] # 我们这次不用它
+        h_mask  = hidden_states[:, idx_mask_start:idx_content_start, :] # 这里的 h_mask 被丢弃，不参与 QKV 计算
         h_content = hidden_states[:, idx_content_start:idx_style_start, :]
         h_style   = hidden_states[:, idx_style_start:, :]
-        
-        # 3. [核心操作] 混合 Original 和 Noise
-        # 在 Mask=1 (编辑区域)，使用 Noise (当前生成状态)
-        # 在 Mask=0 (背景区域)，使用 Original (保留背景)
+
+        # 3. [核心] 混合 Original 和 Noise
         if inpainting_mask is not None:
+            inpainting_mask = inpainting_mask.to(dtype=hidden_states.dtype, device=hidden_states.device)
             h_mixed_orig = h_orig * (1 - inpainting_mask) + h_noise * inpainting_mask
         else:
             h_mixed_orig = h_orig
 
-        # 4. 构建用于计算 Key/Value 的 tensor
-        # 注意：我们直接丢弃了 h_mask！它不参与 K/V 计算
-        # 新的拼接顺序: [Noise, Mixed_Original, Content, Style]
-        # 这样 Attention 就看不到 Mask Token 了
-        target_hidden_states = torch.cat([h_noise, h_mixed_orig, h_content, h_style], dim=1)
-        
-        # Query 还是用全量 hidden_states 算 (因为输出维度要对齐)，或者只用 Noise 算
-        # Qwen 这种架构通常是 Self-Attention，输入输出长度要一致。
-        # 但我们这里在做 "Masked Attention"。
-        # 为了保证残差连接 (Residual Connection) 不出错，hidden_states 的长度不能变。
-        # 所以 Query 必须还是全长的，但 Key/Value 可以变短。
-        
-        # --- 计算 Q, K, V ---
-        
-        # Query: 对全量 hidden_states 计算，保持输出长度一致
-        img_query = attn.to_q(hidden_states) 
-        
-        # Key/Value: 只对我们选定的部分计算 (丢弃了 Mask)
-        img_key = attn.to_k(target_hidden_states)
-        img_value = attn.to_v(target_hidden_states)
+        # 4. 构建 4L 长度的输入 (Noise + MixedOrig + Content + Style)
+        target_hidden_states_4L = torch.cat([h_noise, h_mixed_orig, h_content, h_style], dim=1)
+
+        # 5. 计算 Q, K, V (基于 4L 输入)
+        # 此时 Q, K, V 的长度都是 4L
+        img_query = attn.to_q(target_hidden_states_4L)
+        img_key   = attn.to_k(target_hidden_states_4L)
+        img_value = attn.to_v(target_hidden_states_4L)
 
         # 计算文本流的 Q, K, V
         txt_query = attn.add_q_proj(encoder_hidden_states) # [B, L_txt, D_qk]
@@ -1020,16 +1007,17 @@ class QwenDoubleStreamAttnProcessor2_0WithStyleControl(nn.Module):
 
         # 分离注意力输出
         txt_attn_output = joint_hidden_states[:, :seq_txt, :]  # 文本部分 [B, L_txt, H*D]
-        img_attn_output = joint_hidden_states[:, seq_txt:, :]  # 图像部分 
-        # 应用输出投影 (这部分是标准流程)
-        img_attn_output = attn.to_out[0](img_attn_output)
+        # 分离 Image (4L)
+        img_attn_output_4L = joint_hidden_states[:, seq_txt:, :]
+        
+        # 投影输出
+        img_attn_output_4L = attn.to_out[0](img_attn_output_4L)
         if len(attn.to_out) > 1:
-            img_attn_output = attn.to_out[1](img_attn_output)  # dropout
+            img_attn_output_4L = attn.to_out[1](img_attn_output_4L)  # dropout
 
         txt_attn_output = attn.to_add_out(txt_attn_output)
 
-        # --- 2. 风格控制：如果提供了风格图像潜变量，则进行额外的风格注意力计算 ---
-        img_attn_output_full = img_attn_output  # 初始化为噪声+内容的输出
+        # --- 2. 风格控制：如果提供了风格图像潜变量，则进行额外的风格注意力计算 --
         if style_image_latents is not None and L_noise is not None:
             # 从噪声+内容的注意力输出中提取噪声部分的 query（用于风格调制）
             # 注意：这里需要从原始的噪声+内容 hidden_states 计算噪声部分的 query
@@ -1067,10 +1055,25 @@ class QwenDoubleStreamAttnProcessor2_0WithStyleControl(nn.Module):
             #print(f"style_attention shape: {style_attention.shape}, img_attn_output_full before shape: {img_attn_output_full.shape}")
             #print(f"style_scale: {self.style_scale}")
             #print(f"stylescale{self.style_scale}")
-            img_attn_output_full[:, :L_noise, :] = img_attn_output_full[:, :L_noise, :] + self.style_scale * style_attention
+            img_attn_output_4L[:, :L_noise, :] = img_attn_output_4L[:, :L_noise, :] + self.style_scale * style_attention
 
+        L = L_noise
+        # 根据当前 4L 的结构切分
+        out_noise      = img_attn_output_4L[:, :L, :]
+        out_mixed_orig = img_attn_output_4L[:, L:2*L, :]
+        out_content    = img_attn_output_4L[:, 2*L:3*L, :]
+        out_style      = img_attn_output_4L[:, 3*L:, :]
+        # 构造 Mask 的占位符 (全0)
+        # 这样 Mask Token 的残差更新就是 Mask = Mask + 0 = Mask (保持不变)
+        out_mask_zeros = torch.zeros_like(out_noise)
         
+        # 最终拼接
+        final_img_output = torch.cat([
+            out_noise,
+            out_mixed_orig, # 这里放回 MixedOrig 的计算结果给 Original 位置
+            out_mask_zeros, # Mask 位置填 0
+            out_content,
+            out_style
+        ], dim=1)
 
-        # 返回完整的图像和文本注意力输出
-        # final_img_output 的形状与输入 hidden_states 相同：[B, L_noise + L_content + L_style, H*D]
-        return img_attn_output_full, txt_attn_output
+        return final_img_output, txt_attn_output

@@ -77,10 +77,10 @@ inputs = {
     "num_inference_steps": 50,
     "guidance_scale": 1.0,
     "num_images_per_prompt": 1,
-    "style_scale": 0.0,
+    "style_scale": 50.0,
     #"style_image": style_image, 
 }
 
 # 生成图像
 image = pipe(**inputs).images[0]
-image.save("/app/cold1/code/texteditRoPE/train_lora_kv_rope/overall-pipeline/test_results/test2_planB_scale0.png")
+image.save("/app/cold1/code/texteditRoPE/train_lora_kv_rope/overall-pipeline/test_results/test2_planC_scale50.png")
