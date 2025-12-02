@@ -509,7 +509,7 @@ class QwenImageEditPlusPipelineWithStyleControl(DiffusionPipeline, QwenImageLora
 
     def prepare_latents(
         self,
-        images, # 包含 content_image 和 style_image
+        images, # 列表: [original_img, mask_img, content_img, style_img]
         batch_size,
         num_channels_latents,
         height,
@@ -518,104 +518,88 @@ class QwenImageEditPlusPipelineWithStyleControl(DiffusionPipeline, QwenImageLora
         device,
         generator,
         latents=None,
-            ):
-        # VAE applies 8x compression on images but we must also account for packing which requires
-        # latent height and width to be divisible by 2.
+        ):
+        # 1. 计算打包后的高宽 (用于 Noise)
         height_packed = 2 * (int(height) // (self.vae_scale_factor * 2))
         width_packed = 2 * (int(width) // (self.vae_scale_factor * 2))
+        
+        # 2. 准备 Noise
+        # Noise 的形状
         shape = (batch_size, 1, num_channels_latents, height_packed, width_packed)
-        content_image_latents = None
-        style_image_latents = None
-        L_noise = (height_packed // 2) * (width_packed // 2) # Calculate noise length based on packed dimensions
-        #print("L_noise (number of noise patches):", L_noise)
-
-        if images is not None:
-            if not isinstance(images, list):
-                images = [images]
-            # Process content image(s) first
-            if len(images) > 0:
-                content_img = images[0] # Assume first image is content
-                content_img = content_img.to(device=device, dtype=dtype)
-                if content_img.shape[1] != self.latent_channels:
-                    content_image_latents = self._encode_vae_image(image=content_img, generator=generator)
-                else:
-                    content_image_latents = content_img
-                if batch_size > content_image_latents.shape[0] and batch_size % content_image_latents.shape[0] == 0:
-                    additional_image_per_prompt = batch_size // content_image_latents.shape[0]
-                    content_image_latents = torch.cat([content_image_latents] * additional_image_per_prompt, dim=0)
-                elif batch_size > content_image_latents.shape[0] and batch_size % content_image_latents.shape[0] != 0:
-                    raise ValueError(
-                        f"Cannot duplicate `content_image` of batch size {content_image_latents.shape[0]} to {batch_size} text prompts."
-                    )
-                else:
-                    content_image_latents = torch.cat([content_image_latents], dim=0)
-                image_latent_height, image_latent_width = content_image_latents.shape[3:]
-                #print("Content image latents shape:", content_image_latents.shape)
-                content_image_latents = self._pack_latents(
-                    content_image_latents, batch_size, num_channels_latents, image_latent_height, image_latent_width
-                )
-                L_content_patches = content_image_latents.shape[1]
-                #print("Content image latents shape after packing:", content_image_latents.shape)
-
-            # Process style image(s) if present
-            if len(images) > 1:
-                style_img = images[1] # Assume second image is style
-                style_img = style_img.to(device=device, dtype=dtype)
-                if style_img.shape[1] != self.latent_channels:
-                    style_image_latents = self._encode_vae_image(image=style_img, generator=generator)
-                else:
-                    style_image_latents = style_img
-                if batch_size > style_image_latents.shape[0] and batch_size % style_image_latents.shape[0] == 0:
-                    additional_image_per_prompt = batch_size // style_image_latents.shape[0]
-                    style_image_latents = torch.cat([style_image_latents] * additional_image_per_prompt, dim=0)
-                elif batch_size > style_image_latents.shape[0] and batch_size % style_image_latents.shape[0] != 0:
-                    raise ValueError(
-                        f"Cannot duplicate `style_image` of batch size {style_image_latents.shape[0]} to {batch_size} text prompts."
-                    )
-                else:
-                    style_image_latents = torch.cat([style_image_latents], dim=0)
-                image_latent_height, image_latent_width = style_image_latents.shape[3:]
-                #print("Style image latents shape:", style_image_latents.shape)
-                style_image_latents = self._pack_latents(
-                    style_image_latents, batch_size, num_channels_latents, image_latent_height, image_latent_width
-                )
-                L_style_patches = style_image_latents.shape[1]
-                #print("Style image latents shape after packing:", style_image_latents.shape)
-
-        if isinstance(generator, list) and len(generator) != batch_size:
-            raise ValueError(
-                f"You have passed a list of generators of length {len(generator)}, but requested an effective batch"
-                f" size of {batch_size}. Make sure the batch size matches the length of the generators."
-            )
         if latents is None:
             latents = randn_tensor(shape, generator=generator, device=device, dtype=dtype)
             latents = self._pack_latents(latents, batch_size, num_channels_latents, height_packed, width_packed)
-            #print("Initial noise latents shape after packing:", latents.shape)
         else:
             latents = latents.to(device=device, dtype=dtype)
+        
+        # 记录 Noise 的长度
+        L_noise = latents.shape[1]
 
-        # Concatenate noise, content, and style latents
-        all_image_latents_parts = []
-        if content_image_latents is not None:
-            all_image_latents_parts.append(content_image_latents)
-        if style_image_latents is not None:
-            all_image_latents_parts.append(style_image_latents)
+        # 3. 准备条件图像 (Original, Mask, Content, Style)
+        # 初始化变量
+        encoded_latents_list = []
+        lengths_dict = {
+            "noise": L_noise,
+            "original": 0,
+            "mask": 0,
+            "content": 0,
+            "style": 0
+        }
 
-        if all_image_latents_parts:
-            image_latents = torch.cat(all_image_latents_parts, dim=1) # [B, L_content + L_style, C_packed]
-            # Calculate indices for style part within the concatenated image_latents
-            # style_start_idx is the length of content part
-            style_start_idx = L_content_patches if content_image_latents is not None else 0
-            style_end_idx = style_start_idx + (L_style_patches if style_image_latents is not None else 0)
+        # 确保 images 是列表且长度足够 (假设顺序严格对应)
+        # 顺序: [Original, Mask, Content, Style]
+        # 对应的 key 顺序
+        keys = ["original", "mask", "content", "style"]
+        
+        if images is None:
+            images = []
+        if not isinstance(images, list):
+            images = [images]
+
+        # 遍历处理每一张条件图
+        for i, img_tensor in enumerate(images):
+            if i >= len(keys): break # 防止溢出
+            
+            key = keys[i]
+            img_tensor = img_tensor.to(device=device, dtype=dtype)
+            
+            # A. VAE Encode
+            if img_tensor.shape[1] != self.latent_channels:
+                encoded = self._encode_vae_image(image=img_tensor, generator=generator)
+            else:
+                encoded = img_tensor
+            
+            # B. Duplicate to Batch Size
+            if batch_size > encoded.shape[0]:
+                encoded = torch.cat([encoded] * (batch_size // encoded.shape[0]), dim=0)
+            
+            # C. Pack Latents
+            # 处理 5D -> 4D (如果有 T 维度)
+            if encoded.ndim == 5:
+                encoded = encoded.squeeze(2)
+            
+            h_lat, w_lat = encoded.shape[2], encoded.shape[3]
+            packed = self._pack_latents(
+                encoded, batch_size, num_channels_latents, h_lat, w_lat
+            )
+            
+            # D. 收集结果
+            encoded_latents_list.append(packed)
+            lengths_dict[key] = packed.shape[1]
+
+        # 4. 拼接所有 latents (Noise + Conditions)
+        # 最终结构: [Noise | Original | Mask | Content | Style]
+        if encoded_latents_list:
+            condition_latents = torch.cat(encoded_latents_list, dim=1)
+            # 这里的 image_latents 包含了除 noise 外的所有部分
+            image_latents = condition_latents 
         else:
             image_latents = None
-            style_start_idx = None
-            style_end_idx = None
-        
-        #print(f"L_noise: {L_noise}, style_start_idx: {style_start_idx}, style_end_idx: {style_end_idx}")
 
-        return latents, image_latents, L_noise, style_image_latents, style_start_idx, style_end_idx # Return L_noise and style specifics
-
+        # 返回 latents (noise), image_latents (conditions), 和长度字典
+        return latents, image_latents, lengths_dict
+    
+    
     @property
     def guidance_scale(self):
         return self._guidance_scale
@@ -849,8 +833,11 @@ class QwenImageEditPlusPipelineWithStyleControl(DiffusionPipeline, QwenImageLora
         num_channels_latents = self.transformer.config.in_channels // 4
         #print(f"num_channels_latents: {num_channels_latents}")
         # ********************************************
-        latents, image_latents, L_noise, style_image_latents, style_start_idx, style_end_idx = self.prepare_latents(
-            vae_images, # 传入包含 content 和 style 的图像列表
+        print(f"vae_images length: {len(vae_images)}")
+        vae_input_list = vae_images
+
+        latents, image_latents, lengths_dict = self.prepare_latents(
+            vae_input_list, # [Orig, Mask, Content, Style]
             batch_size * num_images_per_prompt,
             num_channels_latents,
             height,
@@ -861,14 +848,56 @@ class QwenImageEditPlusPipelineWithStyleControl(DiffusionPipeline, QwenImageLora
             latents,
         )
 
-        # --- 准备传递给 Processor 的 style 相关信息 ---
-        if style_image_latents is not None and style_start_idx is not None and style_end_idx is not None: # 确保有 style_image 且索引有效
-            # 将 style 相关信息添加到 attention_kwargs
-            self._attention_kwargs["style_image_latents"] = style_image_latents
-            self._attention_kwargs["style_start_idx"] = L_noise + style_start_idx
-            self._attention_kwargs["style_end_idx"] = L_noise + style_end_idx
-            self._attention_kwargs["noise_patches_length"] = L_noise
-            self._attention_kwargs["style_scale"] = style_scale
+        L_noise = lengths_dict["noise"]
+        L_orig = lengths_dict["original"]
+        L_mask = lengths_dict["mask"]
+        L_cont = lengths_dict["content"]
+        L_style = lengths_dict["style"]
+        
+        # 计算绝对索引 (Cumulative Sum)
+        idx_orig_start = L_noise
+        idx_mask_start = idx_orig_start + L_orig
+        idx_cont_start = idx_mask_start + L_mask
+        idx_style_start = idx_cont_start + L_cont
+        idx_total = idx_style_start + L_style
+        
+        # 存入 kwargs
+        self._attention_kwargs["lengths_dict"] = lengths_dict # 也可以直接传字典
+        self._attention_kwargs["idx_orig_start"] = idx_orig_start
+        self._attention_kwargs["idx_mask_start"] = idx_mask_start
+        self._attention_kwargs["idx_content_start"] = idx_cont_start
+        self._attention_kwargs["idx_style_start"] = idx_style_start
+        self._attention_kwargs["style_scale"] = style_scale
+        self._attention_kwargs["L_noise"] = L_noise
+        self._attention_kwargs["L_style"] = L_style
+        
+        # 如果你需要提取 Style Latents 单独做 Cross Attention
+        # 你可以根据索引从 image_latents 中切出来
+        # image_latents 对应的是拼接后的 [Orig | Mask | Cont | Style]
+        # 注意 image_latents 的索引是从 0 开始的，对应 global 的 L_noise 开始
+        
+        # Style 在 image_latents 中的相对位置：
+        style_rel_start = idx_style_start - L_noise
+        style_latents = image_latents[:, style_rel_start:, :]
+        self._attention_kwargs["style_image_latents"] = style_latents
+        mask_pil = image[1].convert("L") 
+    
+        # 缩放到 Latent 尺寸 (注意 Qwen 是 2x2 patch，所以 grid size 是 H // factor // 2)
+        # 你的 calculate_dimensions 算出来的是像素尺寸，这里要转成 grid 尺寸
+        grid_h = height // self.vae_scale_factor // 2
+        grid_w = width // self.vae_scale_factor // 2
+        
+        # Resize (使用 Nearest 防止插值产生非0非1的中间值)
+        mask_resized = mask_pil.resize((grid_w, grid_h), resample=Image.NEAREST)
+        
+        # 转 Tensor & Flatten -> (1, L_noise, 1)
+        mask_tensor = torch.from_numpy(np.array(mask_resized)).float() / 255.0
+        mask_tensor = (mask_tensor > 0.5).float() # 二值化
+        mask_tensor = mask_tensor.view(1, -1, 1) # [1, SeqLen, 1]
+        mask_tensor = mask_tensor.to(dtype=prompt_embeds.dtype, device=prompt_embeds.device)
+        
+        # 放入 kwargs
+        self._attention_kwargs["inpainting_mask_binary"] = mask_tensor
         # ********************************************
         img_shapes = [
             [

@@ -879,35 +879,65 @@ class QwenDoubleStreamAttnProcessor2_0WithStyleControl(nn.Module):
         if encoder_hidden_states is None:
             raise ValueError("QwenDoubleStreamAttnProcessor2_0WithStyleControl requires encoder_hidden_states (text stream)")
 
-        # 从 kwargs 中提取风格相关信息
-        style_image_latents = kwargs.get("style_image_latents", None) # [B, L_style, style_context_dim]
-        style_start_idx = kwargs.get("style_start_idx", None) # style_image_latents 在 hidden_states 中的起始索引
-        style_end_idx = kwargs.get("style_end_idx", None)   # style_image_latents 在 hidden_states 中的结束索引 (不包含)
-        noise_patches_length = kwargs.get("noise_patches_length", None) # 噪声部分的 patch 数量
-        #print(f"style_start_idx: {style_start_idx}, style_end_idx: {style_end_idx}, noise_patches_length: {noise_patches_length}")
-        content_patches_length = kwargs.get("content_patches_length", None) # 内容图像部分的 patch 数量
-        #style_scale = kwargs.get("style_scale", 1.0) # 控制风格强度的缩放因子
-        #print(f"style_start_idx: {style_start_idx}, style_end_idx: {style_end_idx}, noise_patches_length: {noise_patches_length}, content_patches_length: {content_patches_length}")
-
+        # 获取索引
+        idx_orig_start = kwargs.get("idx_orig_start")
+        idx_mask_start = kwargs.get("idx_mask_start")
+        idx_content_start = kwargs.get("idx_content_start")
+        idx_style_start = kwargs.get("idx_style_start")
+        style_len = kwargs.get("L_style")
+        L_noise = kwargs.get("L_noise")
+        style_image_latents=kwargs.get("style_image_latents", None)
+        inpainting_mask = kwargs.get("inpainting_mask_binary", None)
         seq_txt = encoder_hidden_states.shape[1]
         
-        if isinstance(noise_patches_length, torch.Tensor):
-            # 假设目标图都一样大
-            noise_patches_length = noise_patches_length.flatten()[0].item()
-        noise_patches_length = int(noise_patches_length) # 确保是 int
+        # if isinstance(noise_patches_length, torch.Tensor):
+        #     # 假设目标图都一样大
+        #     noise_patches_length = noise_patches_length.flatten()[0].item()
+        # noise_patches_length = int(noise_patches_length) # 确保是 int
         
-        if isinstance(style_start_idx, torch.Tensor):
-            style_start_idx = style_start_idx.flatten()[0].item()
-        style_start_idx = int(style_start_idx)
+        # if isinstance(style_start_idx, torch.Tensor):
+        #     style_start_idx = style_start_idx.flatten()[0].item()
+        # style_start_idx = int(style_start_idx)
 
-        if isinstance(style_end_idx, torch.Tensor):
-            style_end_idx = style_end_idx.flatten()[0].item()
+        # if isinstance(style_end_idx, torch.Tensor):
+        #     style_end_idx = style_end_idx.flatten()[0].item()
 
         
-        # 计算噪声+内容部分的 Q, K, V
-        img_query_nc = attn.to_q(hidden_states) # [B, L_noise+L_content+L_style, D_qk]
-        img_key_nc = attn.to_k(hidden_states)   # [B, L_noise+L_content+L_style, D_qk]
-        img_value_nc = attn.to_v(hidden_states) # [B, L_noise+L_content+L_style, D_v]
+        # 2. 切分 hidden_states (注意：这里还没进 Linear 层)
+        h_noise   = hidden_states[:, :L_noise, :]
+        h_orig    = hidden_states[:, idx_orig_start:idx_mask_start, :]
+        # h_mask  = hidden_states[:, idx_mask_start:idx_content_start, :] # 我们这次不用它
+        h_content = hidden_states[:, idx_content_start:idx_style_start, :]
+        h_style   = hidden_states[:, idx_style_start:, :]
+        
+        # 3. [核心操作] 混合 Original 和 Noise
+        # 在 Mask=1 (编辑区域)，使用 Noise (当前生成状态)
+        # 在 Mask=0 (背景区域)，使用 Original (保留背景)
+        if inpainting_mask is not None:
+            h_mixed_orig = h_orig * (1 - inpainting_mask) + h_noise * inpainting_mask
+        else:
+            h_mixed_orig = h_orig
+
+        # 4. 构建用于计算 Key/Value 的 tensor
+        # 注意：我们直接丢弃了 h_mask！它不参与 K/V 计算
+        # 新的拼接顺序: [Noise, Mixed_Original, Content, Style]
+        # 这样 Attention 就看不到 Mask Token 了
+        target_hidden_states = torch.cat([h_noise, h_mixed_orig, h_content, h_style], dim=1)
+        
+        # Query 还是用全量 hidden_states 算 (因为输出维度要对齐)，或者只用 Noise 算
+        # Qwen 这种架构通常是 Self-Attention，输入输出长度要一致。
+        # 但我们这里在做 "Masked Attention"。
+        # 为了保证残差连接 (Residual Connection) 不出错，hidden_states 的长度不能变。
+        # 所以 Query 必须还是全长的，但 Key/Value 可以变短。
+        
+        # --- 计算 Q, K, V ---
+        
+        # Query: 对全量 hidden_states 计算，保持输出长度一致
+        img_query = attn.to_q(hidden_states) 
+        
+        # Key/Value: 只对我们选定的部分计算 (丢弃了 Mask)
+        img_key = attn.to_k(target_hidden_states)
+        img_value = attn.to_v(target_hidden_states)
 
         # 计算文本流的 Q, K, V
         txt_query = attn.add_q_proj(encoder_hidden_states) # [B, L_txt, D_qk]
@@ -915,18 +945,18 @@ class QwenDoubleStreamAttnProcessor2_0WithStyleControl(nn.Module):
         txt_value = attn.add_v_proj(encoder_hidden_states) # [B, L_txt, D_v]
 
         # 重塑以适应多头注意力
-        img_query_nc = img_query_nc.unflatten(-1, (attn.heads, -1)) # [B, H, L_noise+L_content, D]
-        img_key_nc = img_key_nc.unflatten(-1, (attn.heads, -1))  # [B, H, L_noise+L_content, D]
-        img_value_nc = img_value_nc.unflatten(-1, (attn.heads, -1)) # [B, H, L_noise+L_content, D]
+        img_query = img_query.unflatten(-1, (attn.heads, -1)) # [B, H, L_noise+L_content, D]
+        img_key = img_key.unflatten(-1, (attn.heads, -1))  # [B, H, L_noise+L_content, D]
+        img_value = img_value.unflatten(-1, (attn.heads, -1)) # [B, H, L_noise+L_content, D]
         txt_query = txt_query.unflatten(-1, (attn.heads, -1)) # [B, H, L_txt, D]
         txt_key = txt_key.unflatten(-1, (attn.heads, -1))   # [B, H, L_txt, D]
         txt_value = txt_value.unflatten(-1, (attn.heads, -1)) # [B, H, L_txt, D]
 
         # 应用 QK 归一化
         if attn.norm_q is not None:
-            img_query_nc = attn.norm_q(img_query_nc)
+            img_query = attn.norm_q(img_query)
         if attn.norm_k is not None:
-            img_key_nc = attn.norm_k(img_key_nc)
+            img_key = attn.norm_k(img_key)
         if attn.norm_added_q is not None:
             txt_query = attn.norm_added_q(txt_query)
         if attn.norm_added_k is not None:
@@ -935,76 +965,44 @@ class QwenDoubleStreamAttnProcessor2_0WithStyleControl(nn.Module):
         # 应用 RoPE
         if image_rotary_emb is not None:
             img_freqs, txt_freqs = image_rotary_emb
+            # 1. 基准频率 (Noise 坐标系)
+            freqs_base = img_freqs[:L_noise] # 0 -> L_noise
             
-            # 1. 确定切分点
-            # style_start_idx: Style Image 开始的索引 (也是 Content 结束的地方)
-            # noise_patches_length: Noise 结束的索引 (也是 Content 开始的地方)
-            L_noise = int(noise_patches_length)
-            idx_style_start = int(style_start_idx)
+            freqs_style_raw = img_freqs[idx_style_start : idx_style_start + style_len]
             
-            # 2. 准备频率 (Frequencies)
-            # [Set A] Noise 的坐标系 (0,0 -> H,W)。这是我们的"基准坐标"。
-            freqs_noise = img_freqs[:L_noise] 
+            # 2. Query 处理 ---
+            # 我们只给 Noise 加 RoPE (为了让它有位置感去查 Key)
+            q_noise   = img_query[:, :L_noise, :, :]
+            q_left = img_query[:, L_noise:, :, :]
+            #q_style   = img_query_nc[:, style_start_idx:, :, :]
             
-            # [Set B] Style 原本的坐标系。
-            # Style 在序列的最后，它天然拥有偏移的坐标 (比如 t=1, 或者 h,w 很大)。
-            # 我们直接用它原本的频率，利用这种天然的"平移"来防止结构泄露。
-            # 注意：我们需要截取 img_freqs 中对应 Style 那一段的长度
-            style_len = hidden_states.shape[1] - idx_style_start
-            # 从 img_freqs 中取出对应 Style 的那一段频率
-            freqs_style_original = img_freqs[idx_style_start : idx_style_start + style_len]
-
-            # --- 3. 处理 Query (Q) ---
-            # 我们主要关心 Noise 的 Q 带有位置信息，它是"手电筒"
-            # 切片维度: [Batch, SeqLen, Heads, Dim] -> 切第1维
-            q_noise   = img_query_nc[:, :L_noise, :, :]
-            q_content = img_query_nc[:, L_noise:idx_style_start, :, :]
-            q_style   = img_query_nc[:, idx_style_start:, :, :]
+            q_noise_roped = apply_rotary_emb_qwen(q_noise, freqs_base, use_real=False)
+            # Content/Style Query 不重要，原样保留
             
-            # 给 Noise Q 加上基准坐标 (Set A)
-            q_noise_roped = apply_rotary_emb_qwen(q_noise, freqs_noise, use_real=False)
+            img_query = torch.cat([q_noise_roped, q_left], dim=1)
             
-            # Content 和 Style 的 Q 在生成过程中通常不重要 (因为我们取的是 Noise 的输出)
-            # 为了不报错，可以不加 RoPE，或者加上对应的。这里选择保持原样(不加)以节省计算。
-            q_content_roped = q_content 
-            q_style_roped = q_style
+            # 3. Key 切分与应用
+            L = L_noise
+            k_noise      = img_key[:, :L, :, :]
+            k_mixed_orig = img_key[:, L:2*L, :, :]
+            k_content    = img_key[:, 2*L:3*L, :, :]
+            k_style      = img_key[:, 3*L:, :, :]
             
-            # 拼回 Query
-            img_query_nc = torch.cat([q_noise_roped, q_content_roped, q_style_roped], dim=1)
-            
-            # --- 4. 处理 Key (K) - 这是魔法发生的地方 ---
-            # 切片维度: [Batch, SeqLen, Heads, Dim] -> 切第1维
-            k_noise   = img_key_nc[:, :L_noise, :, :]
-            k_content = img_key_nc[:, L_noise:idx_style_start, :, :]
-            k_style   = img_key_nc[:, idx_style_start:, :, :]
-            
-            # [关键点 1] Noise K 使用基准坐标 (Set A)
-            # 自我认知正确
-            k_noise_roped = apply_rotary_emb_qwen(k_noise, freqs_noise, use_real=False)
-            
-            # [关键点 2] Content K 强行使用 Noise 的坐标 (Set A) !!!
-            # 欺骗模型：Content 的像素就在 Noise 的同一个位置。
-            # 这会产生极强的对角线 Attention，锁死结构 (knight 的形状)。
-            # 前提：Content 和 Noise 的分辨率必须一致 (通常 pipeline 处理后是一致的)
-            k_content_roped = apply_rotary_emb_qwen(k_content, freqs_noise, use_real=False)
-            
-            # [关键点 3] Style K 使用它原本的坐标 (Set B)
-            # 它的坐标天然就是平移过的 (比如 t 不同，或者在画布的其他位置)。
-            # 这样 Q_noise 去查 K_style 时，位置对不上，无法复制形状，只能学习纹理。
-            # 同时因为加了 RoPE，向量空间旋转是合法的，风格特征可以被计算。
-            k_style_roped = apply_rotary_emb_qwen(k_style, freqs_style_original, use_real=False)
-            
-            # 拼回 Key
-            img_key_nc = torch.cat([k_noise_roped, k_content_roped, k_style_roped], dim=1)
-            
+            # 4. 空间堆叠 (Spatial Stacking) - 强行对齐
+            k_noise_roped   = apply_rotary_emb_qwen(k_noise,freqs_base,use_real=False)
+            k_orig_roped    = apply_rotary_emb_qwen(k_mixed_orig, freqs_base,use_real=False) # 复制
+            #k_mask_roped    = apply_rotary_emb_qwen(k_mask,freqs_base,use_real=False) # 复制
+            k_content_roped = apply_rotary_emb_qwen(k_content, freqs_base,use_real=False) # 复制 (结构锁死)
+            k_style_roped = apply_rotary_emb_qwen(k_style, freqs_style_raw,use_real=False) # 风格图用自己的频率
+            img_key = torch.cat([k_noise_roped,k_orig_roped, k_content_roped, k_style_roped], dim=1)
             # --- 5. 处理 Text RoPE (保持不变) ---
             if txt_freqs is not None:
                 txt_query = apply_rotary_emb_qwen(txt_query, txt_freqs, use_real=False)
                 txt_key = apply_rotary_emb_qwen(txt_key, txt_freqs, use_real=False)
         # 拼接进行联合注意力（文本 + 噪声+内容，不包含风格）
-        joint_query = torch.cat([txt_query, img_query_nc], dim=1) # [B, H, L_txt+L_noise+L_content, D]
-        joint_key = torch.cat([txt_key, img_key_nc], dim=1)   # [B, H, L_txt+L_noise+L_content, D]
-        joint_value = torch.cat([txt_value, img_value_nc], dim=1) # [B, H, L_txt+L_noise+L_content, D]
+        joint_query = torch.cat([txt_query, img_query], dim=1) # 
+        joint_key = torch.cat([txt_key, img_key], dim=1)   # 
+        joint_value = torch.cat([txt_value, img_value], dim=1) # 
 
         # 计算联合注意力
         joint_hidden_states = dispatch_attention_fn(
@@ -1014,31 +1012,30 @@ class QwenDoubleStreamAttnProcessor2_0WithStyleControl(nn.Module):
             is_causal=False,
             backend=self._attention_backend,
             parallel_config=self._parallel_config,
-        ) # [B, H, L_txt+L_noise+L_content, D]
+        ) # 
 
         # 重塑回原始格式
-        joint_hidden_states = joint_hidden_states.flatten(2, 3) # [B, L_txt+L_noise+L_content, H*D]
+        joint_hidden_states = joint_hidden_states.flatten(2, 3) 
         joint_hidden_states = joint_hidden_states.to(joint_query.dtype)
 
         # 分离注意力输出
         txt_attn_output = joint_hidden_states[:, :seq_txt, :]  # 文本部分 [B, L_txt, H*D]
-        img_attn_output_nc = joint_hidden_states[:, seq_txt:, :]  # 图像部分 (噪声 + content) [B, L_noise+L_content+L_style, H*D]
-
+        img_attn_output = joint_hidden_states[:, seq_txt:, :]  # 图像部分 
         # 应用输出投影 (这部分是标准流程)
-        img_attn_output_nc = attn.to_out[0](img_attn_output_nc)
+        img_attn_output = attn.to_out[0](img_attn_output)
         if len(attn.to_out) > 1:
-            img_attn_output_nc = attn.to_out[1](img_attn_output_nc)  # dropout
+            img_attn_output = attn.to_out[1](img_attn_output)  # dropout
 
         txt_attn_output = attn.to_add_out(txt_attn_output)
 
         # --- 2. 风格控制：如果提供了风格图像潜变量，则进行额外的风格注意力计算 ---
-        img_attn_output_full = img_attn_output_nc  # 初始化为噪声+内容的输出
-        if style_image_latents is not None and noise_patches_length is not None:
+        img_attn_output_full = img_attn_output  # 初始化为噪声+内容的输出
+        if style_image_latents is not None and L_noise is not None:
             # 从噪声+内容的注意力输出中提取噪声部分的 query（用于风格调制）
             # 注意：这里需要从原始的噪声+内容 hidden_states 计算噪声部分的 query
             #print(f"11111noise_content_hidden_states shape: {noise_patches_length}")
             #print(f"noise_patches_length: {noise_patches_length}")
-            noise_hidden_states = hidden_states[:,:noise_patches_length, :] # [B, L_noise, D_hidden]
+            noise_hidden_states = hidden_states[:,:L_noise, :] # [B, L_noise, D_hidden]
             #print(f"noise_hidden_states shape: {noise_hidden_states.shape}")
             img_query_noise = attn.to_q(noise_hidden_states).unflatten(-1, (attn.heads, -1)) # [B, H, L_noise, D]
             
@@ -1070,7 +1067,7 @@ class QwenDoubleStreamAttnProcessor2_0WithStyleControl(nn.Module):
             #print(f"style_attention shape: {style_attention.shape}, img_attn_output_full before shape: {img_attn_output_full.shape}")
             #print(f"style_scale: {self.style_scale}")
             #print(f"stylescale{self.style_scale}")
-            img_attn_output_full[:, :noise_patches_length, :] = img_attn_output_full[:, :noise_patches_length, :] + 0 * style_attention
+            img_attn_output_full[:, :L_noise, :] = img_attn_output_full[:, :L_noise, :] + self.style_scale * style_attention
 
         
 

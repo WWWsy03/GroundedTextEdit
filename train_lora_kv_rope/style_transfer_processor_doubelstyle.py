@@ -1070,7 +1070,7 @@ class QwenDoubleStreamAttnProcessor2_0WithStyleControl(nn.Module):
             #print(f"style_attention shape: {style_attention.shape}, img_attn_output_full before shape: {img_attn_output_full.shape}")
             #print(f"style_scale: {self.style_scale}")
             #print(f"stylescale{self.style_scale}")
-            img_attn_output_full[:, :noise_patches_length, :] = img_attn_output_full[:, :noise_patches_length, :] + 0 * style_attention
+            img_attn_output_full[:, :noise_patches_length, :] = img_attn_output_full[:, :noise_patches_length, :] + self.style_scale * style_attention
 
         
 
