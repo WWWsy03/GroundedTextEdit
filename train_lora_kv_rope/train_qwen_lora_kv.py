@@ -523,6 +523,7 @@ def main():
                                (1, noisy_model_input.shape[3] // 2, noisy_model_input.shape[4] // 2)]] * bsz
                 
                 txt_seq_lens = prompt_embeds_mask.sum(dim=1).tolist()
+                print(f"txt_seq{txt_seq_lens}")
 
                 # Forward Pass
                 model_pred = flux_transformer(

@@ -863,7 +863,7 @@ class QwenDoubleStreamAttnProcessor2_0WithStyleControl(nn.Module):
         self.style_k_proj.to(dtype=torch.bfloat16,device="cuda")
         self.style_v_proj.to(dtype=torch.bfloat16,device="cuda")
         self.style_scale.to(dtype=torch.bfloat16,device="cuda")
-        print("111Initialized QwenDoubleStreamAttnProcessor2_0WithStyleControl")
+        #print("111Initialized QwenDoubleStreamAttnProcessor2_0WithStyleControl")
         
 
     def __call__(
@@ -886,21 +886,37 @@ class QwenDoubleStreamAttnProcessor2_0WithStyleControl(nn.Module):
         idx_style_start = kwargs.get("idx_style_start")
         style_len = kwargs.get("L_style")
         L_noise = kwargs.get("L_noise")
+        #print(f"L_noise{L_noise}")
         style_image_latents=kwargs.get("style_image_latents", None)
         inpainting_mask = kwargs.get("inpainting_mask_binary", None)
         seq_txt = encoder_hidden_states.shape[1]
         
-        # if isinstance(noise_patches_length, torch.Tensor):
-        #     # 假设目标图都一样大
-        #     noise_patches_length = noise_patches_length.flatten()[0].item()
-        # noise_patches_length = int(noise_patches_length) # 确保是 int
+        if isinstance(L_noise, torch.Tensor):
+            # 假设目标图都一样大
+            L_noise = L_noise.flatten()[0].item()
+        L_noise = int(L_noise) # 确保是 int
         
-        # if isinstance(style_start_idx, torch.Tensor):
-        #     style_start_idx = style_start_idx.flatten()[0].item()
-        # style_start_idx = int(style_start_idx)
+        if isinstance(style_len, torch.Tensor):
+            # 假设目标图都一样大
+            style_len = style_len.flatten()[0].item()
+        style_len = int(style_len) # 确保是 int
+        
+        if isinstance(idx_style_start, torch.Tensor):
+            idx_style_start = idx_style_start.flatten()[0].item()
+        idx_style_start = int(idx_style_start)
 
-        # if isinstance(style_end_idx, torch.Tensor):
-        #     style_end_idx = style_end_idx.flatten()[0].item()
+        if isinstance(idx_orig_start, torch.Tensor):
+            idx_orig_start = idx_orig_start.flatten()[0].item()
+        idx_orig_start= int(idx_orig_start)
+        
+        if isinstance(idx_mask_start, torch.Tensor):
+            # 假设目标图都一样大
+            idx_mask_start = idx_mask_start.flatten()[0].item()
+        idx_mask_start = int(idx_mask_start) # 确保是 int
+        
+        if isinstance(idx_content_start, torch.Tensor):
+            idx_content_start = idx_content_start.flatten()[0].item()
+        idx_content_start = int(idx_content_start)
 
         
         # 2. 切分原始 hidden_states (5L)

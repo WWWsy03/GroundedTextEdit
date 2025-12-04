@@ -150,10 +150,10 @@ def main():
     )
     vae.to(accelerator.device, dtype=weight_dtype)
     
-    text_encoding_pipeline = QwenImageEditPlusPipelineWithStyleControl.from_pretrained(
-        args.pretrained_model_name_or_path, transformer=None, vae=vae, torch_dtype=weight_dtype
-    )
-    text_encoding_pipeline.to(accelerator.device)
+    # text_encoding_pipeline = QwenImageEditPlusPipelineWithStyleControl.from_pretrained(
+    #     args.pretrained_model_name_or_path, transformer=None, vae=vae, torch_dtype=weight_dtype
+    # )
+    # text_encoding_pipeline.to(accelerator.device)
 
     cached_text_embeddings = {}
     cache_dir = os.path.join(args.output_dir, "cache")
@@ -162,60 +162,76 @@ def main():
     os.makedirs(cache_dir, exist_ok=True)
     img_cache_dir = os.path.join(cache_dir, "img_embs")
     os.makedirs(img_cache_dir, exist_ok=True)
-    # if args.precompute_text_embeddings or args.precompute_image_embeddings:
-    #     if accelerator.is_main_process:
-    #         cache_dir = os.path.join(args.output_dir, "cache")
-    #         txt_cache_dir = os.path.join(cache_dir, "text_embs")
-    #         os.makedirs(txt_cache_dir, exist_ok=True)
-    #         os.makedirs(cache_dir, exist_ok=True)
-    #         img_cache_dir = os.path.join(cache_dir, "img_embs")
-    #         os.makedirs(img_cache_dir, exist_ok=True)
-    # if args.precompute_text_embeddings:
-    #     with torch.no_grad():
-    #         if args.save_cache_on_disk:
-    #             print('Saving text embeddings to disk cache at ', txt_cache_dir)
-    #             # txt_cache_dir = os.path.join(cache_dir, "text_embs")
-    #             # os.makedirs(txt_cache_dir, exist_ok=True)
-    #         else:
-    #             cached_text_embeddings = {}
-    #         for img_name in tqdm([i for i in os.listdir(args.data_config.control_dir) if ".png" in i or '.jpg' in i]):
-    #             id=img_name.split('.')[0]
-    #             print(f"id: {id}")
-    #             img_path = os.path.join(args.data_config.control_dir, img_name)
-    #             style_name = img_name.replace('img', 'style')
-    #             style_img_path = os.path.join(args.data_config.style_dir, style_name)
-    #             txt_path = os.path.join(args.data_config.img_dir, img_name.split('.')[0] + '.txt')
+#     #******************************数据预缓存*******************
+    
+#     if args.precompute_text_embeddings or args.precompute_image_embeddings:
+#         if accelerator.is_main_process:
+#             cache_dir = os.path.join(args.output_dir, "cache")
+#             txt_cache_dir = os.path.join(cache_dir, "text_embs")
+#             os.makedirs(txt_cache_dir, exist_ok=True)
+#             os.makedirs(cache_dir, exist_ok=True)
+#             img_cache_dir = os.path.join(cache_dir, "img_embs")
+#             os.makedirs(img_cache_dir, exist_ok=True)
+#     if args.precompute_text_embeddings:
+#         with torch.no_grad():
+#             if args.save_cache_on_disk:
+#                 print('Saving text embeddings to disk cache at ', txt_cache_dir)
+#                 # txt_cache_dir = os.path.join(cache_dir, "text_embs")
+#                 # os.makedirs(txt_cache_dir, exist_ok=True)
+#             else:
+#                 cached_text_embeddings = {}
+#             for img_name in tqdm([i for i in os.listdir(args.data_config.control_dir) if ".png" in i or '.jpg' in i]):
+#                 #control_dir存的是content
+#                 id=img_name.split('.')[0] # img_name  000000_content.jpg
+#                 id=id.split('_')[0]
+#                 print(f"id: {id}")
+#                 content_path = os.path.join(args.data_config.control_dir, img_name)
+#                 style_name = img_name.replace('content', 'style')
+#                 style_img_path = os.path.join(args.data_config.style_dir, style_name)
+#                 mask_name = img_name.replace('content', 'mask')
+#                 mask_name=mask_name.replace('jpg','png')
+#                 mask_img_path = os.path.join(args.data_config.mask_dir, mask_name)
+#                 origin_name = img_name.replace('content', 'edited_temp')
+#                 origin_img_path = os.path.join(args.data_config.origin_dir, origin_name)
+#                 txt_path = os.path.join(args.data_config.img_dir, id + '_groundtruth.txt')
 
-    #             img = Image.open(img_path).convert('RGB')
-    #             style_img= Image.open(style_img_path).convert('RGB')
-    #             calculated_width, calculated_height, _ = calculate_dimensions(1024 * 1024, img.size[0] / img.size[1])
-    #             prompt_image = text_encoding_pipeline.image_processor.resize(img, calculated_height, calculated_width)
-    #             style_prompt_image = text_encoding_pipeline.image_processor.resize(style_img, calculated_height, calculated_width)
+#                 origin_img=Image.open(origin_img_path).convert('RGB').resize((1024,1024))
+#                 #mask_img= Image.open(mask_img_path).convert('RGB').resize((1024,1024))
+#                 content_img = Image.open(content_path).convert('RGB').resize((1024,1024))
+#                 style_img= Image.open(style_img_path).convert('RGB').resize((1024,1024))
                 
-    #             prompt = open(txt_path, encoding='utf-8').read()
-    #             prompt_embeds, prompt_embeds_mask = text_encoding_pipeline.encode_prompt(
-    #                 image=[prompt_image,style_prompt_image],
-    #                 prompt=[prompt],
-    #                 device=text_encoding_pipeline.device,
-    #                 num_images_per_prompt=1,
-    #                 max_sequence_length=1024,
-    #             )
-    #             if args.save_cache_on_disk:
+                
+#                 calculated_width, calculated_height, _ = calculate_dimensions(1024 * 1024, content_img.size[0] / content_img.size[1])
+#                 origin_prompt_image = text_encoding_pipeline.image_processor.resize(origin_img, calculated_height, calculated_width)
+#                 #mask_prompt_image = text_encoding_pipeline.image_processor.resize(mask_img, calculated_height, calculated_width)
+#                 content_prompt_image = text_encoding_pipeline.image_processor.resize(content_img, calculated_height, calculated_width)
+#                 style_prompt_image = text_encoding_pipeline.image_processor.resize(style_img, calculated_height, calculated_width)
+                
+#                 prompt = open(txt_path, encoding='utf-8').read()
+#                 prompt_embeds, prompt_embeds_mask = text_encoding_pipeline.encode_prompt(
+#                     image=[origin_prompt_image,style_prompt_image],
+#                     prompt=[prompt],
+#                     device=text_encoding_pipeline.device,
+#                     num_images_per_prompt=1,
+#                     max_sequence_length=1024,
+#                 )
+#                 print(f"prompt_embeds.shape{prompt_embeds.shape}")
+#                 if args.save_cache_on_disk:
                     
-    #                 torch.save({'prompt_embeds': prompt_embeds[0].to('cpu'), 'prompt_embeds_mask': prompt_embeds_mask[0].to('cpu')}, os.path.join(txt_cache_dir, str(id)+ '.pt'))
-    #             else:
-    #                 cached_text_embeddings[img_name.split('.')[0] + '.txt'] = {'prompt_embeds': prompt_embeds[0].to('cpu'), 'prompt_embeds_mask': prompt_embeds_mask[0].to('cpu')}
-    #         # compute empty embedding
-    #             prompt_embeds_empty, prompt_embeds_mask_empty = text_encoding_pipeline.encode_prompt(
-    #                 image=[prompt_image,style_prompt_image],
-    #                 prompt=[' '],
-    #                 device=text_encoding_pipeline.device,
-    #                 num_images_per_prompt=1,
-    #                 max_sequence_length=1024,
-    #             )
-    #             cached_text_embeddings[str(img_name.split('.')[0]) + '.txt' + 'empty_embedding'] = {'prompt_embeds': prompt_embeds_empty[0].to('cpu'), 'prompt_embeds_mask': prompt_embeds_mask_empty[0].to('cpu')}
+#                     torch.save({'prompt_embeds': prompt_embeds[0].to('cpu'), 'prompt_embeds_mask': prompt_embeds_mask[0].to('cpu')}, os.path.join(txt_cache_dir, str(id)+ '.pt'))
+#                 else:
+#                     cached_text_embeddings[img_name.split('.')[0] + '.txt'] = {'prompt_embeds': prompt_embeds[0].to('cpu'), 'prompt_embeds_mask': prompt_embeds_mask[0].to('cpu')}
+#             # compute empty embedding
+#                 prompt_embeds_empty, prompt_embeds_mask_empty = text_encoding_pipeline.encode_prompt(
+#                     image=[origin_prompt_image,style_prompt_image],
+#                     prompt=[' '],
+#                     device=text_encoding_pipeline.device,
+#                     num_images_per_prompt=1,
+#                     max_sequence_length=1024,
+#                 )
+#                 cached_text_embeddings[str(img_name.split('.')[0]) + '.txt' + 'empty_embedding'] = {'prompt_embeds': prompt_embeds_empty[0].to('cpu'), 'prompt_embeds_mask': prompt_embeds_mask_empty[0].to('cpu')}
                     
-
+# # #####******************************数据预缓存*******************
 
     
 
@@ -225,6 +241,9 @@ def main():
     control_cache_dir= os.path.join(cache_dir, "img_embs_control")
     os.makedirs(control_cache_dir, exist_ok=True)
     cached_image_embeddings_control = {}
+    # #####******************************数据预缓存*******************
+    
+    
     # if args.precompute_image_embeddings:
     #     if args.save_cache_on_disk:
     #         print('Saving image embeddings to disk cache at ', img_cache_dir)
@@ -232,14 +251,15 @@ def main():
     #         cached_image_embeddings = {}
     #     with torch.no_grad():
     #         for img_name in tqdm([i for i in os.listdir(args.data_config.img_dir) if ".png" in i or ".jpg" in i]):
-    #             img = Image.open(os.path.join(args.data_config.img_dir, img_name)).convert('RGB')
+    #             gt_img = Image.open(os.path.join(args.data_config.img_dir, img_name)).convert('RGB')
     #             id=img_name.split('.')[0]
-    #             calculated_width, calculated_height, _ = calculate_dimensions(1024 * 1024, img.size[0] / img.size[1])
-    #             img = text_encoding_pipeline.image_processor.resize(img, calculated_height, calculated_width)
+    #             id=id.split('_')[0]
+    #             calculated_width, calculated_height, _ = calculate_dimensions(1024 * 1024, gt_img.size[0] / gt_img.size[1])
+    #             gt_img = text_encoding_pipeline.image_processor.resize(gt_img, calculated_height, calculated_width)
 
-    #             img = torch.from_numpy((np.array(img) / 127.5) - 1)
-    #             img = img.permute(2, 0, 1).unsqueeze(0)
-    #             pixel_values = img.unsqueeze(2)
+    #             gt_img = torch.from_numpy((np.array(gt_img) / 127.5) - 1)
+    #             gt_img = gt_img.permute(2, 0, 1).unsqueeze(0)
+    #             pixel_values = gt_img.unsqueeze(2)
     #             pixel_values = pixel_values.to(dtype=weight_dtype).to(accelerator.device)
         
     #             pixel_latents = vae.encode(pixel_values).latent_dist.sample().to('cpu')[0]
@@ -256,15 +276,24 @@ def main():
     #         cached_image_embeddings_control = {}
     #     with torch.no_grad():
     #         for img_name in tqdm([i for i in os.listdir(args.data_config.control_dir) if ".png" in i or ".jpg" in i]):
-    #             img = Image.open(os.path.join(args.data_config.control_dir, img_name)).convert('RGB')
+    #             content_img = Image.open(os.path.join(args.data_config.control_dir, img_name)).convert('RGB').resize((1024,1024))
     #             id=img_name.split('.')[0]
-    #             calculated_width, calculated_height, _ = calculate_dimensions(1024 * 1024, img.size[0] / img.size[1])
-    #             img = text_encoding_pipeline.image_processor.preprocess(img, calculated_width, calculated_width).unsqueeze(2)
-    #             style_img_name = img_name.replace('img', 'style')
-    #             style_img = Image.open(os.path.join(args.data_config.style_dir, style_img_name)).convert('RGB') 
+    #             id=id.split('_')[0]
+    #             calculated_width, calculated_height, _ = calculate_dimensions(1024 * 1024, content_img.size[0] / content_img.size[1])
+    #             content_img = text_encoding_pipeline.image_processor.preprocess(content_img, calculated_width, calculated_width).unsqueeze(2)
+    #             style_img_name = img_name.replace('content', 'style')
+    #             style_img = Image.open(os.path.join(args.data_config.style_dir, style_img_name)).convert('RGB').resize((1024,1024))
     #             style_img = text_encoding_pipeline.image_processor.preprocess(style_img, calculated_height, calculated_width).unsqueeze(2)
+    #             mask_img_name = img_name.replace('content', 'mask')
+    #             mask_img_name=mask_img_name.replace('jpg','png')
+    #             mask_img = Image.open(os.path.join(args.data_config.mask_dir, mask_img_name)).convert('RGB').resize((1024,1024))
+    #             mask_img = text_encoding_pipeline.image_processor.preprocess(mask_img, calculated_height, calculated_width).unsqueeze(2)
+    #             origin_img_name = img_name.replace('content', 'edited_temp')
+    #             origin_img = Image.open(os.path.join(args.data_config.origin_dir, origin_img_name)).convert('RGB').resize((1024,1024))
+    #             origin_img = text_encoding_pipeline.image_processor.preprocess(origin_img, calculated_height, calculated_width).unsqueeze(2)
         
-    #             vae_images = [img, style_img]
+        
+    #             vae_images = [origin_img,mask_img,content_img, style_img]
                 
     #             # pixel_values = img.unsqueeze(2)
     #             # pixel_values = pixel_values.to(dtype=weight_dtype).to(accelerator.device)
@@ -272,7 +301,7 @@ def main():
     #             # pixel_latents = vae.encode(pixel_values).latent_dist.sample().to('cpu')[0]
     #             #num_channels_latents = text_encoding_pipeline.transformer.config.in_channels // 4   是16 但是这个时候transformer还没挂上
     #             num_channels_latents=16
-    #             latents, image_latents, L_noise, style_image_latents, style_start_idx, style_end_idx = text_encoding_pipeline.prepare_latents(
+    #             latents, image_latents, lengths_dict = text_encoding_pipeline.prepare_latents(
     #                 vae_images, # 传入包含 content 和 style 的图像列表
     #                 1,
     #                 num_channels_latents,
@@ -283,12 +312,46 @@ def main():
     #                 generator=None,
     #             )
     #             # 7. 保存所有数据到字典
+    #             L_noise = lengths_dict["noise"]
+    #             L_orig = lengths_dict["original"]
+    #             L_mask = lengths_dict["mask"]
+    #             L_cont = lengths_dict["content"]
+    #             L_style = lengths_dict["style"]
+    #             idx_orig_start = L_noise
+    #             idx_mask_start = idx_orig_start + L_orig
+    #             idx_cont_start = idx_mask_start + L_mask
+    #             idx_style_start = idx_cont_start + L_cont
+    #             idx_total = idx_style_start + L_style
+    #             style_rel_start = idx_style_start - L_noise
+    #             style_latents = image_latents[:, style_rel_start:, :]
+    #             mask_pil = Image.open(os.path.join(args.data_config.mask_dir, mask_img_name)).convert("L") 
+    
+    #             # 缩放到 Latent 尺寸 (注意 Qwen 是 2x2 patch，所以 grid size 是 H // factor // 2)
+    #             # 你的 calculate_dimensions 算出来的是像素尺寸，这里要转成 grid 尺寸
+    #             vae_temperal_downsample=vae.temperal_downsample
+    #             vae_scale_factor = 2 ** len(vae_temperal_downsample)
+    #             grid_h = TARGET_IMAGE_SIZE // vae_scale_factor // 2
+    #             grid_w = TARGET_IMAGE_SIZE // vae_scale_factor // 2
+                
+    #             # Resize (使用 Nearest 防止插值产生非0非1的中间值)
+    #             mask_resized = mask_pil.resize((grid_w, grid_h), resample=Image.NEAREST)
+                
+    #             # 转 Tensor & Flatten -> (1, L_noise, 1)
+    #             mask_tensor = torch.from_numpy(np.array(mask_resized)).float() / 255.0
+    #             mask_tensor = (mask_tensor > 0.5).float() # 二值化
+    #             mask_tensor = mask_tensor.view(1, -1, 1) # [1, SeqLen, 1]
+    #             mask_tensor = mask_tensor.to(dtype=weight_dtype, device=accelerator.device)
+                
     #             save_data = {
     #                 "image_latents": image_latents.cpu(),            # [1, Seq, C] (Content + Style 拼接好的)
-    #                 "style_image_latents": style_image_latents.cpu(),# [1, Seq, C] (单独 Style 用于 KV)
+    #                 "style_image_latents": style_latents.cpu(),# [1, Seq, C] (单独 Style 用于 KV)
     #                 "L_noise": L_noise,
-    #                 "style_start_idx": style_start_idx,
-    #                 "style_end_idx": style_end_idx,
+    #                 "L_style":L_style,
+    #                 "idx_orig_start":idx_orig_start,
+    #                 "idx_mask_start":idx_mask_start,
+    #                 "idx_content_start":idx_cont_start,
+    #                 "idx_style_start":idx_style_start,
+    #                 "inpainting_mask_binary":mask_tensor.cpu(),
     #             }
     #             if args.save_cache_on_disk:
     #                 torch.save(save_data, os.path.join(control_cache_dir, str(id) + '.pt'))
@@ -298,14 +361,20 @@ def main():
     #             else:
     #                 print('caching control image embedding for ', img_name)
     #                 cached_image_embeddings_control[img_name] = save_data
+    
+    # #####******************************数据预缓存*******************
+    
+    
     # Clean up memory after preprocessing preparation
     vae_config=vae.config
     vae_temperal_downsample=vae.temperal_downsample
+    vae_scale_factor = 2 ** len(vae_temperal_downsample)
+
     vae.to('cpu')
-    text_encoding_pipeline.to("cpu")
+    # text_encoding_pipeline.to("cpu")
     torch.cuda.empty_cache()
     del vae
-    del text_encoding_pipeline
+    # del text_encoding_pipeline
     gc.collect()
     print('Finished setting up embeddings cache paths.')
 
@@ -448,7 +517,7 @@ def main():
         disable=not accelerator.is_local_main_process,
     )
     
-    vae_scale_factor = 2 ** len(vae_temperal_downsample) # config check needed if this fails
+     # config check needed if this fails
 
     # Training Loop
     for epoch in range(100000):
@@ -464,10 +533,14 @@ def main():
                     # Prepare attention_kwargs for the Custom Processor
                     attention_kwargs = {}
                     attention_kwargs["style_image_latents"] = control_img['style_image_latents'].to(dtype=weight_dtype).to(accelerator.device)
-                    attention_kwargs["style_start_idx"] = control_img['L_noise'] + control_img['style_start_idx']
-                    attention_kwargs["style_end_idx"] = control_img['L_noise'] + control_img['style_end_idx']
-                    attention_kwargs["noise_patches_length"] = control_img['L_noise'] 
-                    attention_kwargs["style_scale"] = STYLE_SCALE
+                    attention_kwargs["L_noise"] = control_img['L_noise']
+                    attention_kwargs["L_style"] = control_img['L_style']
+                    attention_kwargs["idx_orig_start"] = control_img['idx_orig_start'] 
+                    attention_kwargs["idx_mask_start"] = control_img['idx_mask_start'] 
+                    attention_kwargs["idx_content_start"] = control_img['idx_content_start'] 
+                    attention_kwargs["idx_style_start"] = control_img['idx_style_start'] 
+                    attention_kwargs["inpainting_mask_binary"] = control_img['inpainting_mask_binary'] 
+                    #attention_kwargs["style_scale"] = STYLE_SCALE
                     
                     # The main content image latents
                     image_latents = control_img['image_latents'].to(dtype=weight_dtype).to(accelerator.device)
@@ -520,9 +593,12 @@ def main():
                 # Img Shapes for RoPE
                 img_shapes = [[(1, noisy_model_input.shape[3] // 2, noisy_model_input.shape[4] // 2),
                                (1, noisy_model_input.shape[3] // 2, noisy_model_input.shape[4] // 2),
+                               (1, noisy_model_input.shape[3] // 2, noisy_model_input.shape[4] // 2),
+                               (1, noisy_model_input.shape[3] // 2, noisy_model_input.shape[4] // 2),
                                (1, noisy_model_input.shape[3] // 2, noisy_model_input.shape[4] // 2)]] * bsz
                 
-                txt_seq_lens = prompt_embeds_mask.sum(dim=1).tolist()
+                txt_seq_lens = [prompt_embeds.shape[1]] * prompt_embeds.shape[0]
+                #print(f"txt_seq_lens{txt_seq_lens},{prompt_embeds.shape[1]}")
 
                 # Forward Pass
                 model_pred = flux_transformer(

@@ -417,7 +417,7 @@ class QwenImageTransformerBlock(nn.Module):
         joint_attention_kwargs: Optional[Dict[str, Any]] = None,
     ) -> Tuple[torch.Tensor, torch.Tensor]:
         # Get modulation parameters for both streams
-        print(f"joint_attention_kwargs inside QwenImageTransformerBlock forward: {joint_attention_kwargs} ")
+        #print(f"joint_attention_kwargs inside QwenImageTransformerBlock forward: {joint_attention_kwargs} ")
         img_mod_params = self.img_mod(temb)  # [B, 6*dim]
         txt_mod_params = self.txt_mod(temb)  # [B, 6*dim]
 

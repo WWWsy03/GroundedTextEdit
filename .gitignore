@@ -14,3 +14,7 @@ data_construction_style/dataset_images_3
 qwenimage-style-rope-lora-large-scale
 qwenimage-style-rope-lora
 data_construction_style/textFonts.zip
+data_construction_overall/dataset_output_v1
+qwenimage-overall-test/cache
+data_construction_overall/raw_backgrounds
+qwenimage-overall-test

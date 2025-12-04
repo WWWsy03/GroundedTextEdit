@@ -782,7 +782,12 @@ class QwenImageEditPlusPipelineWithStyleControl(DiffusionPipeline, QwenImageLora
             condition_images = []
             vae_image_sizes = []
             vae_images = []
+            count=0
             for img in image:
+                if count==1 or count==3:  #这是因为训练流程中promptembeds只能放两张图，否则长度会超，这里对齐训练流程
+                    count=count+1
+                    continue 
+                count=count+1
                 image_width, image_height = img.size
                 condition_width, condition_height = calculate_dimensions(
                     CONDITION_IMAGE_SIZE, image_width / image_height
@@ -833,7 +838,7 @@ class QwenImageEditPlusPipelineWithStyleControl(DiffusionPipeline, QwenImageLora
         num_channels_latents = self.transformer.config.in_channels // 4
         #print(f"num_channels_latents: {num_channels_latents}")
         # ********************************************
-        print(f"vae_images length: {len(vae_images)}")
+        #print(f"vae_images length: {len(vae_images)}")
         vae_input_list = vae_images
 
         latents, image_latents, lengths_dict = self.prepare_latents(
