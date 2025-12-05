@@ -739,8 +739,10 @@ class QwenImageEditPlusPipelineWithStyleControl(DiffusionPipeline, QwenImageLora
         """
         image_size = image[-1].size if isinstance(image, list) else image.size
         calculated_width, calculated_height = calculate_dimensions(1024 * 1024, image_size[0] / image_size[1])
+        print(f"calhw{calculated_height},{calculated_width}")
         height = height or calculated_height
         width = width or calculated_width
+        print(f"heightwidth{height},{width}")
 
         multiple_of = self.vae_scale_factor * 2
         width = width // multiple_of * multiple_of
@@ -784,21 +786,24 @@ class QwenImageEditPlusPipelineWithStyleControl(DiffusionPipeline, QwenImageLora
             vae_images = []
             count=0
             for img in image:
-                if count==1 or count==3:  #这是因为训练流程中promptembeds只能放两张图，否则长度会超，这里对齐训练流程
-                    count=count+1
-                    continue 
-                count=count+1
+                
                 image_width, image_height = img.size
                 condition_width, condition_height = calculate_dimensions(
                     CONDITION_IMAGE_SIZE, image_width / image_height
                 )
                 #print(f"condition_width: {condition_width}, condition_height: {condition_height}")
                 vae_width, vae_height = calculate_dimensions(VAE_IMAGE_SIZE, image_width / image_height)
-                #print(f"vae_width: {vae_width}, vae_height: {vae_height}")
-                condition_image_sizes.append((condition_width, condition_height))
                 vae_image_sizes.append((vae_width, vae_height))
-                condition_images.append(self.image_processor.resize(img, condition_height, condition_width))
                 vae_images.append(self.image_processor.preprocess(img, vae_height, vae_width).unsqueeze(2))
+                #print(f"vae_width: {vae_width}, vae_height: {vae_height}")
+                if count==1 or count==3:  #这是因为训练流程中promptembeds只能放两张图，否则长度会超，这里对齐训练流程
+                    count=count+1
+                    continue 
+                count=count+1
+                condition_image_sizes.append((condition_width, condition_height))
+                condition_images.append(self.image_processor.resize(img, condition_height, condition_width))
+                
+                
 
         has_neg_prompt = negative_prompt is not None or (
             negative_prompt_embeds is not None and negative_prompt_embeds_mask is not None
@@ -858,6 +863,7 @@ class QwenImageEditPlusPipelineWithStyleControl(DiffusionPipeline, QwenImageLora
         L_mask = lengths_dict["mask"]
         L_cont = lengths_dict["content"]
         L_style = lengths_dict["style"]
+        print(f"{L_noise},{L_orig},{L_mask},{L_cont},{L_style}")
         
         # 计算绝对索引 (Cumulative Sum)
         idx_orig_start = L_noise
@@ -889,8 +895,13 @@ class QwenImageEditPlusPipelineWithStyleControl(DiffusionPipeline, QwenImageLora
     
         # 缩放到 Latent 尺寸 (注意 Qwen 是 2x2 patch，所以 grid size 是 H // factor // 2)
         # 你的 calculate_dimensions 算出来的是像素尺寸，这里要转成 grid 尺寸
-        grid_h = height // self.vae_scale_factor // 2
-        grid_w = width // self.vae_scale_factor // 2
+        lat_h = calculated_height // self.vae_scale_factor
+        lat_w = calculated_width // self.vae_scale_factor
+
+        # 2. 再算 2x2 Patch Packing 后的 Grid 尺寸 (这也是 Mask 应该缩放到的尺寸)
+        grid_h = lat_h // 2
+        grid_w = lat_w // 2
+        print(f"gridhw{grid_h},{grid_w}")
         
         # Resize (使用 Nearest 防止插值产生非0非1的中间值)
         mask_resized = mask_pil.resize((grid_w, grid_h), resample=Image.NEAREST)
@@ -913,6 +924,7 @@ class QwenImageEditPlusPipelineWithStyleControl(DiffusionPipeline, QwenImageLora
                 ],
             ]
         ] * batch_size
+        print(f"imgshape{img_shapes}")
 
         # 5. Prepare timesteps
         sigmas = np.linspace(1.0, 1 / num_inference_steps, num_inference_steps) if sigmas is None else sigmas

@@ -1,0 +1,370 @@
+W1205 11:04:27.395000 446180 site-packages/torch/distributed/run.py:803] 
+W1205 11:04:27.395000 446180 site-packages/torch/distributed/run.py:803] *****************************************
+W1205 11:04:27.395000 446180 site-packages/torch/distributed/run.py:803] Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+W1205 11:04:27.395000 446180 site-packages/torch/distributed/run.py:803] *****************************************
+Multiple distributions found for package optimum. Picked distribution: optimum-quanto
+Multiple distributions found for package optimum. Picked distribution: optimum-quanto
+Multiple distributions found for package optimum. Picked distribution: optimum-quanto
+Multiple distributions found for package optimum. Picked distribution: optimum-quanto
+Multiple distributions found for package optimum. Picked distribution: optimum-quanto
+Multiple distributions found for package optimum. Picked distribution: optimum-quanto
+Multiple distributions found for package optimum. Picked distribution: optimum-quanto
+Multiple distributions found for package optimum. Picked distribution: optimum-quanto
+12/05/2025 11:04:35 - INFO - __main__ - Distributed environment: DistributedType.DEEPSPEED  Backend: nccl
+Num processes: 8
+Process index: 6
+Local process index: 6
+Device: cuda:6
+
+Mixed precision type: bf16
+ds_config: {'train_batch_size': 'auto', 'train_micro_batch_size_per_gpu': 'auto', 'gradient_accumulation_steps': 2, 'zero_optimization': {'stage': 3, 'offload_optimizer': {'device': 'cpu', 'nvme_path': None}, 'offload_param': {'device': 'cpu', 'nvme_path': None}, 'stage3_gather_16bit_weights_on_model_save': True}, 'gradient_clipping': 'auto', 'steps_per_print': inf, 'bf16': {'enabled': True}, 'fp16': {'enabled': False}}
+
+12/05/2025 11:04:35 - INFO - __main__ - Distributed environment: DistributedType.DEEPSPEED  Backend: nccl
+Num processes: 8
+Process index: 5
+Local process index: 5
+Device: cuda:5
+
+Mixed precision type: bf16
+ds_config: {'train_batch_size': 'auto', 'train_micro_batch_size_per_gpu': 'auto', 'gradient_accumulation_steps': 2, 'zero_optimization': {'stage': 3, 'offload_optimizer': {'device': 'cpu', 'nvme_path': None}, 'offload_param': {'device': 'cpu', 'nvme_path': None}, 'stage3_gather_16bit_weights_on_model_save': True}, 'gradient_clipping': 'auto', 'steps_per_print': inf, 'bf16': {'enabled': True}, 'fp16': {'enabled': False}}
+
+12/05/2025 11:04:35 - INFO - __main__ - Distributed environment: DistributedType.DEEPSPEED  Backend: nccl
+Num processes: 8
+Process index: 4
+Local process index: 4
+Device: cuda:4
+
+Mixed precision type: bf16
+ds_config: {'train_batch_size': 'auto', 'train_micro_batch_size_per_gpu': 'auto', 'gradient_accumulation_steps': 2, 'zero_optimization': {'stage': 3, 'offload_optimizer': {'device': 'cpu', 'nvme_path': None}, 'offload_param': {'device': 'cpu', 'nvme_path': None}, 'stage3_gather_16bit_weights_on_model_save': True}, 'gradient_clipping': 'auto', 'steps_per_print': inf, 'bf16': {'enabled': True}, 'fp16': {'enabled': False}}
+
+12/05/2025 11:04:35 - INFO - __main__ - Distributed environment: DistributedType.DEEPSPEED  Backend: nccl
+Num processes: 8
+Process index: 3
+Local process index: 3
+Device: cuda:3
+
+Mixed precision type: bf16
+ds_config: {'train_batch_size': 'auto', 'train_micro_batch_size_per_gpu': 'auto', 'gradient_accumulation_steps': 2, 'zero_optimization': {'stage': 3, 'offload_optimizer': {'device': 'cpu', 'nvme_path': None}, 'offload_param': {'device': 'cpu', 'nvme_path': None}, 'stage3_gather_16bit_weights_on_model_save': True}, 'gradient_clipping': 'auto', 'steps_per_print': inf, 'bf16': {'enabled': True}, 'fp16': {'enabled': False}}
+
+12/05/2025 11:04:35 - INFO - __main__ - Distributed environment: DistributedType.DEEPSPEED  Backend: nccl
+Num processes: 8
+Process index: 2
+Local process index: 2
+Device: cuda:2
+
+Mixed precision type: bf16
+ds_config: {'train_batch_size': 'auto', 'train_micro_batch_size_per_gpu': 'auto', 'gradient_accumulation_steps': 2, 'zero_optimization': {'stage': 3, 'offload_optimizer': {'device': 'cpu', 'nvme_path': None}, 'offload_param': {'device': 'cpu', 'nvme_path': None}, 'stage3_gather_16bit_weights_on_model_save': True}, 'gradient_clipping': 'auto', 'steps_per_print': inf, 'bf16': {'enabled': True}, 'fp16': {'enabled': False}}
+
+12/05/2025 11:04:35 - INFO - __main__ - Distributed environment: DistributedType.DEEPSPEED  Backend: nccl
+Num processes: 8
+Process index: 0
+Local process index: 0
+Device: cuda:0
+
+Mixed precision type: bf16
+ds_config: {'train_batch_size': 'auto', 'train_micro_batch_size_per_gpu': 'auto', 'gradient_accumulation_steps': 2, 'zero_optimization': {'stage': 3, 'offload_optimizer': {'device': 'cpu', 'nvme_path': None}, 'offload_param': {'device': 'cpu', 'nvme_path': None}, 'stage3_gather_16bit_weights_on_model_save': True}, 'gradient_clipping': 'auto', 'steps_per_print': inf, 'bf16': {'enabled': True}, 'fp16': {'enabled': False}}
+
+12/05/2025 11:04:35 - INFO - __main__ - Distributed environment: DistributedType.DEEPSPEED  Backend: nccl
+Num processes: 8
+Process index: 7
+Local process index: 7
+Device: cuda:7
+
+Mixed precision type: bf16
+ds_config: {'train_batch_size': 'auto', 'train_micro_batch_size_per_gpu': 'auto', 'gradient_accumulation_steps': 2, 'zero_optimization': {'stage': 3, 'offload_optimizer': {'device': 'cpu', 'nvme_path': None}, 'offload_param': {'device': 'cpu', 'nvme_path': None}, 'stage3_gather_16bit_weights_on_model_save': True}, 'gradient_clipping': 'auto', 'steps_per_print': inf, 'bf16': {'enabled': True}, 'fp16': {'enabled': False}}
+
+12/05/2025 11:04:35 - INFO - __main__ - Distributed environment: DistributedType.DEEPSPEED  Backend: nccl
+Num processes: 8
+Process index: 1
+Local process index: 1
+Device: cuda:1
+
+Mixed precision type: bf16
+ds_config: {'train_batch_size': 'auto', 'train_micro_batch_size_per_gpu': 'auto', 'gradient_accumulation_steps': 2, 'zero_optimization': {'stage': 3, 'offload_optimizer': {'device': 'cpu', 'nvme_path': None}, 'offload_param': {'device': 'cpu', 'nvme_path': None}, 'stage3_gather_16bit_weights_on_model_save': True}, 'gradient_clipping': 'auto', 'steps_per_print': inf, 'bf16': {'enabled': True}, 'fp16': {'enabled': False}}
+
+All model checkpoint weights were used when initializing AutoencoderKLQwenImage.
+
+All the weights of AutoencoderKLQwenImage were initialized from the model checkpoint at /app/cold1/Qwen-Image-Edit-2509.
+If your task is similar to the task the model of the checkpoint was trained on, you can already use AutoencoderKLQwenImage for predictions without further training.
+Finished setting up embeddings cache paths.
+Finished setting up embeddings cache paths.
+Finished setting up embeddings cache paths.
+Finished setting up embeddings cache paths.
+Finished setting up embeddings cache paths.
+Finished setting up embeddings cache paths.
+Finished setting up embeddings cache paths.
+Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]Finished setting up embeddings cache paths.
+Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s]Loading checkpoint shards:  20%|██        | 1/5 [00:51<03:26, 51.58s/it]Loading checkpoint shards:  20%|██        | 1/5 [00:52<03:29, 52.33s/it]Loading checkpoint shards:  20%|██        | 1/5 [00:52<03:29, 52.31s/it]Loading checkpoint shards:  20%|██        | 1/5 [00:52<03:29, 52.33s/it]Loading checkpoint shards:  20%|██        | 1/5 [00:52<03:29, 52.35s/it]Loading checkpoint shards:  20%|██        | 1/5 [00:52<03:29, 52.35s/it]Loading checkpoint shards:  20%|██        | 1/5 [00:52<03:29, 52.29s/it]Loading checkpoint shards:  20%|██        | 1/5 [00:52<03:28, 52.25s/it]Loading checkpoint shards:  40%|████      | 2/5 [02:53<04:38, 92.95s/it]Loading checkpoint shards:  40%|████      | 2/5 [02:55<04:42, 94.07s/it]Loading checkpoint shards:  40%|████      | 2/5 [02:55<04:42, 94.05s/it]Loading checkpoint shards:  40%|████      | 2/5 [02:55<04:42, 94.06s/it]Loading checkpoint shards:  40%|████      | 2/5 [02:55<04:42, 94.03s/it]Loading checkpoint shards:  40%|████      | 2/5 [02:55<04:42, 94.18s/it]Loading checkpoint shards:  40%|████      | 2/5 [02:55<04:42, 94.08s/it]Loading checkpoint shards:  40%|████      | 2/5 [02:55<04:42, 94.06s/it]Loading checkpoint shards:  60%|██████    | 3/5 [04:53<03:30, 105.34s/it]Loading checkpoint shards:  60%|██████    | 3/5 [04:55<03:31, 105.87s/it]Loading checkpoint shards:  60%|██████    | 3/5 [04:55<03:31, 105.88s/it]Loading checkpoint shards:  60%|██████    | 3/5 [04:55<03:31, 105.87s/it]Loading checkpoint shards:  60%|██████    | 3/5 [04:55<03:31, 105.86s/it]Loading checkpoint shards:  60%|██████    | 3/5 [04:55<03:31, 105.93s/it]Loading checkpoint shards:  60%|██████    | 3/5 [04:55<03:31, 105.88s/it]Loading checkpoint shards:  60%|██████    | 3/5 [04:55<03:31, 105.85s/it]Loading checkpoint shards:  80%|████████  | 4/5 [05:04<01:08, 68.02s/it] Loading checkpoint shards:  80%|████████  | 4/5 [05:07<01:08, 68.75s/it] Loading checkpoint shards:  80%|████████  | 4/5 [05:07<01:08, 68.76s/it] Loading checkpoint shards:  80%|████████  | 4/5 [05:07<01:08, 68.78s/it] Loading checkpoint shards: 100%|██████████| 5/5 [05:07<00:00, 44.60s/it]Loading checkpoint shards: 100%|██████████| 5/5 [05:07<00:00, 61.54s/it]
+Loading checkpoint shards:  80%|████████  | 4/5 [05:07<01:09, 69.04s/it] Loading checkpoint shards:  80%|████████  | 4/5 [05:08<01:09, 69.03s/it] Loading checkpoint shards:  80%|████████  | 4/5 [05:08<01:09, 69.03s/it] Loading checkpoint shards:  80%|████████  | 4/5 [05:08<01:09, 69.05s/it] 
+========================================
+Total Trainable Parameters (LoRA + Style KV): 47.5546 M
+========================================
+
+cache_dirs: txt: /app/cold1/code/texteditRoPE/qwenimage-overall-test-hw/cache/text_embs, img: /app/cold1/code/texteditRoPE/qwenimage-overall-test-hw/cache/img_embs, control: /app/cold1/code/texteditRoPE/qwenimage-overall-test-hw/cache/img_embs_control
+Loading checkpoint shards: 100%|██████████| 5/5 [05:08<00:00, 44.34s/it]Loading checkpoint shards: 100%|██████████| 5/5 [05:08<00:00, 61.68s/it]
+Loading checkpoint shards: 100%|██████████| 5/5 [05:08<00:00, 44.34s/it]Loading checkpoint shards: 100%|██████████| 5/5 [05:08<00:00, 61.69s/it]
+Loading checkpoint shards: 100%|██████████| 5/5 [05:08<00:00, 44.35s/it]Loading checkpoint shards: 100%|██████████| 5/5 [05:08<00:00, 61.70s/it]
+Loading checkpoint shards: 100%|██████████| 5/5 [05:08<00:00, 44.47s/it]Loading checkpoint shards: 100%|██████████| 5/5 [05:08<00:00, 61.78s/it]
+All model checkpoint weights were used when initializing QwenImageTransformer2DModel.
+
+All the weights of QwenImageTransformer2DModel were initialized from the model checkpoint at /app/cold1/Qwen-Image-Edit-2509.
+If your task is similar to the task the model of the checkpoint was trained on, you can already use QwenImageTransformer2DModel for predictions without further training.
+Loading checkpoint shards: 100%|██████████| 5/5 [05:08<00:00, 44.46s/it]Loading checkpoint shards: 100%|██████████| 5/5 [05:08<00:00, 61.79s/it]
+Loading checkpoint shards: 100%|██████████| 5/5 [05:08<00:00, 44.46s/it]Loading checkpoint shards: 100%|██████████| 5/5 [05:08<00:00, 61.78s/it]
+Loading checkpoint shards: 100%|██████████| 5/5 [05:09<00:00, 44.47s/it]Loading checkpoint shards: 100%|██████████| 5/5 [05:09<00:00, 61.80s/it]
+
+========================================
+Total Trainable Parameters (LoRA + Style KV): 47.5546 M
+========================================
+
+cache_dirs: txt: /app/cold1/code/texteditRoPE/qwenimage-overall-test-hw/cache/text_embs, img: /app/cold1/code/texteditRoPE/qwenimage-overall-test-hw/cache/img_embs, control: /app/cold1/code/texteditRoPE/qwenimage-overall-test-hw/cache/img_embs_control
+
+========================================
+Total Trainable Parameters (LoRA + Style KV): 47.5546 M
+========================================
+
+cache_dirs: txt: /app/cold1/code/texteditRoPE/qwenimage-overall-test-hw/cache/text_embs, img: /app/cold1/code/texteditRoPE/qwenimage-overall-test-hw/cache/img_embs, control: /app/cold1/code/texteditRoPE/qwenimage-overall-test-hw/cache/img_embs_control
+
+========================================
+Total Trainable Parameters (LoRA + Style KV): 47.5546 M
+========================================
+
+cache_dirs: txt: /app/cold1/code/texteditRoPE/qwenimage-overall-test-hw/cache/text_embs, img: /app/cold1/code/texteditRoPE/qwenimage-overall-test-hw/cache/img_embs, control: /app/cold1/code/texteditRoPE/qwenimage-overall-test-hw/cache/img_embs_control
+
+========================================
+Total Trainable Parameters (LoRA + Style KV): 47.5546 M
+========================================
+
+cache_dirs: txt: /app/cold1/code/texteditRoPE/qwenimage-overall-test-hw/cache/text_embs, img: /app/cold1/code/texteditRoPE/qwenimage-overall-test-hw/cache/img_embs, control: /app/cold1/code/texteditRoPE/qwenimage-overall-test-hw/cache/img_embs_control
+
+========================================
+Total Trainable Parameters (LoRA + Style KV): 47.5546 M
+========================================
+
+cache_dirs: txt: /app/cold1/code/texteditRoPE/qwenimage-overall-test-hw/cache/text_embs, img: /app/cold1/code/texteditRoPE/qwenimage-overall-test-hw/cache/img_embs, control: /app/cold1/code/texteditRoPE/qwenimage-overall-test-hw/cache/img_embs_control
+
+========================================
+Total Trainable Parameters (LoRA + Style KV): 47.5546 M
+========================================
+
+cache_dirs: txt: /app/cold1/code/texteditRoPE/qwenimage-overall-test-hw/cache/text_embs, img: /app/cold1/code/texteditRoPE/qwenimage-overall-test-hw/cache/img_embs, control: /app/cold1/code/texteditRoPE/qwenimage-overall-test-hw/cache/img_embs_control
+
+========================================
+Total Trainable Parameters (LoRA + Style KV): 47.5546 M
+========================================
+
+cache_dirs: txt: /app/cold1/code/texteditRoPE/qwenimage-overall-test-hw/cache/text_embs, img: /app/cold1/code/texteditRoPE/qwenimage-overall-test-hw/cache/img_embs, control: /app/cold1/code/texteditRoPE/qwenimage-overall-test-hw/cache/img_embs_control
+Parameter Offload - Persistent parameters statistics: param_count = 1747, numel = 29544060
+wandb: Currently logged in as: 1491456253 to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: setting up run ru1lv49y
+wandb: Tracking run with wandb version 0.23.0
+wandb: Run data is saved locally in /app/cold1/code/texteditRoPE/train_lora_kv_rope/overall-pipeline/wandb/run-20251205_111116-ru1lv49y
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run crimson-microwave-23
+wandb: ⭐️ View project at https://wandb.ai/1491456253/qwenimage-overall-test
+wandb: 🚀 View run at https://wandb.ai/1491456253/qwenimage-overall-test/runs/ru1lv49y
+12/05/2025 11:11:17 - INFO - __main__ - Total train batch size = 32
+Steps:   0%|          | 0/300000 [00:00<?, ?it/s][rank5]: Traceback (most recent call last):
+[rank5]:   File "/app/cold1/code/texteditRoPE/train_lora_kv_rope/overall-pipeline/train_qwen_lora_kv.py", line 729, in <module>
+[rank5]:     main()
+[rank5]:   File "/app/cold1/code/texteditRoPE/train_lora_kv_rope/overall-pipeline/train_qwen_lora_kv.py", line 533, in main
+[rank5]:     for step, batch in enumerate(train_dataloader):
+[rank5]:                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank5]:   File "/root/miniconda3/envs/qwenimage/lib/python3.12/site-packages/accelerate/data_loader.py", line 567, in __iter__
+[rank5]:     current_batch = next(dataloader_iter)
+[rank5]:                     ^^^^^^^^^^^^^^^^^^^^^
+[rank5]:   File "/root/miniconda3/envs/qwenimage/lib/python3.12/site-packages/torch/utils/data/dataloader.py", line 732, in __next__
+[rank5]:     data = self._next_data()
+[rank5]:            ^^^^^^^^^^^^^^^^^
+[rank5]:   File "/root/miniconda3/envs/qwenimage/lib/python3.12/site-packages/torch/utils/data/dataloader.py", line 1506, in _next_data
+[rank5]:     return self._process_data(data, worker_id)
+[rank5]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank5]:   File "/root/miniconda3/envs/qwenimage/lib/python3.12/site-packages/torch/utils/data/dataloader.py", line 1541, in _process_data
+[rank5]:     data.reraise()
+[rank5]:   File "/root/miniconda3/envs/qwenimage/lib/python3.12/site-packages/torch/_utils.py", line 769, in reraise
+[rank5]:     raise exception
+[rank5]: RuntimeError: Caught RuntimeError in DataLoader worker process 0.
+[rank5]: Original Traceback (most recent call last):
+[rank5]:   File "/root/miniconda3/envs/qwenimage/lib/python3.12/site-packages/torch/utils/data/_utils/worker.py", line 349, in _worker_loop
+[rank5]:     data = fetcher.fetch(index)  # type: ignore[possibly-undefined]
+[rank5]:            ^^^^^^^^^^^^^^^^^^^^
+[rank5]:   File "/root/miniconda3/envs/qwenimage/lib/python3.12/site-packages/torch/utils/data/_utils/fetch.py", line 55, in fetch
+[rank5]:     return self.collate_fn(data)
+[rank5]:            ^^^^^^^^^^^^^^^^^^^^^
+[rank5]:   File "/app/cold1/code/texteditRoPE/train_lora_kv_rope/overall-pipeline/image_datasets/control_dataset.py", line 322, in collate_fn
+[rank5]:     gt_images = torch.stack(imgs)
+[rank5]:                 ^^^^^^^^^^^^^^^^^
+[rank5]: RuntimeError: stack expects each tensor to be equal size, but got [16, 1, 148, 112] at entry 0 and [16, 1, 144, 112] at entry 1
+
+[rank4]: Traceback (most recent call last):
+[rank4]:   File "/app/cold1/code/texteditRoPE/train_lora_kv_rope/overall-pipeline/train_qwen_lora_kv.py", line 729, in <module>
+[rank4]:     main()
+[rank4]:   File "/app/cold1/code/texteditRoPE/train_lora_kv_rope/overall-pipeline/train_qwen_lora_kv.py", line 533, in main
+[rank4]:     for step, batch in enumerate(train_dataloader):
+[rank4]:                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank4]:   File "/root/miniconda3/envs/qwenimage/lib/python3.12/site-packages/accelerate/data_loader.py", line 567, in __iter__
+[rank4]:     current_batch = next(dataloader_iter)
+[rank4]:                     ^^^^^^^^^^^^^^^^^^^^^
+[rank4]:   File "/root/miniconda3/envs/qwenimage/lib/python3.12/site-packages/torch/utils/data/dataloader.py", line 732, in __next__
+[rank4]:     data = self._next_data()
+[rank4]:            ^^^^^^^^^^^^^^^^^
+[rank4]:   File "/root/miniconda3/envs/qwenimage/lib/python3.12/site-packages/torch/utils/data/dataloader.py", line 1506, in _next_data
+[rank4]:     return self._process_data(data, worker_id)
+[rank4]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank4]:   File "/root/miniconda3/envs/qwenimage/lib/python3.12/site-packages/torch/utils/data/dataloader.py", line 1541, in _process_data
+[rank4]:     data.reraise()
+[rank4]:   File "/root/miniconda3/envs/qwenimage/lib/python3.12/site-packages/torch/_utils.py", line 769, in reraise
+[rank4]:     raise exception
+[rank4]: RuntimeError: Caught RuntimeError in DataLoader worker process 0.
+[rank4]: Original Traceback (most recent call last):
+[rank4]:   File "/root/miniconda3/envs/qwenimage/lib/python3.12/site-packages/torch/utils/data/_utils/worker.py", line 349, in _worker_loop
+[rank4]:     data = fetcher.fetch(index)  # type: ignore[possibly-undefined]
+[rank4]:            ^^^^^^^^^^^^^^^^^^^^
+[rank4]:   File "/root/miniconda3/envs/qwenimage/lib/python3.12/site-packages/torch/utils/data/_utils/fetch.py", line 55, in fetch
+[rank4]:     return self.collate_fn(data)
+[rank4]:            ^^^^^^^^^^^^^^^^^^^^^
+[rank4]:   File "/app/cold1/code/texteditRoPE/train_lora_kv_rope/overall-pipeline/image_datasets/control_dataset.py", line 322, in collate_fn
+[rank4]:     gt_images = torch.stack(imgs)
+[rank4]:                 ^^^^^^^^^^^^^^^^^
+[rank4]: RuntimeError: stack expects each tensor to be equal size, but got [16, 1, 144, 112] at entry 0 and [16, 1, 148, 112] at entry 1
+
+[rank7]: Traceback (most recent call last):
+[rank7]:   File "/app/cold1/code/texteditRoPE/train_lora_kv_rope/overall-pipeline/train_qwen_lora_kv.py", line 729, in <module>
+[rank7]:     main()
+[rank7]:   File "/app/cold1/code/texteditRoPE/train_lora_kv_rope/overall-pipeline/train_qwen_lora_kv.py", line 533, in main
+[rank7]:     for step, batch in enumerate(train_dataloader):
+[rank7]:                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank7]:   File "/root/miniconda3/envs/qwenimage/lib/python3.12/site-packages/accelerate/data_loader.py", line 567, in __iter__
+[rank7]:     current_batch = next(dataloader_iter)
+[rank7]:                     ^^^^^^^^^^^^^^^^^^^^^
+[rank7]:   File "/root/miniconda3/envs/qwenimage/lib/python3.12/site-packages/torch/utils/data/dataloader.py", line 732, in __next__
+[rank7]:     data = self._next_data()
+[rank7]:            ^^^^^^^^^^^^^^^^^
+[rank7]:   File "/root/miniconda3/envs/qwenimage/lib/python3.12/site-packages/torch/utils/data/dataloader.py", line 1506, in _next_data
+[rank7]:     return self._process_data(data, worker_id)
+[rank7]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank7]:   File "/root/miniconda3/envs/qwenimage/lib/python3.12/site-packages/torch/utils/data/dataloader.py", line 1541, in _process_data
+[rank7]:     data.reraise()
+[rank7]:   File "/root/miniconda3/envs/qwenimage/lib/python3.12/site-packages/torch/_utils.py", line 769, in reraise
+[rank7]:     raise exception
+[rank7]: RuntimeError: Caught RuntimeError in DataLoader worker process 0.
+[rank7]: Original Traceback (most recent call last):
+[rank7]:   File "/root/miniconda3/envs/qwenimage/lib/python3.12/site-packages/torch/utils/data/_utils/worker.py", line 349, in _worker_loop
+[rank7]:     data = fetcher.fetch(index)  # type: ignore[possibly-undefined]
+[rank7]:            ^^^^^^^^^^^^^^^^^^^^
+[rank7]:   File "/root/miniconda3/envs/qwenimage/lib/python3.12/site-packages/torch/utils/data/_utils/fetch.py", line 55, in fetch
+[rank7]:     return self.collate_fn(data)
+[rank7]:            ^^^^^^^^^^^^^^^^^^^^^
+[rank7]:   File "/app/cold1/code/texteditRoPE/train_lora_kv_rope/overall-pipeline/image_datasets/control_dataset.py", line 322, in collate_fn
+[rank7]:     gt_images = torch.stack(imgs)
+[rank7]:                 ^^^^^^^^^^^^^^^^^
+[rank7]: RuntimeError: stack expects each tensor to be equal size, but got [16, 1, 144, 112] at entry 0 and [16, 1, 148, 112] at entry 1
+
+[rank2]: Traceback (most recent call last):
+[rank2]:   File "/app/cold1/code/texteditRoPE/train_lora_kv_rope/overall-pipeline/train_qwen_lora_kv.py", line 729, in <module>
+[rank2]:     main()
+[rank2]:   File "/app/cold1/code/texteditRoPE/train_lora_kv_rope/overall-pipeline/train_qwen_lora_kv.py", line 533, in main
+[rank2]:     for step, batch in enumerate(train_dataloader):
+[rank2]:                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank2]:   File "/root/miniconda3/envs/qwenimage/lib/python3.12/site-packages/accelerate/data_loader.py", line 567, in __iter__
+[rank2]:     current_batch = next(dataloader_iter)
+[rank2]:                     ^^^^^^^^^^^^^^^^^^^^^
+[rank2]:   File "/root/miniconda3/envs/qwenimage/lib/python3.12/site-packages/torch/utils/data/dataloader.py", line 732, in __next__
+[rank2]:     data = self._next_data()
+[rank2]:            ^^^^^^^^^^^^^^^^^
+[rank2]:   File "/root/miniconda3/envs/qwenimage/lib/python3.12/site-packages/torch/utils/data/dataloader.py", line 1506, in _next_data
+[rank2]:     return self._process_data(data, worker_id)
+[rank2]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank2]:   File "/root/miniconda3/envs/qwenimage/lib/python3.12/site-packages/torch/utils/data/dataloader.py", line 1541, in _process_data
+[rank2]:     data.reraise()
+[rank2]:   File "/root/miniconda3/envs/qwenimage/lib/python3.12/site-packages/torch/_utils.py", line 769, in reraise
+[rank2]:     raise exception
+[rank2]: RuntimeError: Caught RuntimeError in DataLoader worker process 0.
+[rank2]: Original Traceback (most recent call last):
+[rank2]:   File "/root/miniconda3/envs/qwenimage/lib/python3.12/site-packages/torch/utils/data/_utils/worker.py", line 349, in _worker_loop
+[rank2]:     data = fetcher.fetch(index)  # type: ignore[possibly-undefined]
+[rank2]:            ^^^^^^^^^^^^^^^^^^^^
+[rank2]:   File "/root/miniconda3/envs/qwenimage/lib/python3.12/site-packages/torch/utils/data/_utils/fetch.py", line 55, in fetch
+[rank2]:     return self.collate_fn(data)
+[rank2]:            ^^^^^^^^^^^^^^^^^^^^^
+[rank2]:   File "/app/cold1/code/texteditRoPE/train_lora_kv_rope/overall-pipeline/image_datasets/control_dataset.py", line 322, in collate_fn
+[rank2]:     gt_images = torch.stack(imgs)
+[rank2]:                 ^^^^^^^^^^^^^^^^^
+[rank2]: RuntimeError: stack expects each tensor to be equal size, but got [16, 1, 148, 112] at entry 0 and [16, 1, 144, 112] at entry 1
+
+[rank1]: Traceback (most recent call last):
+[rank1]:   File "/app/cold1/code/texteditRoPE/train_lora_kv_rope/overall-pipeline/train_qwen_lora_kv.py", line 729, in <module>
+[rank1]:     main()
+[rank1]:   File "/app/cold1/code/texteditRoPE/train_lora_kv_rope/overall-pipeline/train_qwen_lora_kv.py", line 533, in main
+[rank1]:     for step, batch in enumerate(train_dataloader):
+[rank1]:                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/root/miniconda3/envs/qwenimage/lib/python3.12/site-packages/accelerate/data_loader.py", line 567, in __iter__
+[rank1]:     current_batch = next(dataloader_iter)
+[rank1]:                     ^^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/root/miniconda3/envs/qwenimage/lib/python3.12/site-packages/torch/utils/data/dataloader.py", line 732, in __next__
+[rank1]:     data = self._next_data()
+[rank1]:            ^^^^^^^^^^^^^^^^^
+[rank1]:   File "/root/miniconda3/envs/qwenimage/lib/python3.12/site-packages/torch/utils/data/dataloader.py", line 1506, in _next_data
+[rank1]:     return self._process_data(data, worker_id)
+[rank1]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/root/miniconda3/envs/qwenimage/lib/python3.12/site-packages/torch/utils/data/dataloader.py", line 1541, in _process_data
+[rank1]:     data.reraise()
+[rank1]:   File "/root/miniconda3/envs/qwenimage/lib/python3.12/site-packages/torch/_utils.py", line 769, in reraise
+[rank1]:     raise exception
+[rank1]: RuntimeError: Caught RuntimeError in DataLoader worker process 0.
+[rank1]: Original Traceback (most recent call last):
+[rank1]:   File "/root/miniconda3/envs/qwenimage/lib/python3.12/site-packages/torch/utils/data/_utils/worker.py", line 349, in _worker_loop
+[rank1]:     data = fetcher.fetch(index)  # type: ignore[possibly-undefined]
+[rank1]:            ^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/root/miniconda3/envs/qwenimage/lib/python3.12/site-packages/torch/utils/data/_utils/fetch.py", line 55, in fetch
+[rank1]:     return self.collate_fn(data)
+[rank1]:            ^^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/app/cold1/code/texteditRoPE/train_lora_kv_rope/overall-pipeline/image_datasets/control_dataset.py", line 322, in collate_fn
+[rank1]:     gt_images = torch.stack(imgs)
+[rank1]:                 ^^^^^^^^^^^^^^^^^
+[rank1]: RuntimeError: stack expects each tensor to be equal size, but got [16, 1, 144, 112] at entry 0 and [16, 1, 148, 112] at entry 1
+
+imgshapes[[(1, 74, 56), (1, 74, 56), (1, 74, 56), (1, 74, 56), (1, 74, 56)], [(1, 74, 56), (1, 74, 56), (1, 74, 56), (1, 74, 56), (1, 74, 56)]]
+imgshapes[[(1, 74, 56), (1, 74, 56), (1, 74, 56), (1, 74, 56), (1, 74, 56)], [(1, 74, 56), (1, 74, 56), (1, 74, 56), (1, 74, 56), (1, 74, 56)]]
+imgshapes[[(1, 74, 56), (1, 74, 56), (1, 74, 56), (1, 74, 56), (1, 74, 56)], [(1, 74, 56), (1, 74, 56), (1, 74, 56), (1, 74, 56), (1, 74, 56)]]
+W1205 11:11:21.933000 446180 site-packages/torch/distributed/elastic/multiprocessing/api.py:908] Sending process 446899 closing signal SIGTERM
+W1205 11:11:21.935000 446180 site-packages/torch/distributed/elastic/multiprocessing/api.py:908] Sending process 446900 closing signal SIGTERM
+W1205 11:11:21.936000 446180 site-packages/torch/distributed/elastic/multiprocessing/api.py:908] Sending process 446902 closing signal SIGTERM
+W1205 11:11:21.936000 446180 site-packages/torch/distributed/elastic/multiprocessing/api.py:908] Sending process 446903 closing signal SIGTERM
+W1205 11:11:21.937000 446180 site-packages/torch/distributed/elastic/multiprocessing/api.py:908] Sending process 446909 closing signal SIGTERM
+W1205 11:11:21.937000 446180 site-packages/torch/distributed/elastic/multiprocessing/api.py:908] Sending process 446910 closing signal SIGTERM
+W1205 11:11:21.937000 446180 site-packages/torch/distributed/elastic/multiprocessing/api.py:908] Sending process 446911 closing signal SIGTERM
+E1205 11:11:23.118000 446180 site-packages/torch/distributed/elastic/multiprocessing/api.py:882] failed (exitcode: 1) local_rank: 4 (pid: 446904) of binary: /root/miniconda3/envs/qwenimage/bin/python3.12
+Traceback (most recent call last):
+  File "/root/miniconda3/envs/qwenimage/bin/accelerate", line 7, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/root/miniconda3/envs/qwenimage/lib/python3.12/site-packages/accelerate/commands/accelerate_cli.py", line 50, in main
+    args.func(args)
+  File "/root/miniconda3/envs/qwenimage/lib/python3.12/site-packages/accelerate/commands/launch.py", line 1220, in launch_command
+    deepspeed_launcher(args)
+  File "/root/miniconda3/envs/qwenimage/lib/python3.12/site-packages/accelerate/commands/launch.py", line 906, in deepspeed_launcher
+    distrib_run.run(args)
+  File "/root/miniconda3/envs/qwenimage/lib/python3.12/site-packages/torch/distributed/run.py", line 927, in run
+    elastic_launch(
+  File "/root/miniconda3/envs/qwenimage/lib/python3.12/site-packages/torch/distributed/launcher/api.py", line 156, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/qwenimage/lib/python3.12/site-packages/torch/distributed/launcher/api.py", line 293, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+============================================================
+/app/cold1/code/texteditRoPE/train_lora_kv_rope/overall-pipeline/train_qwen_lora_kv.py FAILED
+------------------------------------------------------------
+Failures:
+  <NO_OTHER_FAILURES>
+------------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2025-12-05_11:11:21
+  host      : 5d6eded14ff4
+  rank      : 4 (local_rank: 4)
+  exitcode  : 1 (pid: 446904)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+============================================================
